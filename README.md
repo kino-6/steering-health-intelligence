@@ -40,6 +40,7 @@ docs/
   04_project_charter_diagnostic_evidence.md
   05_risks_and_open_questions.md
   06_next_actions.md
+  07_market_needs_and_positioning.md
 ```
 
 ## Suggested Repository Name
