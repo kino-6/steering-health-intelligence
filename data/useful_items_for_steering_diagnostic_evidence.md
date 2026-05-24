@@ -146,3 +146,42 @@
 短く言うなら:
 
 > DTCを、原因候補と次アクションに変える。
+
+## 11. EPS Health Intelligence Reframe
+
+その後の議論で、さらに軸を修正した。
+
+`Field Issue Triage` や `OTA Health Gate` は利用先としては有効だが、主価値ではない。
+本件の主価値は、EPSそのものに故障可能性・劣化兆候・予測用データ材料を持たせることである。
+
+新しい本命仮説:
+
+> EPS Health Intelligence Package
+
+狙い:
+
+- EPSを、故障後にDTCを出すだけの部品から、劣化兆候と予測材料を持つhealth-aware subsystemにする
+- EPSメーカー / ギアメーカーがOEMに対して、Vehicle Health ManagementやConnected Diagnosticsに接続できる高付加価値EPSとして提案できるようにする
+- OTAは主価値ではなく、health indicatorを読むチャネルの一つに置く
+
+初期に狙うべきもの:
+
+- 故障予測モデルそのものではなく、`EPS Health Indicator Set for Prognostic Readiness`
+- assist current / load proxy
+- sensor redundancy / drift indicator
+- thermal stress accumulation
+- power supply stress history
+- assist limitation recurrence
+- high-load / end-stop / harsh usage proxy
+- transient abnormal recovery history
+
+避けるべきもの:
+
+- 個車に「故障します」と通知する
+- EPS単体でRULを断定する
+- OTA運用そのものを主商品にする
+- 大量ログ送信を価値として売る
+
+短く言うなら:
+
+> EPSを、劣化兆候と予測材料を持つhealth-aware subsystemにする。

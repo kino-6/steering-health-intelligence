@@ -9,6 +9,12 @@
   - 各行に、顧客、課題、収益モデル、抽出知識、本Repoへの有効アイテム、関連度を記載。
 - `useful_items_for_steering_diagnostic_evidence.md`
   - 100件から、本Repoの本命案である `Steering Diagnostic Evidence Package` に移植しやすい知見を統合したメモ。
+- `ota_connected_health_market_signals.tsv`
+  - OTA / connected vehicle / remote diagnostics / SOVD / EPS safety trendから、EPS connected health方向の需要シグナルを整理したTSV。
+- `target_feasibility_matrix.tsv`
+  - EPS Health Intelligence方向について、ターゲット別の実現性、魅力度、データアクセス、初期ピッチを整理したTSV。
+- `eps_health_indicator_candidates.tsv`
+  - EPS内部信号から作れるhealth / degradation indicator候補を、必要信号、劣化・故障ヒント、正規化難易度つきで整理したTSV。
 
 ## Interpretation
 

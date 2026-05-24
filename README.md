@@ -14,7 +14,14 @@ EPS / ステアリング制御系ECUにおける、故障予測・診断デー�
 
 現時点の結論は、**「ECU故障予測」そのものを売るのは弱い**というもの。
 
-より現実的には、以下の方向性が有望。
+ただし、単なる診断エビデンス提供だけでは「ログを増やした」に見えやすく、付加価値として弱い。
+現在は、以下の方向性をより有力な仮説として扱う。
+
+> EPS / ステアリングシステムに、故障可能性・劣化兆候・予測用データ材料を持たせ、EPSメーカー / ギアメーカーがOEMに対して高付加価値EPSとして提案できるようにする。
+
+この方向性を、仮に **EPS Health Intelligence Package** と呼ぶ。
+
+従来案としては、以下の方向性も有効。
 
 > EPS / ステアリングECUにおいて、DTCだけでは不足する内部状態・一時異常・使用条件を診断エビデンスとして残し、OEM / Tier1間の市場不具合解析・原因候補分類・品質説明を支援する。
 
@@ -25,9 +32,9 @@ EPS / ステアリング制御系ECUにおける、故障予測・診断デー�
 | エンドユーザ向け故障警告 | 弱い |
 | フリート向けEPS単体予兆 | 頻度が低く弱い |
 | OEM向け市場リスク監視 | 価値はあるがOEM依存が強い |
-| ECUサプライヤ発の提案 | 診断エビデンス提供が現実的 |
-| AIモデル | 直接の故障予測ではなく原因候補分類・解析支援が現実的 |
-| 最初の企画名候補 | Steering Diagnostic Evidence Package |
+| ECUサプライヤ発の提案 | EPS health indicator / prognostic data package が有望 |
+| AIモデル | 初期は故障予測ではなく劣化兆候・異常傾向・予測用材料の整備が現実的 |
+| 企画名候補 | EPS Health Intelligence Package |
 
 ## Directory Structure
 
@@ -41,6 +48,8 @@ docs/
   05_risks_and_open_questions.md
   06_next_actions.md
   07_market_needs_and_positioning.md
+  08_ota_connected_health_market.md
+  09_feasibility_and_targeting.md
 ```
 
 ## Suggested Repository Name
