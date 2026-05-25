@@ -1,42 +1,108 @@
 # Steering Health Intelligence Notes
 
-EPS / ステアリング制御系ECUにおける、故障予測・診断データ・OEM向け市場品質支援の事業仮説メモ。
+EPS / ステアリングシステムに、故障可能性・劣化兆候・予測用データ材料を持たせる事業仮説メモ。
 
-本リポジトリは、以下の問いを整理するための作業メモである。
+現在の本命仮説は **EPS Health Intelligence Package**。
 
-- ECU故障予測は Vehicle Health Management 市場で課金価値を持つか
-- EPS / ステアリング制御系は、フリート向け・OEM向けのどちらに価値があるか
-- ECUサプライヤ側から提案可能な範囲はどこまでか
-- 「ログをもっと出す」以上の企画にするにはどう見せるべきか
-- 最終的に Project Charter として何を提案すべきか
+> EPSを、故障してからDTCを出す部品ではなく、劣化兆候と予測材料を持つhealth-aware subsystemにする。
 
-## Current Conclusion
+## Why This Repo Exists
 
-現時点の結論は、**「ECU故障予測」そのものを売るのは弱い**というもの。
+当初の問いは、EPS / ステアリング制御系ECUの故障予測をVehicle Health Management市場で事業化できるか、だった。
 
-ただし、単なる診断エビデンス提供だけでは「ログを増やした」に見えやすく、付加価値として弱い。
-現在は、以下の方向性をより有力な仮説として扱う。
+検討の結果、以下の考えに寄っている。
 
-> EPS / ステアリングシステムに、故障可能性・劣化兆候・予測用データ材料を持たせ、EPSメーカー / ギアメーカーがOEMに対して高付加価値EPSとして提案できるようにする。
+- 個車ごとのEPS故障時期やRULを直接売るのは難しい
+- エンドユーザ向け「壊れそうです」通知は、誤通知・不安・責任が重い
+- フリート向けEPS単体予兆保全は、故障頻度が低く主価値になりにくい
+- 「ログを増やす」だけでは付加価値にならない
+- OTAやremote diagnosticsは重要だが、主商品ではなく読み出しチャネルの一つ
+- まずはEPS内部信号から、劣化兆候・異常傾向・予測用データ材料を作るのが現実的
 
-この方向性を、仮に **EPS Health Intelligence Package** と呼ぶ。
+## Current Position
 
-従来案としては、以下の方向性も有効。
+現時点の整理:
 
-> EPS / ステアリングECUにおいて、DTCだけでは不足する内部状態・一時異常・使用条件を診断エビデンスとして残し、OEM / Tier1間の市場不具合解析・原因候補分類・品質説明を支援する。
-
-つまり、現時点では以下のように整理する。
-
-| 観点 | 結論 |
+| 観点 | 現在の見立て |
 |---|---|
-| エンドユーザ向け故障警告 | 弱い |
-| フリート向けEPS単体予兆 | 頻度が低く弱い |
-| OEM向け市場リスク監視 | 価値はあるがOEM依存が強い |
-| ECUサプライヤ発の提案 | EPS health indicator / prognostic data package が有望 |
-| AIモデル | 初期は故障予測ではなく劣化兆候・異常傾向・予測用材料の整備が現実的 |
-| 企画名候補 | EPS Health Intelligence Package |
+| 主コンセプト | EPS Health Intelligence Package |
+| Primary target | EPS system / gear supplier |
+| Required gatekeeper | Vehicle OEM |
+| 主価値 | EPSをhealth-aware subsystemとして差別化する |
+| 初期成果物 | EPS Health Indicator Set for Prognostic Readiness |
+| AI / 予測 | 初期は故障予測モデルではなく、予測に使える材料整備 |
+| OTA / remote diagnostics | health indicatorを読むチャネルの一つ |
+| 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視 |
 
-## Directory Structure
+## Recommended Read Order
+
+まず読むなら、この順番が分かりやすい。
+
+1. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): 現在の軸。OTA中心ではなく、EPS自体の付加価値としてHealth Intelligenceを整理。
+2. [docs/10_project_charter_eps_health_intelligence.md](docs/10_project_charter_eps_health_intelligence.md): 現在の本命案をProject Charter化したもの。
+3. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
+4. [data/target_feasibility_matrix.tsv](data/target_feasibility_matrix.tsv): ターゲット別の実現性・魅力度・初期ピッチ。
+5. [docs/08_ota_connected_health_market.md](docs/08_ota_connected_health_market.md): OTA / connected diagnosticsを、主商品ではなく読み出しチャネルとして整理。
+
+## Concept Evolution
+
+このRepoでは、仮説が以下のように変化している。
+
+```text
+ECU故障予測
+  -> EPS単体の故障予測は頻度・責任・データ面で弱い
+
+Diagnostic Evidence Package
+  -> 市場不具合解析には効くが、単体では「ログ追加」に見えやすい
+
+Field Issue Triage Evidence
+  -> NTF削減や責任分界には効くが、事後解析中心で付加価値がやや弱い
+
+OTA / Connected Health
+  -> 読み出し機会としては有効だが、OTAが主価値ではない
+
+EPS Health Intelligence Package
+  -> EPS自体をhealth-aware subsystemとして差別化する
+```
+
+## Key Product Idea
+
+`EPS Health Intelligence Package` は、以下を含む。
+
+- EPS Health Indicator Set
+- Prognostic Data Package
+- Health Summary Output
+- Health Indicator Dictionary
+- Use-case Specific Views
+- Offline Validation Plan
+
+候補指標:
+
+- assist current / load proxy
+- steering torque to motor current ratio
+- current tracking warning count
+- torque sensor redundancy / drift
+- steering angle sensor redundancy / drift
+- thermal derating accumulation
+- low voltage stress history
+- assist limitation recurrence
+- high-load / low-speed event count
+- end-stop / curb-hit-like event count
+- transient abnormal recovery count
+
+## Business Hypothesis
+
+最初の買い手は、車両OEMそのものより **EPS system / gear supplier** が自然。
+
+理由:
+
+- EPS品質、保証返却、システム劣化に直接関心がある
+- ギア、ラック、モータ、センサ、ECUを含むEPS全体の付加価値として提案しやすい
+- OEMに対して「health-ready EPS」として差別化できる
+
+ただし、量産採用や市場データ活用にはVehicle OEMの合意が必要。
+
+## Repository Structure
 
 ```text
 docs/
@@ -50,15 +116,20 @@ docs/
   07_market_needs_and_positioning.md
   08_ota_connected_health_market.md
   09_feasibility_and_targeting.md
+  10_project_charter_eps_health_intelligence.md
+
+data/
+  business_model_research.tsv
+  useful_items_for_steering_diagnostic_evidence.md
+  ota_connected_health_market_signals.tsv
+  target_feasibility_matrix.tsv
+  eps_health_indicator_candidates.tsv
 ```
 
-## Suggested Repository Name
+## Current Next Actions
 
-候補:
-
-- `steering-health-intelligence`
-- `steering-diagnostic-evidence`
-- `eps-diagnostic-intelligence`
-- `steering-risk-notes`
-
-現時点では、事業企画メモとして始めるなら `steering-diagnostic-evidence` が一番ブレにくい。
+- EPSの劣化・故障モードと利用可能信号のマトリクスを作る
+- `eps_health_indicator_candidates.tsv` を、指標式・保存条件・false positive要因まで拡張する
+- HILS / bench / durability log / fault injectionで検証できる指標を選ぶ
+- EPSメーカー / ギアメーカー向けの短いOEM-facing pitchを作る
+- Project Charterを提案資料形式に変換する
