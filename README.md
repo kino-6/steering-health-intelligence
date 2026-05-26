@@ -26,13 +26,50 @@ EPS / ステアリングシステムに、故障可能性・劣化兆候・予�
 | 観点 | 現在の見立て |
 |---|---|
 | 主コンセプト | EPS Health Intelligence Package |
-| Primary target | EPS system / gear supplier |
+| 自分たちの立場 | EPS ECU / 制御 / 診断 / 内部信号を持つサプライヤ |
+| Primary value target | EPS system / gear supplier |
 | Required gatekeeper | Vehicle OEM |
 | 主価値 | EPSをhealth-aware subsystemとして差別化する |
 | 初期成果物 | EPS Health Indicator Set for Prognostic Readiness |
 | AI / 予測 | 初期は故障予測モデルではなく、予測に使える材料整備 |
 | OTA / remote diagnostics | health indicatorを読むチャネルの一つ |
 | 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視 |
+
+## Current Focus: Gear Supplier Value Hypothesis
+
+ここまでの議論で、最初に詰めるべき論点は **EPSサプライヤとして、ギアメーカー / EPSシステムメーカーにどう付加価値を出すか** に寄った。
+
+Vehicle OEM向けのVehicle Health Managementや市場fleet監視は重要だが、初期仮説としては遠い。まずは、ECU側が持つ内部信号・診断・制御情報を使って、ギア / ラック / 機械負荷 / 返却品解析に対する説明力を上げられるかを見る。
+
+### Core Question
+
+> ギアメーカーは、ECU側から見えるモータ電流・操舵トルク・操舵角速度・車速・温度・電圧などを使って、ギア / ラックの負荷履歴や返却品解析の説明力を高めたいか？
+
+### Target Hypotheses
+
+| ID | Hypothesis | Why it matters |
+|---|---|---|
+| G1 | ギアメーカーは、市場でのギア / ラック負荷・摩耗・使用履歴が見えずに困っている | ここがNoなら、health indicatorは技術的に面白いだけになる |
+| G2 | EPS ECU内部信号から、ギア / ラック負荷やharsh usageのproxyを作れる | ECUサプライヤとして出せる価値の中心 |
+| G3 | そのproxyは、返却品解析・保証解析・OEM説明に使える | 「ログ追加」ではなく、解析価値に変換する |
+| G4 | ギアメーカーは、この機能をhealth-ready EPSとしてOEM向け差別化に使える | 商品価値・商談価値の仮説 |
+| G5 | OEMは、エンドユーザ通知ではなく、解析・診断・将来VHM用のsubsystem health signalとしてなら受け入れる余地がある | 量産採用のゲート条件 |
+
+### What to avoid
+
+以下のような断定は避ける。
+
+- ギア摩耗を検出します
+- ラック劣化を予測します
+- EPSが何km後に壊れるかを予測します
+- OEM市場fleetをサプライヤ単独で監視します
+
+より安全な表現:
+
+- ギア / ラック負荷のproxyを提供します
+- 高負荷操舵履歴を可視化します
+- 摩擦増加の可能性を示すhealth indicatorを定義します
+- 返却品解析時の使用履歴証跡を提供します
 
 ## Recommended Read Order
 
@@ -63,6 +100,9 @@ OTA / Connected Health
 
 EPS Health Intelligence Package
   -> EPS自体をhealth-aware subsystemとして差別化する
+
+Gear Supplier Value Hypothesis
+  -> ECU側信号からギア / ラック負荷・使用履歴・返却品解析の説明材料を作れるかを最初に検証する
 ```
 
 ## Key Product Idea
@@ -128,7 +168,8 @@ data/
 
 ## Current Next Actions
 
-- EPSの劣化・故障モードと利用可能信号のマトリクスを作る
+- ギアメーカー / EPSシステムメーカー視点のPain Hypothesisを整理する
+- ギア / ラック / 機械負荷と利用可能信号のマトリクスを作る
 - `eps_health_indicator_candidates.tsv` を、指標式・保存条件・false positive要因まで拡張する
 - HILS / bench / durability log / fault injectionで検証できる指標を選ぶ
 - EPSメーカー / ギアメーカー向けの短いOEM-facing pitchを作る
