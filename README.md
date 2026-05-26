@@ -6,6 +6,10 @@ EPS / ステアリングシステムに、故障可能性・劣化兆候・予�
 
 > EPSを、故障してからDTCを出す部品ではなく、劣化兆候と予測材料を持つhealth-aware subsystemにする。
 
+追加の見せ方として、以下の表現が有効。
+
+> EPS Health Intelligence Package は、既存EPS ECU信号からhealth indicatorを作る **virtual health sensor layer for EPS** である。
+
 ## Why This Repo Exists
 
 当初の問いは、EPS / ステアリング制御系ECUの故障予測をVehicle Health Management市場で事業化できるか、だった。
@@ -26,6 +30,7 @@ EPS / ステアリングシステムに、故障可能性・劣化兆候・予�
 | 観点 | 現在の見立て |
 |---|---|
 | 主コンセプト | EPS Health Intelligence Package |
+| 別表現 | virtual health sensor layer for EPS |
 | 自分たちの立場 | EPS ECU / 制御 / 診断 / 内部信号を持つサプライヤ |
 | Primary value target | EPS system / gear supplier |
 | Required gatekeeper | Vehicle OEM |
@@ -77,9 +82,10 @@ Vehicle OEM向けのVehicle Health Managementや市場fleet監視は重要だが
 
 1. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): 現在の軸。OTA中心ではなく、EPS自体の付加価値としてHealth Intelligenceを整理。
 2. [docs/10_project_charter_eps_health_intelligence.md](docs/10_project_charter_eps_health_intelligence.md): 現在の本命案をProject Charter化したもの。
-3. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
-4. [data/target_feasibility_matrix.tsv](data/target_feasibility_matrix.tsv): ターゲット別の実現性・魅力度・初期ピッチ。
-5. [docs/08_ota_connected_health_market.md](docs/08_ota_connected_health_market.md): OTA / connected diagnosticsを、主商品ではなく読み出しチャネルとして整理。
+3. [docs/11_virtual_health_sensor_market.md](docs/11_virtual_health_sensor_market.md): `virtual health sensor layer for EPS` としての市場フレーミング。
+4. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
+5. [data/target_feasibility_matrix.tsv](data/target_feasibility_matrix.tsv): ターゲット別の実現性・魅力度・初期ピッチ。
+6. [docs/08_ota_connected_health_market.md](docs/08_ota_connected_health_market.md): OTA / connected diagnosticsを、主商品ではなく読み出しチャネルとして整理。
 
 ## Concept Evolution
 
@@ -103,6 +109,9 @@ EPS Health Intelligence Package
 
 Gear Supplier Value Hypothesis
   -> ECU側信号からギア / ラック負荷・使用履歴・返却品解析の説明材料を作れるかを最初に検証する
+
+Virtual Health Sensor Layer
+  -> 既存EPS ECU信号から、ギア / ラック負荷proxy、ストレス履歴、劣化兆候を作る市場フレーミング
 ```
 
 ## Key Product Idea
@@ -115,6 +124,7 @@ Gear Supplier Value Hypothesis
 - Health Indicator Dictionary
 - Use-case Specific Views
 - Offline Validation Plan
+- Virtual Health Sensor Layer for EPS
 
 候補指標:
 
@@ -157,6 +167,7 @@ docs/
   08_ota_connected_health_market.md
   09_feasibility_and_targeting.md
   10_project_charter_eps_health_intelligence.md
+  11_virtual_health_sensor_market.md
 
 data/
   business_model_research.tsv
@@ -171,6 +182,7 @@ data/
 - ギアメーカー / EPSシステムメーカー視点のPain Hypothesisを整理する
 - ギア / ラック / 機械負荷と利用可能信号のマトリクスを作る
 - `eps_health_indicator_candidates.tsv` を、指標式・保存条件・false positive要因まで拡張する
+- `data/gear_load_virtual_sensor_hypothesis.tsv` を作る
 - HILS / bench / durability log / fault injectionで検証できる指標を選ぶ
 - EPSメーカー / ギアメーカー向けの短いOEM-facing pitchを作る
 - Project Charterを提案資料形式に変換する
