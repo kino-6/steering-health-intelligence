@@ -15,6 +15,10 @@
   - EPS Health Intelligence方向について、ターゲット別の実現性、魅力度、データアクセス、初期ピッチを整理したTSV。
 - `eps_health_indicator_candidates.tsv`
   - EPS内部信号から作れるhealth / degradation indicator候補を、必要信号、劣化・故障ヒント、正規化難易度、OEMデータ依存度つきで整理したTSV。
+- `business_model_feasibility_100.tsv`
+  - EPS Health Intelligence周辺のビジネスモデル成立性を100案で整理したTSV。
+- `business_model_feasibility_sources.md`
+  - 100案の発想元にした市場・技術ソースのメモ。
 
 ## Interpretation
 
