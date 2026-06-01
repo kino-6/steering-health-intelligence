@@ -1,84 +1,93 @@
 # Steering Health Intelligence Notes
 
-EPS / ステアリングシステムに、故障可能性・劣化兆候・予測用データ材料を持たせる事業仮説メモ。
+EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress / control-effort indicatorを作る事業仮説メモ。
 
-現在の本命仮説は **EPS Health Intelligence Package**。
+当初はEPS故障予測やVehicle Health Managementを検討していたが、現在は以下の順で仮説が進化している。
 
-> EPSを、故障してからDTCを出す部品ではなく、劣化兆候と予測材料を持つhealth-aware subsystemにする。
+```text
+EPS故障予測
+  -> EPS単体の個車RULは頻度・責任・データ面で弱い
 
-## Why This Repo Exists
+EPS Health Intelligence Package
+  -> EPSをhealth-aware subsystemとして差別化する
 
-当初の問いは、EPS / ステアリング制御系ECUの故障予測をVehicle Health Management市場で事業化できるか、だった。
+Development Evaluation First
+  -> まず開発・耐久評価でECU信号ベースの指標価値を検証する
 
-検討の結果、以下の考えに寄っている。
-
-- 個車ごとのEPS故障時期やRULを直接売るのは難しい
-- エンドユーザ向け「壊れそうです」通知は、誤通知・不安・責任が重い
-- フリート向けEPS単体予兆保全は、故障頻度が低く主価値になりにくい
-- 「ログを増やす」だけでは付加価値にならない
-- OTAやremote diagnosticsは重要だが、主商品ではなく読み出しチャネルの一つ
-- まずはEPS内部信号から、劣化兆候・異常傾向・予測用データ材料を作るのが現実的
+Common ECU Hardware Health Layer
+  -> EPS固有メカ指標から、より横展開しやすいECU共通hardware healthへ広げる
+```
 
 ## Current Position
 
-現時点の整理:
+現時点では、以下を中心仮説として扱う。
+
+> ECUメーカーが、自ECU内部信号・診断設計・NVM・開発評価ログから、開発評価・耐久評価・診断・将来VHMに使えるhealth / stress evidenceを作る。
+
+重要な境界:
+
+- OEMの市場fleetデータ、保証DB、苦情DB、車両クラウドを初期前提にしない
+- OTAやremote diagnosticsは主商品ではなく、読み出しチャネルの一つ
+- 個車RULやエンドユーザ故障通知は初期主張にしない
+- まずはECUメーカーが責任を持てるCore packageを作る
+- OEMデータ接続やfleet analyticsはOptional extensionに置く
+
+## Current Focus
 
 | 観点 | 現在の見立て |
 |---|---|
-| 主コンセプト | EPS Health Intelligence Package |
-| Primary target | EPS system / gear supplier |
-| Required gatekeeper | Vehicle OEM |
-| 主価値 | EPSをhealth-aware subsystemとして差別化する |
-| 初期成果物 | EPS Health Indicator Set for Prognostic Readiness |
+| 最新ピボット | Common ECU Hardware Health Layer |
+| EPS向け軸 | EPS Health Intelligence Package |
+| 初期検証軸 | Development / bench / durability evaluation |
+| 近い商品名 | ECU Power Health Evidence Package |
+| Primary target | EPS system / gear supplier, ECU development / validation teams |
 | 初期データ前提 | ECU内部信号、DTC、NVM、HILS / bench / durability log |
 | OEMデータ | Optional extension |
 | AI / 予測 | 初期は故障予測モデルではなく、予測に使える材料整備 |
-| OTA / remote diagnostics | health indicatorを読むチャネルの一つ |
 | 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視 |
 
 ## Recommended Read Order
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): 現在の軸。OTA中心ではなく、EPS自体の付加価値としてHealth Intelligenceを整理。
-2. [docs/10_project_charter_eps_health_intelligence.md](docs/10_project_charter_eps_health_intelligence.md): 現在の本命案をProject Charter化したもの。
-3. [data/best5_business_model_candidates.md](data/best5_business_model_candidates.md): 100案から選んだBest5と推奨初手。
-4. [data/business_model_feasibility_100.tsv](data/business_model_feasibility_100.tsv): ビジネスモデル成立性を100案で整理した表。
-5. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
-6. [data/target_feasibility_matrix.tsv](data/target_feasibility_matrix.tsv): ターゲット別の実現性・魅力度・初期ピッチ。
-7. [docs/08_ota_connected_health_market.md](docs/08_ota_connected_health_market.md): OTA / connected diagnosticsを、主商品ではなく読み出しチャネルとして整理。
+1. [docs/16_common_ecu_hardware_health_pivot.md](docs/16_common_ecu_hardware_health_pivot.md): EPS固有からECU共通hardware healthへ広げる最新ピボット。
+2. [docs/13_business_scheme_reset.md](docs/13_business_scheme_reset.md): 誰が払うか、どの予算に刺すかを整理した事業スキーム再考。
+3. [docs/12_reset_hypothesis_development_evaluation.md](docs/12_reset_hypothesis_development_evaluation.md): 返却品解析ではなく、開発・耐久評価を初期価値に置くリセット仮説。
+4. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): EPS Health Intelligenceの実現性とターゲット整理。
+5. [docs/10_project_charter_eps_health_intelligence.md](docs/10_project_charter_eps_health_intelligence.md): EPS Health IntelligenceのProject Charter。
+6. [data/best5_business_model_candidates.md](data/best5_business_model_candidates.md): 100案から選んだBest5と推奨初手。
+7. [data/business_model_feasibility_100.tsv](data/business_model_feasibility_100.tsv): ビジネスモデル成立性を100案で整理した表。
+8. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
 
-## Concept Evolution
+## Business Model Feasibility Work
 
-このRepoでは、仮説が以下のように変化している。
+今回追加した100案の整理では、以下を重視した。
 
-```text
-ECU故障予測
-  -> EPS単体の故障予測は頻度・責任・データ面で弱い
+- ECUメーカー起点で始められる
+- OEMデータを初期前提にしない
+- EPS / ECUの付加価値として説明できる
+- HILS / bench / durability logでデモしやすい
+- 将来OEM VHM / connected diagnosticsへ拡張できる
 
-Diagnostic Evidence Package
-  -> 市場不具合解析には効くが、単体では「ログ追加」に見えやすい
+Best5:
 
-Field Issue Triage Evidence
-  -> NTF削減や責任分界には効くが、事後解析中心で付加価値がやや弱い
+| Rank | ID | Candidate |
+|---:|---|---|
+| 1 | BMFE020 | Health-ready EPS Feature Bundle |
+| 2 | BMFE001 | EPS Health Indicator Set Licensing |
+| 3 | BMFE031 | Offline Health Indicator Analyzer |
+| 4 | BMFE041 | Return-part Health Summary Reader |
+| 5 | BMFE096 | Co-development with Gear Maker |
 
-OTA / Connected Health
-  -> 読み出し機会としては有効だが、OTAが主価値ではない
+推奨初手:
 
-EPS Health Intelligence Package
-  -> EPS自体をhealth-aware subsystemとして差別化する
-```
+> Health Indicator Starter Kitを入口にして、Offline Health Indicator Analyzerでデモし、成功した指標をHealth-ready EPS Feature Bundleへ拡張する。
 
-## Key Product Idea
+## Key Product Ideas
 
-`EPS Health Intelligence Package` は、以下を含む。
+### EPS Health Intelligence Package
 
-- EPS Health Indicator Set
-- Prognostic Data Package
-- Health Summary Output
-- Health Indicator Dictionary
-- Use-case Specific Views
-- Offline Validation Plan
+EPSを、故障してからDTCを出す部品ではなく、劣化兆候と予測材料を持つhealth-aware subsystemにする。
 
 候補指標:
 
@@ -94,20 +103,13 @@ EPS Health Intelligence Package
 - end-stop / curb-hit-like event count
 - transient abnormal recovery count
 
-## Business Hypothesis
+### Development Evaluation Indicator
 
-最初の買い手は、車両OEMそのものより **EPS system / gear supplier** が自然。
+ギア / ラック / 機械負荷を、ECU信号ベースのcontrol effort / stress / margin indicatorで比較する。
 
-理由:
+### Common ECU Hardware Health Layer
 
-- EPS品質、保証返却、システム劣化に直接関心がある
-- ギア、ラック、モータ、センサ、ECUを含むEPS全体の付加価値として提案しやすい
-- OEMに対して「health-ready EPS」として差別化できる
-
-ただし、量産採用や市場データ活用にはVehicle OEMの合意が必要。
-
-ECUメーカー起点の提案としては、OEMの市場fleetデータ、保証DB、苦情DB、車両クラウドを初期前提にしない。
-まずはECU内部信号と開発評価ログで成立するCore packageを作り、OEMデータ接続はOptional extensionに置く。
+EPS固有メカ指標に閉じず、電源、温度、リップル、brownout、reset、capacitor stressなど、ECU横断で使えるhardware health evidenceへ広げる。
 
 ## Repository Structure
 
@@ -124,10 +126,16 @@ docs/
   08_ota_connected_health_market.md
   09_feasibility_and_targeting.md
   10_project_charter_eps_health_intelligence.md
+  11_virtual_health_sensor_market.md
+  12_reset_hypothesis_development_evaluation.md
+  13_business_scheme_reset.md
+  15_public_driving_data_proxy_simulation.md
+  16_common_ecu_hardware_health_pivot.md
 
 data/
   business_model_research.tsv
   business_model_feasibility_100.tsv
+  business_model_feasibility_sources.md
   best5_business_model_candidates.md
   demo_eps_health_summary_examples.tsv
   useful_items_for_steering_diagnostic_evidence.md
@@ -138,8 +146,8 @@ data/
 
 ## Current Next Actions
 
-- EPSの劣化・故障モードと利用可能信号のマトリクスを作る
+- 100案のBest5を、最新のCommon ECU Hardware Healthピボットに照らして再評価する
+- EPS向け候補とECU共通hardware health候補を分けた2層の事業案にする
+- `data/development_evaluation_indicator_hypothesis.tsv` を作る
 - `eps_health_indicator_candidates.tsv` を、指標式・保存条件・false positive要因まで拡張する
 - HILS / bench / durability log / fault injectionで検証できる指標を選ぶ
-- EPSメーカー / ギアメーカー向けの短いOEM-facing pitchを作る
-- Project Charterを提案資料形式に変換する
