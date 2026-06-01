@@ -31,6 +31,8 @@
   - 外部市場調査では見えない、EPS返却品・市場不具合・NTF・再現不能案件の内部一次調査用テンプレート。
 - `eps_ntf_case_classification_value_map.tsv`
   - 20-50件のケース分類が完了した場合に、誰が何を嬉しいのか、どんな意思決定が可能になるのかを整理した価値マップ。
+- `public_proxy_data_sources.tsv`
+  - 内部NTF/返却品ケースにアクセスできない前提で、NHTSA、Kaggle、公開CAN/steering datasetから補える情報と補えない情報を整理したTSV。
 
 ## Interpretation
 
@@ -46,3 +48,4 @@
 - まずはDTCだけでは説明できない市場不具合・返却品・NTF案件に対する、ECU内の小さな状況証拠として価値を検証する
 - ただしDTC、freeze frame、extended data、event memory自体は既存診断であり、新規性はサプライヤ内部の案件棚卸しから不足証跡を特定することに置く
 - ケース分類の価値は、分類表そのものではなく、診断仕様改善、顧客品質報告、追加データ要求、事業継続判断を可能にすることに置く
+- 内部一次情報がない場合、公開データでできるのは市場痛み分類とsteering context proxy demoまでであり、EPS内部故障予測や返却品解析価値は証明できない

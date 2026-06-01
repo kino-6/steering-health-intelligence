@@ -19,6 +19,9 @@ Common ECU Hardware Health Layer
 
 Existing Diagnostics / OEM Boundary Check
   -> DTC、freeze frame、extended data、DEM/UDSは既存。価値があるなら、サプライヤ内部のNTF/返却品ケース棚卸しから不足証跡を特定する方向へ修正する
+
+Public Proxy Data Reset
+  -> 内部NTF/返却品ケースにアクセスできない前提に修正。公開市場情報、NHTSA、Kaggle、公開CAN datasetで補える範囲に限定する
 ```
 
 ## Current Position
@@ -56,13 +59,13 @@ Existing Diagnostics / OEM Boundary Check
 まず読むなら、この順番が分かりやすい。
 
 1. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
-2. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
-3. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
-4. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
-5. [docs/17_customer_value_reality_check.md](docs/17_customer_value_reality_check.md): 「誰が嬉しいのか」「外付けモニタと何が違うのか」の現実確認。
-6. [docs/16_common_ecu_hardware_health_pivot.md](docs/16_common_ecu_hardware_health_pivot.md): EPS固有からECU共通hardware healthへ広げる将来ピボット。
-7. [data/eps_ntf_case_classification_value_map.tsv](data/eps_ntf_case_classification_value_map.tsv): ケース分類後のstakeholder別価値マップ。
-8. [data/eps_ntf_case_review_template.tsv](data/eps_ntf_case_review_template.tsv): 内部一次調査用の返却品・NTFケース棚卸しテンプレート。
+2. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
+3. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
+4. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
+5. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
+6. [docs/17_customer_value_reality_check.md](docs/17_customer_value_reality_check.md): 「誰が嬉しいのか」「外付けモニタと何が違うのか」の現実確認。
+7. [data/public_proxy_data_sources.tsv](data/public_proxy_data_sources.tsv): 公開市場情報/Kaggle/公開CANデータの棚卸し。
+8. [data/eps_ntf_case_classification_value_map.tsv](data/eps_ntf_case_classification_value_map.tsv): ケース分類後のstakeholder別価値マップ。
 
 ## Project Skills
 
@@ -154,6 +157,7 @@ docs/
   19_market_research_eps_event_context.md
   20_existing_diagnostics_oem_boundary.md
   21_value_of_ntf_case_classification.md
+  22_public_proxy_data_reset.md
 
 data/
   business_model_research.tsv
@@ -165,6 +169,7 @@ data/
   eps_event_context_market_research.tsv
   eps_ntf_case_classification_value_map.tsv
   eps_ntf_case_review_template.tsv
+  public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
   target_feasibility_matrix.tsv
@@ -173,8 +178,8 @@ data/
 
 ## Current Next Actions
 
-- 過去20-50件のEPS返却品・市場不具合・NTF・再現不能案件を `data/eps_ntf_case_review_template.tsv` の観点で棚卸しする
-- 現行DTC / freeze frame / extended dataで解析が進んだケースと止まったケースを分ける
-- 足りない証跡を、外部市場調査の答えではなく、内部案件レビューから分類する
-- OEMに聞く前に、サプライヤ側の不足証跡仮説とNVM制約内の最小追加案を作る
-- `8D回答` ではなく、顧客品質報告・返却品解析報告・NTF調査メモ・D2/D4向け事実整理として表現する
+- 内部NTF/返却品ケースにはアクセスできない前提で、公開市場情報と公開データで検証可能な範囲に絞る
+- NHTSA / recall public dataから、EPS loss-of-assist / increased steering effortのdriver-visible pain taxonomyを作る
+- Kaggle / public CAN datasetsを棚卸しし、steering context proxyとして使える信号と使えない信号を分ける
+- `EPS故障予測` ではなく、`Steering Context Risk Explorer` のような公開データproxy demoで価値仮説を検証する
+- 公開データで証明できない内部診断証跡・DTC不足・返却品解析価値は、未検証として扱う
