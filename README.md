@@ -64,6 +64,13 @@ Existing Diagnostics / OEM Boundary Check
 7. [data/eps_ntf_case_classification_value_map.tsv](data/eps_ntf_case_classification_value_map.tsv): ケース分類後のstakeholder別価値マップ。
 8. [data/eps_ntf_case_review_template.tsv](data/eps_ntf_case_review_template.tsv): 内部一次調査用の返却品・NTFケース棚卸しテンプレート。
 
+## Project Skills
+
+このRepoでは、事業仮説の探索と検証をCodex側に寄せるため、プロジェクトSkillを追加している。
+
+- `future-need-interviewing`: 顧客の最初のニーズ、最悪の未来、最高の未来、欲しい感情から本当のニーズを掘る。
+- `chain-of-verification`: 叩き台の結論を検証質問に分解し、エビデンスで潰してから修正版を出す。
+
 ## Business Model Feasibility Work
 
 今回追加した100案の整理では、以下を重視した。

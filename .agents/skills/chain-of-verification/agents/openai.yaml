@@ -1,0 +1,7 @@
+interface:
+  display_name: "Chain of Verification"
+  short_description: "仮説と調査結果を検証質問で潰すSkill"
+  default_prompt: "Use $chain-of-verification to draft, verify, evidence-check, and revise this research conclusion."
+
+policy:
+  allow_implicit_invocation: true
