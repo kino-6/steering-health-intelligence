@@ -56,13 +56,13 @@ Existing Diagnostics / OEM Boundary Check
 まず読むなら、この順番が分かりやすい。
 
 1. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
-2. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
-3. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
-4. [docs/17_customer_value_reality_check.md](docs/17_customer_value_reality_check.md): 「誰が嬉しいのか」「外付けモニタと何が違うのか」の現実確認。
-5. [docs/16_common_ecu_hardware_health_pivot.md](docs/16_common_ecu_hardware_health_pivot.md): EPS固有からECU共通hardware healthへ広げる将来ピボット。
-6. [docs/13_business_scheme_reset.md](docs/13_business_scheme_reset.md): 誰が払うか、どの予算に刺すかを整理した事業スキーム再考。
-7. [data/eps_ntf_case_review_template.tsv](data/eps_ntf_case_review_template.tsv): 内部一次調査用の返却品・NTFケース棚卸しテンプレート。
-8. [data/eps_event_context_market_research.tsv](data/eps_event_context_market_research.tsv): EPS Event Context Memory向けの市場シグナル表。
+2. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
+3. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
+4. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
+5. [docs/17_customer_value_reality_check.md](docs/17_customer_value_reality_check.md): 「誰が嬉しいのか」「外付けモニタと何が違うのか」の現実確認。
+6. [docs/16_common_ecu_hardware_health_pivot.md](docs/16_common_ecu_hardware_health_pivot.md): EPS固有からECU共通hardware healthへ広げる将来ピボット。
+7. [data/eps_ntf_case_classification_value_map.tsv](data/eps_ntf_case_classification_value_map.tsv): ケース分類後のstakeholder別価値マップ。
+8. [data/eps_ntf_case_review_template.tsv](data/eps_ntf_case_review_template.tsv): 内部一次調査用の返却品・NTFケース棚卸しテンプレート。
 
 ## Business Model Feasibility Work
 
@@ -146,6 +146,7 @@ docs/
   18_market_research_customer_pain.md
   19_market_research_eps_event_context.md
   20_existing_diagnostics_oem_boundary.md
+  21_value_of_ntf_case_classification.md
 
 data/
   business_model_research.tsv
@@ -155,6 +156,7 @@ data/
   demo_eps_health_summary_examples.tsv
   customer_pain_market_signals.tsv
   eps_event_context_market_research.tsv
+  eps_ntf_case_classification_value_map.tsv
   eps_ntf_case_review_template.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
