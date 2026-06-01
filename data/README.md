@@ -19,6 +19,10 @@
   - EPS Health Intelligence周辺のビジネスモデル成立性を100案で整理したTSV。
 - `business_model_feasibility_sources.md`
   - 100案の発想元にした市場・技術ソースのメモ。
+- `best5_business_model_candidates.md`
+  - 100案から選んだBest5と推奨初手。
+- `demo_eps_health_summary_examples.tsv`
+  - Best5のうちPoCに使いやすいhealth summary出力例。
 
 ## Interpretation
 
