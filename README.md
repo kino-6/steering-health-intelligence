@@ -42,9 +42,11 @@ EPS / ステアリングシステムに、故障可能性・劣化兆候・予�
 
 1. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): 現在の軸。OTA中心ではなく、EPS自体の付加価値としてHealth Intelligenceを整理。
 2. [docs/10_project_charter_eps_health_intelligence.md](docs/10_project_charter_eps_health_intelligence.md): 現在の本命案をProject Charter化したもの。
-3. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
-4. [data/target_feasibility_matrix.tsv](data/target_feasibility_matrix.tsv): ターゲット別の実現性・魅力度・初期ピッチ。
-5. [docs/08_ota_connected_health_market.md](docs/08_ota_connected_health_market.md): OTA / connected diagnosticsを、主商品ではなく読み出しチャネルとして整理。
+3. [data/best5_business_model_candidates.md](data/best5_business_model_candidates.md): 100案から選んだBest5と推奨初手。
+4. [data/business_model_feasibility_100.tsv](data/business_model_feasibility_100.tsv): ビジネスモデル成立性を100案で整理した表。
+5. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
+6. [data/target_feasibility_matrix.tsv](data/target_feasibility_matrix.tsv): ターゲット別の実現性・魅力度・初期ピッチ。
+7. [docs/08_ota_connected_health_market.md](docs/08_ota_connected_health_market.md): OTA / connected diagnosticsを、主商品ではなく読み出しチャネルとして整理。
 
 ## Concept Evolution
 
@@ -125,6 +127,9 @@ docs/
 
 data/
   business_model_research.tsv
+  business_model_feasibility_100.tsv
+  best5_business_model_candidates.md
+  demo_eps_health_summary_examples.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
   target_feasibility_matrix.tsv
