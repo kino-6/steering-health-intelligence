@@ -61,11 +61,11 @@ Public Proxy Data Reset
 1. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
 2. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
 3. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
-4. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
-5. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
-6. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
-7. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
-8. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
+4. [docs/24_steering_context_risk_phase1.md](docs/24_steering_context_risk_phase1.md): TSVだけで作ったPhase 1静的分析結果。
+5. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): ブラウザで見られるPhase 1静的デモ。
+6. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+7. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+8. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
 
 ## Project Skills
 
@@ -159,6 +159,7 @@ docs/
   21_value_of_ntf_case_classification.md
   22_public_proxy_data_reset.md
   23_public_proxy_demo_plan.md
+  24_steering_context_risk_phase1.md
 
 data/
   business_model_research.tsv
@@ -172,17 +173,21 @@ data/
   eps_ntf_case_classification_value_map.tsv
   eps_ntf_case_review_template.tsv
   public_steering_dataset_inventory.tsv
+  steering_context_risk_phase1_summary.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
   target_feasibility_matrix.tsv
   eps_health_indicator_candidates.tsv
+
+generated/
+  steering_context_risk_explorer_phase1.html
 ```
 
 ## Current Next Actions
 
 - 内部NTF/返却品ケースにはアクセスできない前提で、公開市場情報と公開データで検証可能な範囲に絞る
-- NHTSA / recall public dataから、EPS loss-of-assist / increased steering effortのdriver-visible pain taxonomyを作る
-- Kaggle / public CAN datasetsを棚卸しし、steering context proxyとして使える信号と使えない信号を分ける
-- `EPS故障予測` ではなく、`Steering Context Risk Explorer` のような公開データproxy demoで価値仮説を検証する
+- NHTSA / recall public dataから作ったdriver-visible pain taxonomyを、Phase 1静的デモで確認する
+- `generated/steering_context_risk_explorer_phase1.html` を見て、低速高操舵負荷・断続assist loss・警告文脈がデモ軸として十分か判断する
+- 継続する場合のみ、commaSteeringControl等を使ったPhase 2 time-series proxy demoへ進む
 - 公開データで証明できない内部診断証跡・DTC不足・返却品解析価値は、未検証として扱う

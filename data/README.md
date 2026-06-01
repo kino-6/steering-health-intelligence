@@ -37,6 +37,8 @@
   - NHTSA / recall / investigation / public reportから、driver-visibleなEPS痛みを抽出した公開ケース分類TSV。
 - `public_steering_dataset_inventory.tsv`
   - 公開steering / CAN / OBD / Kaggle datasetの信号、用途、できないこと、優先度を整理したTSV。
+- `steering_context_risk_phase1_summary.tsv`
+  - `Steering Context Risk Explorer` Phase 1の静的集計結果。公開EPS pain caseのsource、proxy feature、driver-visible pain、boundaryを整理。
 
 ## Interpretation
 
