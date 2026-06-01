@@ -1,0 +1,7 @@
+interface:
+  display_name: "Future Need Interviewing"
+  short_description: "未来の喜びと痛みから本音ニーズを掘る"
+  default_prompt: "Use $future-need-interviewing to deepen this customer or market hypothesis from stated need to true need."
+
+policy:
+  allow_implicit_invocation: true
