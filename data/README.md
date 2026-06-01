@@ -24,9 +24,11 @@
 - `demo_eps_health_summary_examples.tsv`
   - Best5のうちPoCに使いやすいhealth summary出力例。
 - `customer_pain_market_signals.tsv`
-  - 市場調査で見えたWarranty / NTF / supplier quality / 8D / remote diagnosticsの買い手痛みを整理したTSV。
+  - 市場調査で見えたWarranty / NTF / supplier quality / 顧客品質報告 / remote diagnosticsの買い手痛みを整理したTSV。
 - `eps_event_context_market_research.tsv`
-  - EPSサプライヤ視点で、`EPS Event Context Memory` が接続できる市場痛みをWarranty / NTF / returned parts / 8D / RCA中心に整理したTSV。
+  - EPSサプライヤ視点で、`EPS Event Context Memory` が接続できる市場痛みをWarranty / NTF / returned parts / 顧客品質報告 / 原因調査中心に整理したTSV。
+- `eps_ntf_case_review_template.tsv`
+  - 外部市場調査では見えない、EPS返却品・市場不具合・NTF・再現不能案件の内部一次調査用テンプレート。
 
 ## Interpretation
 
@@ -34,9 +36,10 @@
 特に重視した観点は以下。
 
 - EPS / ECU単体の故障予測として売らない
-- 「ログ追加」ではなく、EPS自体の付加価値としてhealth indicatorを持たせる
-- 故障予測そのものではなく、予測に使える材料と劣化兆候を整備する
+- 「ログ追加」や既存診断証跡の言い換えではなく、返却品・NTF・再現不能案件の不足証跡を特定する
+- 故障予測そのものではなく、顧客品質報告や原因調査に使える確認済み事実・未確認事項を整理する
 - サプライヤが責任を持てる範囲に収める
 - ECUメーカー起点で成立するCoreと、OEMデータ接続で広がるOptional extensionを分ける
 - 将来OEM側のVHM / connected diagnostics / 市場品質データと接続しやすい形にする
 - まずはDTCだけでは説明できない市場不具合・返却品・NTF案件に対する、ECU内の小さな状況証拠として価値を検証する
+- ただしDTC、freeze frame、extended data、event memory自体は既存診断であり、新規性はサプライヤ内部の案件棚卸しから不足証跡を特定することに置く
