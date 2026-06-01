@@ -131,6 +131,7 @@ docs/
   13_business_scheme_reset.md
   15_public_driving_data_proxy_simulation.md
   16_common_ecu_hardware_health_pivot.md
+  17_customer_value_reality_check.md
 
 data/
   business_model_research.tsv
