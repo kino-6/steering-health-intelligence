@@ -33,6 +33,10 @@
   - 20-50件のケース分類が完了した場合に、誰が何を嬉しいのか、どんな意思決定が可能になるのかを整理した価値マップ。
 - `public_proxy_data_sources.tsv`
   - 内部NTF/返却品ケースにアクセスできない前提で、NHTSA、Kaggle、公開CAN/steering datasetから補える情報と補えない情報を整理したTSV。
+- `eps_public_market_pain_cases.tsv`
+  - NHTSA / recall / investigation / public reportから、driver-visibleなEPS痛みを抽出した公開ケース分類TSV。
+- `public_steering_dataset_inventory.tsv`
+  - 公開steering / CAN / OBD / Kaggle datasetの信号、用途、できないこと、優先度を整理したTSV。
 
 ## Interpretation
 

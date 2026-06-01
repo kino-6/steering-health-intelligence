@@ -60,12 +60,12 @@ Public Proxy Data Reset
 
 1. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
 2. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
-3. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
-4. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
-5. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
-6. [docs/17_customer_value_reality_check.md](docs/17_customer_value_reality_check.md): 「誰が嬉しいのか」「外付けモニタと何が違うのか」の現実確認。
-7. [data/public_proxy_data_sources.tsv](data/public_proxy_data_sources.tsv): 公開市場情報/Kaggle/公開CANデータの棚卸し。
-8. [data/eps_ntf_case_classification_value_map.tsv](data/eps_ntf_case_classification_value_map.tsv): ケース分類後のstakeholder別価値マップ。
+3. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
+4. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+5. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+6. [docs/21_value_of_ntf_case_classification.md](docs/21_value_of_ntf_case_classification.md): 20-50件のケース分類ができた時に誰が何を嬉しいのか。
+7. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 顧客品質報告に刺す市場調査。
+8. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
 
 ## Project Skills
 
@@ -158,6 +158,7 @@ docs/
   20_existing_diagnostics_oem_boundary.md
   21_value_of_ntf_case_classification.md
   22_public_proxy_data_reset.md
+  23_public_proxy_demo_plan.md
 
 data/
   business_model_research.tsv
@@ -166,9 +167,11 @@ data/
   best5_business_model_candidates.md
   demo_eps_health_summary_examples.tsv
   customer_pain_market_signals.tsv
+  eps_public_market_pain_cases.tsv
   eps_event_context_market_research.tsv
   eps_ntf_case_classification_value_map.tsv
   eps_ntf_case_review_template.tsv
+  public_steering_dataset_inventory.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
