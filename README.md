@@ -132,6 +132,7 @@ docs/
   15_public_driving_data_proxy_simulation.md
   16_common_ecu_hardware_health_pivot.md
   17_customer_value_reality_check.md
+  18_market_research_customer_pain.md
 
 data/
   business_model_research.tsv
@@ -139,6 +140,7 @@ data/
   business_model_feasibility_sources.md
   best5_business_model_candidates.md
   demo_eps_health_summary_examples.tsv
+  customer_pain_market_signals.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
   target_feasibility_matrix.tsv

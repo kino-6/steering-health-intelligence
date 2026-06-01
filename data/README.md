@@ -23,6 +23,8 @@
   - 100案から選んだBest5と推奨初手。
 - `demo_eps_health_summary_examples.tsv`
   - Best5のうちPoCに使いやすいhealth summary出力例。
+- `customer_pain_market_signals.tsv`
+  - 市場調査で見えたWarranty / NTF / supplier quality / 8D / remote diagnosticsの買い手痛みを整理したTSV。
 
 ## Interpretation
 
