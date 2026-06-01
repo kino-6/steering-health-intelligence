@@ -14,7 +14,7 @@
 - `target_feasibility_matrix.tsv`
   - EPS Health Intelligence方向について、ターゲット別の実現性、魅力度、データアクセス、初期ピッチを整理したTSV。
 - `eps_health_indicator_candidates.tsv`
-  - EPS内部信号から作れるhealth / degradation indicator候補を、必要信号、劣化・故障ヒント、正規化難易度つきで整理したTSV。
+  - EPS内部信号から作れるhealth / degradation indicator候補を、必要信号、劣化・故障ヒント、正規化難易度、OEMデータ依存度つきで整理したTSV。
 
 ## Interpretation
 
@@ -25,4 +25,5 @@
 - 「ログ追加」ではなく、EPS自体の付加価値としてhealth indicatorを持たせる
 - 故障予測そのものではなく、予測に使える材料と劣化兆候を整備する
 - サプライヤが責任を持てる範囲に収める
+- ECUメーカー起点で成立するCoreと、OEMデータ接続で広がるOptional extensionを分ける
 - 将来OEM側のVHM / connected diagnostics / 市場品質データと接続しやすい形にする

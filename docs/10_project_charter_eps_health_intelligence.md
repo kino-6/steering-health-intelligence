@@ -15,6 +15,8 @@ EPSヘルス・インテリジェンス・パッケージ
 
 本提案は、個車ごとの故障時期やRULを断定するものではない。
 また、OTA運用そのものを主商品にするものでもない。
+さらに、OEMの市場fleetデータ、保証DB、苦情DB、車両クラウドを初期前提にしない。
+それらは将来のOptional extensionとして扱う。
 
 ## 3. Background
 
@@ -31,6 +33,9 @@ EPSは通常、メンテナンスフリーで長期使用されることを前�
 
 この文脈では、単にログを増やすことは価値ではない。
 価値があるのは、EPSが将来の予測・解析・品質改善に使えるhealth indicatorを持つことである。
+
+本Repoの立場はECUメーカー起点であるため、まずはECU内部信号、診断設計、NVM証跡、HILS / bench / durability logで成立する最小パッケージを定義する。
+OEMデータとの接続は価値を広げるが、初期成立条件にはしない。
 
 ## 4. Problem Statement
 
@@ -60,6 +65,7 @@ EPS内部信号から、故障可能性・劣化兆候・予測用データ材�
 - 返却品解析、保証解析、市場品質解析、VHMに使える出力形式を整理する
 - OTA / remote diagnostics / service / return-part analysisを読み出しチャネルとして使える形にする
 - HILS / bench / durability log / fault injectionで、指標の妥当性を検証できる計画を作る
+- OEMデータなしで成立するCoreと、OEMデータ接続で広がるOptional extensionを分離する
 
 ## 6. Non-Goals
 
@@ -69,6 +75,7 @@ EPS内部信号から、故障可能性・劣化兆候・予測用データ材�
 - エンドユーザ向け故障通知
 - EPS単体での故障予測精度保証
 - OEM市場fleetのサプライヤ単独監視
+- OEM cloud / 保証DB / 苦情DBを初期前提にした分析
 - OTA platformそのものの構築
 - リコール判断の自動化
 - 保証判断の自動化
@@ -107,7 +114,6 @@ EPS内部信号から、劣化兆候や故障可能性の材料となる指標�
 - EPS variant
 - software version
 - calibration ID
-- vehicle model
 - production lot / traceability ID
 - cumulative operation proxy
 - health indicator value
@@ -116,6 +122,9 @@ EPS内部信号から、劣化兆候や故障可能性の材料となる指標�
 - normalization context
 - related DTC
 - validity condition
+
+初期Coreでは、ECU内部またはECUサプライヤが責任を持てる項目に限定する。
+vehicle model、地域、保証履歴、苦情情報、fleet trendなどは、OEM側データと接続するOptional extensionとして扱う。
 
 ### 7.3 Health Summary Output
 
@@ -160,11 +169,11 @@ recommended_use: supplier_engineering_review
 | User | View |
 |---|---|
 | EPSメーカー / ギアメーカー | 劣化兆候、ロット差、設計改善材料 |
-| OEM VHM team | 車両health signalとしてのEPS状態 |
-| OEM market quality | 車種 / 地域 / calibration別の兆候偏り |
+| OEM VHM team | 車両health signalとしてのEPS状態、Optional |
+| OEM market quality | 車種 / 地域 / calibration別の兆候偏り、Optional |
 | OEM service engineering | 追加診断要否 |
 | Return-part analysis | 使用履歴・負荷履歴 |
-| OTA / remote diagnostics | 読み出しチャネルの一つ |
+| OTA / remote diagnostics | 読み出しチャネルの一つ、Optional |
 
 ## 8. Scope
 
@@ -178,10 +187,12 @@ recommended_use: supplier_engineering_review
 - 正常ばらつき、false positive要因、正規化条件の整理
 - HILS / bench / durability log / fault injectionでのoffline検証計画
 - OEM提案に向けたhealth-ready EPSの価値整理
+- ECU-local CoreとOEM-connected Optional extensionの分離
 
 ### Out of Scope
 
 - OEM cloud / VHM基盤の構築
+- OEM市場データを前提にしたfleet analytics
 - OTA platform構築
 - 常時ストリーミング基盤
 - 個車RULモデルの量産提供
@@ -210,6 +221,9 @@ recommended_use: supplier_engineering_review
 - 量産採用、車両データ、connected diagnostics、VHM接続の権限を持つ
 - EPS health signalを市場品質、保証、サービス、VHMに接続できる
 
+ただし、Vehicle OEMは初期Coreの成立条件ではない。
+OEMは量産採用、読み出しチャネル、将来のVHM接続におけるgatekeeperとして扱う。
+
 ### Secondary Users
 
 - OEM market quality
@@ -233,6 +247,18 @@ recommended_use: supplier_engineering_review
 - DTC発生前の劣化兆候やストレス履歴の可視化
 - connected diagnostics / service / OTAを通じた低帯域health readout
 
+Core value:
+
+- ECUメーカーが自ECU内部信号と診断設計で提供できるhealth indicator
+- EPSサプライヤがOEM提案に使えるhealth-ready EPS仕様
+- HILS / bench / durability logで検証可能なprognostic readiness dataset
+
+Optional value:
+
+- OEM VHMやconnected diagnosticsへの接続
+- OEM市場fleetでのcohort analysis
+- 保証DB、苦情DB、地域情報との相関分析
+
 ## 11. Success Criteria
 
 ### Concept Success
@@ -252,6 +278,7 @@ recommended_use: supplier_engineering_review
 
 - OEMに対して、VHM / connected diagnostics / service / warrantyに接続できるEPS付加価値として説明できる
 - EPSメーカー / ギアメーカーが、health-ready EPSを差別化要素として扱える
+- OEMデータがなくてもCore packageとして説明できる
 - 将来のconnected fleet dataやcohort analysisに接続できるデータ構造になっている
 
 ## 12. Risks
@@ -261,6 +288,7 @@ recommended_use: supplier_engineering_review
 - EPS故障頻度が低く、教師あり故障予測モデルを作りにくい
 - health indicatorが故障予測や保証判断と誤解される
 - OEMが市場データをサプライヤへ返さない可能性がある
+- OEMデータ接続を前提にしすぎると、ECUメーカー提案として実現性が下がる
 - ECUリソース、NVM容量、通信量に制約がある
 - EPSメーカー / ギアメーカーにとって、OEM提案価値が十分に見えない可能性がある
 
@@ -272,7 +300,7 @@ recommended_use: supplier_engineering_review
 - false positive factorsをindicator dictionaryに明記する
 - HILS / bench / durability log / fault injectionでoffline検証から始める
 - OTAは主商品ではなく、読み出しチャネルの一つとして扱う
-- OEMデータ連携は将来拡張とし、まずEPS側に持たせるデータ材料を定義する
+- OEMデータ連携はOptional extensionとし、まずEPS側に持たせるECU-local data packageを定義する
 
 ## 14. Initial Work Plan
 
@@ -301,7 +329,7 @@ recommended_use: supplier_engineering_review
 - warning threshold draft
 - missing signal list
 
-### Phase 2: Health Indicator Specification
+### Phase 2: ECU-local Health Indicator Specification
 
 目的:
 
@@ -314,8 +342,22 @@ recommended_use: supplier_engineering_review
 - storage / reset policy
 - diagnostic readout concept
 - resource estimate
+- OEM-data dependency classification
 
-### Phase 3: OEM-facing Proposal
+### Phase 3: EPS Supplier-facing Proposal
+
+目的:
+
+- EPSメーカー / ギアメーカーに対して、OEMへ持ち込めるhealth-ready EPS仕様として提案する
+
+成果物:
+
+- EPS supplier-facing pitch
+- Core feature list
+- Optional OEM-connected extension list
+- validation plan
+
+### Phase 4: OEM-facing Extension Proposal
 
 目的:
 

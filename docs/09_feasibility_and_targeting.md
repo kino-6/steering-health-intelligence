@@ -11,6 +11,25 @@ OTAは重要だが、本件の主役ではない。
 
 OTA、remote diagnostics、サービス入庫、返却品解析、OEM cloudは、そのhealth indicatorを読むチャネルや利用先にすぎない。
 
+## ECU Supplier Boundary
+
+本Repoの立場はECUメーカー起点である。
+そのため、OEMが持つ市場fleetデータ、車両クラウド、保証DB、苦情DB、タイヤ / 路面 / 地域情報を前提にした提案は、初期本体に入れない。
+
+初期提案は、以下に限定する。
+
+> ECUメーカーが、自ECU内部信号・診断設計・NVM証跡・開発評価ログを使って提供できるEPS health intelligence。
+
+OEMデータがあると価値は広がるが、それはOptional extensionとして扱う。
+
+| Layer | Positioning | Data assumption |
+|---|---|---|
+| Core | ECUメーカーが責任を持って定義・実装できるhealth indicator | ECU内部信号、DTC、NVM、HILS / bench / durability log |
+| Optional | OEMのVHM / connected diagnostics / fleet trendに接続する拡張 | OEM cloud、保証DB、苦情、地域、車両側データ |
+
+この分離をしないと、提案が「OEMデータがないと成立しない企画」に見える。
+本件の肝は、OEMデータがなくてもEPS自体の付加価値として成立する最小パッケージを作ることである。
+
 ## Revised Concept
 
 現時点の本命コンセプト:
@@ -43,7 +62,7 @@ One-line:
 - 摩擦増加、センサずれ、電流異常、熱負荷などの兆候を見える化できる
 - 市場返却品や保証解析に使える
 - 次期設計や診断設計改善に戻せる
-- OEMのVehicle Health Managementに接続できるEPSとして差別化できる
+- 将来OEMのVehicle Health Managementに接続できるEPSとして差別化できる
 
 ### Required Buyer / Gatekeeper: Vehicle OEM
 
@@ -62,6 +81,8 @@ OEM側のハードル:
 - 車両クラウド / gateway / 診断仕様への統合
 - 誤通知や過検知の責任
 - 通信量、セキュリティ、プライバシー
+
+ECUメーカー起点の提案では、OEMは初期から必須データ提供者ではなく、量産採用・読み出しチャネル・将来拡張のgatekeeperとして扱う。
 
 ### Secondary Target: OEM market quality / service engineering
 
@@ -114,7 +135,7 @@ EPSメーカー / ギアメーカーは、OEMに対して以下を言える。
 |---|---|---:|---:|---|
 | L1 | Health evidence set | High | Medium | 既存DTC / Extended Data / NVM証跡の拡張。単体価値は弱いが土台になる |
 | L2 | EPS health indicator set | Medium-High | High | 電流、トルク、センサ冗長、熱、電源、イベント累積から指標化する |
-| L3 | Degradation trend package | Medium | High | 同条件比較・cohort比較が必要。EPS付加価値として強い |
+| L3 | ECU-local degradation trend package | Medium | High | ECU内baseline、NVM履歴、開発ログで成立する範囲に限定する |
 | L4 | Connected fleet health analytics | Medium-Low | High | OEMデータ基盤が必要。EPSサプライヤ単独では難しい |
 | L5 | Individual vehicle failure prediction / RUL | Low | Medium-High | 低頻度・教師データ不足・責任が重い。初期主張にしない |
 
@@ -293,6 +314,9 @@ recommended_use: supplier_engineering_review
 - last event condition
 - normalization context
 
+このdatasetは、初期段階ではECU内部で生成・保存できる項目に限定する。
+vehicle model、地域、保証履歴、苦情情報などOEM側データは、将来結合する外部キーまたはOptional extensionとして扱う。
+
 ### 4. Use-case specific views
 
 同じデータでも、利用先ごとに出力を変える。
@@ -300,11 +324,11 @@ recommended_use: supplier_engineering_review
 | User | View |
 |---|---|
 | EPSメーカー / ギアメーカー | 劣化兆候、ロット差、設計改善材料 |
-| OEM VHM team | vehicle health signalとしてのEPS状態 |
-| OEM market quality | 車種 / 地域 / calibration別の兆候偏り |
+| OEM VHM team | vehicle health signalとしてのEPS状態、Optional |
+| OEM market quality | 車種 / 地域 / calibration別の兆候偏り、Optional |
 | Service engineering | 追加診断要否 |
 | Return-part analysis | 使用履歴・負荷履歴 |
-| OTA / remote diagnostics | 読み出しチャネルの一つ |
+| OTA / remote diagnostics | 読み出しチャネルの一つ、Optional |
 
 ## Why This Is More Feasible Than Failure Prediction
 
@@ -326,7 +350,7 @@ EPSでは故障頻度が低いため、初期からここを狙うのは厳し�
 - 返却品解析データ
 - 社内fleetや開発車両
 
-つまり、量産connected fleetがなくても、初期開発ができる。
+つまり、量産connected fleetやOEM cloud dataがなくても、初期開発ができる。
 
 ## Practical Phase Plan
 
@@ -363,7 +387,7 @@ Output:
 - warning threshold draft
 - missing signal list
 
-### Phase 2: EPS Health Indicator Set specification
+### Phase 2: ECU-local Health Indicator Set specification
 
 EPSメーカー / ギアメーカー向けに仕様化する。
 
@@ -374,8 +398,20 @@ Output:
 - storage / reset policy
 - DID / diagnostic readout concept
 - resource estimate
+- OEM-data dependency classification
 
-### Phase 3: OEM proposal
+### Phase 3: EPS supplier-facing proposal
+
+EPS system / gear supplierに対して、OEMへ持ち込めるhealth-ready EPS仕様として提案する。
+
+Output:
+
+- EPS supplier-facing value proposition
+- ECU-local core feature list
+- optional OEM-connected extension list
+- validation plan
+
+### Phase 4: OEM-facing extension proposal
 
 OEMに対して、VHM / Connected Diagnostics / service / warranty / OTAなどに接続できるEPS付加価値として提案する。
 
@@ -428,6 +464,9 @@ Output:
 市場データはOEMが持つ。
 EPSメーカー / ギアメーカーは、health indicator定義と解釈ロジックを提供し、OEMから集計・匿名化されたfeedbackを受ける形が現実的。
 
+ただし、これはOptional extensionである。
+Core proposalは、OEMからの市場データfeedbackがなくても成立するECU-local packageとして定義する。
+
 ## Best Current Target Statement
 
 現時点の攻め筋:
@@ -435,6 +474,7 @@ EPSメーカー / ギアメーカーは、health indicator定義と解釈ロジ�
 > EPS system / gear supplierをPrimary Targetとして、EPS内部信号から故障可能性・劣化兆候・予測用データ材料を出す `EPS Health Intelligence Package` を作る。
 
 OTAは主価値ではなく、読み出しチャネルの一つに置く。
+OEM cloud、保証DB、苦情DB、fleet trendはOptional extensionに置く。
 
 Short version:
 

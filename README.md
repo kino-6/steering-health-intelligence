@@ -30,6 +30,8 @@ EPS / ステアリングシステムに、故障可能性・劣化兆候・予�
 | Required gatekeeper | Vehicle OEM |
 | 主価値 | EPSをhealth-aware subsystemとして差別化する |
 | 初期成果物 | EPS Health Indicator Set for Prognostic Readiness |
+| 初期データ前提 | ECU内部信号、DTC、NVM、HILS / bench / durability log |
+| OEMデータ | Optional extension |
 | AI / 予測 | 初期は故障予測モデルではなく、予測に使える材料整備 |
 | OTA / remote diagnostics | health indicatorを読むチャネルの一つ |
 | 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視 |
@@ -101,6 +103,9 @@ EPS Health Intelligence Package
 - OEMに対して「health-ready EPS」として差別化できる
 
 ただし、量産採用や市場データ活用にはVehicle OEMの合意が必要。
+
+ECUメーカー起点の提案としては、OEMの市場fleetデータ、保証DB、苦情DB、車両クラウドを初期前提にしない。
+まずはECU内部信号と開発評価ログで成立するCore packageを作り、OEMデータ接続はOptional extensionに置く。
 
 ## Repository Structure
 
