@@ -1,13 +1,13 @@
-# 23. Public Proxy Demo Plan: Steering Context Risk Explorer
+# 23. 公開データ代理デモ計画: Steering Context Risk Explorer
 
-## Purpose
+## 目的
 
 公開データ前提で、`1. 市場痛みの公開分類`、`2. 公開ステアリングデータセット棚卸し`、`3. 代理デモ案` をつなげる。
 
 内部のEPS DTC、freeze frame、返却品解析、NTF案件にはアクセスできない。
 したがって、ここで作るデモは `EPS故障予測` ではない。
 
-## Correct Demo Frame
+## 正しいデモの位置づけ
 
 良い言い方:
 
@@ -27,15 +27,15 @@
 - DTC / freeze frame / assist current / motor currentがない
 - 返却品解析やNTF分類は検証できない
 
-## Inputs
+## 入力
 
-### Market-pain cases
+### 市場痛みケース
 
-Use:
+使用ファイル:
 
 - `data/eps_public_market_pain_cases.tsv`
 
-Extract:
+抽出するもの:
 
 - driver-visible pain
 - scenario context
@@ -43,52 +43,52 @@ Extract:
 - reported or suspected cause
 - proxy feature hint
 
-Initial pain taxonomy:
+初期の痛み分類:
 
-| Pain category | Public examples |
+| 痛みカテゴリ | 公開例 |
 |---|---|
-| Increased steering effort | GM, Ford, Tesla, Mazda, Acura recalls/investigations |
-| Warning / lamp / chime | GM, Ford, Chrysler, Hyundai cases |
-| Low-speed maneuver risk | GM and Tesla public materials repeatedly mention greater effort at low speeds |
-| Intermittent assist loss | Ford Fusion, Cadillac/GM ignition-cycle cases, Chrysler Pacifica gradual-turn case |
+| Increased steering effort | GM、Ford、Tesla、Mazda、Acuraのrecall / investigation |
+| Warning / lamp / chime | GM、Ford、Chrysler、Hyundai系ケース |
+| Low-speed maneuver risk | GMやTeslaの公開資料では、低速時に操舵努力が増える説明が繰り返し出る |
+| Intermittent assist loss | Ford Fusion、Cadillac/GM ignition-cycleケース、Chrysler Pacifica gradual-turnケース |
 | Road / pothole context | Tesla Model S/X recall |
 | Gradual-turn sticking / sudden assist return | Chrysler Pacifica PE25009 |
-| Component / supply-chain defect | Hyundai/Kia/Mando MDPS power pack cases |
+| Component / supply-chain defect | Hyundai / Kia / Mando MDPS power packケース |
 
-### Public steering datasets
+### 公開ステアリングデータセット
 
-Use:
+使用ファイル:
 
 - `data/public_steering_dataset_inventory.tsv`
 
-Preferred first dataset:
+最初に見る候補:
 
 1. `commaSteeringControl`
 2. `nuScenes CAN bus expansion`
 3. Kaggle OBD-II / CAN driving behavior dataset
 
-## Proxy Features
+## Proxy Feature
 
-The demo should compute or visualize public-data proxy features.
+デモでは、公開データで近似できるproxy featureを計算または可視化する。
 
-| Proxy feature | Signals needed | Why it matters |
+| Proxy feature | 必要信号 | 意味 |
 |---|---|---|
-| Low-speed high steering demand | speed + steering angle / steerFiltered | Loss of assist is more painful at low speeds |
-| Steering rate / rapid steering | steering angle or steerFiltered over time | Captures sudden steering demand |
-| Steering response mismatch | desired lateral acceleration vs steering-derived lateral acceleration | Shows context where steering response differs from expectation |
-| Repeated high-demand maneuvers | rolling count of high steering demand events | Usage-context proxy, not degradation proof |
-| Road / roll context | roll + steering + lateral acceleration | Helps avoid overclaiming driver behavior as EPS issue |
-| Warning-context placeholder | no public signal; simulated field only | Shows what EPS-local data would add |
+| Low-speed high steering demand | speed + steering angle / steerFiltered | assist lossが起きると低速時ほどドライバー負担が大きい |
+| Steering rate / rapid steering | steering angle or steerFiltered over time | 急操舵需要を捉える |
+| Steering response mismatch | desired lateral acceleration vs steering-derived lateral acceleration | 期待する応答とsteering由来応答の差を見る |
+| Repeated high-demand maneuvers | rolling count of high steering demand events | 使用文脈proxy。劣化証明ではない |
+| Road / roll context | roll + steering + lateral acceleration | road/roll影響を見て、driver behaviorをEPS問題と誤認しないため |
+| Warning-context placeholder | public signalなし。simulated fieldのみ | EPS-local dataがあれば何が足されるかを示す |
 
-## Demo Views
+## デモ画面
 
 ### View 1: Market Pain Map
 
-Input:
+入力:
 
 - `data/eps_public_market_pain_cases.tsv`
 
-Show:
+表示するもの:
 
 - pain category counts
 - scenario context counts
@@ -96,17 +96,17 @@ Show:
 - model/year examples
 - public scale signals
 
-Purpose:
+目的:
 
-> Show that driver-visible EPS pain exists in public sources, without claiming direct business demand.
+> 公開ソース上にdriver-visible EPS painが存在することを示す。ただし、直接の事業需要までは主張しない。
 
 ### View 2: Steering Context Explorer
 
-Input:
+入力:
 
 - public steering time-series dataset
 
-Show:
+表示するもの:
 
 - speed vs steering demand
 - steering demand over time
@@ -114,53 +114,53 @@ Show:
 - outlier segments vs normal segments
 - optional road / roll context if available
 
-Purpose:
+目的:
 
-> Show that public data can identify contexts where assist loss would be more noticeable to the driver.
+> assist lossが起きた場合にドライバー負担が大きくなりそうな文脈を、公開データから特定できることを示す。
 
 ### View 3: Evidence Gap Overlay
 
-Input:
+入力:
 
 - market-pain categories
 - proxy features
 
-Show:
+表示するもの:
 
-| Question | Public data can show | EPS/OEM data still needed |
+| 問い | 公開データで見えること | まだ必要なEPS/OEMデータ |
 |---|---|---|
-| Was steering demand high? | Yes, via steering/speed/lateral dynamics | EPS assist current / motor torque |
-| Was driver exposed to low-speed high effort? | Yes, via speed + steering demand | Driver effort / torque sensor |
-| Was there a warning or DTC? | No, unless public case text says so | DTC / freeze frame / event memory |
-| Was EPS failing? | No | fault label / service record / return-part analysis |
-| Is this a warranty/NTF case? | No | OEM warranty / supplier quality data |
+| 操舵要求は高かったか | steering / speed / lateral dynamicsで見える | EPS assist current / motor torque |
+| 低速高操舵負荷に晒されていたか | speed + steering demandで見える | driver effort / torque sensor |
+| warningやDTCがあったか | 公開テキストに書かれていれば見える | DTC / freeze frame / event memory |
+| EPSは故障していたか | 見えない | fault label / service record / return-part analysis |
+| warranty / NTF案件か | 見えない | OEM warranty / supplier quality data |
 
-Purpose:
+目的:
 
-> Make the boundary clear so the demo does not overclaim.
+> デモが言えることと言えないことの境界を明確にし、過剰主張を避ける。
 
-## Minimal Implementation Plan
+## 最小実装計画
 
-### Phase 1: Static analysis
+### Phase 1: 静的分析
 
-Generate from TSV only:
+TSVだけから生成する:
 
 - pain category counts
 - source counts
 - proxy feature hint counts
 - top scenario contexts
 
-No dataset download required.
+データセットのダウンロードは不要。
 
 ### Phase 2: Dataset notebook
 
-Pick one public dataset:
+公開データセットを1つ選ぶ:
 
-- Start with `commaSteeringControl` if download is practical
-- Fallback to `nuScenes CAN bus` if already available
-- Fallback to a small Kaggle OBD/CAN dataset if Kaggle access works
+- 容量とアクセスが現実的なら `commaSteeringControl`
+- 既に使えるなら `nuScenes CAN bus`
+- Kaggleアクセスが通るなら小さめのOBD/CAN dataset
 
-Compute:
+計算するもの:
 
 - speed distribution
 - steering demand distribution
@@ -168,13 +168,13 @@ Compute:
 - steering rate events
 - context windows around events
 
-### Phase 3: Demo page or notebook
+### Phase 3: デモページまたはNotebook
 
-Create:
+作るもの:
 
-- a notebook or static HTML
-- visualizations
-- a section explicitly titled `What this does not prove`
+- notebookまたはstatic HTML
+- visualization
+- `このデモが証明していないこと` セクション
 
 ## Chain-of-Verification
 
@@ -182,48 +182,48 @@ Create:
 
 > Public datasets can support a demo for EPS reliability value.
 
-### Verification questions
+### 検証質問
 
-1. Do public steering datasets include real EPS fault labels?
-2. Do public cases show driver-visible pain?
-3. Can public steering data identify high-pain contexts?
-4. Can this prove an EPS supplier diagnostic feature has value?
-5. Can this become a clean demo without overclaiming?
+1. 公開steering datasetには実EPS故障ラベルがあるか
+2. 公開ケースからdriver-visible painは見えるか
+3. 公開steering dataから高負担文脈は見えるか
+4. これでEPSサプライヤ向け診断機能の価値を証明できるか
+5. 過剰主張せずに綺麗なデモにできるか
 
 ### Evidence checks
 
-| Question | Evidence | Confidence | Impact |
+| 問い | Evidence | Confidence | Impact |
 |---|---|---:|---|
-| Do public steering datasets include real EPS fault labels? | Dataset inventory shows steering dynamics and CAN signals, but not EPS fault labels or return-part outcomes. | High | Do not claim fault prediction. |
-| Do public cases show driver-visible pain? | NHTSA/recall cases repeatedly mention loss of assist, increased effort, warnings, low-speed risk, intermittent assist behavior. | High | Keep market-pain taxonomy. |
-| Can public steering data identify high-pain contexts? | commaSteeringControl and nuScenes expose steering/speed/lateral dynamics usable for low-speed high-demand and steering response contexts. | Medium-High | Build context proxy, not diagnosis. |
-| Can this prove supplier diagnostic feature value? | No internal buyer, DTC gap, warranty, or return-part data is available. | High | Keep as market/demo exploration only. |
-| Can this become a clean demo without overclaiming? | Yes if the demo explicitly separates public proxy features from missing EPS/OEM evidence. | Medium | Add Evidence Gap Overlay. |
+| 公開steering datasetには実EPS故障ラベルがあるか | Dataset inventoryではsteering dynamicsやCAN信号はあるが、EPS故障ラベルや返却品結果はない。 | High | 故障予測とは言わない。 |
+| 公開ケースからdriver-visible painは見えるか | NHTSA / recall casesにはloss of assist、increased effort、warning、low-speed risk、intermittent assist behaviorが繰り返し出る。 | High | market-pain taxonomyは維持。 |
+| 公開steering dataから高負担文脈は見えるか | commaSteeringControlやnuScenesにはsteering / speed / lateral dynamicsがあり、low-speed high-demandやsteering response contextを作れる。 | Medium-High | diagnosisではなくcontext proxyを作る。 |
+| これでEPSサプライヤ向け診断機能の価値を証明できるか | 内部buyer、DTC gap、warranty、return-part dataがない。 | High | market/demo explorationに留める。 |
+| 過剰主張せずに綺麗なデモにできるか | public proxy featureとmissing EPS/OEM evidenceを明示的に分ければ可能。 | Medium | Evidence Gap Overlayを入れる。 |
 
-## Success Criteria
+## 成功条件
 
-The proxy demo is useful if it can answer:
+Proxy demoが有用と言えるのは、次に答えられる場合。
 
-1. What public EPS pain appears repeatedly?
-2. What driving contexts make assist loss more painful?
-3. Which public signals can show those contexts?
-4. Which EPS-local/OEM signals are still missing?
-5. Does the idea remain EPS-specific, or does it collapse into generic ADAS / vehicle health?
+1. 公開EPS painは何が繰り返し出るか
+2. assist lossが痛くなる運転文脈は何か
+3. その文脈を示せる公開信号は何か
+4. まだ足りないEPS-local / OEM信号は何か
+5. EPS固有の話として残るか、generic ADAS / vehicle healthに埋もれるか
 
-## Kill Criteria
+## 撤退条件
 
-Stop or pivot if:
+停止またはピボットすべき条件:
 
-1. Public pain cases are mostly one-off recalls with no reusable driver pain pattern
-2. Public steering data cannot produce meaningful low-speed / steering-demand context features
-3. The demo looks like generic driving behavior analytics
-4. The missing evidence list is larger than the demonstrated value
-5. No plausible OEM-buyable feature emerges from the demo
+1. 公開pain caseが一回限りのrecallばかりで、再利用できるdriver pain patternがない
+2. 公開steering dataからmeaningfulなlow-speed / steering-demand context featureが作れない
+3. デモがgeneric driving behavior analyticsに見える
+4. missing evidenceの方がdemo valueより大きい
+5. OEMが買える機能仮説に接続できない
 
-## Recommended Next Action
+## 推奨する次アクション
 
-Build Phase 1 first:
+まずPhase 1を作る:
 
-> A static market-pain and proxy-feature summary from `data/eps_public_market_pain_cases.tsv`.
+> `data/eps_public_market_pain_cases.tsv` から、static market-pain and proxy-feature summaryを作る。
 
-This is the fastest check before downloading large public datasets.
+大きな公開データセットをダウンロードする前に、最短で仮説の筋を確認できる。

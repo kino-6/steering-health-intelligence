@@ -1,20 +1,21 @@
 # 24. Steering Context Risk Explorer: Phase 1 Static Report
 
-## Purpose
+## 目的
 
 `docs/23_public_proxy_demo_plan.md` のPhase 1として、ダウンロード不要の静的分析を実施した。
 
-Input:
+入力:
 
 - `data/eps_public_market_pain_cases.tsv`
 - `data/public_steering_dataset_inventory.tsv`
 
-Outputs:
+出力:
 
 - `data/steering_context_risk_phase1_summary.tsv`
+- `generated/steering_context_risk_explorer_phase1_ja.html`
 - `generated/steering_context_risk_explorer_phase1.html`
 
-## Conclusion
+## 結論
 
 公開ケースだけで言える結論:
 
@@ -30,7 +31,7 @@ Outputs:
 
 ## Market Pain Map
 
-### Strongest proxy feature hints
+### 強いproxy feature候補
 
 | Proxy feature hint | Count | Interpretation |
 |---|---:|---|
@@ -42,9 +43,9 @@ Outputs:
 | stop_start_low_speed_context | 2 | stop後、再発進時にassist lossが顕在化する文脈 |
 | gradual_turn_sticking_oversteer | 2 | gradual turnでsticking感やassist急復帰が起きる文脈 |
 
-### Source distribution
+### ソース分布
 
-| Source type | Count | Usefulness |
+| Source type | Count | 使いどころ |
 |---|---:|---|
 | NHTSA ODI investigation | 10 | complaints, population, crash allegations, warranty claimsなどの濃い材料がある |
 | NHTSA recall bulletin | 6 | remedyと症状記述がある |
@@ -52,7 +53,7 @@ Outputs:
 | NHTSA recall acknowledgement | 5 | affected populationとdefect summaryが拾える |
 | WardsAuto / NHTSA-based report | 2 | NHTSA由来情報の補助。primary sourceではない |
 
-## What This Suggests
+## 示唆
 
 ### 1. Low-speed high effort is the first demo axis
 
@@ -65,13 +66,13 @@ Proxy demoでは、次を最初に見るべき。
 - steering rateが高い
 - maneuverが連続する
 
-This does not prove:
+これで証明していないこと:
 
 - EPSが壊れている
 - assist currentが不足している
 - DTCが出る
 
-It only shows:
+これで示せること:
 
 - assist lossが起きた場合に、ドライバー負担が大きそうな文脈
 
@@ -85,7 +86,7 @@ Proxy demoでは、実故障を扱えないため、以下のような表示に�
 - recovered / not observed placeholder
 - missing EPS-local evidence
 
-This does not prove:
+これで証明していないこと:
 
 - restartで本当に回復する原因
 - ECU内部イベントの種類
@@ -116,11 +117,12 @@ Phase 1で一番価値があるのは、予測ではなく境界の可視化。
 | Was EPS failing? | no | EPS fault label / return-part analysis |
 | Is it OEM-buyable? | no | OEM value / feature adoption evidence |
 
-## Recommended Static Demo
+## 推奨する静的デモ
 
-`generated/steering_context_risk_explorer_phase1.html` should be treated as a static Phase 1 artifact.
+`generated/steering_context_risk_explorer_phase1_ja.html` を主となるPhase 1静的成果物として扱う。
+`generated/steering_context_risk_explorer_phase1.html` は英語版として残す。
 
-It shows:
+表示するもの:
 
 - public case count
 - top proxy feature hints
@@ -129,24 +131,24 @@ It shows:
 - evidence gap overlay
 - what the demo does not prove
 
-It does not:
+表示・証明しないもの:
 
 - run a predictive model
 - download public steering datasets
 - infer EPS failures
 - claim direct OEM demand
 
-## Next Action
+## 次アクション
 
-Proceed only if Phase 1 is considered useful.
+Phase 1が有用と判断できる場合のみ進む。
 
-If yes:
+進む場合:
 
 1. Download or sample `commaSteeringControl`
 2. Compute low-speed high steering demand windows
 3. Visualize steering demand vs speed
 4. Add an explicit `missing EPS-local evidence` overlay
 
-If no:
+進まない場合:
 
-Stop this direction before building a dataset notebook.
+dataset notebookを作る前に、この方向を停止する。

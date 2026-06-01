@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Steering Context Risk Explorer - Phase 1</title>
+  <title>ステアリング文脈リスク探索 - Phase 1</title>
   <style>
     :root {
       color-scheme: light;
@@ -21,7 +21,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background: #fff;
-      line-height: 1.55;
+      line-height: 1.6;
     }
     main {
       width: min(1120px, calc(100% - 32px));
@@ -46,7 +46,7 @@
     }
     p { margin: 0 0 12px; }
     .subtitle {
-      max-width: 840px;
+      max-width: 860px;
       color: var(--muted);
       font-size: 17px;
     }
@@ -173,20 +173,20 @@
 <body>
   <main>
     <header>
-      <h1>Steering Context Risk Explorer</h1>
-      <p class="subtitle">Phase 1 static report from public EPS pain cases. This is a context and market-pain explorer, not an EPS failure prediction model.</p>
+      <h1>ステアリング文脈リスク探索</h1>
+      <p class="subtitle">公開EPS痛みケースから作ったPhase 1静的レポート。これは文脈と市場痛みの探索であり、EPS故障予測モデルではありません。</p>
     </header>
 
-    <section class="grid" aria-label="summary metrics">
-      <div class="metric"><div class="value">38</div><div class="label">public EPS pain cases</div></div>
-      <div class="metric"><div class="value">18</div><div class="label">proxy feature hints</div></div>
-      <div class="metric"><div class="value">10</div><div class="label">public data sources inventoried</div></div>
-      <div class="metric"><div class="value">0</div><div class="label">real EPS fault labels in this phase</div></div>
+    <section class="grid" aria-label="サマリー指標">
+      <div class="metric"><div class="value">38</div><div class="label">公開EPS痛みケース</div></div>
+      <div class="metric"><div class="value">18</div><div class="label">proxy feature候補</div></div>
+      <div class="metric"><div class="value">10</div><div class="label">棚卸し済み公開データソース</div></div>
+      <div class="metric"><div class="value">0</div><div class="label">このPhaseの実EPS故障ラベル</div></div>
     </section>
 
-    <div class="notice">Conclusion: public data can map driver-visible EPS pain and high-burden steering contexts. It cannot prove EPS failure prediction, DTC gaps, return-part value, or OEM adoption.</div>
+    <div class="notice">結論: 公開データでは、ドライバーに見えるEPS痛みと、負担が大きくなるステアリング文脈を整理できる。一方で、EPS故障予測、DTC不足、返却品解析価値、OEM採用価値は証明できない。</div>
 
-    <h2>Top Proxy Feature Hints</h2>
+    <h2>上位Proxy Feature候補</h2>
     <div class="bars">
       <div class="bar-row"><div class="bar-label">intermittent_ignition_cycle</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="count">8</div></div>
       <div class="bar-row"><div class="bar-label">warning_plus_low_speed_effort</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="count">4</div></div>
@@ -199,51 +199,51 @@
 
     <div class="two">
       <section class="panel">
-        <h2>Driver-Visible Pain</h2>
-        <p><span class="tag">increased effort</span><span class="tag">loss of assist</span><span class="tag">warning lamp</span><span class="tag">intermittent</span><span class="tag">sticking</span><span class="tag">low-speed burden</span></p>
-        <p>The strongest public pain pattern is not subtle degradation. It is driver-visible assist loss or increased steering effort, often worse at low speed or tied to warning indicators.</p>
+        <h2>ドライバーに見える痛み</h2>
+        <p><span class="tag">操舵努力増加</span><span class="tag">assist loss</span><span class="tag">警告灯</span><span class="tag">断続発生</span><span class="tag">引っかかり感</span><span class="tag">低速時負担</span></p>
+        <p>公開ケースで最も強い痛みは、微妙な劣化ではなく、ドライバーが感じるassist lossや操舵努力増加です。低速時や警告表示と結びつくケースが目立ちます。</p>
       </section>
       <section class="panel">
-        <h2>Best Phase 2 Axis</h2>
-        <p><span class="tag">speed</span><span class="tag">steering angle</span><span class="tag">steering rate</span><span class="tag">lateral acceleration</span></p>
-        <p>Start with low-speed high steering demand. It is repeated in public cases and can be approximated from public steering/CAN datasets without claiming EPS failure prediction.</p>
+        <h2>Phase 2で最初に見る軸</h2>
+        <p><span class="tag">車速</span><span class="tag">舵角</span><span class="tag">操舵速度</span><span class="tag">横加速度</span></p>
+        <p>最初の軸は「低速かつ高操舵負荷」です。公開ケースで繰り返し出ており、公開steering/CANデータでもproxyとして近似できます。ただしEPS故障予測とは言いません。</p>
       </section>
     </div>
 
-    <h2>Source Type Distribution</h2>
+    <h2>ソース種別の分布</h2>
     <table>
-      <thead><tr><th>Source type</th><th>Count</th><th>Why it matters</th></tr></thead>
+      <thead><tr><th>ソース種別</th><th>件数</th><th>使いどころ</th></tr></thead>
       <tbody>
-        <tr><td>NHTSA ODI investigation</td><td>10</td><td>Dense public signals: complaints, population, incidents, warranty claims, crash allegations.</td></tr>
-        <tr><td>NHTSA recall bulletin</td><td>6</td><td>Remedy and symptom wording are useful for scenario mapping.</td></tr>
-        <tr><td>NHTSA recall FAQ</td><td>6</td><td>Often gives driver-facing language.</td></tr>
-        <tr><td>NHTSA recall acknowledgement</td><td>5</td><td>Provides affected population and defect summary.</td></tr>
-        <tr><td>Other public / NHTSA-linked reports</td><td>11</td><td>Useful support, but should not replace primary NHTSA material.</td></tr>
+        <tr><td>NHTSA ODI investigation</td><td>10</td><td>苦情、対象台数、incident、warranty claim、crash allegationなどの濃い公開情報がある。</td></tr>
+        <tr><td>NHTSA recall bulletin</td><td>6</td><td>対策内容と症状表現をscenario mappingに使える。</td></tr>
+        <tr><td>NHTSA recall FAQ</td><td>6</td><td>ドライバー向けの説明文を拾いやすい。</td></tr>
+        <tr><td>NHTSA recall acknowledgement</td><td>5</td><td>affected populationとdefect summaryを拾える。</td></tr>
+        <tr><td>その他公開/NHTSA由来レポート</td><td>11</td><td>補助情報として使えるが、primary sourceの代替にはしない。</td></tr>
       </tbody>
     </table>
 
     <h2>Evidence Gap Overlay</h2>
     <table>
-      <thead><tr><th>Question</th><th>Public data can show</th><th>Still missing</th></tr></thead>
+      <thead><tr><th>問い</th><th>公開データで見えること</th><th>まだ足りないもの</th></tr></thead>
       <tbody>
-        <tr><td>Was steering demand high?</td><td>Yes, with speed + steering angle / lateral dynamics.</td><td>Driver torque, EPS assist current, motor torque.</td></tr>
-        <tr><td>Was the driver exposed to low-speed high effort?</td><td>Yes, as a proxy context.</td><td>Actual driver effort and assist degradation state.</td></tr>
-        <tr><td>Was there a warning or DTC?</td><td>Only if public text says so.</td><td>DTC, freeze frame, event memory, service record.</td></tr>
-        <tr><td>Was EPS failing?</td><td>No.</td><td>Fault label, return-part analysis, warranty / supplier data.</td></tr>
-        <tr><td>Is there OEM-buyable value?</td><td>No direct proof.</td><td>OEM feature interest, adoption path, cost/benefit.</td></tr>
+        <tr><td>操舵要求が大きかったか</td><td>車速 + 舵角 / 横方向ダイナミクスでproxy表示できる。</td><td>ドライバートルク、EPS assist current、モータトルク。</td></tr>
+        <tr><td>低速高操舵負荷に晒されていたか</td><td>proxy文脈としては見える。</td><td>実際のドライバー負担、assist低下状態。</td></tr>
+        <tr><td>警告やDTCが出ていたか</td><td>公開テキストに書かれている場合のみ見える。</td><td>DTC、freeze frame、event memory、サービス履歴。</td></tr>
+        <tr><td>EPSが故障していたか</td><td>見えない。</td><td>故障ラベル、返却品解析、warranty / supplier data。</td></tr>
+        <tr><td>OEMが買う価値があるか</td><td>直接証明できない。</td><td>OEMの採用意向、機能化パス、費用対効果。</td></tr>
       </tbody>
     </table>
 
     <section class="gap">
-      <h2>What This Does Not Prove</h2>
-      <p>This phase does not prove EPS failure prediction, diagnostic evidence value, NTF reduction, return-part analysis improvement, or OEM willingness to buy. It only makes public driver pain and context proxies visible.</p>
+      <h2>このPhaseで証明していないこと</h2>
+      <p>このPhaseは、EPS故障予測、診断証跡価値、NTF削減、返却品解析改善、OEMの購買意欲を証明していません。公開されたドライバー痛みと文脈proxyを見える化しているだけです。</p>
     </section>
 
-    <h2>Recommended Next Step</h2>
-    <p>Download or sample <strong>commaSteeringControl</strong>, then compute low-speed high steering demand windows. Keep an explicit missing-evidence overlay so the demo remains honest.</p>
+    <h2>推奨する次ステップ</h2>
+    <p><strong>commaSteeringControl</strong> を取得またはサンプリングし、低速高操舵負荷のwindowを計算します。その際、必ず「公開データでは見えないEPS-local evidence」を重ねて表示します。</p>
 
     <footer>
-      Sources: data/eps_public_market_pain_cases.tsv, data/public_steering_dataset_inventory.tsv. Generated as a static Phase 1 artifact.
+      Sources: data/eps_public_market_pain_cases.tsv, data/public_steering_dataset_inventory.tsv. Phase 1の静的成果物として生成。
     </footer>
   </main>
 </body>
