@@ -25,6 +25,8 @@
   - Best5のうちPoCに使いやすいhealth summary出力例。
 - `customer_pain_market_signals.tsv`
   - 市場調査で見えたWarranty / NTF / supplier quality / 8D / remote diagnosticsの買い手痛みを整理したTSV。
+- `eps_event_context_market_research.tsv`
+  - EPSサプライヤ視点で、`EPS Event Context Memory` が接続できる市場痛みをWarranty / NTF / returned parts / 8D / RCA中心に整理したTSV。
 
 ## Interpretation
 
@@ -37,3 +39,4 @@
 - サプライヤが責任を持てる範囲に収める
 - ECUメーカー起点で成立するCoreと、OEMデータ接続で広がるOptional extensionを分ける
 - 将来OEM側のVHM / connected diagnostics / 市場品質データと接続しやすい形にする
+- まずはDTCだけでは説明できない市場不具合・返却品・NTF案件に対する、ECU内の小さな状況証拠として価値を検証する

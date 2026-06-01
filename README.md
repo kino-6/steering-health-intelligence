@@ -50,14 +50,14 @@ Common ECU Hardware Health Layer
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/16_common_ecu_hardware_health_pivot.md](docs/16_common_ecu_hardware_health_pivot.md): EPS固有からECU共通hardware healthへ広げる最新ピボット。
-2. [docs/13_business_scheme_reset.md](docs/13_business_scheme_reset.md): 誰が払うか、どの予算に刺すかを整理した事業スキーム再考。
-3. [docs/12_reset_hypothesis_development_evaluation.md](docs/12_reset_hypothesis_development_evaluation.md): 返却品解析ではなく、開発・耐久評価を初期価値に置くリセット仮説。
-4. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): EPS Health Intelligenceの実現性とターゲット整理。
-5. [docs/10_project_charter_eps_health_intelligence.md](docs/10_project_charter_eps_health_intelligence.md): EPS Health IntelligenceのProject Charter。
-6. [data/best5_business_model_candidates.md](data/best5_business_model_candidates.md): 100案から選んだBest5と推奨初手。
-7. [data/business_model_feasibility_100.tsv](data/business_model_feasibility_100.tsv): ビジネスモデル成立性を100案で整理した表。
-8. [data/eps_health_indicator_candidates.tsv](data/eps_health_indicator_candidates.tsv): EPS内部信号から作れるhealth / degradation indicator候補。
+1. [docs/19_market_research_eps_event_context.md](docs/19_market_research_eps_event_context.md): EPSサプライヤ視点で、Warranty / NTF / 返却品解析 / 8Dに刺す市場調査。
+2. [docs/18_market_research_customer_pain.md](docs/18_market_research_customer_pain.md): Warranty / supplier quality市場の買い手痛み。
+3. [docs/17_customer_value_reality_check.md](docs/17_customer_value_reality_check.md): 「誰が嬉しいのか」「外付けモニタと何が違うのか」の現実確認。
+4. [docs/16_common_ecu_hardware_health_pivot.md](docs/16_common_ecu_hardware_health_pivot.md): EPS固有からECU共通hardware healthへ広げる将来ピボット。
+5. [docs/13_business_scheme_reset.md](docs/13_business_scheme_reset.md): 誰が払うか、どの予算に刺すかを整理した事業スキーム再考。
+6. [docs/09_feasibility_and_targeting.md](docs/09_feasibility_and_targeting.md): EPS Health Intelligenceの実現性とターゲット整理。
+7. [data/eps_event_context_market_research.tsv](data/eps_event_context_market_research.tsv): EPS Event Context Memory向けの市場シグナル表。
+8. [data/best5_business_model_candidates.md](data/best5_business_model_candidates.md): 100案から選んだBest5と推奨初手。
 
 ## Business Model Feasibility Work
 
@@ -133,6 +133,7 @@ docs/
   16_common_ecu_hardware_health_pivot.md
   17_customer_value_reality_check.md
   18_market_research_customer_pain.md
+  19_market_research_eps_event_context.md
 
 data/
   business_model_research.tsv
@@ -141,6 +142,7 @@ data/
   best5_business_model_candidates.md
   demo_eps_health_summary_examples.tsv
   customer_pain_market_signals.tsv
+  eps_event_context_market_research.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
   target_feasibility_matrix.tsv
