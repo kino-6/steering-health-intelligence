@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPS Scenario-to-Evidence Pack</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #5e6778;
+      --line: #d9dee8;
+      --panel: #f7f9fc;
+      --accent: #0f766e;
+      --high: #15803d;
+      --medium: #b45309;
+      --low: #7c3aed;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #fff;
+    }
+    header, main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .flow div {
+      min-height: 70px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #ecfdf5;
+      padding: 13px 15px;
+      color: #164e45;
+      margin-top: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .priority {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .priority.high { background: var(--high); }
+    .priority.medium { background: var(--medium); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      background: #fbfcfe;
+    }
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code {
+      background: #eef3f8;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    @media (max-width: 820px) {
+      header, main { padding: 24px 16px; }
+      h1 { font-size: 27px; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EPS Scenario-to-Evidence Pack</h1>
+    <p>Phase 2の公開データ分析を、EPSサプライヤ向けの評価シナリオ・内部信号・診断証跡レビューへ変換する方向性。</p>
+    <p class="note">これは故障予測器ではありません。市場で揉めやすいdriver-visible painを、既存診断で説明できるかを確認するための設計支援パックです。</p>
+  </header>
+  <main>
+    <h2>変換フロー</h2>
+    <div class="flow">
+      <div>Public market pain</div>
+      <div>Public proxy window</div>
+      <div>Supplier evaluation scenario</div>
+      <div>Internal signals to check</div>
+      <div>Existing diagnostic overlap</div>
+      <div>Next test / kill criterion</div>
+    </div>
+
+    <h2>優先シナリオ</h2>
+    <div class="grid">
+      <section class="card">
+        <span class="priority high">High</span>
+        <h3>S2E001 low_speed_high_effort</h3>
+        <p>最初に進める候補。NHTSA痛み文脈とcommaSteeringControl windowが接続しやすい。</p>
+        <p><strong>見る信号:</strong> assist command, motor current, current limit, torque sensor residual, voltage, thermal, assist state.</p>
+        <p><strong>kill:</strong> 現行freeze frameで十分なら追加価値なし。</p>
+      </section>
+      <section class="card">
+        <span class="priority high">High</span>
+        <h3>S2E002 gradual_turn_sticking_oversteer</h3>
+        <p>Pacifica公開調査に近い。stickingやassist復帰エッジを内部状態遷移として扱えるかが論点。</p>
+        <p><strong>見る信号:</strong> assist enable edge, current response, steering angle derivative, friction compensation.</p>
+        <p><strong>kill:</strong> control state transitionを保存できないなら弱い。</p>
+      </section>
+      <section class="card">
+        <span class="priority high">High</span>
+        <h3>S2E004 warning_plus_low_speed_effort</h3>
+        <p>DTC/警告灯に添える操舵文脈snapshotの価値を評価する候補。</p>
+        <p><strong>見る信号:</strong> DTC, pending DTC, occurrence counter, sensor plausibility, assist state.</p>
+        <p><strong>kill:</strong> 現行DTC snapshotが操舵文脈も十分に持つなら不要。</p>
+      </section>
+    </div>
+
+    <h2>全体マトリクス</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scenario</th>
+            <th>Public support</th>
+            <th>Supplier internal signals</th>
+            <th>Value</th>
+            <th>Kill criterion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S2E001</td>
+            <td>low_speed_high_effort</td>
+            <td>NHTSA low-speed increased effort + <code>LSHSD-001/003/005</code></td>
+            <td>assist command, motor current, current limit, torque residual, voltage, thermal</td>
+            <td>評価シナリオと診断snapshot棚卸しに直結</td>
+            <td>現行freeze frameで十分ならkill</td>
+          </tr>
+          <tr>
+            <td>S2E002</td>
+            <td>gradual_turn_sticking_oversteer</td>
+            <td>Pacifica公開調査 + 正常走行proxy</td>
+            <td>assist state transition, motor current response, steering angle derivative</td>
+            <td>一過性/再現不能/NTF寄りの解析論点に接続</td>
+            <td>状態遷移を保存できないなら弱い</td>
+          </tr>
+          <tr>
+            <td>S2E003</td>
+            <td>stop_start_low_speed_context</td>
+            <td>市場文脈は強いが今回windowは不足</td>
+            <td>power transient, reset flag, motor driver state, failsafe state</td>
+            <td>次のデータ取得条件を明確化</td>
+            <td>0-5 m/s再走査で候補が出なければ別データへ</td>
+          </tr>
+          <tr>
+            <td>S2E004</td>
+            <td>warning_plus_low_speed_effort</td>
+            <td>警告灯/MIL/EPS lamp + assist loss公開文脈</td>
+            <td>DTC, pending DTC, occurrence counter, sensor plausibility</td>
+            <td>DTCに添える文脈snapshotの価値を評価</td>
+            <td>DTC snapshotが十分ならkill</td>
+          </tr>
+          <tr>
+            <td>S2E005</td>
+            <td>voltage_temperature_friction_context</td>
+            <td>既存DTC文脈が公開調査に出る</td>
+            <td>voltage rails, ECU temperature, derating, estimated friction</td>
+            <td>既存診断を否定せずextended dataレビューへ接続</td>
+            <td>extended dataが十分なら追加不要</td>
+          </tr>
+          <tr>
+            <td>S2E006</td>
+            <td>rough_road_pothole_context</td>
+            <td>市場文脈はあるがcomma単体では路面識別不可</td>
+            <td>IMU, wheel disturbance, road shock proxy, assist/failsafe state</td>
+            <td>路面イベント後の説明材料候補</td>
+            <td>IMU/road contextが取れないなら成立しにくい</td>
+          </tr>
+          <tr>
+            <td>S2E007</td>
+            <td>mdps_power_pack_or_ecu_hardware</td>
+            <td>部品/サプライヤ文脈は強いが走行windowとは別</td>
+            <td>voltage rails, motor driver fault, short/open detection, production lot</td>
+            <td>bench/EOL/return-part evidenceへ分けるべき</td>
+            <td>走行文脈が寄与しないなら別トラック化</td>
+          </tr>
+          <tr>
+            <td>S2E008</td>
+            <td>mechanical_worm_or_harness_turn_context</td>
+            <td>旋回文脈と機械/ハーネス原因の公開ケース</td>
+            <td>current response, torque residual, friction estimate, connector plausibility</td>
+            <td>ギア/メカ側との共同評価シナリオに接続</td>
+            <td>ECU信号だけで説明しようとすると弱い</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>次の判断</h2>
+    <p>まず <code>S2E001 low_speed_high_effort</code> だけを対象に、上位windowをHILS/bench評価入力に変換し、現行DTC / freeze frame / extended dataで説明できるかを棚卸しする。</p>
+    <p>ここで十分ならkill。足りないなら、NVM制約内で1-3個の追加証跡候補だけに絞る。</p>
+  </main>
+</body>
+</html>

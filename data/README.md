@@ -45,6 +45,8 @@
   - 低速・高操舵要求proxyとして抽出した上位12件の代表window。
 - `low_speed_high_steering_proxy_timeseries.tsv`
   - 上位5件の代表windowについて、`vEgo`、`steerFiltered`、`steeringAngleDeg`、`latAccelDesired` などの時系列を切り出したTSV。
+- `eps_scenario_to_evidence_pack.tsv`
+  - 公開市場文脈と公開走行windowを、EPSサプライヤ向けの評価シナリオ、内部信号、既存診断との差分、次検証、kill criterionへ変換したTSV。
 
 ## Interpretation
 
@@ -62,3 +64,4 @@
 - ケース分類の価値は、分類表そのものではなく、診断仕様改善、顧客品質報告、追加データ要求、事業継続判断を可能にすることに置く
 - 内部一次情報がない場合、公開データでできるのは市場痛み分類とsteering context proxy demoまでであり、EPS内部故障予測や返却品解析価値は証明できない
 - commaSteeringControlのproxy demoは、低速・高操舵要求の正常走行windowを作るものであり、assist loss、劣化兆候、DTC不足を直接示すものではない
+- `eps_scenario_to_evidence_pack.tsv` の価値は、追加証跡を断定することではなく、既存DTC / freeze frame / extended dataで十分かをシナリオ別に潰すことにある

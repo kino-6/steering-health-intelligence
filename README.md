@@ -63,11 +63,13 @@ Public Proxy Data Reset
 3. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
 4. [docs/24_steering_context_risk_phase1.md](docs/24_steering_context_risk_phase1.md): TSVだけで作ったPhase 1静的分析結果。
 5. [docs/25_low_speed_high_steering_proxy_phase2.md](docs/25_low_speed_high_steering_proxy_phase2.md): commaSteeringControlで作った低速・高操舵要求proxy抽出結果。
-6. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
-7. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
-8. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
-9. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
-10. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+6. [docs/26_scenario_to_evidence_pack_direction.md](docs/26_scenario_to_evidence_pack_direction.md): Phase 2をEPSサプライヤ向けの評価・診断証跡設計へ変換する方向性。
+7. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
+8. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
+9. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
+10. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
+11. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+12. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
 
 ## プロジェクトSkill
 
@@ -163,6 +165,7 @@ docs/
   23_public_proxy_demo_plan.md
   24_steering_context_risk_phase1.md
   25_low_speed_high_steering_proxy_phase2.md
+  26_scenario_to_evidence_pack_direction.md
 
 data/
   business_model_research.tsv
@@ -180,6 +183,7 @@ data/
   low_speed_high_steering_proxy_summary.tsv
   low_speed_high_steering_proxy_windows.tsv
   low_speed_high_steering_proxy_timeseries.tsv
+  eps_scenario_to_evidence_pack.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -187,6 +191,7 @@ data/
   eps_health_indicator_candidates.tsv
 
 generated/
+  eps_scenario_to_evidence_pack.html
   low_speed_high_steering_proxy.html
   steering_context_risk_explorer_phase1_ja.html
   steering_context_risk_explorer_phase1.html
@@ -199,6 +204,7 @@ scripts/
 
 - 内部NTF/返却品ケースにはアクセスできない前提で、公開市場情報と公開データで検証可能な範囲に絞る
 - NHTSA / recall public dataから作ったdriver-visible pain taxonomyを、Phase 1静的デモで確認する
-- `generated/low_speed_high_steering_proxy.html` を見て、低速高操舵負荷proxyが評価シナリオとして議論に足るか判断する
-- 同じ抽出を2-3車種へ広げ、車種差・EPS firmware version差が議論可能かを見る
+- `generated/eps_scenario_to_evidence_pack.html` を見て、まず `S2E001 low_speed_high_effort` を評価・診断証跡レビューに進めるか判断する
+- `S2E001` で現行DTC / freeze frame / extended dataが十分なら、この方向はkillする
+- 足りなければ、NVM制約内で追加すべき証跡を1-3個に絞る
 - 公開データで証明できない内部診断証跡・DTC不足・返却品解析価値は、未検証として扱う
