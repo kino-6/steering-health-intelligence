@@ -39,6 +39,12 @@
   - 公開steering / CAN / OBD / Kaggle datasetの信号、用途、できないこと、優先度を整理したTSV。
 - `steering_context_risk_phase1_summary.tsv`
   - `Steering Context Risk Explorer` Phase 1の静的集計結果。公開EPS pain caseのsource、proxy feature、driver-visible pain、boundaryを整理。
+- `low_speed_high_steering_proxy_summary.tsv`
+  - commaSteeringControl `CHRYSLER_PACIFICA_2018` の走査条件、件数、候補window件数の要約。
+- `low_speed_high_steering_proxy_windows.tsv`
+  - 低速・高操舵要求proxyとして抽出した上位12件の代表window。
+- `low_speed_high_steering_proxy_timeseries.tsv`
+  - 上位5件の代表windowについて、`vEgo`、`steerFiltered`、`steeringAngleDeg`、`latAccelDesired` などの時系列を切り出したTSV。
 
 ## Interpretation
 
@@ -55,3 +61,4 @@
 - ただしDTC、freeze frame、extended data、event memory自体は既存診断であり、新規性はサプライヤ内部の案件棚卸しから不足証跡を特定することに置く
 - ケース分類の価値は、分類表そのものではなく、診断仕様改善、顧客品質報告、追加データ要求、事業継続判断を可能にすることに置く
 - 内部一次情報がない場合、公開データでできるのは市場痛み分類とsteering context proxy demoまでであり、EPS内部故障予測や返却品解析価値は証明できない
+- commaSteeringControlのproxy demoは、低速・高操舵要求の正常走行windowを作るものであり、assist loss、劣化兆候、DTC不足を直接示すものではない

@@ -1,0 +1,11 @@
+metric	value
+dataset_url	https://huggingface.co/datasets/commaai/commaSteeringControl
+readme_url	https://huggingface.co/datasets/commaai/commaSteeringControl/raw/main/README.md
+vehicle	CHRYSLER_PACIFICA_2018
+low_speed_mps	8.0
+steer_threshold	0.25
+total_files	3489
+total_samples	2091708
+low_speed_samples	87334
+high_demand_samples	8412
+candidate_windows	231
