@@ -57,6 +57,8 @@
   - `BMR001 EPS Market Pain Scenario Library` の初期3枚scenario card。公開市場case、代表proxy window、売り先、評価シナリオ、設計レビュー質問、診断証跡質問、RFQ文言、Kill条件を整理。
 - `bmr002_rfq_design_review_pack.tsv`
   - BMR001のscenario cardを、RFQ/設計レビュー1ページに変換するための構成部品。Market Pain Coverage Statement、Scenario Readiness Matrix、Supplier-Owned Boundary、Diagnostic Explainability Checklist、Validation Scenario Hook、Customer Quality Fact Summary Skeletonを整理。
+- `market_demand_solution_map.tsv`
+  - `こんなEPS事例がある` ではなく、市場需要、未解決の痛み、買い手、現在の回避策、解決仮説、初期offer、demo、言ってはいけないことを対応づけたTSV。最新の主仮説は `EPS Warranty / RCA Evidence Readiness Pack`。
 
 ## Interpretation
 
@@ -80,3 +82,4 @@
 - `business_model_rebranch_after_s2e001_hold.tsv` では、ECU内追加証跡商品を現時点では追わず、公開市場文脈を使ったscenario library、RFQ/design review pack、diagnostic evidence workshopへ軸を戻す
 - `bmr001_market_pain_scenario_cards.tsv` では、故障予測や既存診断不足を主張せず、公開市場ペインを評価、設計レビュー、RFQ、顧客品質説明で使うscenario cardへ変換する
 - `bmr002_rfq_design_review_pack.tsv` では、scenario card単体では価値が弱い前提を置き、RFQ回答、設計レビュー、DRBFM、評価計画へ転記できる1ページに変換できるかを検証する
+- `market_demand_solution_map.tsv` では、BMR001/BMR002を主商品ではなく前段材料に下げ、市場需要をNTF、返却品解析、保証claim、SCAR/8D、顧客品質説明で使えるproduct-side evidenceへ置き直す

@@ -44,14 +44,14 @@ Public Proxy Data Reset
 
 | 観点 | 現在の見立て |
 |---|---|
-| 最新ピボット | Existing Diagnostics / OEM Boundary Check |
-| EPS向け軸 | Public Market Pain Scenario Readiness |
-| 初期検証軸 | 公開市場ペインをRFQ / 設計レビュー / 評価 / 診断レビューへ転記できるか |
-| 近い商品名 | EPS Scenario Readiness Pack |
-| Primary target | EPS supplier sales engineering / validation / diagnostic engineering / customer quality |
-| 初期データ前提 | 公開NHTSA/recall/ODI/TSB、公開走行proxy、既存評価・診断レビュー観点 |
+| 最新ピボット | Market Demand To Warranty / RCA Evidence |
+| EPS向け軸 | EPS Warranty / RCA Evidence Readiness |
+| 初期検証軸 | NTF / 返却品解析 / 保証claim / 8Dで使えるproduct-side factsを定義できるか |
+| 近い商品名 | EPS Warranty / RCA Evidence Readiness Pack |
+| Primary target | EPS supplier warranty / supplier quality / diagnostic engineering / customer quality |
+| 初期データ前提 | 公開NHTSA/recall/ODI/TSB、公開走行proxy、既存DTC/freeze frame/extended dataのレビュー観点 |
 | OEMデータ | Optional extension |
-| AI / 予測 | 初期は故障予測モデルではなく、市場文脈からレビュー材料を生成 |
+| AI / 予測 | 初期は故障予測モデルではなく、NTF/RCA/品質報告に使う証拠整理 |
 | 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視、既存診断証跡の新規実装主張 |
 
 ## 推奨読書順
@@ -69,17 +69,19 @@ Public Proxy Data Reset
 9. [docs/29_business_model_rebranch_after_s2e001_hold.md](docs/29_business_model_rebranch_after_s2e001_hold.md): S2E001 Hold後のビジネスモデル再分岐。
 10. [docs/30_bmr001_market_pain_scenario_cards.md](docs/30_bmr001_market_pain_scenario_cards.md): BMR001の初期3枚scenario cardと商品化境界。
 11. [docs/31_bmr002_rfq_design_review_pack.md](docs/31_bmr002_rfq_design_review_pack.md): BMR001をRFQ/設計レビュー1ページへ変換したBMR002 sample。
-12. [generated/bmr002_rfq_design_review_pack.html](generated/bmr002_rfq_design_review_pack.html): BMR002 Scenario Readiness Pageのブラウザ表示。
-13. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
-14. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
-15. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
-16. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
-17. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
-18. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
-19. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
-20. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
-21. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
-22. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+12. [docs/32_market_demand_solution_framing.md](docs/32_market_demand_solution_framing.md): 市場需要から解決策へ組み替えた最新結論。
+13. [generated/market_demand_solution_framing.html](generated/market_demand_solution_framing.html): Demand-to-solution framingのブラウザ表示。
+14. [generated/bmr002_rfq_design_review_pack.html](generated/bmr002_rfq_design_review_pack.html): BMR002 Scenario Readiness Pageのブラウザ表示。
+15. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
+16. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
+17. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
+18. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
+19. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
+20. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
+21. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
+22. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
+23. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+24. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
 
 ## プロジェクトSkill
 
@@ -181,6 +183,7 @@ docs/
   29_business_model_rebranch_after_s2e001_hold.md
   30_bmr001_market_pain_scenario_cards.md
   31_bmr002_rfq_design_review_pack.md
+  32_market_demand_solution_framing.md
 
 data/
   business_model_research.tsv
@@ -204,6 +207,7 @@ data/
   business_model_rebranch_after_s2e001_hold.tsv
   bmr001_market_pain_scenario_cards.tsv
   bmr002_rfq_design_review_pack.tsv
+  market_demand_solution_map.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -211,6 +215,7 @@ data/
   eps_health_indicator_candidates.tsv
 
 generated/
+  market_demand_solution_framing.html
   bmr002_rfq_design_review_pack.html
   bmr001_market_pain_scenario_cards.html
   business_model_rebranch_after_s2e001_hold.html
@@ -236,6 +241,7 @@ scripts/
 - `data/s2e001_diagnostic_evidence_review_template.tsv` は、Proceedを主張するためではなく、Proceed / Kill / Holdを判定するために使う
 - ビジネスモデル探索は `BMR001 EPS Market Pain Scenario Library` を初期3枚のscenario cardまで具体化済み
 - `BMR002 RFQ / Design Review Evidence Pack` は1ページsampleまで具体化済み
-- 次は `SCN001 low-speed high effort` に絞った30分の模擬design review agendaを作り、BMR003に進む価値があるかを見る
-- `BMR003 Diagnostic Evidence Design Review Workshop` は、BMR002 sampleがRFQ/DR/評価計画に転記できる反応があった場合だけ進める
+- 最新結論では、BMR001/BMR002は主商品ではなく `EPS Warranty / RCA Evidence Readiness Pack` の前段材料に下げる
+- 次は `SCN001 low-speed high effort` で、NTF / returned-part RCA向けのEvidence Readiness Pack sampleを作る
+- `BMR003 Diagnostic Evidence Design Review Workshop` は、RCA/8D/顧客品質報告に転記できるsampleが作れた場合だけ進める
 - 公開データで証明できない内部診断証跡・DTC不足・返却品解析価値は、未検証として扱う
