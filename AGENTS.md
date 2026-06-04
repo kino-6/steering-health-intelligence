@@ -48,7 +48,7 @@
 
 現在の主仮説は以下。
 
-> EPS Warranty / RCA Evidence Readiness Pack
+> EPS RCA / 8D Evidence Case Pack
 
 市場需要:
 
@@ -59,10 +59,10 @@
 
 解決:
 
-- 公開市場caseをscenario familyへ分類する
-- scenario別に、RCA / 8D / 顧客品質説明で必要なproduct-side factsを定義する
-- 既存DTC / freeze frame / extended dataで足りるかを確認する
-- 足りない場合でも追加ログを断定せず、確認すべき項目、読める経路、未確認事項を整理する
+- 1ケースまたは20-50件の返却品/NTF/市場claimを、RCA / 8D / 顧客品質説明に使えるcase artifactへ変換する
+- 確認済み事実、未確認事項、推定禁止、次に確認するDID/試験/OEM要求データを整理する
+- 既存DTC / freeze frame / extended data / readerで説明できる範囲を明確化する
+- ログ追加は初期商品ではなく、複数caseで繰り返し不足するfactが見えた後の派生成果とする
 
 ## Historical Notes
 
@@ -76,7 +76,7 @@
 - Market Pain Scenario Library単体
 - RFQ / Design Review Pack単体
 
-これらは、`EPS Warranty / RCA Evidence Readiness Pack` の材料やoptional extensionとしてのみ使う。
+これらは、`EPS RCA / 8D Evidence Case Pack` の材料やoptional extensionとしてのみ使う。
 
 ## Required Output Shape
 
