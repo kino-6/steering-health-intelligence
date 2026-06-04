@@ -67,15 +67,17 @@ Public Proxy Data Reset
 7. [docs/27_s2e001_diagnostic_evidence_gap_check.md](docs/27_s2e001_diagnostic_evidence_gap_check.md): S2E001を既存DTC/freeze frameで説明できるか見るgap check。
 8. [docs/28_s2e001_diagnostic_evidence_review_template.md](docs/28_s2e001_diagnostic_evidence_review_template.md): 内部DTC仕様を入れてProceed/Kill/Holdを判定するレビュー手順。
 9. [docs/29_business_model_rebranch_after_s2e001_hold.md](docs/29_business_model_rebranch_after_s2e001_hold.md): S2E001 Hold後のビジネスモデル再分岐。
-10. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
-11. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
-12. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
-13. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
-14. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
-15. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
-16. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
-17. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
-18. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+10. [docs/30_bmr001_market_pain_scenario_cards.md](docs/30_bmr001_market_pain_scenario_cards.md): BMR001の初期3枚scenario cardと商品化境界。
+11. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
+12. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
+13. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
+14. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
+15. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
+16. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
+17. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
+18. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
+19. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+20. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
 
 ## プロジェクトSkill
 
@@ -175,6 +177,7 @@ docs/
   27_s2e001_diagnostic_evidence_gap_check.md
   28_s2e001_diagnostic_evidence_review_template.md
   29_business_model_rebranch_after_s2e001_hold.md
+  30_bmr001_market_pain_scenario_cards.md
 
 data/
   business_model_research.tsv
@@ -196,6 +199,7 @@ data/
   s2e001_diagnostic_evidence_gap_check.tsv
   s2e001_diagnostic_evidence_review_template.tsv
   business_model_rebranch_after_s2e001_hold.tsv
+  bmr001_market_pain_scenario_cards.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -203,6 +207,7 @@ data/
   eps_health_indicator_candidates.tsv
 
 generated/
+  bmr001_market_pain_scenario_cards.html
   business_model_rebranch_after_s2e001_hold.html
   s2e001_diagnostic_evidence_review_template.html
   s2e001_diagnostic_evidence_gap_check.html
@@ -224,5 +229,7 @@ scripts/
 - 十分なら `S2E001` はkill。足りなければ、Demand-to-output margin、Limit / derating reason、Pre-event scalar summaryのうち1-3個だけに絞る
 - `S2E001` は現時点ではHold。内部DTC仕様、reader可否、NVM制約を確認できない場合、追加証跡ビジネス仮説としては進めない
 - `data/s2e001_diagnostic_evidence_review_template.tsv` は、Proceedを主張するためではなく、Proceed / Kill / Holdを判定するために使う
-- ビジネスモデル探索は `BMR001 EPS Market Pain Scenario Library` と `BMR003 Diagnostic Evidence Design Review Workshop` を中心に再分岐する
+- ビジネスモデル探索は `BMR001 EPS Market Pain Scenario Library` を初期3枚のscenario cardまで具体化済み
+- 次は `BMR002 RFQ / Design Review Evidence Pack` の1ページsampleを作り、提案資料/設計レビュー資料へ転記できるかを見る
+- `BMR003 Diagnostic Evidence Design Review Workshop` は、BMR002 sampleへの反応を見てworkshop agendaへ落とす
 - 公開データで証明できない内部診断証跡・DTC不足・返却品解析価値は、未検証として扱う

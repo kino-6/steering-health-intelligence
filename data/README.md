@@ -53,6 +53,8 @@
   - 内部DTC仕様、freeze frame、extended data、返却品reader可否、NVM制約を入力して、S2E001をProceed / Kill / Hold判定するテンプレート。
 - `business_model_rebranch_after_s2e001_hold.tsv`
   - S2E001 Hold後に、内部データ不要で売れるもの、内部データがあれば売れるもの、OEM依存で後回しのものへビジネスモデルを再分岐したTSV。
+- `bmr001_market_pain_scenario_cards.tsv`
+  - `BMR001 EPS Market Pain Scenario Library` の初期3枚scenario card。公開市場case、代表proxy window、売り先、評価シナリオ、設計レビュー質問、診断証跡質問、RFQ文言、Kill条件を整理。
 
 ## Interpretation
 
@@ -74,3 +76,4 @@
 - `s2e001_diagnostic_evidence_gap_check.tsv` では、車速/操舵角/電圧/温度/カウンタのように既存で残りやすいものを追加価値として扱わず、assist demand-to-output、limit/derating、pre-event scalar summaryだけを条件付き候補に残す
 - `s2e001_diagnostic_evidence_review_template.tsv` は、追加候補を提案するためではなく、内部診断仕様を入れた結果としてProceed / Kill / Holdを判定するためのレビュー表である。内部仕様を確認できない場合、S2E001はHoldとして扱う
 - `business_model_rebranch_after_s2e001_hold.tsv` では、ECU内追加証跡商品を現時点では追わず、公開市場文脈を使ったscenario library、RFQ/design review pack、diagnostic evidence workshopへ軸を戻す
+- `bmr001_market_pain_scenario_cards.tsv` では、故障予測や既存診断不足を主張せず、公開市場ペインを評価、設計レビュー、RFQ、顧客品質説明で使うscenario cardへ変換する
