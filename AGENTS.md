@@ -21,7 +21,7 @@
 
 良い提示:
 
-> 市場ではNTF、返却品解析、保証claim、SCAR/8D、顧客品質説明で、サプライヤ側が使えるproduct-side evidence不足が痛みになっている。EPSサプライヤは、scenario別に必要factsを定義し、既存DTC/freeze frame/extended dataで説明できるかを確認するEvidence Readiness Packを提供できる。
+> 市場ではloss of assist、低速高操舵、警告灯+DTC、intermittent assist loss、stop-start、software/failsafeなどのEPS共通pain familyが繰り返し問題化している。EPSサプライヤは、各scenarioに対して既存DTC/freeze frame/extended data、reader、HILS/bench評価がどこまで説明・再現できるかをCoverage Benchmarkとして提示できる。
 
 ## EPS Supplier Lens
 
@@ -42,27 +42,28 @@
 
 良い結論:
 
-> 市場にはこういう需要がある。そのうちEPSサプライヤが初期に取れる手札は、既存DTC/freeze frame/extended dataと返却品readerを使ったRCA Evidence Readiness Packである。OEM保証DB連携やfleet analyticsはoptional extensionに置く。
+> 市場にはこういう需要がある。そのうちEPSサプライヤが初期に取れる手札は、EPS共通scenarioに対する既存DTC/freeze frame/extended data、reader、HILS/bench評価のCoverage Benchmarkである。RCA/8DやOEM保証DB連携は主商品ではなく、副次用途またはoptional extensionに置く。
 
 ## Current Main Hypothesis
 
 現在の主仮説は以下。
 
-> EPS RCA / 8D Evidence Case Pack
+> EPS Diagnostic / Robustness Coverage Benchmark
 
 市場需要:
 
-- NTF / 返却品解析で原因が再現しない
-- 保証claim、修理記述、DTC、返却品解析が分断される
-- SCAR / 8D / CAPAで、確認済み事実と未確認事項を分けた証拠が必要
-- OEM保証DBやfleet dataに完全依存すると、EPSサプライヤ側の説明が後手になる
+- loss of assist、低速高操舵、警告灯+DTC、intermittent assist loss、stop-start、software/failsafeなどのEPS共通pain familyが公開市場で繰り返し出ている
+- 既存DTC / freeze frame / extended data / readerが、その共通scenarioをどこまで説明できるかをprogram横断で比較しにくい
+- HILS / bench / vehicle evaluationで再現すべき市場scenarioが、公開caseから体系化されにくい
+- 個別RCA/8Dは製品/OEM/案件固有で、主商品にするとスケールしない
 
 解決:
 
-- 1ケースまたは20-50件の返却品/NTF/市場claimを、RCA / 8D / 顧客品質説明に使えるcase artifactへ変換する
-- 確認済み事実、未確認事項、推定禁止、次に確認するDID/試験/OEM要求データを整理する
-- 既存DTC / freeze frame / extended data / readerで説明できる範囲を明確化する
-- ログ追加は初期商品ではなく、複数caseで繰り返し不足するfactが見えた後の派生成果とする
+- 公開EPS caseを共通pain familyへ分類する
+- 各familyに対して、既存DTC / freeze frame / extended data / reader / HILS / bench評価のcoverage matrixを作る
+- 現行診断で足りる、足りない、不要を分ける
+- program / generation間でcoverage差分を比較する
+- RCA/8Dや顧客品質報告は、coverage結果を転記する副次artifactとして扱う
 
 ## Historical Notes
 
@@ -75,8 +76,9 @@
 - OTA / remote diagnosticsを主商品にする案
 - Market Pain Scenario Library単体
 - RFQ / Design Review Pack単体
+- RCA / 8D Evidence Case Pack単体
 
-これらは、`EPS RCA / 8D Evidence Case Pack` の材料やoptional extensionとしてのみ使う。
+これらは、`EPS Diagnostic / Robustness Coverage Benchmark` の材料、副次用途、またはoptional extensionとしてのみ使う。
 
 ## Required Output Shape
 
