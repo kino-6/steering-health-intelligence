@@ -49,6 +49,8 @@
   - 公開市場文脈と公開走行windowを、EPSサプライヤ向けの評価シナリオ、内部信号、既存診断との差分、次検証、kill criterionへ変換したTSV。
 - `s2e001_diagnostic_evidence_gap_check.tsv`
   - `S2E001 low_speed_high_effort` に絞り、必要証跡、既存診断の想定カバー範囲、不足時の追加候補、内部確認項目を整理したTSV。
+- `s2e001_diagnostic_evidence_review_template.tsv`
+  - 内部DTC仕様、freeze frame、extended data、返却品reader可否、NVM制約を入力して、S2E001をProceed / Kill / Hold判定するテンプレート。
 
 ## Interpretation
 
@@ -68,3 +70,4 @@
 - commaSteeringControlのproxy demoは、低速・高操舵要求の正常走行windowを作るものであり、assist loss、劣化兆候、DTC不足を直接示すものではない
 - `eps_scenario_to_evidence_pack.tsv` の価値は、追加証跡を断定することではなく、既存DTC / freeze frame / extended dataで十分かをシナリオ別に潰すことにある
 - `s2e001_diagnostic_evidence_gap_check.tsv` では、車速/操舵角/電圧/温度/カウンタのように既存で残りやすいものを追加価値として扱わず、assist demand-to-output、limit/derating、pre-event scalar summaryだけを条件付き候補に残す
+- `s2e001_diagnostic_evidence_review_template.tsv` は、追加候補を提案するためではなく、内部診断仕様を入れた結果としてKillできるならKillするためのレビュー表である
