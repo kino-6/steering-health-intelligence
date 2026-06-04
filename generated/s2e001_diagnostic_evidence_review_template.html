@@ -117,8 +117,14 @@
 <body>
   <header>
     <h1>S2E001 Diagnostic Evidence Review Template</h1>
-    <p>内部DTC仕様、freeze frame、extended data、返却品reader、NVM制約を入れて、low_speed_high_effortをProceed/Kill/Hold判定するためのレビュー用ビュー。</p>
+    <p>現時点の結論はHold。公開データだけでは既存DTC / freeze frame / extended dataで足りないと断定できないため、low_speed_high_effortは追加証跡商品としては未成立です。</p>
+    <p>内部DTC仕様、freeze frame、extended data、返却品reader、NVM制約は「要求資料」ではなく、Proceed扱いに進めるための判定ゲートです。確認できない場合はHoldまたはKillに寄せます。</p>
     <div class="decision-grid">
+      <section class="card panel">
+        <span class="tag hold">Default</span>
+        <h3>Hold</h3>
+        <p>内部仕様が未確認ならここで止める。公開データ分析を増やしても、追加証跡価値の証明には進みません。</p>
+      </section>
       <section class="card panel">
         <span class="tag kill">Kill</span>
         <h3>既存診断で十分</h3>
@@ -128,11 +134,6 @@
         <span class="tag go">Proceed</span>
         <h3>最小候補だけ進める</h3>
         <p>既存に明確な不足があり、scalar summaryで済み、サプライヤが読め、観測事実として説明できる場合。</p>
-      </section>
-      <section class="card panel">
-        <span class="tag hold">Hold</span>
-        <h3>仕様未確認</h3>
-        <p>DTCごとの差、reader権限、NVM制約、対象EPSの過去案件が未確認の場合。</p>
       </section>
     </div>
   </header>
@@ -183,8 +184,8 @@
       </table>
     </div>
 
-    <h2>次に必要な内部資料</h2>
-    <p><code>assist loss / assist limited</code> 系DTCのfreeze frame、<code>current limit / current tracking</code> 系DTCのextended data、assist mode transitionのevent memory有無、返却品readerで読めるDID一覧、NVM保存制約。</p>
+    <h2>判定ゲート</h2>
+    <p><code>assist loss / assist limited</code> 系DTCのfreeze frame、<code>current limit / current tracking</code> 系DTCのextended data、assist mode transitionのevent memory有無、返却品readerで読めるDID一覧、NVM保存制約。これらが確認できない場合、S2E001は公開デモ/評価シナリオとして止め、追加証跡ビジネス仮説としては進めません。</p>
   </main>
 </body>
 </html>

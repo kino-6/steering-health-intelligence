@@ -217,5 +217,6 @@ scripts/
 - `generated/eps_scenario_to_evidence_pack.html` を見て、まず `S2E001 low_speed_high_effort` を評価・診断証跡レビューに進めるか判断する
 - `generated/s2e001_diagnostic_evidence_gap_check.html` を使って、現行DTC / freeze frame / extended dataで十分かを確認する
 - 十分なら `S2E001` はkill。足りなければ、Demand-to-output margin、Limit / derating reason、Pre-event scalar summaryのうち1-3個だけに絞る
-- `data/s2e001_diagnostic_evidence_review_template.tsv` に内部DTC仕様、reader可否、NVM制約を入れ、Proceed / Kill / Holdを判定する
+- `S2E001` は現時点ではHold。内部DTC仕様、reader可否、NVM制約を確認できない場合、追加証跡ビジネス仮説としては進めない
+- `data/s2e001_diagnostic_evidence_review_template.tsv` は、Proceedを主張するためではなく、Proceed / Kill / Holdを判定するために使う
 - 公開データで証明できない内部診断証跡・DTC不足・返却品解析価値は、未検証として扱う
