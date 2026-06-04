@@ -23,6 +23,27 @@
 
 > 市場ではNTF、返却品解析、保証claim、SCAR/8D、顧客品質説明で、サプライヤ側が使えるproduct-side evidence不足が痛みになっている。EPSサプライヤは、scenario別に必要factsを定義し、既存DTC/freeze frame/extended dataで説明できるかを確認するEvidence Readiness Packを提供できる。
 
+## EPS Supplier Lens
+
+このRepoの結論は、必ずEPSサプライヤの立場に帰着させる。
+
+市場、OEM、エンドユーザ、サービス、connected platform、規制、Kaggle/公開データをメタ視点で見るのはよい。
+ただし、最終判断は以下で締める。
+
+- EPSサプライヤとして何を売るか
+- EPSサプライヤとして何を実施できるか
+- EPSサプライヤとして何を言ってはいけないか
+- OEM領域、サービス領域、fleet platform領域として初期対象外に置くものは何か
+- 次にEPSサプライヤ内のどの部署に見せるか
+
+悪い結論:
+
+> OEMや市場にはこういう需要がある。
+
+良い結論:
+
+> 市場にはこういう需要がある。そのうちEPSサプライヤが初期に取れる手札は、既存DTC/freeze frame/extended dataと返却品readerを使ったRCA Evidence Readiness Packである。OEM保証DB連携やfleet analyticsはoptional extensionに置く。
+
 ## Current Main Hypothesis
 
 現在の主仮説は以下。
@@ -69,6 +90,7 @@
 | Solution | 成果物、workflow、schema、template、demo |
 | Buyer / user | 初期に使う部署と役割 |
 | Why supplier can play | OEM領域ではなく、EPSサプライヤ側で持てる手札 |
+| EPS supplier conclusion | EPSサプライヤとして売る/やる/やらない判断 |
 | Demo | 20-50件の調査、1ケースsample、TSV/HTMLなどで何を見せるか |
 | What not to claim | 故障予測、保証費削減、root cause断定など禁止主張 |
 | Kill criteria | 何が確認できなければ止めるか |
@@ -80,6 +102,7 @@
 - これは市場需要から始まっているか
 - 単に `こういう事例がある` と言っていないか
 - 買い手の業務成果物に転記できるか
+- 結論がEPSサプライヤの立場に戻っているか
 - OEM保証DB、fleet data、サービスツールに過度依存していないか
 - 既存DTC / freeze frame / extended dataとの差分を断定しすぎていないか
 - Kill条件が具体的か

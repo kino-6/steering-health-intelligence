@@ -20,6 +20,19 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 `EPS故障予測`、`劣化兆候通知`、`Health-ready EPS`、`ECU追加ログ`、`Market Pain Scenario Library単体`、`RFQ / Design Review Pack単体` は、最新結論ではない。
 最新の主仮説は `EPS Warranty / RCA Evidence Readiness Pack` である。
 
+## EPSサプライヤ視点
+
+このRepoの結論は、必ずEPSサプライヤの立場に帰着させる。
+
+市場、OEM、エンドユーザ、サービス、connected platform、規制、公開データをメタ視点で見るのはよい。
+ただし、最終判断は以下で締める。
+
+- EPSサプライヤとして何を売るか
+- EPSサプライヤとして何を実施できるか
+- EPSサプライヤとして何を言ってはいけないか
+- OEM領域、サービス領域、fleet platform領域として初期対象外に置くものは何か
+- 次にEPSサプライヤ内のどの部署に見せるか
+
 当初はEPS故障予測やVehicle Health Managementを検討していたが、現在は以下の順で仮説が進化している。
 
 ```text
