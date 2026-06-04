@@ -51,6 +51,8 @@
   - `S2E001 low_speed_high_effort` に絞り、必要証跡、既存診断の想定カバー範囲、不足時の追加候補、内部確認項目を整理したTSV。
 - `s2e001_diagnostic_evidence_review_template.tsv`
   - 内部DTC仕様、freeze frame、extended data、返却品reader可否、NVM制約を入力して、S2E001をProceed / Kill / Hold判定するテンプレート。
+- `business_model_rebranch_after_s2e001_hold.tsv`
+  - S2E001 Hold後に、内部データ不要で売れるもの、内部データがあれば売れるもの、OEM依存で後回しのものへビジネスモデルを再分岐したTSV。
 
 ## Interpretation
 
@@ -71,3 +73,4 @@
 - `eps_scenario_to_evidence_pack.tsv` の価値は、追加証跡を断定することではなく、既存DTC / freeze frame / extended dataで十分かをシナリオ別に潰すことにある
 - `s2e001_diagnostic_evidence_gap_check.tsv` では、車速/操舵角/電圧/温度/カウンタのように既存で残りやすいものを追加価値として扱わず、assist demand-to-output、limit/derating、pre-event scalar summaryだけを条件付き候補に残す
 - `s2e001_diagnostic_evidence_review_template.tsv` は、追加候補を提案するためではなく、内部診断仕様を入れた結果としてProceed / Kill / Holdを判定するためのレビュー表である。内部仕様を確認できない場合、S2E001はHoldとして扱う
+- `business_model_rebranch_after_s2e001_hold.tsv` では、ECU内追加証跡商品を現時点では追わず、公開市場文脈を使ったscenario library、RFQ/design review pack、diagnostic evidence workshopへ軸を戻す
