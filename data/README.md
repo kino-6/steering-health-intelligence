@@ -59,6 +59,10 @@
   - BMR001のscenario cardを、RFQ/設計レビュー1ページに変換するための構成部品。Market Pain Coverage Statement、Scenario Readiness Matrix、Supplier-Owned Boundary、Diagnostic Explainability Checklist、Validation Scenario Hook、Customer Quality Fact Summary Skeletonを整理。
 - `market_demand_solution_map.tsv`
   - `こんなEPS事例がある` ではなく、市場需要、未解決の痛み、買い手、現在の回避策、解決仮説、初期offer、demo、言ってはいけないことを対応づけたTSV。最新の主仮説は `EPS Warranty / RCA Evidence Readiness Pack`。
+- `public_data_validation_sources.tsv`
+  - Kaggle、Hugging Face、Zenodo、NHTSAなどの公開データ源について、使える信号、Evidence Readiness Packでの用途、答えられない問い、採用判断を整理。
+- `scn001_public_data_evidence_readiness.tsv`
+  - `SCN001 low_speed_high_effort` について、commaSteeringControl + NHTSA公開caseで作れるfact、公開データでは答えられないfact、内部診断仕様で確認すべき項目を整理。
 
 ## Interpretation
 
@@ -83,3 +87,4 @@
 - `bmr001_market_pain_scenario_cards.tsv` では、故障予測や既存診断不足を主張せず、公開市場ペインを評価、設計レビュー、RFQ、顧客品質説明で使うscenario cardへ変換する
 - `bmr002_rfq_design_review_pack.tsv` では、scenario card単体では価値が弱い前提を置き、RFQ回答、設計レビュー、DRBFM、評価計画へ転記できる1ページに変換できるかを検証する
 - `market_demand_solution_map.tsv` では、BMR001/BMR002を主商品ではなく前段材料に下げ、市場需要をNTF、返却品解析、保証claim、SCAR/8D、顧客品質説明で使えるproduct-side evidenceへ置き直す
+- `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

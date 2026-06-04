@@ -85,28 +85,32 @@ Market Demand To Warranty / RCA Evidence
 1. [docs/32_market_demand_solution_framing.md](docs/32_market_demand_solution_framing.md): 市場需要から解決策へ組み替えた最新結論。
 2. [generated/market_demand_solution_framing.html](generated/market_demand_solution_framing.html): Demand-to-solution framingのブラウザ表示。
 3. [data/market_demand_solution_map.tsv](data/market_demand_solution_map.tsv): 市場需要、未解決の痛み、解決仮説、買い手、demo、Kill条件の対応表。
-4. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
-5. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
-6. [docs/27_s2e001_diagnostic_evidence_gap_check.md](docs/27_s2e001_diagnostic_evidence_gap_check.md): S2E001を既存DTC/freeze frameで説明できるか見るgap check。
-7. [docs/28_s2e001_diagnostic_evidence_review_template.md](docs/28_s2e001_diagnostic_evidence_review_template.md): 内部DTC仕様を入れてProceed/Kill/Holdを判定するレビュー手順。
-8. [docs/29_business_model_rebranch_after_s2e001_hold.md](docs/29_business_model_rebranch_after_s2e001_hold.md): S2E001 Hold後のビジネスモデル再分岐。
-9. [docs/30_bmr001_market_pain_scenario_cards.md](docs/30_bmr001_market_pain_scenario_cards.md): BMR001の初期3枚scenario cardと商品化境界。最新では主商品ではなく前段材料。
-10. [docs/31_bmr002_rfq_design_review_pack.md](docs/31_bmr002_rfq_design_review_pack.md): BMR001をRFQ/設計レビュー1ページへ変換したBMR002 sample。最新では主商品ではなく副産物。
-11. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
-12. [docs/24_steering_context_risk_phase1.md](docs/24_steering_context_risk_phase1.md): TSVだけで作ったPhase 1静的分析結果。
-13. [docs/25_low_speed_high_steering_proxy_phase2.md](docs/25_low_speed_high_steering_proxy_phase2.md): commaSteeringControlで作った低速・高操舵要求proxy抽出結果。
-14. [docs/26_scenario_to_evidence_pack_direction.md](docs/26_scenario_to_evidence_pack_direction.md): Phase 2をEPSサプライヤ向けの評価・診断証跡設計へ変換する方向性。
-15. [generated/bmr002_rfq_design_review_pack.html](generated/bmr002_rfq_design_review_pack.html): BMR002 Scenario Readiness Pageのブラウザ表示。
-16. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
-17. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
-18. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
-19. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
-20. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
-21. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
-22. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
-23. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
-24. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
-25. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+4. [docs/33_public_data_validation_scn001.md](docs/33_public_data_validation_scn001.md): Kaggle等の公開候補を確認し、commaSteeringControl + NHTSAでSCN001を検証した結果。
+5. [generated/public_data_validation_scn001.html](generated/public_data_validation_scn001.html): SCN001公開データ検証のブラウザ表示。
+6. [data/scn001_public_data_evidence_readiness.tsv](data/scn001_public_data_evidence_readiness.tsv): SCN001のEvidence Readiness coverage check。
+7. [data/public_data_validation_sources.tsv](data/public_data_validation_sources.tsv): Kaggle / Hugging Face / Zenodo / NHTSAなど公開データ源の用途判定。
+8. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
+9. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
+10. [docs/27_s2e001_diagnostic_evidence_gap_check.md](docs/27_s2e001_diagnostic_evidence_gap_check.md): S2E001を既存DTC/freeze frameで説明できるか見るgap check。
+11. [docs/28_s2e001_diagnostic_evidence_review_template.md](docs/28_s2e001_diagnostic_evidence_review_template.md): 内部DTC仕様を入れてProceed/Kill/Holdを判定するレビュー手順。
+12. [docs/29_business_model_rebranch_after_s2e001_hold.md](docs/29_business_model_rebranch_after_s2e001_hold.md): S2E001 Hold後のビジネスモデル再分岐。
+13. [docs/30_bmr001_market_pain_scenario_cards.md](docs/30_bmr001_market_pain_scenario_cards.md): BMR001の初期3枚scenario cardと商品化境界。最新では主商品ではなく前段材料。
+14. [docs/31_bmr002_rfq_design_review_pack.md](docs/31_bmr002_rfq_design_review_pack.md): BMR001をRFQ/設計レビュー1ページへ変換したBMR002 sample。最新では主商品ではなく副産物。
+15. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
+16. [docs/24_steering_context_risk_phase1.md](docs/24_steering_context_risk_phase1.md): TSVだけで作ったPhase 1静的分析結果。
+17. [docs/25_low_speed_high_steering_proxy_phase2.md](docs/25_low_speed_high_steering_proxy_phase2.md): commaSteeringControlで作った低速・高操舵要求proxy抽出結果。
+18. [docs/26_scenario_to_evidence_pack_direction.md](docs/26_scenario_to_evidence_pack_direction.md): Phase 2をEPSサプライヤ向けの評価・診断証跡設計へ変換する方向性。
+19. [generated/bmr002_rfq_design_review_pack.html](generated/bmr002_rfq_design_review_pack.html): BMR002 Scenario Readiness Pageのブラウザ表示。
+20. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
+21. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
+22. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
+23. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
+24. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
+25. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
+26. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
+27. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
+28. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+29. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
 
 ## プロジェクトSkill
 
@@ -212,6 +216,7 @@ docs/
   30_bmr001_market_pain_scenario_cards.md
   31_bmr002_rfq_design_review_pack.md
   32_market_demand_solution_framing.md
+  33_public_data_validation_scn001.md
 
 data/
   business_model_research.tsv
@@ -236,6 +241,8 @@ data/
   bmr001_market_pain_scenario_cards.tsv
   bmr002_rfq_design_review_pack.tsv
   market_demand_solution_map.tsv
+  public_data_validation_sources.tsv
+  scn001_public_data_evidence_readiness.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -243,6 +250,7 @@ data/
   eps_health_indicator_candidates.tsv
 
 generated/
+  public_data_validation_scn001.html
   market_demand_solution_framing.html
   bmr002_rfq_design_review_pack.html
   bmr001_market_pain_scenario_cards.html
@@ -264,5 +272,6 @@ scripts/
 - 主仮説は `EPS Warranty / RCA Evidence Readiness Pack`
 - BMR001/BMR002は主商品ではなく、Warranty / RCA evidence readinessの前段材料として扱う
 - 次は `SCN001 low-speed high effort` で、NTF / returned-part RCA向けのEvidence Readiness Pack sampleを作る
+- 公開データ検証では、SCN001の骨格sampleは作れるが、assist current / limit state / DTC / reader可否は内部仕様なしでは検証不能と判定
 - sampleには、market demand statement、case narrative、required product-side facts、existing diagnostic coverage check、confirmed / unconfirmed / do-not-infer table、customer quality / 8D D2-D4 attachment sample、Kill条件を入れる
 - RCA/8D/顧客品質報告に転記できない場合、この方向はKillまたは大幅修正する

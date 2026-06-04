@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Data Validation: SCN001</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #5d6678;
+      --line: #d9dee8;
+      --panel: #f7f9fc;
+      --accent: #0f766e;
+      --warn: #b45309;
+      --stop: #b91c1c;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header, main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 30px 0 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+    strong {
+      color: var(--ink);
+    }
+    .hero {
+      margin-top: 16px;
+      border-left: 4px solid var(--accent);
+      background: #ecfdf5;
+      color: #134e4a;
+      padding: 14px 16px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .warning {
+      border-left-color: var(--warn);
+      background: #fffbeb;
+      color: #713f12;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+    }
+    .panel {
+      background: var(--panel);
+    }
+    .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .tag.warn { background: var(--warn); }
+    .tag.stop { background: var(--stop); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.58;
+    }
+    th {
+      color: var(--muted);
+      background: #fbfcfe;
+    }
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+    code {
+      background: #eef3f8;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    @media (max-width: 900px) {
+      header, main { padding: 24px 16px; }
+      h1 { font-size: 26px; }
+      .grid, .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Public Data Validation: SCN001</h1>
+    <p>Kaggleなどの公開候補を確認しつつ、実際のPoCは信号列と抽出結果が確認済みの commaSteeringControl + NHTSA case で実施。</p>
+    <div class="hero">
+      結論: 公開データで作れるのは故障検知PoCではなく、<strong>Warranty / RCA Evidence Readiness Pack</strong> の骨格PoC。
+    </div>
+  </header>
+
+  <main>
+    <h2>What Public Data Can Validate</h2>
+    <div class="grid">
+      <section class="card panel">
+        <span class="tag">Can</span>
+        <h3>市場痛み</h3>
+        <p>NHTSA公開caseから、低速時increased effort / loss of assist文脈を作れる。</p>
+      </section>
+      <section class="card panel">
+        <span class="tag">Can</span>
+        <h3>走行proxy</h3>
+        <p>commaSteeringControlから、5-8 m/s程度の低速高操舵windowを抽出できる。</p>
+      </section>
+      <section class="card panel">
+        <span class="tag warn">Cannot</span>
+        <h3>EPS内部RCA</h3>
+        <p>DTC、motor current、limit state、voltage、thermal、reader可否は公開データでは分からない。</p>
+      </section>
+    </div>
+
+    <h2>SCN001 Proxy Evidence</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Proxy window</th>
+            <th>Speed</th>
+            <th>Steering context</th>
+            <th>Boundary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LSHSD-001</td>
+            <td>mean 7.21 m/s; max 7.99 m/s</td>
+            <td>mean steering angle 31.98 deg; max 39.19 deg; steerFiltered 1.0</td>
+            <td>正常走行proxy。故障/DTCではない。</td>
+          </tr>
+          <tr>
+            <td>LSHSD-003</td>
+            <td>mean 5.43 m/s; max 6.36 m/s</td>
+            <td>mean steering angle 19.41 deg; max 21.80 deg</td>
+            <td>低速高操舵文脈の例。</td>
+          </tr>
+          <tr>
+            <td>LSHSD-005</td>
+            <td>mean 7.23 m/s; max 8.00 m/s</td>
+            <td>mean steering angle 16.59 deg; max 24.00 deg</td>
+            <td>RCA fact定義には使えるが、欠陥証明ではない。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Evidence Readiness Check</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fact</th>
+            <th>Public data?</th>
+            <th>Internal check needed</th>
+            <th>Decision</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Vehicle speed</td><td>Yes</td><td>DTC freeze frameに残るか</td><td>既存で足りる可能性が高い</td></tr>
+          <tr><td>Steering angle / demand</td><td>Yes</td><td>steering angleまたはdemand proxyが残るか</td><td>既存で足りる可能性あり</td></tr>
+          <tr><td>Assist command vs motor current</td><td>No</td><td>assist command/current/current errorが残るか</td><td>最重要gap候補</td></tr>
+          <tr><td>Limit / derating reason</td><td>No</td><td>limit flag, derating reason, assist state transitionが残るか</td><td>gap候補。断定禁止</td></tr>
+          <tr><td>Voltage / thermal state</td><td>No</td><td>assist関連DTCでvoltage/thermalが残るか</td><td>既存で一部足りる可能性</td></tr>
+          <tr><td>Returned-part reader</td><td>No</td><td>DID / reader / ODX / OEM承認境界</td><td>事業化前の必須確認</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>8D / Customer Quality Attachment</h2>
+    <div class="two-col">
+      <section class="card">
+        <h3>Confirmed</h3>
+        <ul>
+          <li>公開市場痛みとしてlow-speed increased effortが存在する</li>
+          <li>公開走行データで低速高操舵proxy windowは作れる</li>
+          <li>SCN001のRCA required factsは定義できる</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h3>Unconfirmed / Do Not Infer</h3>
+        <ul>
+          <li>対象EPSのDTC/freeze frame coverage</li>
+          <li>assist current / limit / voltage / thermal state</li>
+          <li>root cause、欠陥頻度、故障予測、保証費削減</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2>Decision</h2>
+    <div class="hero warning">
+      Proceed to sample: SCN001でEvidence Readiness Packの1ページsampleは作れる。Kill条件は、RCA/8D/顧客品質報告へ転記できないこと。
+    </div>
+  </main>
+</body>
+</html>
