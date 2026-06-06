@@ -1,0 +1,7 @@
+interface:
+  display_name: "Human Readable Reporting"
+  short_description: "造語より先に自然言語で結論を書く"
+  default_prompt: "Use $human-readable-reporting to rewrite this report so a human reader can understand the decision before project-specific labels or jargon appear."
+
+policy:
+  allow_implicit_invocation: true
