@@ -1,0 +1,9 @@
+rubric_id	criterion	measure	proceed	hold	kill	why_it_matters
+RB01	Actionable coverage gaps	3 family合計のactionable gap件数	3件以上あり、ownerとnext actionが明確	1-2件、またはowner未確定	0件、またはすべて既存資料で解決済み	Gapがなければassessment価値がない
+RB02	Workflow fit	既存review/release gate/HILS planningへの貼り先	少なくとも1つの既存会議体に入る	会議体候補はあるが未確認	貼る場所がなく、資料が独立する	業務成果物にならないと買われにくい
+RB03	Family reuse	FAM08/FAM02/FAM11で同じrow構造を使える割合	70%以上	40-70%	40%未満	再利用できなければNRE止まり
+RB04	Supplier control	EPSサプライヤ側で資料/信号/評価を扱える割合	70%以上	40-70%	40%未満	OEM依存が強いと初期商品として重い
+RB05	Existing review duplication	既存HILS/DTC/safety reviewとの差分	差分が明確で既存reviewを補完	一部重複だがgap分類に価値	完全に焼き直し	最大のKill条件
+RB06	Decision owner	Proceed/Killを決めるownerの明確さ	diagnostic/validation/program leadが明確	候補部署のみ	owner不在	買い手/利用者不明では事業にならない
+RB07	Downstream-only risk	RCA/8D転記以外の価値があるか	diagnostic/validation/release gate価値が主	品質報告価値と半々	RCA/8D転記だけ	旧仮説へ戻るならスケールしない
+RB08	P2 expansion potential	複数program比較やquarterly updateへ進めるか	2 program以上に展開可能	1 program内で追加family可能	1回限り	継続性/スケール性の判断

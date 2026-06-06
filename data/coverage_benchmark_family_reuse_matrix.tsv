@@ -1,0 +1,13 @@
+row_id	benchmark_row	FAM08_stop_start_low_speed	FAM02_low_speed_high_effort	FAM11_software_failsafe	reuse_level	scale_implication
+ROW01	Market pain fit	Stop-to-launch / low-speed assist lossが対象EPSに関係するか	Low-speed high-effort / assist lossが対象EPSに関係するか	Software/failsafe assist lossが対象EPSに関係するか	High	Market-pain-to-scenario変換の共通rowとして使える
+ROW02	Scenario state	standstill, launch, low-speed, steering input, assist demand	low-speed, high steering input, driver torque, assist demand	operating mode, fault trigger, failsafe entry condition, assist state	Medium	基本構造は同じだがsignalsはfamily別に変わる
+ROW03	Power / environment context	voltage transient, overvoltage, reset, motor drive load	voltage, thermal, current limit, steering demand duration	voltage/thermal only if failsafe conditionに関係	Medium	電源/熱/環境文脈として共通化できる
+ROW04	Assist delivery explainability	assist command vs actual current vs current limit	assist command vs actual current vs current limit	assist enabled/limited/unavailable after failsafe	High	EPS固有価値の中心rowとして横展開しやすい
+ROW05	Control / failsafe state	assist enabled, derating, failsafe, fault latch, occurrence	failsafe/derating during high effort, assist mode/state	failsafe entry, fault reaction, degradation mode, recovery condition	High	state machine coverage rowとして共通化しやすい
+ROW06	Calibration / software version	software version, calibration ID, remedy version	calibration influencing assist map/current limit if relevant	calibration ID, release version, remedy mapping	Medium-High	FAM11で強く、FAM08/FAM02では条件付き
+ROW07	DTC / freeze frame coverage	DTC, pending DTC, speed, voltage, current, assist state	DTC, speed, angle, voltage, current, torque, thermal, assist state	DTC, failsafe state, software version, fault condition	High	coverage benchmarkの主rowとして横展開できる
+ROW08	HILS / bench evidence	stop-launch steering assist robustness test	low-speed high-effort steering demand test	failsafe/fault injection + software release test	High	HILS named test case rowとして横展開しやすい
+ROW09	Program comparison	Program A/Bで同じFAM08 checklistを使えるか	Program A/Bで同じFAM02 checklistを使えるか	Program A/Bで同じFAM11 checklistを使えるか	High	スケール性判断の中核row
+ROW10	Downstream quality summary	confirmed/unconfirmed/do-not-infer only after coverage review	same	same	High	RCA/8Dを副次artifactに下げる共通row
+ROW11	Workflow fit	program review / release gate / HILS planに貼れるか	diagnostic design review / validation planに貼れるか	software release gate / safety reviewに貼れるか	Medium-High	会議体は違うがbusiness value判定rowとして共通
+ROW12	Decision	Proceed/Hold/Kill	Proceed/Hold/Kill	Proceed/Hold/Kill	High	3 family同一ルールで判定可能
