@@ -16,6 +16,27 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 
 > 市場ではloss of assist、低速高操舵、警告灯+DTC、intermittent assist loss、stop-start、software/failsafeなどのEPS共通pain familyが繰り返し問題化している。EPSサプライヤは、各scenarioに対して既存DTC/freeze frame/extended data、reader、HILS/bench評価がどこまで説明・再現できるかをCoverage Benchmarkとして提示できる。
 
+### 自然言語優先
+
+レポートや結論では、造語、商品名、略称、phase名を先に出さない。
+必ず先に、自然言語で以下を説明する。
+
+- 何を判断しているのか
+- 誰のどの業務の話なのか
+- 何が分かれば進み、何が分かれば止めるのか
+- 既存業務、既存診断、既存評価と何が違う可能性があるのか
+
+悪い提示:
+
+> P1 paid assessmentとしてCoverage BenchmarkはNo-Go。P0 ScreeningだけProceed。
+
+良い提示:
+
+> 現時点では、有償サービスとして売りに行く段階ではない。対象EPSのHILS試験名、関連DTC、freeze frame / extended data項目、既存レビュー会議体を見ておらず、既存レビューとの差分を示せないためである。ただし、この4項目だけを確認すれば、既存レビューの焼き直しか、次に進む価値があるかを短時間で判断できる。
+
+`Coverage Benchmark`、`P0`、`P1`、`Evidence Pack`、`Readiness`、`screening` のような言葉は使ってよい。
+ただし、自然言語で意味を説明した後にだけ使う。
+
 過去の探索メモはhistoricalとして扱う。
 `EPS故障予測`、`劣化兆候通知`、`Health-ready EPS`、`ECU追加ログ`、`Market Pain Scenario Library単体`、`RFQ / Design Review Pack単体` は、最新結論ではない。
 `RCA / 8D Evidence Case Pack` は単独主商品から下げる。

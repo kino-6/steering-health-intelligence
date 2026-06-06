@@ -23,6 +23,36 @@
 
 > 市場ではloss of assist、低速高操舵、警告灯+DTC、intermittent assist loss、stop-start、software/failsafeなどのEPS共通pain familyが繰り返し問題化している。EPSサプライヤは、各scenarioに対して既存DTC/freeze frame/extended data、reader、HILS/bench評価がどこまで説明・再現できるかをCoverage Benchmarkとして提示できる。
 
+## Natural Language First
+
+レポートや結論では、造語、商品名、略称、phase名を先に出さない。
+必ず先に、自然言語で以下を説明する。
+
+1. 何を判断しているのか
+2. 誰のどの業務の話なのか
+3. 何が分かれば進み、何が分かれば止めるのか
+4. 既存業務、既存診断、既存評価と何が違う可能性があるのか
+
+悪い提示:
+
+> P1 paid assessmentとしてCoverage BenchmarkはNo-Go。P0 ScreeningだけProceed。
+
+良い提示:
+
+> 現時点では、有償サービスとして売りに行く段階ではない。対象EPSのHILS試験名、関連DTC、freeze frame / extended data項目、既存レビュー会議体を見ておらず、既存レビューとの差分を示せないためである。ただし、この4項目だけを確認すれば、既存レビューの焼き直しか、次に進む価値があるかを短時間で判断できる。
+
+使ってよい言葉:
+
+- `Coverage Benchmark`
+- `P0`
+- `P1`
+- `Evidence Pack`
+- `Readiness`
+- `screening`
+
+ただし、これらは自然言語で意味を説明した後にだけ使う。
+読者がその単語を知らなくても、結論と次アクションが理解できる状態にする。
+
 ## EPS Supplier Lens
 
 このRepoの結論は、必ずEPSサプライヤの立場に帰着させる。
@@ -97,6 +127,9 @@
 | What not to claim | 故障予測、保証費削減、root cause断定など禁止主張 |
 | Kill criteria | 何が確認できなければ止めるか |
 
+上記の各項目は、まず自然言語で書く。
+表やTSVでは短いラベルを使ってよいが、本文側ではそのラベルの意味を説明する。
+
 ## CoVe Rule
 
 結論を出す前に、以下を必ず確認する。
@@ -108,6 +141,8 @@
 - OEM保証DB、fleet data、サービスツールに過度依存していないか
 - 既存DTC / freeze frame / extended dataとの差分を断定しすぎていないか
 - Kill条件が具体的か
+- 造語やphase名だけで、読者に判断を押し付けていないか
+- 自然言語で読んでも、結論と次アクションが分かるか
 
 ## Commit Guidance
 
