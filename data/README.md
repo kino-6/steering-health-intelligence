@@ -69,6 +69,8 @@
   - EPS共通pain family 13件について、共通性、EPSサプライヤ制御性、差別化、スケール性をスコアリングし、事業候補とKill条件を整理したTSV。
 - `eps_coverage_benchmark_business_value.tsv`
   - Coverage Benchmark線について、business model別に市場需要、未解決痛み、買い手、予算経路、価値が出る理由、失敗理由、proof demo、Kill条件を整理したTSV。
+- `fam08_stop_start_low_speed_coverage_benchmark_sample.tsv`
+  - `FAM08 stop-start low-speed` の1ページcoverage benchmark sample。review item、expected EPS facts、supplier-owned source、coverage question、HILS/bench scenario、decision option、Kill条件を整理。
 - `public_data_validation_sources.tsv`
   - Kaggle、Hugging Face、Zenodo、NHTSAなどの公開データ源について、使える信号、Evidence Readiness Packでの用途、答えられない問い、採用判断を整理。
 - `scn001_public_data_evidence_readiness.tsv`
@@ -101,4 +103,5 @@
 - `rca_8d_case_pack_viability_assessment.tsv` では、`RCA / 8D Evidence Case Pack` を単独外販/SaaSとしては弱いと判定し、炎上中または滞留中の品質案件に対するcase-triggered assessmentとしてのみ条件付き検証する
 - `eps_common_market_pain_reclassification.tsv` と `eps_common_pain_business_scores.tsv` では、RCA/8D単体をさらに主商品から下げ、市場で繰り返すEPS共通pain familyに対する `EPS Diagnostic / Robustness Coverage Benchmark` を主仮説に更新した
 - `eps_coverage_benchmark_business_value.tsv` では、Coverage BenchmarkはHIL/SILツールではなく、EPS市場painを診断coverage/評価coverage/release gateへ翻訳する短期assessmentとしてのみ価値が出ると整理した
+- `fam08_stop_start_low_speed_coverage_benchmark_sample.tsv` では、FAM08をstop-to-launch、power transient、motor drive、control state、calibration、diagnostic snapshot、HILS evidenceへ分解し、既存coverageとの差分を判断できるsampleにした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない
