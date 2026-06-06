@@ -1,157 +1,140 @@
-# Coverage Benchmark Forced Conclusion
+# Coverage Benchmark の現時点結論
 
 ## 結論
 
-Holdを引き延ばさず、現時点で結論を出す。
+前回のレポートは、`P0`、`P1`、`Coverage Benchmark` などの名前が先に立ちすぎていて、何を判断しているのかが分かりにくかった。
+ここでは、造語を減らして結論を言い直す。
 
-**P1 paid assessmentとしての `EPS Diagnostic / Robustness Coverage Benchmark` は、現時点では No-Go / Kill for now。**
+現時点では、**有償サービスとして売りに行く段階ではない**。
 
-ただし、完全Killではない。
-残すのは、P1ではなく **P0 Internal Placeholder Screening**。
+理由は、対象EPSの実資料をまだ見ていないためである。
+特に、以下が分からない。
 
-> P1を売るのではなく、2-4時間で「既存HILS/DTC/release reviewの焼き直しか」を切る内部gateとして使う。
+- 既存のHILS / bench試験で、同じような低速操舵・停止発進・failsafe条件を既に評価しているか
+- 既存DTC、freeze frame、extended dataで、速度、電圧、電流、assist state、failsafe state、software/calibrationなどが十分に残るか
+- この整理表を貼る既存の会議体や帳票があるか
 
-## 市場需要
+つまり、今はまだ「新しい価値がある」とは言えない。
+ただし、完全に捨てる段階でもない。
 
-市場需要の大枠は残る。
+**次にやるべきことは、商品化ではなく、既存レビューと重複しているかを最小資料で確認すること。**
 
-> EPSで繰り返すdriver-visible pain familyを、診断coverage、評価coverage、software/release gateへ変換して説明したい。
+## 何をやろうとしていたか
 
-しかし、これは `市場一般の需要` であって、対象EPS programでの支払い価値ではない。
-P1を売るには、少なくとも以下が必要である。
+やりたいことは、EPSサプライヤの立場で以下を1枚にすることだった。
 
-- 既存HILSに同等scenarioがない、または診断確認が弱い
-- 関連DTC/freeze frameで主要factが残らない
-- review / release gateにmatrixを貼る場所がある
+> 市場で繰り返すEPSの困りごとに対して、自社EPSの既存診断・既存評価・既存リリース確認で、どこまで説明または再現できているかを見る。
 
-この3つが未確認のままでは、事業仮説としては弱い。
+ここでいう市場の困りごとは、例えば以下である。
 
-## 未解決の痛み
+- 低速で操舵が重い
+- 停止後発進時にassistが落ちる
+- 警告灯やDTCと同時に操舵力が増える
+- software / calibration / failsafeに起因するassist loss
 
-本当にあり得る痛みは、追加ログ不足ではない。
+これらに対して、以下を確認したかった。
 
-> 公開市場で繰り返すEPS pain familyが、自社のHILS、DTC/freeze frame、software release gateで既にcover済みなのか、誰も1枚で説明できないこと。
-
-ただし、既存レビューがすでにこれをやっている可能性が高い。
-ここが最大のKill riskである。
-
-## Forced Decision
-
-TSV:
-
-- [data/coverage_benchmark_forced_conclusion.tsv](../data/coverage_benchmark_forced_conclusion.tsv)
-
-| Target | Decision | Reason |
-|---|---|---|
-| P1 paid assessment | No-Go / Kill for now | actual artifact 0/10で、gapもworkflow fitも証明できない |
-| Public/proxy-only continuation | Kill | taxonomy以上の結論に進めない |
-| Internal Placeholder Screening | Proceed | 4項目だけで焼き直しかを切れる |
-| Standalone SaaS / HIL tool | Kill | 既存プレイヤーが強く、差分がない |
-| RCA / 8D main product | Kill | downstream artifactに下げる |
-
-## 解決策
-
-残す解決策はこれ。
-
-> **P0 Coverage Duplication Screening**
-
-目的は、Coverage Benchmarkを作ることではない。
-Coverage Benchmarkを作る価値があるかを切ること。
-
-### 入力
-
-4項目だけ。
-
-| Input | Owner | Minimum answer |
-|---|---|---|
-| HILS test case titles | Validation / HILS | title only |
-| related DTC list | Diagnostic engineering | DTC name only |
-| freeze frame / extended data field names | Diagnostic engineering | field names only |
-| review / release gate meeting name | Program / diagnostic / software lead | meeting/template name only |
-
-### 出力
-
-| Output | Meaning |
+| 見たいこと | 具体例 |
 |---|---|
-| Kill | 既存HILS/DTC/release reviewで十分 |
-| No workflow | gapがあっても貼る場所がない |
-| Proceed to P1 | gapがあり、会議体に貼れる |
+| 診断で説明できるか | DTC、freeze frame、extended data、readerで何が残るか |
+| 評価で再現できるか | HILS / bench / vehicle testに同等scenarioがあるか |
+| release確認に入っているか | software / calibration release gateに同等の確認項目があるか |
+| program間で比べられるか | 旧世代/新世代でcoverage差分を見られるか |
 
-## 買い手/利用者
+この考え方自体は悪くない。
+ただし、これが価値になるのは、既存資料では見落としている確認gapがある場合だけである。
 
-P1のbuyerを語るのは早い。
-現時点での利用者は、以下に限定する。
+## なぜ今は売れないか
 
-| User | Why |
-|---|---|
-| Diagnostic engineering | DTC/freeze frameで市場painを説明できるかを最短確認する |
-| Validation / HILS | 既存test planとの重複を確認する |
-| Program / platform lead | P1に進む価値があるかを判断する |
-| Software calibration / release gate owner | release gateに貼る場所があるかを見る |
+今のRepoにあるのは、公開事例、公開データ、仮の整理表である。
+これだけでは、対象EPSの既存診断や既存評価が十分かどうかを判定できない。
 
-Customer qualityは副次利用者に下げる。
-ここを主語に戻すと、またRCA/8D人月に戻る。
+公開情報でできること:
 
-## 初期提供物
+- EPSでよく出る市場painを分類する
+- 低速操舵、停止発進、failsafeなどの代表scenarioを作る
+- DTCやHILSで確認すべき質問を作る
 
-初期提供物はP1 reportではない。
+公開情報でできないこと:
 
-**1ページのP0 screening sheet**。
+- 既存HILS test planに同じ試験が既にあるか
+- 既存DTC / freeze frameで主要な事実が既に残っているか
+- readerやDIDで返却品から必要情報を読めるか
+- release gateや設計レビューにこの表を貼る場所があるか
 
-内容:
+したがって、今の状態で「有償assessmentとして成立する」と言うのは早い。
+逆に、「完全に価値がない」ともまだ言えない。
 
-1. FAM08/FAM02/FAM11の対象可否
-2. 既存HILS title有無
-3. 関連DTC有無
-4. freeze frame / extended data field有無
-5. review / release gate貼り先有無
-6. Kill / No workflow / Proceed to P1
+## 判断
 
-## 検証方法
+| 対象 | 現時点判断 | 理由 |
+|---|---|---|
+| 有償assessmentとして外に売る | No-Go | 実資料がなく、既存レビューとの差分を示せない |
+| 公開データ分析を続ける | Stop | これ以上やっても、既存HILS/DTCで足りるかは分からない |
+| SaaS / HILツールとして作る | Kill | 既存プレイヤーが強く、このRepoの差分ではない |
+| RCA / 8D資料作成を主商品にする | Kill | 案件依存が強く、スケールしにくい |
+| 最小資料で既存レビューとの重複を確認する | Proceed | EPSサプライヤ内の4項目だけで次の判断に進める |
 
-実施順はこれ。
+ここでの結論は、**商品はまだNo-Go。最小確認だけProceed** である。
 
-1. IPS01: HILS titlesを見る
-2. IPS02/IPS03: related DTC + freeze frame fieldsを見る
-3. IPS04: review / release gate meeting nameを見る
+## 次に確認する4項目
 
-この順番にした理由:
+大量の内部資料は要らない。
+まずは以下の4つだけでよい。
 
-- HILSが既に十分ならすぐKillできる
-- DTC/freeze frameが十分なら追加価値は弱い
-- 貼る会議体がなければ、gapがあっても事業にならない
+| 項目 | 誰に聞くか | 最低限の答え |
+|---|---|---|
+| HILS / bench試験名 | Validation / HILS担当 | 試験名だけ |
+| 関連DTC一覧 | 診断設計担当 | DTC名だけ |
+| freeze frame / extended dataの項目名 | 診断設計担当 | field名だけ |
+| 既存レビュー/会議体名 | Program / 診断 / software担当 | 会議名または帳票名だけ |
 
-## Kill条件
+この4つで、かなりの確度で次を判定できる。
 
-次のいずれかで完全Kill。
+## 判定ルール
 
-- HILS test titlesにFAM08/FAM02/FAM11相当があり、expected DTC/state/freeze-frame確認も含む
-- 関連DTC/freeze frame/extended dataで主要factが十分残る
-- review / release gateの貼り先がない
-- 価値がRCA/8D転記だけになる
-- 2 program比較候補がないまま、単発NREで終わる
+| 結果 | 条件 | 判断 |
+|---|---|---|
+| 既存で十分 | 同等HILS試験があり、関連DTC/freeze frameも十分 | この方向はKill |
+| gapはあるが使い道がない | 足りない項目はあるが、貼る会議体や帳票がない | 商品化は弱い |
+| gapがあり、使い道もある | 既存評価/診断に不足があり、設計レビューやrelease gateに貼れる | 次の詳細検討へ進む |
 
-## Chain-of-Verification
+重要なのは、gapがあるだけでは価値にならないこと。
+業務上の置き場所がなければ、ただの追加資料になる。
 
-| Question | Evidence check | Confidence | Repair |
-|---|---|---:|---|
-| P1にProceedできるか | actual artifact 0/10。actionable gapもworkflow fitも未証明。 | High | P1 Proceedを削除 |
-| P1を完全Killできるか | 既存HILS/DTC/release reviewが十分か未確認。 | High | 完全KillではなくKill for now |
-| Public/proxyを続ければ結論が出るか | public/proxyはtaxonomyとrow構造まで。内部coverageは判定不能。 | High | public-only継続をKill |
-| EPSサプライヤ視点に戻っているか | 4項目はHILS/DTC/freeze frame/review meetingでsupplier-side。 | Medium-High | P0 screeningとして残す |
-| ビジネスとして何が残るか | P1ではなくP0 gate。支払い価値はまだ未証明。 | High | 初期提供物をscreening sheetに縮小 |
+## EPSサプライヤとしての言い方
 
-## EPSサプライヤとしての結論
+外向きに言うなら、まだ商品名を出さない方がよい。
 
-現時点で外に売る商品名はまだ出さない。
+社内向けには、こう言うのが一番正確である。
 
-社内向けには、以下だけ言える。
+> 公開市場で繰り返すEPSの困りごとを使って、自社のHILS、DTC、freeze frame、release reviewが既に十分かを短時間で確認する。
 
-> 公開EPS market pain familyを使って、自社HILS/DTC/release reviewが既に十分かを2-4時間で切る `P0 Coverage Duplication Screening` を実施する。
+この確認で差分が出なければ、この方向は止める。
+差分が出て、かつ既存レビューに入るなら、その時点で初めて有償assessmentやprogram横断比較を考える。
 
-ここでProceedが出た場合のみ、P1 assessmentに進む。
-ここでKillなら、Coverage Benchmark仮説は一旦畳む。
+## 残すもの / 捨てるもの
 
-つまり現時点の最終判断はこれ。
+残すもの:
 
-> **P1はNo-Go。P0 screeningのみProceed。**
+- 公開EPS pain familyの分類
+- FAM08 / FAM02 / FAM11の代表scenario
+- DTC / freeze frame / HILS / release gateで確認する質問表
+- 4項目の最小確認シート
+
+捨てるもの:
+
+- `P0`、`P1` のような分かりにくい段階名を前面に出すこと
+- `Coverage Benchmark` という名前だけで価値があるように見せること
+- 追加ログや故障予測を主張すること
+- RCA / 8D資料作成を主商品に戻すこと
+- 公開データ分析だけで結論が出るように見せること
+
+## 最終結論
+
+現時点の結論は以下。
+
+> 有償サービスとしてはまだNo-Go。
+> ただし、4項目の最小確認で既存レビューとの差分を見る価値はある。
+
+この4項目で差分が出なければ、Coverage Benchmark方向は一旦Killでよい。

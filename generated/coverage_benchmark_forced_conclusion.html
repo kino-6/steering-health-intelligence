@@ -3,46 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coverage Benchmark Forced Conclusion</title>
+  <title>Coverage Benchmark の現時点結論</title>
   <style>
     :root {
-      --bg: #f6f7f9;
-      --panel: #fff;
-      --ink: #18212f;
-      --muted: #5d6776;
+      --bg: #f7f8fa;
+      --panel: #ffffff;
+      --ink: #202733;
+      --muted: #5d6878;
       --line: #d9dee7;
-      --kill: #9f2f2f;
-      --go: #0f6b5f;
-      --hold: #a46400;
-      --blue: #244f7a;
+      --no: #9d2f2f;
+      --yes: #0e6b5f;
+      --blue: #285a86;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.58;
     }
-    main { max-width: 1120px; margin: 0 auto; padding: 40px 24px 56px; }
+    main { max-width: 1080px; margin: 0 auto; padding: 40px 24px 56px; }
     h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: 0; }
-    h2 { margin: 30px 0 12px; font-size: 20px; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 20px; letter-spacing: 0; }
     p { margin: 0 0 14px; }
-    .lead { color: var(--muted); max-width: 880px; }
-    .verdict {
+    .lead { color: var(--muted); max-width: 840px; }
+    .summary {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
       margin: 24px 0;
     }
-    .box {
+    .card {
       background: var(--panel);
       border: 1px solid var(--line);
       padding: 18px;
       min-height: 150px;
     }
-    .box.kill { border-left: 6px solid var(--kill); }
-    .box.go { border-left: 6px solid var(--go); }
+    .card.no { border-left: 6px solid var(--no); }
+    .card.yes { border-left: 6px solid var(--yes); }
     .label {
       display: inline-block;
       font-weight: 800;
@@ -51,8 +50,8 @@
       text-transform: uppercase;
       margin-bottom: 8px;
     }
-    .kill .label { color: var(--kill); }
-    .go .label { color: var(--go); }
+    .no .label { color: var(--no); }
+    .yes .label { color: var(--yes); }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -69,62 +68,61 @@
     }
     th { background: #edf1f7; }
     tr:last-child td { border-bottom: 0; }
-    .muted { color: var(--muted); }
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
     @media (max-width: 760px) {
       main { padding: 28px 16px 44px; }
-      .verdict { grid-template-columns: 1fr; }
+      .summary { grid-template-columns: 1fr; }
       table { display: block; overflow-x: auto; white-space: nowrap; }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Coverage Benchmark Forced Conclusion</h1>
-    <p class="lead">Holdを引き延ばさず、現時点で切った結論。P1はNo-Go、P0 screeningのみProceed。</p>
+    <h1>Coverage Benchmark の現時点結論</h1>
+    <p class="lead">造語を外して言うと、今は「売る段階ではない」。ただし、4項目だけ見れば続けるか止めるかを判断できる。</p>
 
-    <section class="verdict">
-      <div class="box kill">
-        <span class="label">No-Go / Kill for now</span>
-        <h2>P1 Paid Assessment</h2>
-        <p>actual artifactが0/10で、actionable gap、workflow fit、existing-review duplicationを証明できない。外部提案や有償assessmentとしてはまだ出さない。</p>
+    <section class="summary">
+      <div class="card no">
+        <span class="label">No-Go</span>
+        <h2>有償サービスとして売る</h2>
+        <p>対象EPSのHILS、DTC、freeze frame、release reviewを見ていないため、既存レビューとの差分を示せない。</p>
       </div>
-      <div class="box go">
+      <div class="card yes">
         <span class="label">Proceed</span>
-        <h2>P0 Internal Screening</h2>
-        <p>HILS titles、related DTC、freeze-frame fields、review meeting nameの4項目だけで、既存reviewの焼き直しかを2-4時間で切る。</p>
+        <h2>4項目の最小確認</h2>
+        <p>試験名、DTC名、freeze frame項目名、会議体名だけを見れば、既存レビューの焼き直しかを短時間で判断できる。</p>
       </div>
     </section>
 
-    <h2>Decision Matrix</h2>
+    <h2>判断</h2>
     <table>
       <thead>
-        <tr><th>Target</th><th>Decision</th><th>Reason</th></tr>
+        <tr><th>対象</th><th>現時点判断</th><th>理由</th></tr>
       </thead>
       <tbody>
-        <tr><td>P1 paid assessment</td><td>No-Go / Kill for now</td><td>actual artifacts 0/10</td></tr>
-        <tr><td>Public/proxy-only continuation</td><td>Kill</td><td>taxonomy以上の結論に進めない</td></tr>
-        <tr><td>Internal Placeholder Screening</td><td>Proceed</td><td>supplier-side 4項目だけで切れる</td></tr>
-        <tr><td>Standalone SaaS / HIL tool</td><td>Kill</td><td>既存プレイヤーが強く、差分がない</td></tr>
-        <tr><td>RCA / 8D main product</td><td>Kill</td><td>downstream artifactに下げる</td></tr>
+        <tr><td>有償assessmentとして外に売る</td><td>No-Go</td><td>実資料がなく、既存レビューとの差分を示せない</td></tr>
+        <tr><td>公開データ分析を続ける</td><td>Stop</td><td>公開情報だけでは既存HILS/DTCで足りるか分からない</td></tr>
+        <tr><td>SaaS / HILツールとして作る</td><td>Kill</td><td>このRepoの差分はツールではなく、EPS固有の確認観点</td></tr>
+        <tr><td>RCA / 8D資料作成を主商品にする</td><td>Kill</td><td>案件依存が強く、スケールしにくい</td></tr>
+        <tr><td>最小資料で既存レビューとの差分を見る</td><td>Proceed</td><td>4項目だけで次の判断に進める</td></tr>
       </tbody>
     </table>
 
-    <h2>P0 Screening Inputs</h2>
+    <h2>次に見る4項目</h2>
     <table>
       <thead>
-        <tr><th>Input</th><th>Owner</th><th>Minimum Answer</th></tr>
+        <tr><th>項目</th><th>誰に聞くか</th><th>最低限の答え</th></tr>
       </thead>
       <tbody>
-        <tr><td>HILS test case titles</td><td>Validation / HILS</td><td>title only</td></tr>
-        <tr><td>related DTC list</td><td>Diagnostic engineering</td><td>DTC name only</td></tr>
-        <tr><td>freeze frame / extended data field names</td><td>Diagnostic engineering</td><td>field names only</td></tr>
-        <tr><td>review / release gate meeting name</td><td>Program / diagnostic / software lead</td><td>meeting/template name only</td></tr>
+        <tr><td>HILS / bench試験名</td><td>Validation / HILS担当</td><td>試験名だけ</td></tr>
+        <tr><td>関連DTC一覧</td><td>診断設計担当</td><td>DTC名だけ</td></tr>
+        <tr><td>freeze frame / extended data項目名</td><td>診断設計担当</td><td>field名だけ</td></tr>
+        <tr><td>既存レビュー/会議体名</td><td>Program / 診断 / software担当</td><td>会議名または帳票名だけ</td></tr>
       </tbody>
     </table>
 
-    <p class="muted">
+    <p>
       Source:
       <a href="../docs/43_coverage_benchmark_forced_conclusion.md">docs/43</a> /
       <a href="../data/coverage_benchmark_forced_conclusion.tsv">forced conclusion TSV</a>

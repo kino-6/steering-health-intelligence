@@ -110,9 +110,9 @@ EPS Common Pain Productization
 8. [generated/coverage_benchmark_artifact_request.html](generated/coverage_benchmark_artifact_request.html): P1へ進む前の最小artifact requestを確認するHTML。
 9. [docs/41_coverage_benchmark_artifact_request_pack.md](docs/41_coverage_benchmark_artifact_request_pack.md): Coverage BenchmarkのArtifact Request Pack。
 10. [data/coverage_benchmark_artifact_request_pack.tsv](data/coverage_benchmark_artifact_request_pack.tsv): P1前に要求する10個の最小artifact、依頼先、placeholder、Proceed/Hold/Kill条件。
-11. [generated/coverage_benchmark_forced_conclusion.html](generated/coverage_benchmark_forced_conclusion.html): Holdから強制的に結論を出したHTML。P1 No-Go / P0 Proceed。
-12. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの強制結論レポート。
-13. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): P1、public-only、P0 screening、SaaS/HIL、RCA/8Dの強制判断表。
+11. [generated/coverage_benchmark_forced_conclusion.html](generated/coverage_benchmark_forced_conclusion.html): Coverage Benchmarkを今売れるか、何だけ確認すべきかを普通の言葉でまとめたHTML。
+12. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。商品化はNo-Go、4項目確認のみProceed。
+13. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、4項目確認の判断表。
 14. [generated/coverage_benchmark_artifact_intake_result.html](generated/coverage_benchmark_artifact_intake_result.html): 10 artifact requestをRepo/public proxyで実行したHold判定HTML。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
@@ -350,5 +350,5 @@ scripts/
 - FAM08/FAM02/FAM11へ横展開するP1 assessment packageは作成済み
 - sampleには、market pain、driver-visible symptom、expected EPS facts、既存DTC/freeze frame/extended data coverage欄、HILS/bench/vehicle evaluation scenario、already covered / gap / no action decision、customer quality/RCA向け副次summaryを入れている
 - 10 artifact requestをRepo/public proxyで実行した結果はHold。P1 Proceed/Killにはactual HILS/DTC/freeze frame/review templateが必要
-- Holdから強制的に結論を出した結果、P1 paid assessmentはNo-Go / Kill for now。P0 Internal Placeholder ScreeningのみProceed
-- 次は `P0 Coverage Duplication Screening` として、HILS test titles、related DTC list、freeze frame field names、review meeting nameの4点だけを先に集める
+- 現時点では有償assessmentとして売るのはNo-Go。理由は、対象EPSの実HILS/DTC/freeze frame/review資料を見ておらず、既存レビューとの差分を示せないため
+- 次は造語化せず、HILS試験名、関連DTC名、freeze frame / extended data項目名、既存レビュー/会議体名の4点だけを先に集める
