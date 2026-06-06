@@ -81,6 +81,8 @@
   - Artifact intake後のProceed/Hold/Kill判断。現時点はactual artifact不足によりHold。
 - `coverage_benchmark_internal_placeholder_screening_sheet.tsv`
   - Hold後に2-4時間で切るための最小入力シート。HILS title、related DTC、freeze frame field、review meeting nameの4項目だけを集める。
+- `coverage_benchmark_forced_conclusion.tsv`
+  - Holdを引き延ばさず、P1 paid assessmentはNo-Go / Kill for now、P0 Internal Placeholder ScreeningのみProceedと切った強制判断表。
 - `coverage_benchmark_p1_assessment_plan.tsv`
   - Coverage Benchmark P1 assessmentのworkstream、必要入力、成果物、owner、timebox、Proceed/Kill条件を整理した実施計画TSV。
 - `coverage_benchmark_family_reuse_matrix.tsv`
@@ -124,5 +126,6 @@
 - `coverage_benchmark_artifact_request_pack.tsv` では、P1本体へ進む前に、DTC/HILS/reader/release gate等の最小artifactをplaceholderで要求し、既存レビューの焼き直しかProceed余地があるかを切る
 - `coverage_benchmark_artifact_intake_result.tsv` と `coverage_benchmark_artifact_intake_decision.tsv` では、Repo/public proxyだけで10 artifact requestを実行した結果、row構造は作れるがactual HILS/DTC/freeze frame/review templateがなく、P1はProceedでもKillでもなくHoldと判定した
 - `coverage_benchmark_internal_placeholder_screening_sheet.tsv` では、Holdを次に進めるため、HILS title、related DTC、freeze frame field、review meeting nameの4点だけで既存reviewの焼き直しかを切る形にした
+- `coverage_benchmark_forced_conclusion.tsv` では、結論をさらに進め、P1 paid assessment / public-only continuation / standalone SaaS-HIL tool / RCA-8D main productはKill寄り、P0 Coverage Duplication ScreeningのみProceedと整理した
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない
