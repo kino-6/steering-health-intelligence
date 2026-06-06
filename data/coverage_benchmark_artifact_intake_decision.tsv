@@ -1,0 +1,9 @@
+criterion	evidence_from_intake	status	score_0_2	interpretation	next_action
+Artifact availability	0/10 actual artifacts are available in repo/public data	Hold	0	Public data can prepare the request, but cannot execute P1 evidence filling	Get placeholder headings from internal owners
+Family row reuse	12 benchmark rows can be reused across FAM08/FAM02/FAM11 in the existing family reuse matrix	Proceed-to-design	2	The benchmark structure is not the blocker	Keep FAM08/FAM02/FAM11 as P1 scope
+Supplier-owned control	The required artifacts are mostly supplier-side: DTC, freeze frame, reader, HILS, motor control, power, release gate	Conditional	1	The request is not OEM-fleet-dependent, but internal access is required	Run internal artifact screening before any external pitch
+Existing review duplication	No HILS/DTC/release artifacts are available, so duplication cannot be ruled out	Hold	0	Biggest unresolved Kill risk	Use REQ02/REQ03/REQ08 first because they can kill the idea fastest
+Actionable gap evidence	Repo can name candidate gaps, but cannot prove any actual gap without target artifacts	Hold	0	Do not claim gaps or new evidence value yet	Convert each candidate gap to already-covered/gap/no-action after artifact intake
+Workflow fit	Repo identifies possible workflows, but has no actual template or owner	Hold	0	No business value without a place in review/release process	Use REQ09 as a hard gate
+Scale potential	Program comparison is conceptually possible, but no Program A/B candidate exists	Hold	0	No scale claim yet	Use REQ10 after one target program is identified
+Overall decision	Public/proxy execution cannot reach Proceed or Kill; it reaches a clear Hold	Hold	0	P1 should not be sold yet; next step is a 2-4 hour internal placeholder screening	Stop public-only analysis unless it supports the internal screening
