@@ -88,14 +88,16 @@
 
 有力候補:
 
-- EPS / steering ECU cybersecurity evidence pack
-- EPS ECU SBOM / vulnerability response pack
+- EPS / steering ECU software/cyber evidence pack
 - SOVD / next-generation diagnostics content design for EPS
 - Steer-by-wire safety / cybersecurity / redundancy evidence pack
 - Public recall / ODI / TSB monitor as input only
 
 これらは、故障予測、劣化兆候通知、追加ログではない。
 EPSサプライヤが、診断、ソフト更新、セキュリティ、SBOM、steer-by-wire移行に対して、OEM説明・監査・設計レビューに使える材料を作れるかを見る。
+
+現在の最優先候補は、`EPS / steering ECU software/cyber evidence pack` である。
+サイバーセキュリティ設計証拠とSBOM / 脆弱性対応は分けず、診断アクセス、ソフト更新、software/calibration ID、SBOM、CVE impact triage、security access、fail-safe stateをcomponent-level evidenceとして束ねる。
 
 ## Historical Main Hypothesis
 

@@ -121,19 +121,19 @@ EPS Common Pain Productization
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/44_public_only_alternative_item_scan.md](docs/44_public_only_alternative_item_scan.md): Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理した最新レポート。
-2. [data/public_only_alternative_item_candidates.tsv](data/public_only_alternative_item_candidates.tsv): サイバー、SBOM、SOVD、steer-by-wire、市場要求モニタの探索候補TSV。
-3. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。内部資料を使わない前提では商品化も差分確認もNo-Go。
-4. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、内部資料確認の判断表。
-5. [docs/32_market_demand_solution_framing.md](docs/32_market_demand_solution_framing.md): 市場需要から解決策へ組み替えた過去の主要結論。現在はhistorical寄り。
-6. [generated/market_demand_solution_framing.html](generated/market_demand_solution_framing.html): Demand-to-solution framingのブラウザ表示。
-7. [data/market_demand_solution_map.tsv](data/market_demand_solution_map.tsv): 市場需要、未解決の痛み、解決仮説、買い手、demo、Kill条件の対応表。現在はhistorical寄り。
-8. [docs/33_public_data_validation_scn001.md](docs/33_public_data_validation_scn001.md): Kaggle等の公開候補を確認し、commaSteeringControl + NHTSAでSCN001を検証した結果。
-9. [generated/public_data_validation_scn001.html](generated/public_data_validation_scn001.html): SCN001公開データ検証のブラウザ表示。
-10. [data/scn001_public_data_evidence_readiness.tsv](data/scn001_public_data_evidence_readiness.tsv): SCN001のEvidence Readiness coverage check。
-11. [data/public_data_validation_sources.tsv](data/public_data_validation_sources.tsv): Kaggle / Hugging Face / Zenodo / NHTSAなど公開データ源の用途判定。
-12. [generated/coverage_benchmark_artifact_request.html](generated/coverage_benchmark_artifact_request.html): P1へ進む前の最小artifact requestを確認するHTML。
-13. [docs/41_coverage_benchmark_artifact_request_pack.md](docs/41_coverage_benchmark_artifact_request_pack.md): Coverage BenchmarkのArtifact Request Pack。現在はhistorical寄り。
+1. [docs/45_public_only_candidate_deep_dive.md](docs/45_public_only_candidate_deep_dive.md): 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` として進める判断を整理した最新レポート。
+2. [data/public_only_candidate_deep_dive.tsv](data/public_only_candidate_deep_dive.tsv): 候補1-5のProceed / Hold / Watch / Input判断、買い手、初期offer、Kill条件を整理したTSV。
+3. [data/steering_ecu_cyber_evidence_sample.tsv](data/steering_ecu_cyber_evidence_sample.tsv): 候補1+2の最小デモとして、診断アクセス、ソフト更新、SBOM、脆弱性、sensor input、communication、fail-safe stateの証拠例を整理したTSV。
+4. [docs/44_public_only_alternative_item_scan.md](docs/44_public_only_alternative_item_scan.md): Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理したレポート。
+5. [data/public_only_alternative_item_candidates.tsv](data/public_only_alternative_item_candidates.tsv): サイバー、SBOM、SOVD、steer-by-wire、市場要求モニタの探索候補TSV。
+6. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。内部資料を使わない前提では商品化も差分確認もNo-Go。
+7. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、内部資料確認の判断表。
+8. [docs/32_market_demand_solution_framing.md](docs/32_market_demand_solution_framing.md): 市場需要から解決策へ組み替えた過去の主要結論。現在はhistorical寄り。
+9. [generated/market_demand_solution_framing.html](generated/market_demand_solution_framing.html): Demand-to-solution framingのブラウザ表示。
+10. [data/market_demand_solution_map.tsv](data/market_demand_solution_map.tsv): 市場需要、未解決の痛み、解決仮説、買い手、demo、Kill条件の対応表。現在はhistorical寄り。
+11. [docs/33_public_data_validation_scn001.md](docs/33_public_data_validation_scn001.md): Kaggle等の公開候補を確認し、commaSteeringControl + NHTSAでSCN001を検証した結果。
+12. [generated/public_data_validation_scn001.html](generated/public_data_validation_scn001.html): SCN001公開データ検証のブラウザ表示。
+13. [data/scn001_public_data_evidence_readiness.tsv](data/scn001_public_data_evidence_readiness.tsv): SCN001のEvidence Readiness coverage check。
 14. [generated/coverage_benchmark_artifact_intake_result.html](generated/coverage_benchmark_artifact_intake_result.html): 10 artifact requestをRepo/public proxyで実行したHold判定HTML。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
