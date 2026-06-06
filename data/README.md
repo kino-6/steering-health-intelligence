@@ -99,6 +99,12 @@
   - 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` としてProceed、SOVDをextension、steer-by-wireをconditional、市場要求モニタをinput onlyに整理したTSV。
 - `steering_ecu_cyber_evidence_sample.tsv`
   - 候補1+2の最小デモ。診断アクセス、ソフト更新、SBOM、脆弱性、sensor input、communication、fail-safe stateについて、市場/標準圧力、steering ECUで見る問い、用意する証拠、OEM向け説明文を整理。
+- `steering_ecu_software_cyber_offer_model.tsv`
+  - 候補1+2を進めた初期offer表。fixed-scope assessment、RFQ/OEM inquiry support、SBOM-to-function workshop、diagnostic access review、software update checklistの買い手、収益モデル、必要入力、Kill条件を整理。
+- `steering_ecu_software_cyber_work_products.tsv`
+  - steering ECU software/cyber evidence packで作る成果物。asset map、diagnostic access exposure、software update evidence、SBOM-to-function map、CVE triage response、fail-safe evidence、OEM response one-pagerを整理。
+- `steering_ecu_cve_triage_demo.tsv`
+  - 仮想CVEを使い、crypto library、diagnostic stack、CAN stack、RTOS、debug utility、bootloader transport、sensor interfaceがEPS機能に触れるかを判断するデモTSV。
 
 ## Interpretation
 
@@ -135,5 +141,6 @@
 - `coverage_benchmark_forced_conclusion.tsv` では、造語を減らし、有償assessmentとして売るのはNo-Go、公開分析継続・SaaS/HIL化・RCA/8D主商品化は止める、4項目確認は内部資料を使える場合だけの再開条件と整理した
 - `public_only_alternative_item_candidates.tsv` では、内部資料なしでも需要を説明しやすい候補として、EPS / steering ECU cybersecurity evidence pack、EPS ECU SBOM / vulnerability response pack、SOVD diagnostics content design、steer-by-wire evidence packを次の探索対象に置いた
 - `public_only_candidate_deep_dive.tsv` と `steering_ecu_cyber_evidence_sample.tsv` では、候補1と2を統合し、故障予測や追加ログではなく、EPS / steering ECUの診断アクセス、ソフト更新、SBOM、脆弱性対応をOEM説明・監査・設計レビューに使えるcomponent-level evidenceとして進める判断に更新した
+- `steering_ecu_software_cyber_offer_model.tsv`、`steering_ecu_software_cyber_work_products.tsv`、`steering_ecu_cve_triage_demo.tsv` では、候補1+2を固定スコープassessmentと仮想CVE triageデモへ落とした。現時点では売れる断定ではなく、既存CSMS/TARA/SBOM/CVE運用との差分を確認する探索継続判断である
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

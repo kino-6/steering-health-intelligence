@@ -121,19 +121,19 @@ EPS Common Pain Productization
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/45_public_only_candidate_deep_dive.md](docs/45_public_only_candidate_deep_dive.md): 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` として進める判断を整理した最新レポート。
-2. [data/public_only_candidate_deep_dive.tsv](data/public_only_candidate_deep_dive.tsv): 候補1-5のProceed / Hold / Watch / Input判断、買い手、初期offer、Kill条件を整理したTSV。
-3. [data/steering_ecu_cyber_evidence_sample.tsv](data/steering_ecu_cyber_evidence_sample.tsv): 候補1+2の最小デモとして、診断アクセス、ソフト更新、SBOM、脆弱性、sensor input、communication、fail-safe stateの証拠例を整理したTSV。
-4. [docs/44_public_only_alternative_item_scan.md](docs/44_public_only_alternative_item_scan.md): Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理したレポート。
-5. [data/public_only_alternative_item_candidates.tsv](data/public_only_alternative_item_candidates.tsv): サイバー、SBOM、SOVD、steer-by-wire、市場要求モニタの探索候補TSV。
-6. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。内部資料を使わない前提では商品化も差分確認もNo-Go。
-7. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、内部資料確認の判断表。
-8. [docs/32_market_demand_solution_framing.md](docs/32_market_demand_solution_framing.md): 市場需要から解決策へ組み替えた過去の主要結論。現在はhistorical寄り。
-9. [generated/market_demand_solution_framing.html](generated/market_demand_solution_framing.html): Demand-to-solution framingのブラウザ表示。
-10. [data/market_demand_solution_map.tsv](data/market_demand_solution_map.tsv): 市場需要、未解決の痛み、解決仮説、買い手、demo、Kill条件の対応表。現在はhistorical寄り。
-11. [docs/33_public_data_validation_scn001.md](docs/33_public_data_validation_scn001.md): Kaggle等の公開候補を確認し、commaSteeringControl + NHTSAでSCN001を検証した結果。
-12. [generated/public_data_validation_scn001.html](generated/public_data_validation_scn001.html): SCN001公開データ検証のブラウザ表示。
-13. [data/scn001_public_data_evidence_readiness.tsv](data/scn001_public_data_evidence_readiness.tsv): SCN001のEvidence Readiness coverage check。
+1. [generated/steering_ecu_software_cyber_demo.html](generated/steering_ecu_software_cyber_demo.html): 候補1+2のブラウザ表示デモ。何を売るか、成果物、CVE triage、Proceed/Killを1ページで確認できる。
+2. [docs/46_steering_ecu_software_cyber_evidence_pack.md](docs/46_steering_ecu_software_cyber_evidence_pack.md): 候補1+2を、EPS / steering ECUサプライヤ向けのsoftware/cyber evidence packとして具体化した最新レポート。
+3. [docs/47_steering_ecu_software_cyber_demo.md](docs/47_steering_ecu_software_cyber_demo.md): 仮想steering ECUを使った最小デモと、既存業務との差分・Proceed/Kill条件。
+4. [data/steering_ecu_software_cyber_offer_model.tsv](data/steering_ecu_software_cyber_offer_model.tsv): 初期offer、買い手、収益モデル、必要入力、Kill条件を整理したTSV。
+5. [data/steering_ecu_software_cyber_work_products.tsv](data/steering_ecu_software_cyber_work_products.tsv): assessmentで作る成果物と利用者、入力、判定条件。
+6. [data/steering_ecu_cve_triage_demo.tsv](data/steering_ecu_cve_triage_demo.tsv): 仮想CVEをEPS機能影響へ接続するデモTSV。
+7. [docs/45_public_only_candidate_deep_dive.md](docs/45_public_only_candidate_deep_dive.md): 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` として進める判断を整理したレポート。
+8. [data/public_only_candidate_deep_dive.tsv](data/public_only_candidate_deep_dive.tsv): 候補1-5のProceed / Hold / Watch / Input判断、買い手、初期offer、Kill条件を整理したTSV。
+9. [data/steering_ecu_cyber_evidence_sample.tsv](data/steering_ecu_cyber_evidence_sample.tsv): 候補1+2の最小デモとして、診断アクセス、ソフト更新、SBOM、脆弱性、sensor input、communication、fail-safe stateの証拠例を整理したTSV。
+10. [docs/44_public_only_alternative_item_scan.md](docs/44_public_only_alternative_item_scan.md): Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理したレポート。
+11. [data/public_only_alternative_item_candidates.tsv](data/public_only_alternative_item_candidates.tsv): サイバー、SBOM、SOVD、steer-by-wire、市場要求モニタの探索候補TSV。
+12. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。内部資料を使わない前提では商品化も差分確認もNo-Go。
+13. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、内部資料確認の判断表。
 14. [generated/coverage_benchmark_artifact_intake_result.html](generated/coverage_benchmark_artifact_intake_result.html): 10 artifact requestをRepo/public proxyで実行したHold判定HTML。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。

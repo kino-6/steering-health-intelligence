@@ -99,6 +99,10 @@ EPSサプライヤが、診断、ソフト更新、セキュリティ、SBOM、s
 現在の最優先候補は、`EPS / steering ECU software/cyber evidence pack` である。
 サイバーセキュリティ設計証拠とSBOM / 脆弱性対応は分けず、診断アクセス、ソフト更新、software/calibration ID、SBOM、CVE impact triage、security access、fail-safe stateをcomponent-level evidenceとして束ねる。
 
+初期offerは、SaaSではなく固定スコープassessmentとして扱う。
+目的は、既存CSMS/TARA/SBOM/CVE運用の代替ではなく、steering ECU固有の診断アクセス、ソフト更新、SBOM-to-function impact、fail-safe state、OEM回答文への接続に差分があるかを確認すること。
+既存業務に同等成果物があるならKillする。
+
 ## Historical Main Hypothesis
 
 以下はhistoricalとして扱う。
