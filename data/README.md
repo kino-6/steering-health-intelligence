@@ -73,6 +73,8 @@
   - `FAM08 stop-start low-speed` の1ページcoverage benchmark sample。review item、expected EPS facts、supplier-owned source、coverage question、HILS/bench scenario、decision option、Kill条件を整理。
 - `fam08_immediate_visibility_triage.tsv`
   - FAM08について、今日すぐ見えるmarket pain fit、HILS scenario duplication、diagnostic snapshot sufficiency、workflow fitをProceed / Hold / Killへ分ける即時triage表。
+- `coverage_benchmark_artifact_request_pack.tsv`
+  - Coverage Benchmark P1前に要求する10個の最小artifact、依頼先、placeholder、Proceed/Hold/Kill条件を整理したTSV。
 - `coverage_benchmark_p1_assessment_plan.tsv`
   - Coverage Benchmark P1 assessmentのworkstream、必要入力、成果物、owner、timebox、Proceed/Kill条件を整理した実施計画TSV。
 - `coverage_benchmark_family_reuse_matrix.tsv`
@@ -113,5 +115,6 @@
 - `eps_coverage_benchmark_business_value.tsv` では、Coverage BenchmarkはHIL/SILツールではなく、EPS市場painを診断coverage/評価coverage/release gateへ翻訳する短期assessmentとしてのみ価値が出ると整理した
 - `fam08_stop_start_low_speed_coverage_benchmark_sample.tsv` では、FAM08をstop-to-launch、power transient、motor drive、control state、calibration、diagnostic snapshot、HILS evidenceへ分解し、既存coverageとの差分を判断できるsampleにした
 - `fam08_immediate_visibility_triage.tsv` では、Coverage Benchmarkが既存HILS/DTC/diagnostic reviewの焼き直しか、評価・診断・release gateに入る余地があるかを1日以内に判定するための確認項目へ落とした
+- `coverage_benchmark_artifact_request_pack.tsv` では、P1本体へ進む前に、DTC/HILS/reader/release gate等の最小artifactをplaceholderで要求し、既存レビューの焼き直しかProceed余地があるかを切る
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない
