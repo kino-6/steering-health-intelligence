@@ -93,6 +93,8 @@
   - Kaggle、Hugging Face、Zenodo、NHTSAなどの公開データ源について、使える信号、Evidence Readiness Packでの用途、答えられない問い、採用判断を整理。
 - `scn001_public_data_evidence_readiness.tsv`
   - `SCN001 low_speed_high_effort` について、commaSteeringControl + NHTSA公開caseで作れるfact、公開データでは答えられないfact、内部診断仕様で確認すべき項目を整理。
+- `public_only_alternative_item_candidates.tsv`
+  - Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理したTSV。サイバーセキュリティ設計証拠、SBOM/脆弱性対応、SOVD診断コンテンツ、steer-by-wire安全/サイバー/冗長化、市場要求モニタを比較。
 
 ## Interpretation
 
@@ -127,5 +129,6 @@
 - `coverage_benchmark_artifact_intake_result.tsv` と `coverage_benchmark_artifact_intake_decision.tsv` では、Repo/public proxyだけで10 artifact requestを実行した結果、row構造は作れるがactual HILS/DTC/freeze frame/review templateがなく、P1はProceedでもKillでもなくHoldと判定した
 - `coverage_benchmark_internal_placeholder_screening_sheet.tsv` では、Holdを次に進めるため、HILS title、related DTC、freeze frame field、review meeting nameの4点だけで既存reviewの焼き直しかを切る形にした
 - `coverage_benchmark_forced_conclusion.tsv` では、造語を減らし、有償assessmentとして売るのはNo-Go、公開分析継続・SaaS/HIL化・RCA/8D主商品化は止める、4項目確認は内部資料を使える場合だけの再開条件と整理した
+- `public_only_alternative_item_candidates.tsv` では、内部資料なしでも需要を説明しやすい候補として、EPS / steering ECU cybersecurity evidence pack、EPS ECU SBOM / vulnerability response pack、SOVD diagnostics content design、steer-by-wire evidence packを次の探索対象に置いた
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

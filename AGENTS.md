@@ -76,7 +76,30 @@
 
 ## Current Main Hypothesis
 
-現在の主仮説は以下。
+`EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goで止める。
+対象EPSの実HILS、DTC、freeze frame / extended data、既存レビューとの差分を確認できないためである。
+
+現在の探索ブランチは以下。
+
+> EPS / steering ECU public-regulation and software evidence branch
+
+これは商品名ではない。
+公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探すための一時的な探索軸である。
+
+有力候補:
+
+- EPS / steering ECU cybersecurity evidence pack
+- EPS ECU SBOM / vulnerability response pack
+- SOVD / next-generation diagnostics content design for EPS
+- Steer-by-wire safety / cybersecurity / redundancy evidence pack
+- Public recall / ODI / TSB monitor as input only
+
+これらは、故障予測、劣化兆候通知、追加ログではない。
+EPSサプライヤが、診断、ソフト更新、セキュリティ、SBOM、steer-by-wire移行に対して、OEM説明・監査・設計レビューに使える材料を作れるかを見る。
+
+## Historical Main Hypothesis
+
+以下はhistoricalとして扱う。
 
 > EPS Diagnostic / Robustness Coverage Benchmark
 
@@ -94,6 +117,14 @@
 - 現行診断で足りる、足りない、不要を分ける
 - program / generation間でcoverage差分を比較する
 - RCA/8Dや顧客品質報告は、coverage結果を転記する副次artifactとして扱う
+
+現行判断:
+
+- 内部資料なしでは有償assessmentとしてNo-Go
+- 公開データ分析継続はStop
+- SaaS/HILツール化はKill
+- RCA/8D主商品化はKill
+- 内部資料を使える条件になった場合だけ再開条件として残す
 
 ## Historical Notes
 
