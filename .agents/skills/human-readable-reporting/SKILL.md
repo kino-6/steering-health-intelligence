@@ -38,7 +38,7 @@ Bad:
 
 Good:
 
-> 現時点では、有償サービスとして売りに行く段階ではない。対象EPSのHILS試験名、関連DTC、freeze frame / extended data項目、既存レビュー会議体を見ておらず、既存レビューとの差分を示せないためである。ただし、この4項目だけを確認すれば、既存レビューの焼き直しか、次に進む価値があるかを短時間で判断できる。
+> 現時点では、有償サービスとして売りに行く段階ではない。内部資料を使わない前提では、対象EPSのHILS試験名、関連DTC、freeze frame / extended data項目、既存レビュー会議体を見られず、既存レビューとの差分を示せないためである。これらの4項目は、内部資料を使える条件になった場合だけの再開条件として扱う。
 
 ### 2. Define the work before naming it
 
@@ -140,4 +140,3 @@ Proceed / Hold / Kill as observable conditions.
 ## EPSサプライヤとしての言い方
 What to say, what not to say.
 ```
-

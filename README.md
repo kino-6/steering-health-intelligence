@@ -32,7 +32,7 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 
 良い提示:
 
-> 現時点では、有償サービスとして売りに行く段階ではない。対象EPSのHILS試験名、関連DTC、freeze frame / extended data項目、既存レビュー会議体を見ておらず、既存レビューとの差分を示せないためである。ただし、この4項目だけを確認すれば、既存レビューの焼き直しか、次に進む価値があるかを短時間で判断できる。
+> 現時点では、有償サービスとして売りに行く段階ではない。内部資料を使わない前提では、対象EPSのHILS試験名、関連DTC、freeze frame / extended data項目、既存レビュー会議体を見られず、既存レビューとの差分を示せないためである。これらの4項目は、内部資料を使える条件になった場合だけの再開条件として扱う。
 
 `Coverage Benchmark`、`P0`、`P1`、`Evidence Pack`、`Readiness`、`screening` のような言葉は使ってよい。
 ただし、自然言語で意味を説明した後にだけ使う。
@@ -132,13 +132,13 @@ EPS Common Pain Productization
 9. [docs/41_coverage_benchmark_artifact_request_pack.md](docs/41_coverage_benchmark_artifact_request_pack.md): Coverage BenchmarkのArtifact Request Pack。
 10. [data/coverage_benchmark_artifact_request_pack.tsv](data/coverage_benchmark_artifact_request_pack.tsv): P1前に要求する10個の最小artifact、依頼先、placeholder、Proceed/Hold/Kill条件。
 11. [generated/coverage_benchmark_forced_conclusion.html](generated/coverage_benchmark_forced_conclusion.html): Coverage Benchmarkを今売れるか、何だけ確認すべきかを普通の言葉でまとめたHTML。
-12. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。商品化はNo-Go、4項目確認のみProceed。
-13. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、4項目確認の判断表。
+12. [docs/43_coverage_benchmark_forced_conclusion.md](docs/43_coverage_benchmark_forced_conclusion.md): Coverage Benchmarkの現時点結論。内部資料を使わない前提では商品化も差分確認もNo-Go。
+13. [data/coverage_benchmark_forced_conclusion.tsv](data/coverage_benchmark_forced_conclusion.tsv): 有償assessment、公開分析継続、SaaS/HIL化、RCA/8D主商品化、内部資料確認の判断表。
 14. [generated/coverage_benchmark_artifact_intake_result.html](generated/coverage_benchmark_artifact_intake_result.html): 10 artifact requestをRepo/public proxyで実行したHold判定HTML。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
 17. [data/coverage_benchmark_artifact_intake_decision.tsv](data/coverage_benchmark_artifact_intake_decision.tsv): Artifact intake後のProceed/Hold/Kill判断表。
-18. [data/coverage_benchmark_internal_placeholder_screening_sheet.tsv](data/coverage_benchmark_internal_placeholder_screening_sheet.tsv): Hold後に2-4時間で切るための4項目screening sheet。
+18. [data/coverage_benchmark_internal_placeholder_screening_sheet.tsv](data/coverage_benchmark_internal_placeholder_screening_sheet.tsv): 内部資料を使える場合だけ参照する4項目screening sheet。
 19. [generated/coverage_benchmark_p1_assessment.html](generated/coverage_benchmark_p1_assessment.html): FAM08/FAM02/FAM11を使ったP1 assessment packageのクイックHTML。
 20. [docs/40_coverage_benchmark_p1_assessment_package.md](docs/40_coverage_benchmark_p1_assessment_package.md): Coverage BenchmarkのP1 assessment最小構成。
 21. [data/coverage_benchmark_p1_assessment_plan.tsv](data/coverage_benchmark_p1_assessment_plan.tsv): P1 workstream、入力、出力、owner、timebox、Proceed/Kill条件。
@@ -372,5 +372,5 @@ scripts/
 - FAM08/FAM02/FAM11へ横展開するP1 assessment packageは作成済み
 - sampleには、market pain、driver-visible symptom、expected EPS facts、既存DTC/freeze frame/extended data coverage欄、HILS/bench/vehicle evaluation scenario、already covered / gap / no action decision、customer quality/RCA向け副次summaryを入れている
 - 10 artifact requestをRepo/public proxyで実行した結果はHold。P1 Proceed/Killにはactual HILS/DTC/freeze frame/review templateが必要
-- 現時点では有償assessmentとして売るのはNo-Go。理由は、対象EPSの実HILS/DTC/freeze frame/review資料を見ておらず、既存レビューとの差分を示せないため
-- 次は造語化せず、HILS試験名、関連DTC名、freeze frame / extended data項目名、既存レビュー/会議体名の4点だけを先に集める
+- 現時点では有償assessmentとして売るのはNo-Go。理由は、内部資料を使わない前提では、対象EPSの実HILS/DTC/freeze frame/review資料を見られず、既存レビューとの差分を示せないため
+- HILS試験名、関連DTC名、freeze frame / extended data項目名、既存レビュー/会議体名の4点は、内部資料を使える条件になった場合だけの再開条件として扱う
