@@ -111,6 +111,8 @@
   - steering ECU cyber/SBOM方向をKillするか判断するための証拠集。市場需要、既存プレイヤー、残余価値、Kill支持をNHTSA、ISO、Auto-ISAC、NIST、ETAS、Ansys、Siemens、ThreatZ等と対応づけたTSV。
 - `steering_ecu_cyber_kill_questions.tsv`
   - 完全Kill前に見る5つの存在確認質問。steering ECU固有のOEM問い合わせ有無、既存CVE回答、診断security、安全状態mapping、OEM回答templateの有無で判定する。
+- `next_exploration_candidates_after_cyber_kill.tsv`
+  - Cyber/SBOM Kill後の次探索候補。Steer-by-wireをPrimary、SOVDをExtension、公開recall/ODI/TSB市場要求モニタをInput only、cyber/SBOMをHold/Kill-leaningに整理。
 
 ## Interpretation
 
@@ -150,5 +152,6 @@
 - `steering_ecu_software_cyber_offer_model.tsv`、`steering_ecu_software_cyber_work_products.tsv`、`steering_ecu_cve_triage_demo.tsv` では、候補1+2を固定スコープassessmentと仮想CVE triageデモへ落とした。現時点では売れる断定ではなく、既存CSMS/TARA/SBOM/CVE運用との差分を確認する探索継続判断である
 - `steering_ecu_cyber_value_check.tsv` では、既存TARA/SBOM/CVE管理ツールと強く被ることを確認し、この方向をかなりKill寄りのHoldへ下げた。残る価値はsteering ECU固有のOEM問い合わせ回答へ既存成果物を翻訳する薄い支援に限定した
 - `steering_ecu_cyber_kill_evidence_dossier.tsv` と `steering_ecu_cyber_kill_questions.tsv` では、広いTARA/SBOM/CVE/ISO21434/R155/R156商品をKillし、残す場合も5項目の存在確認で明確な不足が出た時だけ短期OEM回答支援に限定する判断へ更新した
+- `next_exploration_candidates_after_cyber_kill.tsv` では、次探索をSteer-by-wire安全/冗長/cyber設計証拠、SOVD/次世代診断コンテンツ設計、公開市場要求モニタの3つへ切り替えた。公開市場要求モニタは単体商品にせず、Steer-by-wireとSOVDの入力に限定する
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

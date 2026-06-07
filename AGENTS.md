@@ -86,17 +86,28 @@
 これは商品名ではない。
 公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探すための一時的な探索軸である。
 
-有力候補:
+最新の探索優先順位:
 
-- EPS / steering ECU software/cyber evidence pack
-- SOVD / next-generation diagnostics content design for EPS
-- Steer-by-wire safety / cybersecurity / redundancy evidence pack
-- Public recall / ODI / TSB monitor as input only
+1. Steer-by-wire safety / cybersecurity / redundancy evidence pack
+2. SOVD / next-generation diagnostics content design for EPS
+3. Public recall / ODI / TSB monitor as input only
 
 これらは、故障予測、劣化兆候通知、追加ログではない。
-EPSサプライヤが、診断、ソフト更新、セキュリティ、SBOM、steer-by-wire移行に対して、OEM説明・監査・設計レビューに使える材料を作れるかを見る。
+EPSサプライヤが、steer-by-wire移行、次世代診断、公開市場シグナルに対して、OEM説明・設計レビュー・RFQ回答に使える材料を作れるかを見る。
 
-現在の最優先候補は、`EPS / steering ECU software/cyber evidence pack` である。
+最優先は `Steer-by-wire safety / cybersecurity / redundancy evidence pack` である。
+ただし、最初から商品名を作らない。
+既存ISO 26262 / SOTIF / cyber / safety caseに飲まれないか、steering supplierがcomponent boundaryで説明できる領域があるかをKill-firstで検証する。
+
+SOVD / next-generation diagnostics content designはextensionとして扱う。
+OEM診断基盤依存が強いため、EPSサプライヤが主語になれるのはUDS/DTC/DID/freeze frame/software ID/security accessを次世代診断コンテンツへ整理する部分までである。
+
+Public recall / ODI / TSB monitorは単体商品にしない。
+Steer-by-wireとSOVDの市場入力、設計レビュー質問、RFQ質問生成にだけ使う。
+
+## Recently Killed / Deprioritized
+
+`EPS / steering ECU software/cyber evidence pack` は、広い商品としてはKillする。
 サイバーセキュリティ設計証拠とSBOM / 脆弱性対応は分けず、診断アクセス、ソフト更新、software/calibration ID、SBOM、CVE impact triage、security access、fail-safe stateをcomponent-level evidenceとして束ねる。
 
 初期offerは、SaaSではなく固定スコープassessmentとして扱う。
