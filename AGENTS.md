@@ -120,6 +120,8 @@ Steer-by-wire深掘り後の現在地:
 - 8項目を公開情報で検証した結果、architecture、degraded state、FMEA、DTC coverageはPartial、software/calibration、security access、OEM質問、既存回答templateはUnknown。
 - 現行方針では内部資料を要求しない。したがって、SbW方向は公開情報だけで外販Proceedしない。内部資料確認を次アクションに置かず、公開情報だけで示せる価値がなければKillする。
 - 次にやるなら、公開情報だけで作った1ケースsampleが、EPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自の判断を出せるかを見る。出せなければSbWもStopする。
+- 追加の公開情報収集では、Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDを見た。市場変化はあるが、fault strategy、verification、FMEA/FTA、safe state、driver warning、DTC coverage、SOVD fault informationは既存安全・認証・診断論点として既に強い。
+- よって現時点のSbW判断は、公開情報だけでは有償offerにしない。次にやる場合も、`road wheel actuator redundancy degraded` の1ケースが既存資料の要約を超え、EPSサプライヤが言えること / 言ってはいけないことを自然言語で切れるかだけを見る。
 
 ## Recently Killed / Deprioritized
 

@@ -127,6 +127,10 @@
   - ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点、EPSサプライヤへの示唆に分けたTSV。
 - `sbw_8_material_verification.tsv`
   - SbW 8項目を公開情報で検証した結果。1-4はPartial、5-8はUnknownで、現行方針では内部資料を要求せず、外販Proceedしないことを整理。
+- `sbw_public_only_source_inventory.tsv`
+  - Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDの公開情報を、何を支持し、何を支持しないか、EPSサプライヤがどう使うかで整理。
+- `sbw_public_only_value_check.tsv`
+  - 公開情報だけでSbW市場変化、未解決pain、既存安全・認証・診断業務との差分、初期提供物、Kill条件をどこまで言えるかを判定。
 
 ## Interpretation
 
@@ -174,5 +178,6 @@
 - `steer_by_wire_redundancy_degraded_sample.tsv` では、road wheel actuator冗長低下を題材に、driver-visible behavior、remaining steering capability、diagnostic content、safety/cyber source、OEM answer、禁止主張を1ケースで確認できる形にした
 - `sbw_decision_materials.tsv` では、公開情報から見える市場変化、driver-visible degraded behavior、supplier-owned sensor/redundancy、NHTSA/VCAによる既存安全・認証業務との重複を分けた。これにより、SbW方向は公開情報だけで売れるとは言えないとした
 - `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknown。現行方針ではこの不足を非公開確認で埋めず、外販Proceedしない
+- `sbw_public_only_source_inventory.tsv` と `sbw_public_only_value_check.tsv` では、追加の公開情報収集を行った。SbWの市場変化は確認できるが、NHTSA、VCA、R79、ASAM SOVDにより安全・認証・診断論点は既存業務としてかなり見えており、公開情報だけで有償offerへ進める根拠は弱い。次に見る場合も、road wheel actuator冗長低下の1ケースが既存資料の要約を超えるかだけを確認する
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない
