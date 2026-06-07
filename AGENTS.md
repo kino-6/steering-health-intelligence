@@ -103,6 +103,10 @@ EPSサプライヤが、診断、ソフト更新、セキュリティ、SBOM、s
 目的は、既存CSMS/TARA/SBOM/CVE運用の代替ではなく、steering ECU固有の診断アクセス、ソフト更新、SBOM-to-function impact、fail-safe state、OEM回答文への接続に差分があるかを確認すること。
 既存業務に同等成果物があるならKillする。
 
+最新判断では、この方向はかなりKill寄りのHoldである。
+ETAS、Ansys、Siemens、ThreatZなど既存プレイヤーがTARA、SBOM、vulnerability management、ISO/SAE 21434、UN R155/R156対応をすでに厚く扱っているため、汎用サイバー/SBOM商品としては追わない。
+残す場合も、steering ECU固有のOEM問い合わせ回答に既存成果物を翻訳する薄い支援に限定する。
+
 ## Historical Main Hypothesis
 
 以下はhistoricalとして扱う。

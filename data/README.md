@@ -105,6 +105,8 @@
   - steering ECU software/cyber evidence packで作る成果物。asset map、diagnostic access exposure、software update evidence、SBOM-to-function map、CVE triage response、fail-safe evidence、OEM response one-pagerを整理。
 - `steering_ecu_cve_triage_demo.tsv`
   - 仮想CVEを使い、crypto library、diagnostic stack、CAN stack、RTOS、debug utility、bootloader transport、sensor interfaceがEPS機能に触れるかを判断するデモTSV。
+- `steering_ecu_cyber_value_check.tsv`
+  - steering ECU software/cyber evidence packの価値確認。TARA、SBOM、CVE管理、diagnostic access、software update、fail-safe mappingが既存業務・既存ツールとどれだけ被るか、残る価値、Kill条件を整理。
 
 ## Interpretation
 
@@ -142,5 +144,6 @@
 - `public_only_alternative_item_candidates.tsv` では、内部資料なしでも需要を説明しやすい候補として、EPS / steering ECU cybersecurity evidence pack、EPS ECU SBOM / vulnerability response pack、SOVD diagnostics content design、steer-by-wire evidence packを次の探索対象に置いた
 - `public_only_candidate_deep_dive.tsv` と `steering_ecu_cyber_evidence_sample.tsv` では、候補1と2を統合し、故障予測や追加ログではなく、EPS / steering ECUの診断アクセス、ソフト更新、SBOM、脆弱性対応をOEM説明・監査・設計レビューに使えるcomponent-level evidenceとして進める判断に更新した
 - `steering_ecu_software_cyber_offer_model.tsv`、`steering_ecu_software_cyber_work_products.tsv`、`steering_ecu_cve_triage_demo.tsv` では、候補1+2を固定スコープassessmentと仮想CVE triageデモへ落とした。現時点では売れる断定ではなく、既存CSMS/TARA/SBOM/CVE運用との差分を確認する探索継続判断である
+- `steering_ecu_cyber_value_check.tsv` では、既存TARA/SBOM/CVE管理ツールと強く被ることを確認し、この方向をかなりKill寄りのHoldへ下げた。残る価値はsteering ECU固有のOEM問い合わせ回答へ既存成果物を翻訳する薄い支援に限定した
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない
