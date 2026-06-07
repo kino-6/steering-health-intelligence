@@ -1,0 +1,6 @@
+question_id	existence_question	ask_role	kill_if_yes_or_no	why_it_matters	decision_rule
+KQ1	steering ECU固有のOEM cyber/SBOM/CVE問い合わせが実際に来ているか	Sales engineering; supplier quality; cybersecurity	NoならKill	問い合わせがなければ回答支援の需要トリガがない	KQ1 No => Kill
+KQ2	既存CVE回答にEPS機能影響、release ID、software/calibration IDが入っているか	Cybersecurity; software release	YesならKill	既に機能影響まで回答できるなら追加価値がない	KQ2-KQ5で3つ以上Yes => Kill
+KQ3	診断security資料にroutine/DID/sessionの安全影響と禁止操作が入っているか	Diagnostics; cybersecurity	YesならKill	診断access exposure tableが既存なら差分がない	KQ2-KQ5で3つ以上Yes => Kill
+KQ4	cyber abnormal conditionとassist/fail-safe stateが紐づく表があるか	Systems; safety; cybersecurity	YesならKill	残りうる最重要のEPS固有価値が既存なら差分がない	KQ2-KQ5で3つ以上Yes => Kill
+KQ5	OEM回答用の1枚資料、またはRFQ/監査回答templateが既にあるか	Supplier quality; sales engineering; cybersecurity	YesならKill	回答支援が既にあるなら外部支援余地がない	KQ1 YesかつKQ2-KQ5で2つ以上No => Short response-support only

@@ -121,19 +121,19 @@ EPS Common Pain Productization
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/48_steering_ecu_cyber_value_check.md](docs/48_steering_ecu_cyber_value_check.md): steering ECU software/cyber evidence packの価値確認。既存TARA/SBOM/CVE管理と強く被るため、かなりKill寄りのHoldと判断。
-2. [data/steering_ecu_cyber_value_check.tsv](data/steering_ecu_cyber_value_check.tsv): TARA、SBOM、CVE管理、診断access、software update、fail-safe mappingごとの重複/残価値/Kill条件。
-3. [generated/steering_ecu_software_cyber_demo.html](generated/steering_ecu_software_cyber_demo.html): 候補1+2のブラウザ表示デモ。何を売るか、成果物、CVE triage、Proceed/Killを1ページで確認できる。
-4. [docs/46_steering_ecu_software_cyber_evidence_pack.md](docs/46_steering_ecu_software_cyber_evidence_pack.md): 候補1+2を、EPS / steering ECUサプライヤ向けのsoftware/cyber evidence packとして具体化したレポート。
-5. [docs/47_steering_ecu_software_cyber_demo.md](docs/47_steering_ecu_software_cyber_demo.md): 仮想steering ECUを使った最小デモと、既存業務との差分・Proceed/Kill条件。
-6. [data/steering_ecu_software_cyber_offer_model.tsv](data/steering_ecu_software_cyber_offer_model.tsv): 初期offer、買い手、収益モデル、必要入力、Kill条件を整理したTSV。
-7. [data/steering_ecu_software_cyber_work_products.tsv](data/steering_ecu_software_cyber_work_products.tsv): assessmentで作る成果物と利用者、入力、判定条件。
-8. [data/steering_ecu_cve_triage_demo.tsv](data/steering_ecu_cve_triage_demo.tsv): 仮想CVEをEPS機能影響へ接続するデモTSV。
-9. [docs/45_public_only_candidate_deep_dive.md](docs/45_public_only_candidate_deep_dive.md): 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` として進める判断を整理したレポート。
-10. [data/public_only_candidate_deep_dive.tsv](data/public_only_candidate_deep_dive.tsv): 候補1-5のProceed / Hold / Watch / Input判断、買い手、初期offer、Kill条件を整理したTSV。
-11. [data/steering_ecu_cyber_evidence_sample.tsv](data/steering_ecu_cyber_evidence_sample.tsv): 候補1+2の最小デモとして、診断アクセス、ソフト更新、SBOM、脆弱性、sensor input、communication、fail-safe stateの証拠例を整理したTSV。
-12. [docs/44_public_only_alternative_item_scan.md](docs/44_public_only_alternative_item_scan.md): Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理したレポート。
-13. [data/public_only_alternative_item_candidates.tsv](data/public_only_alternative_item_candidates.tsv): サイバー、SBOM、SOVD、steer-by-wire、市場要求モニタの探索候補TSV。
+1. [docs/49_steering_ecu_cyber_kill_evidence_dossier.md](docs/49_steering_ecu_cyber_kill_evidence_dossier.md): steering ECU cyber/SBOM方向をKillするか判断するための証拠Dossier。広い商品はKill、残すなら5項目存在確認のみ。
+2. [data/steering_ecu_cyber_kill_evidence_dossier.tsv](data/steering_ecu_cyber_kill_evidence_dossier.tsv): NHTSA、ISO、Auto-ISAC、NIST、ETAS、Ansys、Siemens、ThreatZ等の証拠とKill/残余価値を対応づけたTSV。
+3. [data/steering_ecu_cyber_kill_questions.tsv](data/steering_ecu_cyber_kill_questions.tsv): 完全Kill前に確認する5つの存在確認質問と判定ルール。
+4. [docs/48_steering_ecu_cyber_value_check.md](docs/48_steering_ecu_cyber_value_check.md): steering ECU software/cyber evidence packの価値確認。既存TARA/SBOM/CVE管理と強く被るため、かなりKill寄りのHoldと判断。
+5. [data/steering_ecu_cyber_value_check.tsv](data/steering_ecu_cyber_value_check.tsv): TARA、SBOM、CVE管理、診断access、software update、fail-safe mappingごとの重複/残価値/Kill条件。
+6. [generated/steering_ecu_software_cyber_demo.html](generated/steering_ecu_software_cyber_demo.html): 候補1+2のブラウザ表示デモ。何を売るか、成果物、CVE triage、Proceed/Killを1ページで確認できる。
+7. [docs/46_steering_ecu_software_cyber_evidence_pack.md](docs/46_steering_ecu_software_cyber_evidence_pack.md): 候補1+2を、EPS / steering ECUサプライヤ向けのsoftware/cyber evidence packとして具体化したレポート。
+8. [docs/47_steering_ecu_software_cyber_demo.md](docs/47_steering_ecu_software_cyber_demo.md): 仮想steering ECUを使った最小デモと、既存業務との差分・Proceed/Kill条件。
+9. [data/steering_ecu_software_cyber_offer_model.tsv](data/steering_ecu_software_cyber_offer_model.tsv): 初期offer、買い手、収益モデル、必要入力、Kill条件を整理したTSV。
+10. [data/steering_ecu_software_cyber_work_products.tsv](data/steering_ecu_software_cyber_work_products.tsv): assessmentで作る成果物と利用者、入力、判定条件。
+11. [data/steering_ecu_cve_triage_demo.tsv](data/steering_ecu_cve_triage_demo.tsv): 仮想CVEをEPS機能影響へ接続するデモTSV。
+12. [docs/45_public_only_candidate_deep_dive.md](docs/45_public_only_candidate_deep_dive.md): 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` として進める判断を整理したレポート。
+13. [data/public_only_candidate_deep_dive.tsv](data/public_only_candidate_deep_dive.tsv): 候補1-5のProceed / Hold / Watch / Input判断、買い手、初期offer、Kill条件を整理したTSV。
 14. [generated/coverage_benchmark_artifact_intake_result.html](generated/coverage_benchmark_artifact_intake_result.html): 10 artifact requestをRepo/public proxyで実行したHold判定HTML。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。

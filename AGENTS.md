@@ -107,6 +107,14 @@ EPSサプライヤが、診断、ソフト更新、セキュリティ、SBOM、s
 ETAS、Ansys、Siemens、ThreatZなど既存プレイヤーがTARA、SBOM、vulnerability management、ISO/SAE 21434、UN R155/R156対応をすでに厚く扱っているため、汎用サイバー/SBOM商品としては追わない。
 残す場合も、steering ECU固有のOEM問い合わせ回答に既存成果物を翻訳する薄い支援に限定する。
 
+Kill判断用の現行ルール:
+
+- 汎用TARA / SBOM / CVE management / ISO21434 / UN R155/R156 supportはKill
+- steering ECU固有のOEM回答翻訳だけ最後の存在確認対象
+- KQ1「steering ECU固有のOEM cyber/SBOM/CVE問い合わせが実際に来ているか」がNoならKill
+- KQ2-KQ5「既存CVE回答、診断security、安全状態mapping、OEM回答template」に3つ以上YesならKill
+- KQ1がYesかつKQ2-KQ5で2つ以上Noの場合だけ、短期OEM回答支援として残す
+
 ## Historical Main Hypothesis
 
 以下はhistoricalとして扱う。
