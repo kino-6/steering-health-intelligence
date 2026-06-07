@@ -2,7 +2,7 @@
 
 ## 結論
 
-8項目を検証した結果、**公開情報だけではProceedもKillもできない**。
+8項目を公開情報だけで検証した結果、**外販Proceedには進めない**。
 
 ただし、何が分かり、何が分からないかはかなり明確になった。
 
@@ -20,10 +20,14 @@
 3. software/calibration IDとpost-update steering stateの接続
 4. OEM RFQ、design review質問、既存customer answer templateの有無
 
-したがって、現時点の判断は **Hold**。
-次に進むなら、内部8項目を最小入力として、既存資料から1ケースsampleが即座に作れるかを確認する。
-即座に作れるならKill。
-部署横断でないと作れないなら、狭いcomponent-boundary assessmentとして残す。
+したがって、現時点の判断は **Public-only Hold / do not sell**。
+
+重要な修正:
+
+> 現行方針では内部資料を要求しない。したがって、この不足を非公開項目の確認で埋めに行かない。
+
+次に進めるとすれば、公開情報だけで作った1ケースsampleが、EPSサプライヤの公開営業資料、RFQ一般論、診断標準動向に対して独自の判断を出せるかを見る。
+それができないなら、SbW方向もStopする。
 
 ## 何を検証したか
 
@@ -35,7 +39,7 @@
 
 良い進め方:
 
-> SbWは量産化している。ただし安全分析や認証資料は既存業務と被る。公開情報で分かる範囲と、内部資料がないと分からない範囲を分け、内部8項目でProceed / Killを切る。
+> SbWは量産化している。ただし安全分析や認証資料は既存業務と被る。公開情報で分かる範囲と、公開情報では分からない範囲を分け、内部資料を要求せずに、公開情報だけで価値が示せるかを見る。
 
 ## 8項目の検証結果
 
@@ -57,9 +61,9 @@
 | SbW architectureは公開情報で確認できるか | ZFはHWA/FAA、Lexusはsteering torque actuator/control actuator、HELLAはsteering sensorを説明 | High for generic architecture | 対象architectureではないのでPartial |
 | degraded stateは公開情報で確認できるか | Mercedes-Benzは冗長architecture、Teslaはalert/chime/torque reduction/pull-over/low-speed overrideを説明 | Medium | driver-visible behaviorの論点は確認。ただし対象state listではない |
 | FMEAや安全mechanismは既存業務か | NHTSA/VolpeはISO 26262 concept phase、HAZOP、functional FMEA、STPAを扱う | High | 汎用安全分析サービスはKill寄り |
-| DTC coverageは既存論点か | NHTSA/VolpeはDTC coverage候補に言及 | Medium | 診断コンテンツ設計は残るが、対象DTCは内部資料が必要 |
+| DTC coverageは既存論点か | NHTSA/VolpeはDTC coverage候補に言及 | Medium | 診断コンテンツ設計は論点だが、対象DTCは公開情報では分からない |
 | R79/認証文書は既存業務か | VCAはR79 Annex 6でdocumentation、fault strategy、verification、failure provisions、test、audit、FMEA/FTAを説明 | High | 認証資料パッケージ代替はKill |
-| OEM質問や既存回答templateは公開情報で分かるか | 公開ソースでは実RFQやcustomer answer templateは見えない | High | 内部確認なしではProceed不可 |
+| OEM質問や既存回答templateは公開情報で分かるか | 公開ソースでは実RFQやcustomer answer templateは見えない | High | 現行方針ではここを非公開確認で埋めない。外販Proceed不可 |
 
 ## 項目別の意味
 
@@ -81,7 +85,7 @@ Mercedes-Benzは冗長architectureと2つのsignal pathを説明している。
 TeslaはSbW異常時にalert、chime、drive torque reduction、pull over、low-speed overrideが出ると説明している。
 
 ただし、対象製品のstate listではない。
-state名、遷移条件、診断status、driver-visible behaviorが内部資料でつながっているかを見ないと判断できない。
+state名、遷移条件、診断status、driver-visible behaviorが対象製品でどうつながるかは公開情報だけでは判断できない。
 
 判定: **Partial**。
 
@@ -100,8 +104,8 @@ NHTSA/VolpeはSbWをISO 26262 concept phaseで扱い、HAZOP、functional FMEA�
 公開情報では、DTC coverageが論点であることまでは確認できる。
 しかし、実際のDTC、DID、freeze frame、extended dataは公開情報では分からない。
 
-ここが未整理なら価値が残る。
-逆に、既存診断設計でSbW state、driver-visible behavior、security accessまで整理済みならKillでよい。
+ここが未整理かどうかは公開情報だけでは判断できない。
+現行方針では内部診断設計を要求しないため、この項目を価値証明に使わない。
 
 判定: **Mostly unknown**。
 
@@ -118,7 +122,7 @@ VCAはR79 Annex 6でdocumentation、fault strategy、verificationが必要と説
 しかし、diagnostic security accessやrole policyまでは公開情報では見えない。
 
 SOVDやUDSの一般論に寄せることはできるが、それだけでは価値にならない。
-対象EPSでservice、factory、engineering、OEM cloudに何を見せるかが必要である。
+対象EPSでservice、factory、engineering、OEM cloudに何を見せるかは公開情報だけでは判断できない。
 
 判定: **Unknown**。
 
@@ -135,8 +139,7 @@ VCAは車両メーカーまたはsystem developerが文書や故障時証拠を�
 ### 8. existing customer answer template
 
 これは公開情報では検証できない。
-既に顧客回答templateがあり、safety、cyber、diagnostic、software updateを横断して答えられるならKillでよい。
-逆にtemplateがなく、毎回部署横断で回答を作っているなら、狭いassessmentとして残る。
+現行方針では顧客回答templateの提示を求めないため、この項目を次アクションにしない。
 
 判定: **Unknown**。
 
@@ -148,8 +151,8 @@ VCAは車両メーカーまたはsystem developerが文書や故障時証拠を�
 | Supplier control | Partly can act |
 | Existing-work overlap | High |
 | Public-only verification | Insufficient |
-| Business offer | Do not sell yet |
-| Next check | Internal 8-item verification |
+| Business offer | Do not sell |
+| Next check | Public-only one-case value check |
 
 ## EPSサプライヤとしての結論
 
@@ -167,7 +170,7 @@ EPSサプライヤとして言えること:
 
 次にやること:
 
-> 内部8項目を対象に、road wheel actuator redundancy degradedの1ケースsampleを既存資料から作れるか確認する。作れるならKill。作れないが部署横断で材料があるなら、狭いassessmentとして残す。
+> road wheel actuator redundancy degradedの1ケースsampleを、公開情報だけで見直す。EPSサプライヤの公開営業資料、RFQ一般論、診断標準動向に対して独自の判断を出せないなら、SbW方向もStopする。
 
 ## 参照ソース
 

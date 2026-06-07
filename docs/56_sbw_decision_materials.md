@@ -14,7 +14,7 @@ NHTSAのSbW functional safety assessmentや英国VCAのR79説明を見ると、S
 
 現時点の判断は **Hold / evidence-gathering continue**。
 
-次に見るべき判断材料は、公開情報ではなく、対象サプライヤ内にある以下の8点である。
+公開情報だけでは埋まらない判断材料は、以下の8点である。
 
 1. SbW対象architecture
 2. degraded / fail-operational / fail-safe state list
@@ -25,8 +25,8 @@ NHTSAのSbW functional safety assessmentや英国VCAのR79説明を見ると、S
 7. OEM RFQまたはdesign review question
 8. 既存customer answer template
 
-この8点のうち、既に横断回答としてまとまっているならKill。
-資料はあるが部署をまたいで集めないとOEM説明にならないなら、狭いassessmentとして残す。
+現行方針では、この8点を内部資料要求で埋めに行かない。
+したがって、この8点が公開情報で埋まらない限り、外販Proceedには進めない。
 
 ## 判断材料の読み方
 
@@ -82,43 +82,42 @@ VCAも、R79 Annex 6ではsystem explanation、architecture / wiring diagram、f
 - cyber / TARAはあるが、steering degraded stateとつながっていない
 - DTC / DIDはあるが、SbWの異常時状態とつながっていない
 - software/calibration IDはあるが、post-update steering stateとつながっていない
-- customer interfaceが、毎回各部署へ聞いて回答を組み立てている
+- 公開情報上、customer interfaceがどの材料を必要としているかまでは見えない
 
 この場合にだけ、component-boundary evidence mapとして価値が残る。
 
-## 追加で集めるべき内部判断材料
+## 公開情報だけでは埋まらない判断材料
 
-| ID | 見るもの | 何が分かるか | Proceed寄り | Kill寄り |
+| ID | 見るもの | 何が分かるか | 公開情報で埋まる場合 | 公開情報で埋まらない場合 |
 |---|---|---|---|---|
-| SBW-MAT01 | SbW target architecture | サプライヤが持つcomponent boundary | HWA/RWA/ECU/sensor/power/communicationが見える | vehicle-level図だけでsupplier boundaryが見えない |
-| SBW-MAT02 | degraded / fail-operational / fail-safe state list | 異常時に何が残るか | state、driver-visible behavior、diagnostic statusがつながる | safety case内で既に完全整理済み |
-| SBW-MAT03 | FMEA / safety mechanism table | 既存安全成果物との差分 | OEM回答に転記しにくい | そのままOEM回答に使える |
-| SBW-MAT04 | DTC / DID / freeze frame / extended data | 診断で何を見せるか | SbW stateとの対応が未整理 | 既に診断設計で整理済み |
-| SBW-MAT05 | software/calibration ID and post-update check | 更新後確認とsteering stateの接続 | update後basic steering stateが曖昧 | software update processで整理済み |
-| SBW-MAT06 | security access / diagnostic role policy | 誰に何を読ませるか | service/factory/OEM cloudの境界が曖昧 | access policyが整理済み |
-| SBW-MAT07 | OEM RFQ / design review question | 実際に誰が困っているか | 冗長低下、driver feedback、diagnostic exposureを聞かれている | OEM質問がない |
-| SBW-MAT08 | existing customer answer template | 既に同じ成果物があるか | templateはあるが横断リンクが弱い | 同等の横断回答templateがある |
+| SBW-MAT01 | SbW target architecture | supplier-owned component boundary | 公開サプライヤ資料でHWA/RWA/ECU/sensor/power/communicationの境界が分かる | 対象サプライヤ固有の境界は判断しない |
+| SBW-MAT02 | degraded / fail-operational / fail-safe state list | 異常時に何が残るか | 公開manualや公開技術資料でstate、driver-visible behavior、diagnostic statusがつながる | 対象製品のstate不足は主張しない |
+| SBW-MAT03 | FMEA / safety mechanism table | 既存安全成果物との差分 | 公開安全分析でOEM説明との差分まで見える | 汎用安全分析サービスはKill寄り |
+| SBW-MAT04 | DTC / DID / freeze frame / extended data | 診断で何を見せるか | 公開診断資料でSbW stateとの対応が見える | DTC/DID不足は主張しない |
+| SBW-MAT05 | software/calibration ID and post-update check | 更新後確認とsteering stateの接続 | 公開software update資料でsteering state確認が見える | 価値証明に使わない |
+| SBW-MAT06 | security access / diagnostic role policy | 誰に何を読ませるか | 公開標準・公開ツール資料でaccess policyが見える | SOVD/security価値を主張しない |
+| SBW-MAT07 | OEM RFQ / design review question | 実際に誰が困っているか | 公開RFQ/RFI/設計要求で質問が見える | 買い手の痛みは仮説止まり |
+| SBW-MAT08 | existing customer answer template | 既に同じ成果物があるか | 公開templateが存在する | 公開情報では検証不能として扱う |
 
 ## 判断基準
 
-Proceedしてよい条件:
+公開情報だけで探索継続してよい条件:
 
-- 対象顧客または社内programにSbWテーマがある
-- 上記8材料のうち、少なくとも3つが「資料はあるが横断回答にしにくい」
-- customer interface、safety、diagnostic、software/cyberのうち2部署以上が同じ説明材料を必要としている
-- 1ケースsampleが、既存資料から即出しできない
+- 公開資料だけで、SbWの異常時状態、診断表示、software/update、security/accessのうち複数が同じ1ケースsampleに接続できる
+- 公開資料だけで、既存安全分析やR79説明との差分が自然言語で説明できる
+- 公開資料だけで、EPSサプライヤが言えることと言ってはいけないことを分けられる
 
 Killしてよい条件:
 
-- SbW対象programがない
-- 既存safety caseとdiagnostic designだけで、1ケースsampleと同等の説明が作れる
-- OEM質問がなく、社内整理だけで終わる
+- 公開情報だけでは、既存安全分析やR79説明との差分が出ない
+- 公開情報だけでは、診断、software/update、security/accessのどれにも接続できない
 - vehicle-level認証、HMI、ADAS fallbackに依存し、EPSサプライヤが主語にならない
 - 成果物が「R79/ISO 26262対応資料を作る」に見える
 
 ## EPSサプライヤとしての暫定判断
 
-EPSサプライヤとして売るなら、まだ外販商品ではなく、固定スコープの内部/共同assessmentである。
+EPSサプライヤとしては、まだ外販商品ではない。
+現行方針では内部資料を見ないため、固定スコープassessmentとも言わない。
 
 売ると言ってよい可能性があるもの:
 

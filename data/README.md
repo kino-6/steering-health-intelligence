@@ -121,16 +121,12 @@
   - 公開recall/ODI/TSB市場要求モニタを単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問へ変換する入力計画。
 - `steer_by_wire_business_deep_dive.tsv`
   - Steer-by-wire方向の事業成立性を深掘りしたTSV。市場需要、既存業務との重複、残る狭い価値、初期提供物、Kill条件を整理。
-- `steer_by_wire_minimum_artifact_request.tsv`
-  - Steer-by-wire方向をProceed / Killするための最小artifact request。architecture、degraded state、FMEA、diagnostic content、software update、security access、OEM質問を確認する。
 - `steer_by_wire_redundancy_degraded_sample.tsv`
   - road wheel actuator冗長低下を題材にした1ケースsample。field、supplier-owned source、OEM回答価値、Kill条件を整理。
 - `sbw_decision_materials.tsv`
   - ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点、EPSサプライヤへの示唆に分けたTSV。
-- `sbw_internal_decision_material_checklist.tsv`
-  - SbW方向を内部でProceed / Killするための8項目チェックリスト。architecture、状態リスト、FMEA、診断内容、software update、security access、OEM質問、既存回答templateを見る。
 - `sbw_8_material_verification.tsv`
-  - SbW内部8項目を公開情報で検証した結果。1-4はPartial、5-8はUnknownで、公開情報だけではProceed / Killできないことを整理。
+  - SbW 8項目を公開情報で検証した結果。1-4はPartial、5-8はUnknownで、現行方針では内部資料を要求せず、外販Proceedしないことを整理。
 
 ## Interpretation
 
@@ -175,10 +171,8 @@
 - `sovd_kill_first_review.tsv` では、SOVD platform / server / API / ODX / UDS変換は既存標準・既存ツール領域として主商品から外した。残る可能性は、EPSのDTC、DID、freeze frame、extended data、software ID、security accessを、次世代診断でどう見せるべきかというcontent designに限定する
 - `public_market_monitor_input_plan.tsv` では、公開recall/ODI/TSB monitorを単体商品にしない判断を明確にした。価値は市場シグナルを売ることではなく、Steer-by-wireとSOVDの設計質問・診断質問・禁止主張を作る入力に変換することである
 - `steer_by_wire_business_deep_dive.tsv` では、Steer-by-wire方向をさらに狭めた。残すのは汎用安全支援ではなく、既存の安全・サイバー・診断・software update成果物を、OEM説明、RFQ回答、診断コンテンツ設計へ転記しやすくするcomponent-boundary整理だけである
-- `steer_by_wire_minimum_artifact_request.tsv` では、SbW開発テーマ、対象architecture、degraded/fail-operational/fail-safe state、FMEA、診断コンテンツ、software/calibration ID、security access、OEM質問を確認し、既存safety caseの焼き直しならKillする形にした
 - `steer_by_wire_redundancy_degraded_sample.tsv` では、road wheel actuator冗長低下を題材に、driver-visible behavior、remaining steering capability、diagnostic content、safety/cyber source、OEM answer、禁止主張を1ケースで確認できる形にした
-- `sbw_decision_materials.tsv` では、公開情報から見える市場変化、driver-visible degraded behavior、supplier-owned sensor/redundancy、NHTSA/VCAによる既存安全・認証業務との重複を分けた。これにより、SbW方向は公開情報だけで売れるとは言えず、内部8項目確認が必要とした
-- `sbw_internal_decision_material_checklist.tsv` では、公開情報で代替できない内部判断材料を8つに絞った。既に横断回答templateがあるならKill、資料はあるが部署横断でないとOEM説明にならないなら狭いassessmentとして残す
-- `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、対象サプライヤの実資料としては未検証。software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknownとした
+- `sbw_decision_materials.tsv` では、公開情報から見える市場変化、driver-visible degraded behavior、supplier-owned sensor/redundancy、NHTSA/VCAによる既存安全・認証業務との重複を分けた。これにより、SbW方向は公開情報だけで売れるとは言えないとした
+- `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknown。現行方針ではこの不足を非公開確認で埋めず、外販Proceedしない
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

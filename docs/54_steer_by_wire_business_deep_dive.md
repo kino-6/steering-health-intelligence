@@ -59,7 +59,7 @@ Steer-by-wire方向は、**探索を続ける価値はあるが、売り物は�
 | Cyber成果物 | threatやsecurity controlはあるが、steering degraded stateやdiagnostic accessと結びついていない |
 | Diagnostic成果物 | DTC、DID、freeze frame、extended dataはあるが、SbWの異常時状態や冗長低下をどう見せるかが見えにくい |
 | Software update成果物 | software/calibration IDやupdate後確認はあるが、steering stateの安全確認とつながっていない |
-| Customer interface | OEMからのRFQ、design review、field issue質問に対して、どの既存資料から何を答えるかが属人的になる |
+| Customer interface | OEMからの公開RFQ/RFIや公開design review観点に対して、公開情報だけでどこまで答えられるかが見えにくい |
 
 ここに価値がなければ、この方向は止める。
 
@@ -99,7 +99,7 @@ Steer-by-wire方向は、**探索を続ける価値はあるが、売り物は�
 
 ## 買い手 / 利用者
 
-最初の利用者は、外部OEMではなく、EPS / steeringサプライヤ内部である。
+最初の読者は、外部OEMではなく、EPS / steeringサプライヤ側で事業探索をする人である。
 
 | 利用者 | 嬉しいこと |
 |---|---|
@@ -174,8 +174,8 @@ EPSサプライヤが持てるのは、vehicle-level safety approvalではない
 | OEM answer | 何が起き、何が残り、何を診断で読めるか |
 | do-not-claim | root cause断定、field failure prediction、vehicle-level approval |
 
-これが既存safety caseから自動的に出せるなら、この方向はKillする。
-逆に、既存資料はあるがOEM回答に転記しにくいなら、短期assessmentとして残る。
+公開情報だけでこのsampleに独自価値が出せないなら、この方向はKillする。
+現行方針では、既存safety caseや内部資料を要求して差分を確認しに行かない。
 
 ## Chain-of-Verification
 
@@ -195,13 +195,13 @@ Proceed:
 - 対象顧客または社内にSbW開発テーマがある
 - 既存safety / cyber / diagnostic成果物はあるが、OEM設計レビューやRFQ回答へ横断的に転記しにくい
 - degraded / fail-operational / fail-safe stateとdiagnostic contentの対応が未整理
-- diagnostic engineering、safety、cyber、software update、customer interfaceのどれか2部署以上が同じ説明材料を必要としている
+- 公開情報だけで、diagnostic、safety、cyber、software update、customer interfaceの複数観点を1つの説明に接続できる
 
 Hold:
 
 - SbWテーマはあるが、既存成果物との差分が未確認
 - 公開情報だけでsampleは作れるが、実program artifactがない
-- 買い手部署は見えるが、予算経路がまだ見えない
+- 買い手候補は推定できるが、公開情報だけでは予算経路が見えない
 
 Kill:
 

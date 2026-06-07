@@ -135,60 +135,58 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 1. [docs/54_steer_by_wire_business_deep_dive.md](docs/54_steer_by_wire_business_deep_dive.md): Steer-by-wire方向を事業成立性まで深掘りした最新判断。汎用安全支援ではなく、OEM説明・診断設計へ転記するcomponent-boundary整理だけを狭く残す。
 2. [data/steer_by_wire_business_deep_dive.tsv](data/steer_by_wire_business_deep_dive.tsv): SbW方向の市場需要、未解決の痛み、仮説、初期提供物、Kill条件を整理したTSV。
-3. [docs/57_sbw_8_material_verification.md](docs/57_sbw_8_material_verification.md): SbW内部8項目を公開情報で検証した結果。公開情報だけではProceed/Kill不可、1-4はPartial、5-8はUnknown。
-4. [data/sbw_8_material_verification.tsv](data/sbw_8_material_verification.tsv): 8項目ごとのpublic verification result、公開情報で分からないこと、decision impact、次の内部確認。
-5. [docs/56_sbw_decision_materials.md](docs/56_sbw_decision_materials.md): SbW方向をProceed / Killするために集めた判断材料。公開ソースから見えることと、内部で確認すべき8項目を分ける。
+3. [docs/57_sbw_8_material_verification.md](docs/57_sbw_8_material_verification.md): SbW 8項目を公開情報で検証した結果。1-4はPartial、5-8はUnknown。現行方針では内部資料を要求しないため、外販Proceedには進めない。
+4. [data/sbw_8_material_verification.tsv](data/sbw_8_material_verification.tsv): 8項目ごとのpublic verification result、公開情報で分からないこと、decision impact、公開情報だけでの限界。
+5. [docs/56_sbw_decision_materials.md](docs/56_sbw_decision_materials.md): SbW方向をProceed / Killするために集めた判断材料。公開ソースから見えることと、公開情報だけでは埋まらない8項目を分ける。
 6. [data/sbw_decision_materials.tsv](data/sbw_decision_materials.tsv): ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点へ対応づけたTSV。
-7. [data/sbw_internal_decision_material_checklist.tsv](data/sbw_internal_decision_material_checklist.tsv): SbW方向を内部でProceed / Killするための8項目チェックリスト。
-8. [data/steer_by_wire_minimum_artifact_request.tsv](data/steer_by_wire_minimum_artifact_request.tsv): SbW方向をProceed / Killするための最小artifact request。対象architecture、degraded state、FMEA、diagnostic content、software update、security access、OEM質問を確認する。
-9. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): road wheel actuator冗長低下を題材にした1ケースsample。既存safety caseの焼き直しか、横断整理として価値があるかを見る。
-10. [data/steer_by_wire_redundancy_degraded_sample.tsv](data/steer_by_wire_redundancy_degraded_sample.tsv): 1ケースsampleのfield、supplier-owned source、OEM回答価値、Kill条件。
-11. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
-12. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
-13. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
-14. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
-15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
-16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
-17. [data/coverage_benchmark_artifact_intake_decision.tsv](data/coverage_benchmark_artifact_intake_decision.tsv): Artifact intake後のProceed/Hold/Kill判断表。
-18. [data/coverage_benchmark_internal_placeholder_screening_sheet.tsv](data/coverage_benchmark_internal_placeholder_screening_sheet.tsv): 内部資料を使える場合だけ参照する4項目screening sheet。
-19. [generated/coverage_benchmark_p1_assessment.html](generated/coverage_benchmark_p1_assessment.html): FAM08/FAM02/FAM11を使ったP1 assessment packageのクイックHTML。
-20. [docs/40_coverage_benchmark_p1_assessment_package.md](docs/40_coverage_benchmark_p1_assessment_package.md): Coverage BenchmarkのP1 assessment最小構成。
-21. [data/coverage_benchmark_p1_assessment_plan.tsv](data/coverage_benchmark_p1_assessment_plan.tsv): P1 workstream、入力、出力、owner、timebox、Proceed/Kill条件。
-22. [data/coverage_benchmark_family_reuse_matrix.tsv](data/coverage_benchmark_family_reuse_matrix.tsv): FAM08/FAM02/FAM11で同じrow構造を再利用できるかのmatrix。
-23. [data/coverage_benchmark_p1_decision_rubric.tsv](data/coverage_benchmark_p1_decision_rubric.tsv): P1のProceed / Hold / Kill判定ルーブリック。
-24. [generated/fam08_immediate_visibility_review.html](generated/fam08_immediate_visibility_review.html): FAM08が今日すぐProceed / Hold / Kill判定できるかを見るクイックHTML。
-25. [docs/39_fam08_immediate_visibility_review.md](docs/39_fam08_immediate_visibility_review.md): `FAM08 stop-start low-speed` の即時可視性レビュー。
-26. [data/fam08_immediate_visibility_triage.tsv](data/fam08_immediate_visibility_triage.tsv): FAM08のmarket fit、HILS重複、DTC snapshot、workflow fitを即時triageするTSV。
-27. [docs/38_fam08_stop_start_low_speed_coverage_benchmark_sample.md](docs/38_fam08_stop_start_low_speed_coverage_benchmark_sample.md): `FAM08 stop-start low-speed` の1ページcoverage benchmark sample。
-28. [data/fam08_stop_start_low_speed_coverage_benchmark_sample.tsv](data/fam08_stop_start_low_speed_coverage_benchmark_sample.tsv): FAM08 sampleのreview item、expected EPS facts、coverage question、HILS/bench scenario、Kill条件。
-29. [docs/37_eps_coverage_benchmark_business_value.md](docs/37_eps_coverage_benchmark_business_value.md): Coverage Benchmark線でビジネス価値が出るかを、買い手・予算・代替・Kill条件まで深掘りしたレポート。
-30. [data/eps_coverage_benchmark_business_value.tsv](data/eps_coverage_benchmark_business_value.tsv): business model別に市場需要、未解決痛み、買い手、予算経路、proof demo、Kill条件を整理したTSV。
-31. [docs/36_eps_common_pain_productization_scan.md](docs/36_eps_common_pain_productization_scan.md): EPS共通pain familyから、スケール可能な事業候補を再抽出したレポート。
-32. [data/eps_common_pain_business_scores.tsv](data/eps_common_pain_business_scores.tsv): 13 familyの共通性、サプライヤ制御性、差別化、スケール性のスコア表。
-33. [data/eps_common_market_pain_reclassification.tsv](data/eps_common_market_pain_reclassification.tsv): 公開EPS case 30件の共通pain family再分類。
-34. [docs/35_rca_8d_case_pack_viability_report.md](docs/35_rca_8d_case_pack_viability_report.md): `RCA / 8D Evidence Case Pack` が単独主商品として弱いことを検証したレポート。
-35. [data/rca_8d_case_pack_viability_assessment.tsv](data/rca_8d_case_pack_viability_assessment.tsv): 成立条件、代替品、EPSサプライヤ適合、収益モデル、Kill条件の評価表。
-36. [docs/34_eps_supplier_business_model_reassessment.md](docs/34_eps_supplier_business_model_reassessment.md): 上位ルール後に既存データを再評価し、主商品をcase packへ寄せた判断。現在はhistorical寄り。
-37. [data/eps_supplier_business_model_reassessment.tsv](data/eps_supplier_business_model_reassessment.tsv): EPSサプライヤ視点の再評価表。現在はhistorical寄り。
-38. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
-39. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
-40. [docs/27_s2e001_diagnostic_evidence_gap_check.md](docs/27_s2e001_diagnostic_evidence_gap_check.md): S2E001を既存DTC/freeze frameで説明できるか見るgap check。
-41. [docs/28_s2e001_diagnostic_evidence_review_template.md](docs/28_s2e001_diagnostic_evidence_review_template.md): 内部DTC仕様を入れてProceed/Kill/Holdを判定するレビュー手順。
-42. [docs/29_business_model_rebranch_after_s2e001_hold.md](docs/29_business_model_rebranch_after_s2e001_hold.md): S2E001 Hold後のビジネスモデル再分岐。
-43. [docs/30_bmr001_market_pain_scenario_cards.md](docs/30_bmr001_market_pain_scenario_cards.md): BMR001の初期3枚scenario cardと商品化境界。最新では主商品ではなく前段材料。
-44. [docs/31_bmr002_rfq_design_review_pack.md](docs/31_bmr002_rfq_design_review_pack.md): BMR001をRFQ/設計レビュー1ページへ変換したBMR002 sample。最新では主商品ではなく副産物。
-45. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
-46. [generated/bmr002_rfq_design_review_pack.html](generated/bmr002_rfq_design_review_pack.html): BMR002 Scenario Readiness Pageのブラウザ表示。
-47. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
-48. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
-49. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
-50. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
-51. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
-52. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
-53. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
-54. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
-55. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
-56. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
+7. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): road wheel actuator冗長低下を題材にした公開情報ベースの1ケースsample。これ単体で独自価値が出るかを見る。
+8. [data/steer_by_wire_redundancy_degraded_sample.tsv](data/steer_by_wire_redundancy_degraded_sample.tsv): 1ケースsampleのfield、supplier-owned source、OEM回答価値、Kill条件。
+9. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
+10. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
+11. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
+12. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
+13. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
+14. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
+15. [data/coverage_benchmark_artifact_intake_decision.tsv](data/coverage_benchmark_artifact_intake_decision.tsv): Artifact intake後のProceed/Hold/Kill判断表。
+16. [data/coverage_benchmark_internal_placeholder_screening_sheet.tsv](data/coverage_benchmark_internal_placeholder_screening_sheet.tsv): 内部資料を使える場合だけ参照する4項目screening sheet。
+17. [generated/coverage_benchmark_p1_assessment.html](generated/coverage_benchmark_p1_assessment.html): FAM08/FAM02/FAM11を使ったP1 assessment packageのクイックHTML。
+18. [docs/40_coverage_benchmark_p1_assessment_package.md](docs/40_coverage_benchmark_p1_assessment_package.md): Coverage BenchmarkのP1 assessment最小構成。
+19. [data/coverage_benchmark_p1_assessment_plan.tsv](data/coverage_benchmark_p1_assessment_plan.tsv): P1 workstream、入力、出力、owner、timebox、Proceed/Kill条件。
+20. [data/coverage_benchmark_family_reuse_matrix.tsv](data/coverage_benchmark_family_reuse_matrix.tsv): FAM08/FAM02/FAM11で同じrow構造を再利用できるかのmatrix。
+21. [data/coverage_benchmark_p1_decision_rubric.tsv](data/coverage_benchmark_p1_decision_rubric.tsv): P1のProceed / Hold / Kill判定ルーブリック。
+22. [generated/fam08_immediate_visibility_review.html](generated/fam08_immediate_visibility_review.html): FAM08が今日すぐProceed / Hold / Kill判定できるかを見るクイックHTML。
+23. [docs/39_fam08_immediate_visibility_review.md](docs/39_fam08_immediate_visibility_review.md): `FAM08 stop-start low-speed` の即時可視性レビュー。
+24. [data/fam08_immediate_visibility_triage.tsv](data/fam08_immediate_visibility_triage.tsv): FAM08のmarket fit、HILS重複、DTC snapshot、workflow fitを即時triageするTSV。
+25. [docs/38_fam08_stop_start_low_speed_coverage_benchmark_sample.md](docs/38_fam08_stop_start_low_speed_coverage_benchmark_sample.md): `FAM08 stop-start low-speed` の1ページcoverage benchmark sample。
+26. [data/fam08_stop_start_low_speed_coverage_benchmark_sample.tsv](data/fam08_stop_start_low_speed_coverage_benchmark_sample.tsv): FAM08 sampleのreview item、expected EPS facts、coverage question、HILS/bench scenario、Kill条件。
+27. [docs/37_eps_coverage_benchmark_business_value.md](docs/37_eps_coverage_benchmark_business_value.md): Coverage Benchmark線でビジネス価値が出るかを、買い手・予算・代替・Kill条件まで深掘りしたレポート。
+28. [data/eps_coverage_benchmark_business_value.tsv](data/eps_coverage_benchmark_business_value.tsv): business model別に市場需要、未解決痛み、買い手、予算経路、proof demo、Kill条件を整理したTSV。
+29. [docs/36_eps_common_pain_productization_scan.md](docs/36_eps_common_pain_productization_scan.md): EPS共通pain familyから、スケール可能な事業候補を再抽出したレポート。
+30. [data/eps_common_pain_business_scores.tsv](data/eps_common_pain_business_scores.tsv): 13 familyの共通性、サプライヤ制御性、差別化、スケール性のスコア表。
+31. [data/eps_common_market_pain_reclassification.tsv](data/eps_common_market_pain_reclassification.tsv): 公開EPS case 30件の共通pain family再分類。
+32. [docs/35_rca_8d_case_pack_viability_report.md](docs/35_rca_8d_case_pack_viability_report.md): `RCA / 8D Evidence Case Pack` が単独主商品として弱いことを検証したレポート。
+33. [data/rca_8d_case_pack_viability_assessment.tsv](data/rca_8d_case_pack_viability_assessment.tsv): 成立条件、代替品、EPSサプライヤ適合、収益モデル、Kill条件の評価表。
+34. [docs/34_eps_supplier_business_model_reassessment.md](docs/34_eps_supplier_business_model_reassessment.md): 上位ルール後に既存データを再評価し、主商品をcase packへ寄せた判断。現在はhistorical寄り。
+35. [data/eps_supplier_business_model_reassessment.tsv](data/eps_supplier_business_model_reassessment.tsv): EPSサプライヤ視点の再評価表。現在はhistorical寄り。
+36. [docs/20_existing_diagnostics_oem_boundary.md](docs/20_existing_diagnostics_oem_boundary.md): 既存DEM/UDS診断との差分、OEM領分、サプライヤ側の現実的な手札。
+37. [docs/22_public_proxy_data_reset.md](docs/22_public_proxy_data_reset.md): 内部ケースにアクセスできない前提で、公開市場情報/Kaggle/公開CANデータで補える範囲を再定義。
+38. [docs/27_s2e001_diagnostic_evidence_gap_check.md](docs/27_s2e001_diagnostic_evidence_gap_check.md): S2E001を既存DTC/freeze frameで説明できるか見るgap check。
+39. [docs/28_s2e001_diagnostic_evidence_review_template.md](docs/28_s2e001_diagnostic_evidence_review_template.md): 内部DTC仕様を入れてProceed/Kill/Holdを判定するレビュー手順。
+40. [docs/29_business_model_rebranch_after_s2e001_hold.md](docs/29_business_model_rebranch_after_s2e001_hold.md): S2E001 Hold後のビジネスモデル再分岐。
+41. [docs/30_bmr001_market_pain_scenario_cards.md](docs/30_bmr001_market_pain_scenario_cards.md): BMR001の初期3枚scenario cardと商品化境界。最新では主商品ではなく前段材料。
+42. [docs/31_bmr002_rfq_design_review_pack.md](docs/31_bmr002_rfq_design_review_pack.md): BMR001をRFQ/設計レビュー1ページへ変換したBMR002 sample。最新では主商品ではなく副産物。
+43. [docs/23_public_proxy_demo_plan.md](docs/23_public_proxy_demo_plan.md): `Steering Context Risk Explorer` の代理デモ計画。
+44. [generated/bmr002_rfq_design_review_pack.html](generated/bmr002_rfq_design_review_pack.html): BMR002 Scenario Readiness Pageのブラウザ表示。
+45. [generated/bmr001_market_pain_scenario_cards.html](generated/bmr001_market_pain_scenario_cards.html): BMR001 scenario cardのブラウザ表示。
+46. [generated/business_model_rebranch_after_s2e001_hold.html](generated/business_model_rebranch_after_s2e001_hold.html): 再分岐の意思決定ビュー。
+47. [generated/s2e001_diagnostic_evidence_review_template.html](generated/s2e001_diagnostic_evidence_review_template.html): S2E001 review templateの意思決定ビュー。
+48. [generated/s2e001_diagnostic_evidence_gap_check.html](generated/s2e001_diagnostic_evidence_gap_check.html): S2E001 gap checkの意思決定ビュー。
+49. [generated/eps_scenario_to_evidence_pack.html](generated/eps_scenario_to_evidence_pack.html): Scenario-to-Evidence Packの意思決定ビュー。
+50. [generated/low_speed_high_steering_proxy.html](generated/low_speed_high_steering_proxy.html): Phase 2の代表window可視化。
+51. [generated/steering_context_risk_explorer_phase1_ja.html](generated/steering_context_risk_explorer_phase1_ja.html): ブラウザで見られるPhase 1静的デモ日本語版。
+52. [generated/steering_context_risk_explorer_phase1.html](generated/steering_context_risk_explorer_phase1.html): Phase 1静的デモ英語版。
+53. [data/eps_public_market_pain_cases.tsv](data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
+54. [data/public_steering_dataset_inventory.tsv](data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
 
 ## プロジェクトSkill
 
@@ -365,10 +363,8 @@ data/
   sovd_kill_first_review.tsv
   public_market_monitor_input_plan.tsv
   steer_by_wire_business_deep_dive.tsv
-  steer_by_wire_minimum_artifact_request.tsv
   steer_by_wire_redundancy_degraded_sample.tsv
   sbw_decision_materials.tsv
-  sbw_internal_decision_material_checklist.tsv
   sbw_8_material_verification.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
@@ -407,5 +403,6 @@ scripts/
 - `SOVD / next-generation diagnostics content design` は主商品ではなく、EPS診断コンテンツの整理・露出方針・UDSからSOVDへの接続に限定して残す
 - `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
 - road wheel actuator redundancy degradedの1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る
-- 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報だけでは商品価値は証明せず、内部8項目でProceed / Killを切る
-- 8項目を公開情報で検証した結果、1-4はPartial、5-8はUnknown。公開情報だけではProceed/Killできない
+- 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報だけでは商品価値は証明しない
+- 8項目を公開情報で検証した結果、1-4はPartial、5-8はUnknown。現行方針では内部資料を要求しないため、この不足を非公開確認で埋めに行かない
+- 次にやるなら、公開情報だけで作った1ケースsampleがEPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自価値を出せるかを見る。出せなければSbW方向もStopする

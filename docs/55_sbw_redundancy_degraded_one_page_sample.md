@@ -8,8 +8,8 @@
 
 > road wheel actuator側の冗長低下を検知した場合、操舵機能はどの状態に落ち、運転者には何が見え、診断では何が読め、サプライヤは何を断定してはいけないか。
 
-これが既存safety caseだけで自然に出るなら、この方向は弱い。
-逆に、資料はあるが部署ごとに分断されていて、この1文を作るのに手間がかかるなら、狭いassessmentとして価値が残る。
+これが公開情報だけでは汎用安全説明にしか見えないなら、この方向は弱い。
+現行方針では、既存safety caseや部署内資料を要求して差分を確認しに行かない。
 
 ## Scenario
 
@@ -42,25 +42,24 @@
 
 ## Proceed / Kill
 
-Proceed寄り:
+探索継続寄り:
 
-- 既存資料はあるが、safety、cyber、diagnostic、software updateの説明が分断されている
-- OEM design reviewやRFQで、冗長低下時の残存機能・診断・driver-visible behaviorを聞かれている
-- diagnostic contentをSOVD / UDSでどう見せるか未整理
+- 公開情報だけで、冗長低下時の残存機能・診断・driver-visible behaviorが1つのsampleに接続できる
+- 公開RFQ/RFI、公開標準、公開診断動向に接続できる
+- 既存R79/ISO 26262説明との差分が自然言語で説明できる
 
 Kill:
 
-- 既存safety caseから、この1ページと同等の説明が既に出せる
-- diagnostic contentやsoftware/calibration IDと接続しない
-- OEM質問がなく、社内の整理だけで終わる
+- 公開情報だけでは、この1ページが汎用安全説明にしかならない
+- diagnostic contentやsoftware/calibration IDと公開情報上で接続しない
+- 公開OEM質問、公開RFQ/RFI、公開標準に接続できない
 - 汎用ISO 26262説明に見える
 
 ## EPSサプライヤとしての使い方
 
 このsampleを、最初の商材デモとして使わない。
-使い方は、社内のsystems、functional safety、diagnostic、cyber、software update、customer interfaceの各担当に見せて、次を聞くこと。
+使い方は、公開情報ベースの探索継続/Stop判断に限定する。
 
-> この1ページは、既存資料からすぐ作れますか。それとも、資料はあるが部署をまたいで集めないと作れませんか。
+> この1ページは、公開情報だけでEPSサプライヤの独自判断になっていますか。それとも、汎用安全説明を言い換えただけですか。
 
-前者ならKill。
-後者なら、短期assessmentとして残す。
+後者ならKill。

@@ -1,9 +1,0 @@
-id	internal_material	owner	why_it_matters	proceed_signal	kill_signal	public_proxy
-SBW-CHK001	SbW target architecture	System engineering	サプライヤが持つcomponent boundaryを確認する	HWA/RWA/ECU/sensor/power/communicationのsupplier-owned範囲が見える	vehicle-level図だけでsupplier boundaryが見えない	ZF HWA/FAA説明
-SBW-CHK002	Degraded / fail-operational / fail-safe state list	Functional safety	異常時に何が残るか、何を止めるか確認する	state、driver-visible behavior、diagnostic statusがつながっていない	既存safety caseにOEM回答レベルで整理済み	Mercedes redundant architecture and Tesla degraded operation
-SBW-CHK003	FMEA / safety mechanism table for actuator and feedback path	Functional safety	既存安全成果物との差分を見る	安全mechanismはあるがOEM向け説明・診断状態に転記されていない	FMEAからそのまま1ケースsampleが作れる	NHTSA/Volpe SbW safety assessment
-SBW-CHK004	DTC / DID / freeze frame / extended data	Diagnostic engineering	SbW状態を診断で何を見せるか確認する	redundancy degradedやsensor disagreementがdiagnostic contentに未接続	diagnostic designでstate, data, accessが完全整理済み	Tesla alert and NHTSA DTC coverage area
-SBW-CHK005	Software/calibration ID and post-update check	Software / calibration	software-defined steeringで更新後状態を確認するため	update後basic steering stateが曖昧	software update processでsteering state確認が整理済み	ZF software-defined steering explanation
-SBW-CHK006	Security access / diagnostic role policy	Cybersecurity / diagnostics	誰に何を読ませるか、何を制限するか確認する	service/factory/OEM cloudのaccess境界が曖昧	role policyがSbW状態まで整理済み	SOVD/UDS access-policy観点
-SBW-CHK007	OEM RFQ / design review question	Customer technical interface	実際に誰が困っているかを見る	冗長低下、driver feedback、diagnostic exposureを聞かれている	OEM質問がない	Public sourceから想定質問を作るだけ
-SBW-CHK008	Existing customer answer template	Customer technical interface	既に同じ成果物があるか確認する	templateはあるがsafety/cyber/diagnostic/update横断が弱い	同等の横断回答templateがある	公開情報では代替不能
