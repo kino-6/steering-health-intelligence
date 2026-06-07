@@ -135,18 +135,18 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 1. [docs/54_steer_by_wire_business_deep_dive.md](docs/54_steer_by_wire_business_deep_dive.md): Steer-by-wire方向を事業成立性まで深掘りした最新判断。汎用安全支援ではなく、OEM説明・診断設計へ転記するcomponent-boundary整理だけを狭く残す。
 2. [data/steer_by_wire_business_deep_dive.tsv](data/steer_by_wire_business_deep_dive.tsv): SbW方向の市場需要、未解決の痛み、仮説、初期提供物、Kill条件を整理したTSV。
-3. [docs/56_sbw_decision_materials.md](docs/56_sbw_decision_materials.md): SbW方向をProceed / Killするために集めた判断材料。公開ソースから見えることと、内部で確認すべき8項目を分ける。
-4. [data/sbw_decision_materials.tsv](data/sbw_decision_materials.tsv): ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点へ対応づけたTSV。
-5. [data/sbw_internal_decision_material_checklist.tsv](data/sbw_internal_decision_material_checklist.tsv): SbW方向を内部でProceed / Killするための8項目チェックリスト。
-6. [data/steer_by_wire_minimum_artifact_request.tsv](data/steer_by_wire_minimum_artifact_request.tsv): SbW方向をProceed / Killするための最小artifact request。対象architecture、degraded state、FMEA、diagnostic content、software update、security access、OEM質問を確認する。
-7. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): road wheel actuator冗長低下を題材にした1ケースsample。既存safety caseの焼き直しか、横断整理として価値があるかを見る。
-8. [data/steer_by_wire_redundancy_degraded_sample.tsv](data/steer_by_wire_redundancy_degraded_sample.tsv): 1ケースsampleのfield、supplier-owned source、OEM回答価値、Kill条件。
-9. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
-10. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
-11. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
-12. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
-13. [docs/53_public_market_monitor_input_only.md](docs/53_public_market_monitor_input_only.md): 公開recall/ODI/TSBモニタを単体商品にせず、Steer-by-wireとSOVDの入力に限定する理由。
-14. [data/public_market_monitor_input_plan.tsv](data/public_market_monitor_input_plan.tsv): 公開市場シグナルを、設計質問・診断質問・禁止主張へ変換する入力計画TSV。
+3. [docs/57_sbw_8_material_verification.md](docs/57_sbw_8_material_verification.md): SbW内部8項目を公開情報で検証した結果。公開情報だけではProceed/Kill不可、1-4はPartial、5-8はUnknown。
+4. [data/sbw_8_material_verification.tsv](data/sbw_8_material_verification.tsv): 8項目ごとのpublic verification result、公開情報で分からないこと、decision impact、次の内部確認。
+5. [docs/56_sbw_decision_materials.md](docs/56_sbw_decision_materials.md): SbW方向をProceed / Killするために集めた判断材料。公開ソースから見えることと、内部で確認すべき8項目を分ける。
+6. [data/sbw_decision_materials.tsv](data/sbw_decision_materials.tsv): ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点へ対応づけたTSV。
+7. [data/sbw_internal_decision_material_checklist.tsv](data/sbw_internal_decision_material_checklist.tsv): SbW方向を内部でProceed / Killするための8項目チェックリスト。
+8. [data/steer_by_wire_minimum_artifact_request.tsv](data/steer_by_wire_minimum_artifact_request.tsv): SbW方向をProceed / Killするための最小artifact request。対象architecture、degraded state、FMEA、diagnostic content、software update、security access、OEM質問を確認する。
+9. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): road wheel actuator冗長低下を題材にした1ケースsample。既存safety caseの焼き直しか、横断整理として価値があるかを見る。
+10. [data/steer_by_wire_redundancy_degraded_sample.tsv](data/steer_by_wire_redundancy_degraded_sample.tsv): 1ケースsampleのfield、supplier-owned source、OEM回答価値、Kill条件。
+11. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
+12. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
+13. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
+14. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
 17. [data/coverage_benchmark_artifact_intake_decision.tsv](data/coverage_benchmark_artifact_intake_decision.tsv): Artifact intake後のProceed/Hold/Kill判断表。
@@ -315,6 +315,7 @@ docs/
   54_steer_by_wire_business_deep_dive.md
   55_sbw_redundancy_degraded_one_page_sample.md
   56_sbw_decision_materials.md
+  57_sbw_8_material_verification.md
 
 data/
   business_model_research.tsv
@@ -368,6 +369,7 @@ data/
   steer_by_wire_redundancy_degraded_sample.tsv
   sbw_decision_materials.tsv
   sbw_internal_decision_material_checklist.tsv
+  sbw_8_material_verification.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -406,3 +408,4 @@ scripts/
 - `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
 - road wheel actuator redundancy degradedの1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る
 - 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報だけでは商品価値は証明せず、内部8項目でProceed / Killを切る
+- 8項目を公開情報で検証した結果、1-4はPartial、5-8はUnknown。公開情報だけではProceed/Killできない

@@ -129,6 +129,8 @@
   - ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点、EPSサプライヤへの示唆に分けたTSV。
 - `sbw_internal_decision_material_checklist.tsv`
   - SbW方向を内部でProceed / Killするための8項目チェックリスト。architecture、状態リスト、FMEA、診断内容、software update、security access、OEM質問、既存回答templateを見る。
+- `sbw_8_material_verification.tsv`
+  - SbW内部8項目を公開情報で検証した結果。1-4はPartial、5-8はUnknownで、公開情報だけではProceed / Killできないことを整理。
 
 ## Interpretation
 
@@ -177,5 +179,6 @@
 - `steer_by_wire_redundancy_degraded_sample.tsv` では、road wheel actuator冗長低下を題材に、driver-visible behavior、remaining steering capability、diagnostic content、safety/cyber source、OEM answer、禁止主張を1ケースで確認できる形にした
 - `sbw_decision_materials.tsv` では、公開情報から見える市場変化、driver-visible degraded behavior、supplier-owned sensor/redundancy、NHTSA/VCAによる既存安全・認証業務との重複を分けた。これにより、SbW方向は公開情報だけで売れるとは言えず、内部8項目確認が必要とした
 - `sbw_internal_decision_material_checklist.tsv` では、公開情報で代替できない内部判断材料を8つに絞った。既に横断回答templateがあるならKill、資料はあるが部署横断でないとOEM説明にならないなら狭いassessmentとして残す
+- `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、対象サプライヤの実資料としては未検証。software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknownとした
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない
