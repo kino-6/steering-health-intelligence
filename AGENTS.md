@@ -117,6 +117,8 @@ Steer-by-wire深掘り後の現在地:
 - 初期提供物は、異常時状態マップ、既存成果物リンク表、診断コンテンツ質問表、禁止主張リストの4点に絞る。
 - road wheel actuator redundancy degradedの1ケースsampleは作成済み。これが既存safety caseの焼き直しに見えるならKillする。
 - Proceed条件は、SbW開発テーマがあり、既存safety/cyber/diagnostic成果物はあるが、OEM回答や診断設計へ横断転記しにくいこと。
+- 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報は市場変化と既存業務重複を示す材料であり、商品価値の証明には使わない。
+- 次のProceed / Killは、SbW architecture、degraded state、FMEA、diagnostic content、software/calibration ID、security access、OEM質問、既存回答templateの8項目で切る。
 
 ## Recently Killed / Deprioritized
 
