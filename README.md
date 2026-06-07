@@ -43,11 +43,14 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 `EPS Diagnostic / Robustness Coverage Benchmark` も、内部資料を使わない現行方針ではNo-Goとして止める。
 
 現在は、公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探している。
-直近の探索対象は以下の3つである。
+直近の探索対象は以下の3つだったが、深掘り後は1だけを狭く残す。
 
 1. Steer-by-wire safety / cybersecurity / redundancy
 2. SOVD / next-generation diagnostics content design for EPS
 3. Public recall / ODI / TSB monitor as input only
+
+現在残すのは、Steer-by-wireの汎用安全支援ではない。
+既存の安全・サイバー・診断・software update成果物を、OEM説明、RFQ回答、診断コンテンツ設計に転記しやすくするcomponent-boundary整理だけである。
 
 ## EPSサプライヤ視点
 
@@ -94,11 +97,12 @@ EPS Common Pain Productization
 
 現時点では、以下を最新判断として扱う。
 
-> Coverage Benchmarkは、内部資料なしでは止める。広いcyber/SBOM商品も既存業務・既存ツールと被るためKill寄りに下げる。次は、Steer-by-wire、SOVD、公開市場モニタの3方向をKill-firstで見る。
+> Coverage Benchmarkは、内部資料なしでは止める。広いcyber/SBOM商品も既存業務・既存ツールと被るためKill寄りに下げる。SOVDと公開市場モニタは主商品にせず、Steer-by-wireのcomponent-boundary整理だけを狭く残す。
 
 `ECU内に証跡を残す` こと自体は既存診断の範囲にあるため、新規性として扱わない。
 `TARA/SBOM/CVE管理をやる` ことも既存CSMS/ISO21434/R155/R156対応と被るため、新規性として扱わない。
 価値が残るとすれば、EPSサプライヤがcomponent boundaryで説明責任を持てる範囲を、OEM説明、設計レビュー、RFQ回答、診断コンテンツ設計に転記できる形にすることである。
+Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある。
 
 重要な境界:
 
@@ -115,11 +119,11 @@ EPS Common Pain Productization
 | 観点 | 現在の見立て |
 |---|---|
 | 最新ピボット | Public regulation / software / next-generation steering exploration |
-| EPS向け軸 | Steer-by-wire safety/redundancy、SOVD診断コンテンツ、公開市場モニタ入力 |
-| 初期検証軸 | 既存ISO 26262 / SOTIF / CSMS / TARA / SBOM / ODX / UDS / SOVD業務と被らず、EPSサプライヤがcomponent boundaryで説明できる差分があるか |
+| EPS向け軸 | Steer-by-wire component-boundary整理 |
+| 初期検証軸 | 既存ISO 26262 / SOTIF / CSMS / TARA / 診断設計 / software update業務と被らず、EPSサプライヤがOEM説明や診断設計へ転記できる差分があるか |
 | 近い商品名 | まだ作らない。商品名化前のKill-first探索 |
 | RCA/8Dの扱い | 単独主商品から下げる。副次artifactとしてのみ扱う |
-| Primary target | EPS supplier safety / systems / diagnostic engineering / software platform / customer technical interface |
+| Primary target | EPS supplier systems / functional safety / diagnostic engineering / cybersecurity / software calibration / customer technical interface |
 | 初期データ前提 | 公開規制・標準・サプライヤ発表・公開NHTSA/recall/ODI/TSB |
 | OEMデータ | Optional extension |
 | AI / 予測 | 初期は故障予測モデルではなく、公開情報から設計レビュー・診断コンテンツ・RFQ質問へ転記できるかの探索 |
@@ -129,20 +133,20 @@ EPS Common Pain Productization
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
-2. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
-3. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
-4. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
-5. [docs/53_public_market_monitor_input_only.md](docs/53_public_market_monitor_input_only.md): 公開recall/ODI/TSBモニタを単体商品にせず、Steer-by-wireとSOVDの入力に限定する理由。
-6. [data/public_market_monitor_input_plan.tsv](data/public_market_monitor_input_plan.tsv): 公開市場シグナルを、設計質問・診断質問・禁止主張へ変換する入力計画TSV。
-7. [docs/50_next_exploration_plan_after_cyber_kill.md](docs/50_next_exploration_plan_after_cyber_kill.md): Cyber/SBOM Kill後の次探索方針。次はSteer-by-wireを最優先、SOVDを次点、公開市場モニタを入力専用にする。
-8. [data/next_exploration_candidates_after_cyber_kill.tsv](data/next_exploration_candidates_after_cyber_kill.tsv): 次探索候補1-3と、cyber/SBOMのKill寄りHoldを整理したTSV。
-9. [docs/49_steering_ecu_cyber_kill_evidence_dossier.md](docs/49_steering_ecu_cyber_kill_evidence_dossier.md): steering ECU cyber/SBOM方向をKillするか判断するための証拠Dossier。広い商品はKill、残すなら5項目存在確認のみ。
-10. [data/steering_ecu_cyber_kill_evidence_dossier.tsv](data/steering_ecu_cyber_kill_evidence_dossier.tsv): NHTSA、ISO、Auto-ISAC、NIST、ETAS、Ansys、Siemens、ThreatZ等の証拠とKill/残余価値を対応づけたTSV。
-11. [data/steering_ecu_cyber_kill_questions.tsv](data/steering_ecu_cyber_kill_questions.tsv): 完全Kill前に確認する5つの存在確認質問と判定ルール。
-12. [docs/48_steering_ecu_cyber_value_check.md](docs/48_steering_ecu_cyber_value_check.md): steering ECU software/cyber evidence packの価値確認。既存TARA/SBOM/CVE管理と強く被るため、かなりKill寄りのHoldと判断。
-13. [data/steering_ecu_cyber_value_check.tsv](data/steering_ecu_cyber_value_check.tsv): TARA、SBOM、CVE管理、診断access、software update、fail-safe mappingごとの重複/残価値/Kill条件。
-14. [generated/steering_ecu_software_cyber_demo.html](generated/steering_ecu_software_cyber_demo.html): 候補1+2のブラウザ表示デモ。何を売るか、成果物、CVE triage、Proceed/Killを1ページで確認できる。
+1. [docs/54_steer_by_wire_business_deep_dive.md](docs/54_steer_by_wire_business_deep_dive.md): Steer-by-wire方向を事業成立性まで深掘りした最新判断。汎用安全支援ではなく、OEM説明・診断設計へ転記するcomponent-boundary整理だけを狭く残す。
+2. [data/steer_by_wire_business_deep_dive.tsv](data/steer_by_wire_business_deep_dive.tsv): SbW方向の市場需要、未解決の痛み、仮説、初期提供物、Kill条件を整理したTSV。
+3. [data/steer_by_wire_minimum_artifact_request.tsv](data/steer_by_wire_minimum_artifact_request.tsv): SbW方向をProceed / Killするための最小artifact request。対象architecture、degraded state、FMEA、diagnostic content、software update、security access、OEM質問を確認する。
+4. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): road wheel actuator冗長低下を題材にした1ケースsample。既存safety caseの焼き直しか、横断整理として価値があるかを見る。
+5. [data/steer_by_wire_redundancy_degraded_sample.tsv](data/steer_by_wire_redundancy_degraded_sample.tsv): 1ケースsampleのfield、supplier-owned source、OEM回答価値、Kill条件。
+6. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
+7. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
+8. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
+9. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
+10. [docs/53_public_market_monitor_input_only.md](docs/53_public_market_monitor_input_only.md): 公開recall/ODI/TSBモニタを単体商品にせず、Steer-by-wireとSOVDの入力に限定する理由。
+11. [data/public_market_monitor_input_plan.tsv](data/public_market_monitor_input_plan.tsv): 公開市場シグナルを、設計質問・診断質問・禁止主張へ変換する入力計画TSV。
+12. [docs/50_next_exploration_plan_after_cyber_kill.md](docs/50_next_exploration_plan_after_cyber_kill.md): Cyber/SBOM Kill後の次探索方針。次はSteer-by-wireを最優先、SOVDを次点、公開市場モニタを入力専用にする。
+13. [data/next_exploration_candidates_after_cyber_kill.tsv](data/next_exploration_candidates_after_cyber_kill.tsv): 次探索候補1-3と、cyber/SBOMのKill寄りHoldを整理したTSV。
+14. [docs/49_steering_ecu_cyber_kill_evidence_dossier.md](docs/49_steering_ecu_cyber_kill_evidence_dossier.md): steering ECU cyber/SBOM方向をKillするか判断するための証拠Dossier。広い商品はKill、残すなら5項目存在確認のみ。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
 17. [data/coverage_benchmark_artifact_intake_decision.tsv](data/coverage_benchmark_artifact_intake_decision.tsv): Artifact intake後のProceed/Hold/Kill判断表。
@@ -308,6 +312,8 @@ docs/
   51_steer_by_wire_kill_first_review.md
   52_sovd_kill_first_review.md
   53_public_market_monitor_input_only.md
+  54_steer_by_wire_business_deep_dive.md
+  55_sbw_redundancy_degraded_one_page_sample.md
 
 data/
   business_model_research.tsv
@@ -356,6 +362,9 @@ data/
   steer_by_wire_kill_first_review.tsv
   sovd_kill_first_review.tsv
   public_market_monitor_input_plan.tsv
+  steer_by_wire_business_deep_dive.tsv
+  steer_by_wire_minimum_artifact_request.tsv
+  steer_by_wire_redundancy_degraded_sample.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -389,7 +398,7 @@ scripts/
 - 以後の提案は `AGENTS.md` の上位ルールに従い、市場需要 -> 未解決の痛み -> 仮説 -> 解決策 -> 買い手 -> 初期提供物 -> 検証方法 -> Kill条件で書く
 - `EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goとして止める
 - 広い `steering ECU software/cyber evidence pack` は、既存CSMS/TARA/SBOM/CVE運用と被るためKill寄りに下げる
-- 次は `Steer-by-wire safety / cybersecurity / redundancy` を最優先で見る。ただし、既存ISO 26262 / SOTIF / safety caseと被るならKillする
+- 次は `Steer-by-wire` を狭く見る。ただし、汎用安全支援ではなく、既存成果物をOEM説明・診断設計へ転記するcomponent-boundary整理に限定する
 - `SOVD / next-generation diagnostics content design` は主商品ではなく、EPS診断コンテンツの整理・露出方針・UDSからSOVDへの接続に限定して残す
 - `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
-- 次に作るなら、Steer-by-wireについて「従来EPSと何が違い、EPSサプライヤがcomponent boundaryで何を説明できるか」を1ケースsampleに落とす
+- road wheel actuator redundancy degradedの1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る

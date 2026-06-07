@@ -111,6 +111,13 @@ Steer-by-wireとSOVDの市場入力、設計レビュー質問、RFQ質問生成
 - SOVDは主商品にしない。SOVD platform / server / API / ODX / UDS変換は既存標準・既存ツール領域である。残す場合は、EPSのDTC、DID、freeze frame、extended data、software ID、security accessを次世代診断でどう見せるかというcontent designに限定する。
 - Public recall / ODI / TSB monitorは単体商品にしない。市場シグナルを売るのではなく、Steer-by-wireとSOVDの設計質問・診断質問・禁止主張を作る入力に限定する。
 
+Steer-by-wire深掘り後の現在地:
+
+- 残すのは、SbW汎用安全支援ではない。既存の安全・サイバー・診断・software update成果物を、OEM説明、RFQ回答、診断コンテンツ設計に転記しやすくするcomponent-boundary整理だけである。
+- 初期提供物は、異常時状態マップ、既存成果物リンク表、診断コンテンツ質問表、禁止主張リストの4点に絞る。
+- road wheel actuator redundancy degradedの1ケースsampleは作成済み。これが既存safety caseの焼き直しに見えるならKillする。
+- Proceed条件は、SbW開発テーマがあり、既存safety/cyber/diagnostic成果物はあるが、OEM回答や診断設計へ横断転記しにくいこと。
+
 ## Recently Killed / Deprioritized
 
 `EPS / steering ECU software/cyber evidence pack` は、広い商品としてはKillする。
