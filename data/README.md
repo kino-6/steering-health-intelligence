@@ -113,6 +113,12 @@
   - 完全Kill前に見る5つの存在確認質問。steering ECU固有のOEM問い合わせ有無、既存CVE回答、診断security、安全状態mapping、OEM回答templateの有無で判定する。
 - `next_exploration_candidates_after_cyber_kill.tsv`
   - Cyber/SBOM Kill後の次探索候補。Steer-by-wireをPrimary、SOVDをExtension、公開recall/ODI/TSB市場要求モニタをInput only、cyber/SBOMをHold/Kill-leaningに整理。
+- `steer_by_wire_kill_first_review.tsv`
+  - Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化、従来EPSとの差分、既存安全業務との重複、EPSサプライヤが残せる価値、Kill条件を整理。
+- `sovd_kill_first_review.tsv`
+  - SOVD / next-generation diagnostics方向の一次レビュー。SOVD標準、既存ツール、EPSサプライヤが主語になれる診断コンテンツ設計、Kill条件を整理。
+- `public_market_monitor_input_plan.tsv`
+  - 公開recall/ODI/TSB市場要求モニタを単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問へ変換する入力計画。
 
 ## Interpretation
 
@@ -153,5 +159,8 @@
 - `steering_ecu_cyber_value_check.tsv` では、既存TARA/SBOM/CVE管理ツールと強く被ることを確認し、この方向をかなりKill寄りのHoldへ下げた。残る価値はsteering ECU固有のOEM問い合わせ回答へ既存成果物を翻訳する薄い支援に限定した
 - `steering_ecu_cyber_kill_evidence_dossier.tsv` と `steering_ecu_cyber_kill_questions.tsv` では、広いTARA/SBOM/CVE/ISO21434/R155/R156商品をKillし、残す場合も5項目の存在確認で明確な不足が出た時だけ短期OEM回答支援に限定する判断へ更新した
 - `next_exploration_candidates_after_cyber_kill.tsv` では、次探索をSteer-by-wire安全/冗長/cyber設計証拠、SOVD/次世代診断コンテンツ設計、公開市場要求モニタの3つへ切り替えた。公開市場要求モニタは単体商品にせず、Steer-by-wireとSOVDの入力に限定する
+- `steer_by_wire_kill_first_review.tsv` では、Steer-by-wireに市場変化はあるが、汎用安全支援や汎用cyber支援は既存ISO 26262 / SOTIF / CSMS業務と被るため追わない判断にした。残る可能性は、従来EPSと異なるfail-operational / degraded state / redundancyを、EPSサプライヤのcomponent boundaryでOEM説明や設計レビューに接続できる場合だけである
+- `sovd_kill_first_review.tsv` では、SOVD platform / server / API / ODX / UDS変換は既存標準・既存ツール領域として主商品から外した。残る可能性は、EPSのDTC、DID、freeze frame、extended data、software ID、security accessを、次世代診断でどう見せるべきかというcontent designに限定する
+- `public_market_monitor_input_plan.tsv` では、公開recall/ODI/TSB monitorを単体商品にしない判断を明確にした。価値は市場シグナルを売ることではなく、Steer-by-wireとSOVDの設計質問・診断質問・禁止主張を作る入力に変換することである
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

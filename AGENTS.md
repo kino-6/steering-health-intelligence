@@ -105,6 +105,12 @@ OEM診断基盤依存が強いため、EPSサプライヤが主語になれる�
 Public recall / ODI / TSB monitorは単体商品にしない。
 Steer-by-wireとSOVDの市場入力、設計レビュー質問、RFQ質問生成にだけ使う。
 
+直近レビュー後の判断:
+
+- Steer-by-wireは、従来EPSからの市場変化があるため探索継続。ただし、汎用安全支援や汎用cyber支援は既存ISO 26262 / SOTIF / CSMS業務と被るため追わない。残す場合は、fail-operational / degraded state / redundancyをEPSサプライヤのcomponent boundaryで説明できる部分に限定する。
+- SOVDは主商品にしない。SOVD platform / server / API / ODX / UDS変換は既存標準・既存ツール領域である。残す場合は、EPSのDTC、DID、freeze frame、extended data、software ID、security accessを次世代診断でどう見せるかというcontent designに限定する。
+- Public recall / ODI / TSB monitorは単体商品にしない。市場シグナルを売るのではなく、Steer-by-wireとSOVDの設計質問・診断質問・禁止主張を作る入力に限定する。
+
 ## Recently Killed / Deprioritized
 
 `EPS / steering ECU software/cyber evidence pack` は、広い商品としてはKillする。

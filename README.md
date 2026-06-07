@@ -40,7 +40,14 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 過去の探索メモはhistoricalとして扱う。
 `EPS故障予測`、`劣化兆候通知`、`Health-ready EPS`、`ECU追加ログ`、`Market Pain Scenario Library単体`、`RFQ / Design Review Pack単体` は、最新結論ではない。
 `RCA / 8D Evidence Case Pack` は単独主商品から下げる。
-最新の主仮説は `EPS Diagnostic / Robustness Coverage Benchmark` である。
+`EPS Diagnostic / Robustness Coverage Benchmark` も、内部資料を使わない現行方針ではNo-Goとして止める。
+
+現在は、公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探している。
+直近の探索対象は以下の3つである。
+
+1. Steer-by-wire safety / cybersecurity / redundancy
+2. SOVD / next-generation diagnostics content design for EPS
+3. Public recall / ODI / TSB monitor as input only
 
 ## EPSサプライヤ視点
 
@@ -85,56 +92,57 @@ EPS Common Pain Productization
 
 ## 現在の立ち位置
 
-現時点では、以下を中心仮説として扱う。
+現時点では、以下を最新判断として扱う。
 
-> EPSサプライヤが、公開市場で繰り返すEPS common pain familyに対して、既存DTC/freeze frame/extended data、reader、HILS/bench/vehicle evaluationがどこまで説明・再現できるかを比較する `EPS Diagnostic / Robustness Coverage Benchmark` を作る。
+> Coverage Benchmarkは、内部資料なしでは止める。広いcyber/SBOM商品も既存業務・既存ツールと被るためKill寄りに下げる。次は、Steer-by-wire、SOVD、公開市場モニタの3方向をKill-firstで見る。
 
 `ECU内に証跡を残す` こと自体は既存診断の範囲にあるため、新規性として扱わない。
-新規性があるとすれば、公開市場caseや代表scenarioを使って、複数program / generationに横展開できる診断coverage、評価coverage、reader coverageの比較表にすること。
+`TARA/SBOM/CVE管理をやる` ことも既存CSMS/ISO21434/R155/R156対応と被るため、新規性として扱わない。
+価値が残るとすれば、EPSサプライヤがcomponent boundaryで説明責任を持てる範囲を、OEM説明、設計レビュー、RFQ回答、診断コンテンツ設計に転記できる形にすることである。
 
 重要な境界:
 
 - OEMの市場fleetデータ、保証DB、苦情DB、車両クラウドを初期前提にしない
 - OTAやremote diagnosticsは主商品ではなく、読み出しチャネルの一つ
 - 個車RULやエンドユーザ故障通知は初期主張にしない
-- まずはECUメーカーが責任を持てるCore packageを作る
+- まずはEPSサプライヤが責任を持てるcomponent-levelの説明範囲に収める
 - OEMデータ接続やfleet analyticsはOptional extensionに置く
-- OEMに無手で聞きに行くのではなく、EPSサプライヤ側で持てる診断仕様、reader、HILS/bench評価、公開市場scenarioからcoverage仮説を作ってから検証する
-- `8D回答` という曖昧な言い方は避け、RCA/8Dや顧客品質報告はcoverage benchmarkの副次artifactとして扱う
+- OEMに無手で聞きに行くのではなく、EPSサプライヤ側で持てる診断仕様、software/calibration ID、security access、fail-safe / degraded state、HILS/bench評価、公開市場scenarioから仮説を作ってから検証する
+- `8D回答` という曖昧な言い方は避け、RCA/8Dや顧客品質報告は副次artifactとして扱う
 
 ## 現在の焦点
 
 | 観点 | 現在の見立て |
 |---|---|
-| 最新ピボット | EPS Common Pain Productization |
-| EPS向け軸 | EPS Diagnostic / Robustness Coverage Benchmark |
-| 初期検証軸 | 市場で繰り返すEPS common pain familyを、既存診断・reader・HILS/bench評価のcoverage matrixへ変換できるか |
-| 近い商品名 | EPS Diagnostic / Robustness Coverage Benchmark |
-| RCA/8Dの扱い | 単独主商品から下げる。coverage benchmarkの副次artifactとしてのみ扱う |
-| Primary target | EPS supplier diagnostic engineering / validation / HILS / customer quality |
-| 初期データ前提 | 公開NHTSA/recall/ODI/TSB、公開走行proxy、既存DTC/freeze frame/extended dataのレビュー観点 |
+| 最新ピボット | Public regulation / software / next-generation steering exploration |
+| EPS向け軸 | Steer-by-wire safety/redundancy、SOVD診断コンテンツ、公開市場モニタ入力 |
+| 初期検証軸 | 既存ISO 26262 / SOTIF / CSMS / TARA / SBOM / ODX / UDS / SOVD業務と被らず、EPSサプライヤがcomponent boundaryで説明できる差分があるか |
+| 近い商品名 | まだ作らない。商品名化前のKill-first探索 |
+| RCA/8Dの扱い | 単独主商品から下げる。副次artifactとしてのみ扱う |
+| Primary target | EPS supplier safety / systems / diagnostic engineering / software platform / customer technical interface |
+| 初期データ前提 | 公開規制・標準・サプライヤ発表・公開NHTSA/recall/ODI/TSB |
 | OEMデータ | Optional extension |
-| AI / 予測 | 初期は故障予測モデルではなく、診断coverage/評価coverageの比較 |
+| AI / 予測 | 初期は故障予測モデルではなく、公開情報から設計レビュー・診断コンテンツ・RFQ質問へ転記できるかの探索 |
 | 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視、既存診断証跡の新規実装主張 |
 
 ## 推奨読書順
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/50_next_exploration_plan_after_cyber_kill.md](docs/50_next_exploration_plan_after_cyber_kill.md): Cyber/SBOM Kill後の次探索方針。次はSteer-by-wireを最優先、SOVDを次点、公開市場モニタを入力専用にする。
-2. [data/next_exploration_candidates_after_cyber_kill.tsv](data/next_exploration_candidates_after_cyber_kill.tsv): 次探索候補1-3と、cyber/SBOMのKill寄りHoldを整理したTSV。
-3. [docs/49_steering_ecu_cyber_kill_evidence_dossier.md](docs/49_steering_ecu_cyber_kill_evidence_dossier.md): steering ECU cyber/SBOM方向をKillするか判断するための証拠Dossier。広い商品はKill、残すなら5項目存在確認のみ。
-4. [data/steering_ecu_cyber_kill_evidence_dossier.tsv](data/steering_ecu_cyber_kill_evidence_dossier.tsv): NHTSA、ISO、Auto-ISAC、NIST、ETAS、Ansys、Siemens、ThreatZ等の証拠とKill/残余価値を対応づけたTSV。
-5. [data/steering_ecu_cyber_kill_questions.tsv](data/steering_ecu_cyber_kill_questions.tsv): 完全Kill前に確認する5つの存在確認質問と判定ルール。
-6. [docs/48_steering_ecu_cyber_value_check.md](docs/48_steering_ecu_cyber_value_check.md): steering ECU software/cyber evidence packの価値確認。既存TARA/SBOM/CVE管理と強く被るため、かなりKill寄りのHoldと判断。
-7. [data/steering_ecu_cyber_value_check.tsv](data/steering_ecu_cyber_value_check.tsv): TARA、SBOM、CVE管理、診断access、software update、fail-safe mappingごとの重複/残価値/Kill条件。
-8. [generated/steering_ecu_software_cyber_demo.html](generated/steering_ecu_software_cyber_demo.html): 候補1+2のブラウザ表示デモ。何を売るか、成果物、CVE triage、Proceed/Killを1ページで確認できる。
-9. [docs/46_steering_ecu_software_cyber_evidence_pack.md](docs/46_steering_ecu_software_cyber_evidence_pack.md): 候補1+2を、EPS / steering ECUサプライヤ向けのsoftware/cyber evidence packとして具体化したレポート。
-10. [docs/47_steering_ecu_software_cyber_demo.md](docs/47_steering_ecu_software_cyber_demo.md): 仮想steering ECUを使った最小デモと、既存業務との差分・Proceed/Kill条件。
-11. [data/steering_ecu_software_cyber_offer_model.tsv](data/steering_ecu_software_cyber_offer_model.tsv): 初期offer、買い手、収益モデル、必要入力、Kill条件を整理したTSV。
-12. [data/steering_ecu_software_cyber_work_products.tsv](data/steering_ecu_software_cyber_work_products.tsv): assessmentで作る成果物と利用者、入力、判定条件。
-13. [data/steering_ecu_cve_triage_demo.tsv](data/steering_ecu_cve_triage_demo.tsv): 仮想CVEをEPS機能影響へ接続するデモTSV。
-14. [generated/coverage_benchmark_artifact_intake_result.html](generated/coverage_benchmark_artifact_intake_result.html): 10 artifact requestをRepo/public proxyで実行したHold判定HTML。
+1. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
+2. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
+3. [docs/52_sovd_kill_first_review.md](docs/52_sovd_kill_first_review.md): SOVD / next-generation diagnostics方向の一次レビュー。主商品ではなく、EPS診断コンテンツ設計のextensionとしてのみ残す。
+4. [data/sovd_kill_first_review.tsv](data/sovd_kill_first_review.tsv): SOVD標準・既存ツール・EPSサプライヤ残余価値・Kill条件を整理したTSV。
+5. [docs/53_public_market_monitor_input_only.md](docs/53_public_market_monitor_input_only.md): 公開recall/ODI/TSBモニタを単体商品にせず、Steer-by-wireとSOVDの入力に限定する理由。
+6. [data/public_market_monitor_input_plan.tsv](data/public_market_monitor_input_plan.tsv): 公開市場シグナルを、設計質問・診断質問・禁止主張へ変換する入力計画TSV。
+7. [docs/50_next_exploration_plan_after_cyber_kill.md](docs/50_next_exploration_plan_after_cyber_kill.md): Cyber/SBOM Kill後の次探索方針。次はSteer-by-wireを最優先、SOVDを次点、公開市場モニタを入力専用にする。
+8. [data/next_exploration_candidates_after_cyber_kill.tsv](data/next_exploration_candidates_after_cyber_kill.tsv): 次探索候補1-3と、cyber/SBOMのKill寄りHoldを整理したTSV。
+9. [docs/49_steering_ecu_cyber_kill_evidence_dossier.md](docs/49_steering_ecu_cyber_kill_evidence_dossier.md): steering ECU cyber/SBOM方向をKillするか判断するための証拠Dossier。広い商品はKill、残すなら5項目存在確認のみ。
+10. [data/steering_ecu_cyber_kill_evidence_dossier.tsv](data/steering_ecu_cyber_kill_evidence_dossier.tsv): NHTSA、ISO、Auto-ISAC、NIST、ETAS、Ansys、Siemens、ThreatZ等の証拠とKill/残余価値を対応づけたTSV。
+11. [data/steering_ecu_cyber_kill_questions.tsv](data/steering_ecu_cyber_kill_questions.tsv): 完全Kill前に確認する5つの存在確認質問と判定ルール。
+12. [docs/48_steering_ecu_cyber_value_check.md](docs/48_steering_ecu_cyber_value_check.md): steering ECU software/cyber evidence packの価値確認。既存TARA/SBOM/CVE管理と強く被るため、かなりKill寄りのHoldと判断。
+13. [data/steering_ecu_cyber_value_check.tsv](data/steering_ecu_cyber_value_check.tsv): TARA、SBOM、CVE管理、診断access、software update、fail-safe mappingごとの重複/残価値/Kill条件。
+14. [generated/steering_ecu_software_cyber_demo.html](generated/steering_ecu_software_cyber_demo.html): 候補1+2のブラウザ表示デモ。何を売るか、成果物、CVE triage、Proceed/Killを1ページで確認できる。
 15. [docs/42_coverage_benchmark_artifact_intake_result.md](docs/42_coverage_benchmark_artifact_intake_result.md): Coverage BenchmarkのArtifact Intake実行結果。
 16. [data/coverage_benchmark_artifact_intake_result.tsv](data/coverage_benchmark_artifact_intake_result.tsv): 10 artifactごとのplaceholder、実資料有無、今判定できること、できないこと、status。
 17. [data/coverage_benchmark_artifact_intake_decision.tsv](data/coverage_benchmark_artifact_intake_decision.tsv): Artifact intake後のProceed/Hold/Kill判断表。
@@ -294,6 +302,12 @@ docs/
   41_coverage_benchmark_artifact_request_pack.md
   42_coverage_benchmark_artifact_intake_result.md
   43_coverage_benchmark_forced_conclusion.md
+  48_steering_ecu_cyber_value_check.md
+  49_steering_ecu_cyber_kill_evidence_dossier.md
+  50_next_exploration_plan_after_cyber_kill.md
+  51_steer_by_wire_kill_first_review.md
+  52_sovd_kill_first_review.md
+  53_public_market_monitor_input_only.md
 
 data/
   business_model_research.tsv
@@ -335,6 +349,13 @@ data/
   coverage_benchmark_artifact_intake_decision.tsv
   coverage_benchmark_internal_placeholder_screening_sheet.tsv
   coverage_benchmark_forced_conclusion.tsv
+  steering_ecu_cyber_value_check.tsv
+  steering_ecu_cyber_kill_evidence_dossier.tsv
+  steering_ecu_cyber_kill_questions.tsv
+  next_exploration_candidates_after_cyber_kill.tsv
+  steer_by_wire_kill_first_review.tsv
+  sovd_kill_first_review.tsv
+  public_market_monitor_input_plan.tsv
   public_proxy_data_sources.tsv
   useful_items_for_steering_diagnostic_evidence.md
   ota_connected_health_market_signals.tsv
@@ -366,11 +387,9 @@ scripts/
 ## 現在の次アクション
 
 - 以後の提案は `AGENTS.md` の上位ルールに従い、市場需要 -> 未解決の痛み -> 仮説 -> 解決策 -> 買い手 -> 初期提供物 -> 検証方法 -> Kill条件で書く
-- 主仮説は `EPS Diagnostic / Robustness Coverage Benchmark`
-- `RCA / 8D Evidence Case Pack` は単独主商品から下げ、coverage benchmarkの副次artifactとして扱う
-- `FAM08 stop-start low-speed` の1ページcoverage benchmark sampleと即時可視性triageは作成済み
-- FAM08/FAM02/FAM11へ横展開するP1 assessment packageは作成済み
-- sampleには、market pain、driver-visible symptom、expected EPS facts、既存DTC/freeze frame/extended data coverage欄、HILS/bench/vehicle evaluation scenario、already covered / gap / no action decision、customer quality/RCA向け副次summaryを入れている
-- 10 artifact requestをRepo/public proxyで実行した結果はHold。P1 Proceed/Killにはactual HILS/DTC/freeze frame/review templateが必要
-- 現時点では有償assessmentとして売るのはNo-Go。理由は、内部資料を使わない前提では、対象EPSの実HILS/DTC/freeze frame/review資料を見られず、既存レビューとの差分を示せないため
-- HILS試験名、関連DTC名、freeze frame / extended data項目名、既存レビュー/会議体名の4点は、内部資料を使える条件になった場合だけの再開条件として扱う
+- `EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goとして止める
+- 広い `steering ECU software/cyber evidence pack` は、既存CSMS/TARA/SBOM/CVE運用と被るためKill寄りに下げる
+- 次は `Steer-by-wire safety / cybersecurity / redundancy` を最優先で見る。ただし、既存ISO 26262 / SOTIF / safety caseと被るならKillする
+- `SOVD / next-generation diagnostics content design` は主商品ではなく、EPS診断コンテンツの整理・露出方針・UDSからSOVDへの接続に限定して残す
+- `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
+- 次に作るなら、Steer-by-wireについて「従来EPSと何が違い、EPSサプライヤがcomponent boundaryで何を説明できるか」を1ケースsampleに落とす
