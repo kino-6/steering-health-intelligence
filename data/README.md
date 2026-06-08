@@ -133,6 +133,8 @@
   - 公開情報だけでSbW市場変化、未解決pain、既存安全・認証・診断業務との差分、初期提供物、Kill条件をどこまで言えるかを判定。
 - `wheel_side_steering_unit_plain_deep_dive.tsv`
   - `road wheel actuator` を「車輪側操舵ユニット」と言い直し、市場需要、未解決の痛み、仮説、解決策、利用者、初期提供物、検証方法、Kill条件を平易な言葉で整理。
+- `sbw_explanation_support_no_go_reasoning.tsv`
+  - Steer-by-wire向け説明資料整理支援が、なぜ有償サービスとしてNo-Goなのかを、市場需要、既存業務重複、EPSサプライヤ境界、Kill条件へ分解。
 
 ## Interpretation
 
@@ -182,5 +184,6 @@
 - `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknown。現行方針ではこの不足を非公開確認で埋めず、外販Proceedしない
 - `sbw_public_only_source_inventory.tsv` と `sbw_public_only_value_check.tsv` では、追加の公開情報収集を行った。SbWの市場変化は確認できるが、NHTSA、VCA、R79、ASAM SOVDにより安全・認証・診断論点は既存業務としてかなり見えており、公開情報だけで有償offerへ進める根拠は弱い。次に見る場合も、車輪を動かす側の冗長系が一部落ちた1ケースが既存資料の要約を超えるかだけを確認する
 - `wheel_side_steering_unit_plain_deep_dive.tsv` では、上記の英語中心表現を平易な日本語へ直した。結論は、車輪側操舵ユニット単独の新商材化は弱く、残すなら「異常時に何が起き、何を読め、何を断定してはいけないか」を1枚で説明できるかの検証に限定する
+- `sbw_explanation_support_no_go_reasoning.tsv` では、Steer-by-wire向け説明資料整理支援のNo-Go理由を明文化した。市場変化はあるが、成果物の持ち主が安全設計、認証、診断設計、ソフト、顧客技術窓口に既にいるため、汎用外販ではなく特定案件の短期支援にしか残らない
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

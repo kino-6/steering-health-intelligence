@@ -105,6 +105,8 @@ EPS Common Pain Productization
 Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある。
 ただし、公開情報を追加収集した結果、SbWの安全・認証・診断論点はNHTSA、VCA、R79、ASAM SOVDで既にかなり扱われている。
 したがって、公開情報だけで有償offerへ進める判断はしない。
+深掘り後の結論は、Steer-by-wire向けの汎用説明資料整理支援も有償サービスとしてはNo-Goである。
+市場変化はあるが、異常時説明、安全設計、認証、診断、ソフト更新、顧客説明は既存業務の中に既に持ち主がいるためである。
 次に見るなら、「車輪を動かす側の冗長系が一部落ちた」1ケースで、既存安全・認証資料の要約を超えた「EPSサプライヤが言えること / 言ってはいけないこと」の整理になるかだけを見る。
 それが出なければSbW方向もStopする。
 
@@ -137,7 +139,9 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/59_wheel_side_steering_unit_plain_deep_dive.md](docs/59_wheel_side_steering_unit_plain_deep_dive.md): `road wheel actuator` を「車輪側操舵ユニット」と言い直し、何が市場変化で、何が既存安全・認証・診断業務の範囲かを平易に整理した最新判断。
+1. [docs/60_sbw_explanation_support_no_go_reasoning.md](docs/60_sbw_explanation_support_no_go_reasoning.md): Steer-by-wire向けの説明資料整理支援が、なぜ有償サービスとしてNo-Goなのかを、市場需要からKill条件まで一本の論理で整理した最新判断。
+1. [data/sbw_explanation_support_no_go_reasoning.tsv](data/sbw_explanation_support_no_go_reasoning.tsv): 市場需要、未解決pain、仮説縮小、既存業務重複、EPSサプライヤ境界、Kill条件を対応づけたTSV。
+1. [docs/59_wheel_side_steering_unit_plain_deep_dive.md](docs/59_wheel_side_steering_unit_plain_deep_dive.md): `road wheel actuator` を「車輪側操舵ユニット」と言い直し、何が市場変化で、何が既存安全・認証・診断業務の範囲かを平易に整理した判断。
 1. [data/wheel_side_steering_unit_plain_deep_dive.tsv](data/wheel_side_steering_unit_plain_deep_dive.tsv): 車輪側操舵ユニットについて、市場需要、未解決の痛み、仮説、解決策、利用者、初期提供物、検証方法、Kill条件を平易な言葉で整理したTSV。
 1. [docs/58_sbw_public_only_info_collection.md](docs/58_sbw_public_only_info_collection.md): 内部資料を使わず、公開情報だけでSbW方向を追加収集した判断。市場変化はあるが、汎用安全・認証・診断支援は既存論点と重なり、外販Proceedには進めない。
 1. [data/sbw_public_only_source_inventory.tsv](data/sbw_public_only_source_inventory.tsv): Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDの公開情報を、何を支持し、何を支持しないかで整理したTSV。
@@ -408,7 +412,8 @@ scripts/
 - 以後の提案は `AGENTS.md` の上位ルールに従い、市場需要 -> 未解決の痛み -> 仮説 -> 解決策 -> 買い手 -> 初期提供物 -> 検証方法 -> Kill条件で書く
 - `EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goとして止める
 - 広い `steering ECU software/cyber evidence pack` は、既存CSMS/TARA/SBOM/CVE運用と被るためKill寄りに下げる
-- 次は `Steer-by-wire` を狭く見る。ただし、汎用安全支援ではなく、既存成果物をOEM説明・診断設計へ転記するcomponent-boundary整理に限定する
+- `Steer-by-wire` の汎用説明資料整理支援も、有償サービスとしてはNo-Go。市場変化はあるが、既存の安全設計、認証、診断設計、ソフト更新、顧客技術説明と重なるため
+- 残す場合も、既存成果物をOEM説明・診断設計へ転記する短期案件支援に限定する
 - `SOVD / next-generation diagnostics content design` は主商品ではなく、EPS診断コンテンツの整理・露出方針・UDSからSOVDへの接続に限定して残す
 - `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
 - 車輪を動かす側の冗長系が一部落ちた場合の1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る

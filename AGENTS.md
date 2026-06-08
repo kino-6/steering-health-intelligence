@@ -123,6 +123,7 @@ Steer-by-wire深掘り後の現在地:
 - 次にやるなら、公開情報だけで作った1ケースsampleが、EPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自の判断を出せるかを見る。出せなければSbWもStopする。
 - 追加の公開情報収集では、Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDを見た。市場変化はあるが、fault strategy、verification、FMEA/FTA、safe state、driver warning、DTC coverage、SOVD fault informationは既存安全・認証・診断論点として既に強い。
 - よって現時点のSbW判断は、公開情報だけでは有償offerにしない。次にやる場合も、「車輪を動かす側の冗長系が一部落ちた」1ケースが既存資料の要約を超え、EPSサプライヤが言えること / 言ってはいけないことを自然言語で切れるかだけを見る。
+- さらに深掘りした結論として、Steer-by-wire向けの説明資料整理支援も、汎用の有償サービスとしてはNo-Goである。市場変化はあるが、異常時説明、安全設計、認証、診断、ソフト更新、顧客説明には既存業務の持ち主がいる。残すなら、特定案件で既存資料をOEM向け1枚へつなぐ短期支援だけである。
 
 ## Recently Killed / Deprioritized
 
