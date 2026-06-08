@@ -103,6 +103,11 @@ EPS Common Pain Productization
 次にこのRepoを読むLLMは、まずKill知識ベースを前提にすること。
 過去にKillした仮説を、名前だけ変えて再提案しない。
 
+ただし、Kaggleは例外的に再確認する価値がある。
+理由は、Kaggleの自動車系コンペは単なる公開データではなく、企業が「解きたい目的変数」を外に出した課題だからである。
+EPSの市場故障予測には使わないが、Bosch Production Line PerformanceやMercedes-Benz Greener Manufacturingは、サプライヤが自分で持てる製造、最終検査、EOL、bench/HILS評価データに近い。
+したがって、次の探索は「EPS市場故障」ではなく、「EPSサプライヤ内部の製造品質・評価時間短縮」へ寄せて見る。
+
 `ECU内に証跡を残す` こと自体は既存診断の範囲にあるため、新規性として扱わない。
 `TARA/SBOM/CVE管理をやる` ことも既存CSMS/ISO21434/R155/R156対応と被るため、新規性として扱わない。
 価値が残るとすれば、EPSサプライヤがcomponent boundaryで説明責任を持てる範囲を、OEM説明、設計レビュー、RFQ回答、診断コンテンツ設計に転記できる形にすることである。
@@ -145,6 +150,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 1. [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md): 次のLLMが最初に読む前提知識。Kill済み仮説、再提案禁止、再開条件、前提変更時にだけ復活する候補を整理。
 1. [data/llm_kill_knowledge_base.tsv](data/llm_kill_knowledge_base.tsv): Kill済み仮説ごとの現行判断、Kill理由、再主張禁止、再開条件、LLM向けルール。
+1. [docs/62_kaggle_competition_hidden_demand_review.md](docs/62_kaggle_competition_hidden_demand_review.md): Kaggleコンペを、公開代替データではなく「企業が外に出した隠れた需要」として読み直した最新メモ。最有力はEPS市場故障ではなく、製造品質と評価時間短縮。
+1. [data/kaggle_hidden_demand_candidates.tsv](data/kaggle_hidden_demand_candidates.tsv): Bosch、Mercedes-Benz、OBD-II/CAN、Car-Hacking等を、隠れた需要、EPSサプライヤ適合、使ってはいけない主張、Kill条件で整理。
 1. [docs/60_sbw_explanation_support_no_go_reasoning.md](docs/60_sbw_explanation_support_no_go_reasoning.md): Steer-by-wire向けの説明資料整理支援が、なぜ有償サービスとしてNo-Goなのかを、市場需要からKill条件まで一本の論理で整理した最新判断。
 1. [data/sbw_explanation_support_no_go_reasoning.tsv](data/sbw_explanation_support_no_go_reasoning.tsv): 市場需要、未解決pain、仮説縮小、既存業務重複、EPSサプライヤ境界、Kill条件を対応づけたTSV。
 1. [docs/59_wheel_side_steering_unit_plain_deep_dive.md](docs/59_wheel_side_steering_unit_plain_deep_dive.md): `road wheel actuator` を「車輪側操舵ユニット」と言い直し、何が市場変化で、何が既存安全・認証・診断業務の範囲かを平易に整理した判断。
