@@ -99,6 +99,10 @@ EPS Common Pain Productization
 
 > Coverage Benchmarkは、内部資料なしでは止める。広いcyber/SBOM商品も既存業務・既存ツールと被るためKill寄りに下げる。SOVDと公開市場モニタは主商品にせず、Steer-by-wireのcomponent-boundary整理だけを狭く残す。
 
+さらに最新のメタ結論として、現行条件では外販ビジネスとしてProceedできる強い手札はほぼ残っていない。
+次にこのRepoを読むLLMは、まずKill知識ベースを前提にすること。
+過去にKillした仮説を、名前だけ変えて再提案しない。
+
 `ECU内に証跡を残す` こと自体は既存診断の範囲にあるため、新規性として扱わない。
 `TARA/SBOM/CVE管理をやる` ことも既存CSMS/ISO21434/R155/R156対応と被るため、新規性として扱わない。
 価値が残るとすれば、EPSサプライヤがcomponent boundaryで説明責任を持てる範囲を、OEM説明、設計レビュー、RFQ回答、診断コンテンツ設計に転記できる形にすることである。
@@ -139,6 +143,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 まず読むなら、この順番が分かりやすい。
 
+1. [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md): 次のLLMが最初に読む前提知識。Kill済み仮説、再提案禁止、再開条件、前提変更時にだけ復活する候補を整理。
+1. [data/llm_kill_knowledge_base.tsv](data/llm_kill_knowledge_base.tsv): Kill済み仮説ごとの現行判断、Kill理由、再主張禁止、再開条件、LLM向けルール。
 1. [docs/60_sbw_explanation_support_no_go_reasoning.md](docs/60_sbw_explanation_support_no_go_reasoning.md): Steer-by-wire向けの説明資料整理支援が、なぜ有償サービスとしてNo-Goなのかを、市場需要からKill条件まで一本の論理で整理した最新判断。
 1. [data/sbw_explanation_support_no_go_reasoning.tsv](data/sbw_explanation_support_no_go_reasoning.tsv): 市場需要、未解決pain、仮説縮小、既存業務重複、EPSサプライヤ境界、Kill条件を対応づけたTSV。
 1. [docs/59_wheel_side_steering_unit_plain_deep_dive.md](docs/59_wheel_side_steering_unit_plain_deep_dive.md): `road wheel actuator` を「車輪側操舵ユニット」と言い直し、何が市場変化で、何が既存安全・認証・診断業務の範囲かを平易に整理した判断。

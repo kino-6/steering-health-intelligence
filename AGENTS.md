@@ -79,6 +79,10 @@
 `EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goで止める。
 対象EPSの実HILS、DTC、freeze frame / extended data、既存レビューとの差分を確認できないためである。
 
+次のLLMは、まず [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md) を前提知識として読むこと。
+現行条件では外販ビジネスとしてProceedできる強い手札はほぼ残っていない。
+過去にKillした仮説を、名前や英語ラベルだけ変えて再提案しない。
+
 現在の探索ブランチは以下。
 
 > EPS / steering ECU public-regulation and software evidence branch
