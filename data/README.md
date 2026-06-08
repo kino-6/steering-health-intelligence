@@ -8,6 +8,12 @@
   - 次のLLMが前提として読むためのKill済み仮説一覧。現行判断、Kill理由、再主張禁止、再開条件、LLM向けルールを整理。
 - `kaggle_hidden_demand_candidates.tsv`
   - Kaggle自動車系コンペを、単なる公開データではなく「企業が外に出した隠れた需要」として読み替えた候補表。Bosch型の製造不良予測、Mercedes-Benz型の評価時間短縮を最有力に置き、EPS市場故障予測には使わない境界も明記。
+- `kaggle_supplier_owned_source_collection.tsv`
+  - Kaggle方向の深掘りで収集した公開ソース表。Bosch、Mercedes-Benz、EPS/EPAS EOL、EOL品質データ、OBD/CAN、Car-Hackingについて、何を支持し、何を支持しないかを整理。
+- `kaggle_supplier_owned_hypotheses.tsv`
+  - Kaggleから読める隠れた需要を、EPSサプライヤの製造・EOL検査、bench/HILS評価時間、説明1枚、停止候補へ落とした仮説表。
+- `kaggle_supplier_owned_pdca.tsv`
+  - Kaggle方向で実施したPDCA表。Bosch型を最優先、Mercedes型を2番手、OBD/CANやCAN cyberを主候補から外す判断を記録。
 - `business_model_research.tsv`
   - Repo内の6案に対応する隣接ビジネスモデルを100件整理したTSV。
   - 各行に、顧客、課題、収益モデル、抽出知識、本Repoへの有効アイテム、関連度を記載。
@@ -147,6 +153,7 @@
 
 - `llm_kill_knowledge_base.tsv` は、次のLLMが同じ無理筋を復活させないための前提知識である。現行条件では強い外販商材はほぼ残っておらず、前提変更がない限り新規ビジネスモデル探索を続けない
 - `kaggle_hidden_demand_candidates.tsv` では、Kaggleを公開代替データではなく、企業が外部に設定した目的変数として読む。EPS故障予測には使わず、EPSサプライヤが持てる製造、EOL検査、bench/HILS評価データに近い製造品質・評価時間短縮だけを次探索候補に置く
+- `kaggle_supplier_owned_source_collection.tsv`、`kaggle_supplier_owned_hypotheses.tsv`、`kaggle_supplier_owned_pdca.tsv` では、Kaggle方向を深掘りし、Bosch型の製造・EOL検査の早期不良候補抽出を最優先にした。価値はEOL試験追加ではなく、再検査、保留、工程確認、評価計画の判断支援に置く
 - EPS / ECU単体の故障予測として売らない
 - 「ログ追加」や既存診断証跡の言い換えではなく、返却品・NTF・再現不能案件の不足証跡を特定する
 - 故障予測そのものではなく、顧客品質報告や原因調査に使える確認済み事実・未確認事項を整理する
