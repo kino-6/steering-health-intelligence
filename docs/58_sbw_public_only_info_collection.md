@@ -6,7 +6,7 @@
 
 市場変化はある。
 Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKTなどの公開情報から、SbWは研究テーマではなく、量産化・量産準備・商用化に向かう技術として扱われている。
-構成要素も、steering wheel / hand wheel actuator、road wheel / steering rack actuator、sensor、software、redundant power/data、feedback actuatorとしてかなり共通している。
+構成要素も、ハンドル側の入力部品、車輪を動かす側の部品、センサ、ソフト、冗長な電源や通信、手応えを返す部品としてかなり共通している。
 
 一方で、事業として売る余地は弱く見える。
 NHTSAのfunctional safety assessment、VCAのR79 Annex 6説明、EUR-LexのR79本文を見ると、SbWの文書、fault strategy、verification、FMEA/FTA、safe state、driver warning、DTC coverageは既に安全・認証・診断の既存論点である。
@@ -14,7 +14,7 @@ NHTSAのfunctional safety assessment、VCAのR79 Annex 6説明、EUR-LexのR79�
 
 現時点のEPSサプライヤ視点の結論:
 
-> 公開情報だけで外販Proceedする材料はまだない。次に見るなら、`road wheel actuator redundancy degraded` の1ケースsampleを、公開サプライヤ資料、NHTSA/VCA/R79、ASAM SOVDに接続し、「安全分析の言い換え」ではなく「診断・説明・禁止主張の整理」として独自価値が出るかを見る。出なければSbW方向もStopする。
+> 公開情報だけで外販Proceedする材料はまだない。次に見るなら、「車輪を動かす側の冗長系が一部落ちた」1ケースsampleを、公開サプライヤ資料、NHTSA/VCA/R79、ASAM SOVDに接続し、「安全分析の言い換え」ではなく「診断・説明・禁止主張の整理」として独自価値が出るかを見る。出なければSbW方向もStopする。
 
 ## 何を集めたか
 
@@ -35,7 +35,7 @@ NHTSAのfunctional safety assessment、VCAのR79 Annex 6説明、EUR-LexのR79�
 | 需要の見え方 | 根拠 | ただし |
 |---|---|---|
 | SbWが量産技術になりつつある | Boschは商用規模の市場投入を目指すと発表。ZFはMercedes-Benz向け供給やvolume ordersを説明。NexteerはSbWをEPSの進化として扱う | 市場規模や有償支援需要までは分からない |
-| 部品境界が増える | Bosch/ZF/Nexteer/SchaefflerはHWA/RWA/SWA/Rack actuator/software/feedbackを説明 | 対象EPSサプライヤの実構成は分からない |
+| 部品境界が増える | Bosch/ZF/Nexteer/Schaefflerはハンドル側、車輪側、ソフト、手応えを返す部品を説明 | 対象EPSサプライヤの実構成は分からない |
 | 冗長性と高可用性が訴求点になる | Boschはredundant data/power、Nexteerはdual hardware / multi-path software、HELLAはredundant sensor architecture、JTEKTはparallel redundant systemを説明 | 冗長性は既に既存安全設計の範囲 |
 | driver-visible degraded behaviorがある | Tesla manualはalert、chime、drive torque reduction、pull over、low-speed emergency operationを説明 | Tesla固有であり、他OEMやサプライヤ需要とは限らない |
 
@@ -74,13 +74,13 @@ NHTSAのfunctional safety assessment、VCAのR79 Annex 6説明、EUR-LexのR79�
 
 次に進めるなら、次の1ケースだけでよい。
 
-> road wheel actuator redundancy degraded
+> 車輪を動かす側の冗長系が一部落ちた
 
 公開情報だけで、以下を1ページにできるかを見る。
 
 | Field | Public-only evidence candidate |
 |---|---|
-| Architecture | Bosch/ZF/Nexteer/SchaefflerのHWA/RWA/SWA/Rack actuator説明 |
+| Architecture | Bosch/ZF/Nexteer/Schaefflerのハンドル側、車輪側、ソフト、手応えを返す部品の説明 |
 | Redundancy | Bosch redundant power/data、Nexteer dual hardware / multi-path software、HELLA redundant sensor、JTEKT parallel redundant system |
 | Driver-visible behavior | Tesla alert / chime / torque reduction / pull over / low-speed emergency operation |
 | Safety baseline | NHTSA safe state / driver warning / FSR / FMEA / DTC coverage |
@@ -96,12 +96,12 @@ NHTSAのfunctional safety assessment、VCAのR79 Annex 6説明、EUR-LexのR79�
 
 | Source | 何が取れるか | 判断への効き方 |
 |---|---|---|
-| Bosch SbW product page | SWA、steering rack actuator、software functions、mechanical link elimination、redundant data/power | architectureと冗長性の公開根拠 |
+| Bosch steer-by-wire product page | ハンドル側、車輪側、ソフト機能、機械的なつながりの削除、冗長なデータ/電源 | 構成と冗長性の公開根拠 |
 | Bosch / Arnold NextG press release | commercial-scale market entry, redundancy and approvals | 市場投入・認証文脈の公開根拠 |
 | ZF by-wire release | mechanical connectionを不要にするby-wire chassis、industrialization、2030年市場share expectation | 量産化・市場変化 |
 | ZF / Mercedes-Benz release | Mercedes-Benzへの2026年供給 | supplier / OEM interfaceの公開根拠 |
-| Nexteer SbW | HWA/RWA/software integration、dual hardware、multi-path software、prognostics、steer-by-brake | supplierがどこまで公開訴求しているか |
-| Schaeffler RWA | dedicated SbW architecture、RWA、driver feedback、software vehicle dynamics | road wheel actuator側の公開根拠 |
+| Nexteer steer-by-wire | ハンドル側、車輪側、ソフト統合、二重化ハード、多経路ソフト | supplierがどこまで公開訴求しているか |
+| Schaeffler Road Wheel Actuator | 車輪側操舵ユニット、運転者への手応え、ソフトによる車両運動 | 車輪を動かす側の公開根拠 |
 | Schaeffler Space Drive | steering column elimination、sensor、feedback motor | by-wire experience / motorsport-origin evidence |
 | HELLA steering sensor | torque/angle as electrical signal、redundant sensor architecture | sensor redundancy |
 | JTEKT engineering journal | parallel redundant system with CAN, power cables, motors, ECUs | redundancy architecture example |
@@ -130,7 +130,7 @@ TSVとしては、次の2つに分けて残した。
 
 EPSサプライヤとして言えること:
 
-> SbWでは、HWA/RWA、sensor、feedback、冗長電源/通信、driver warning、safe state、DTC coverage、SOVD fault informationが公開情報上の共通論点になっている。これらを横断して、言えることと言ってはいけないことを整理する公開情報ベースの1ケースsampleは作れる。
+> 機械的なつながりをなくす操舵では、ハンドル側、車輪側、センサ、手応え、冗長電源/通信、運転者への警告、安全側へ落とす状態、DTCでの説明、次世代診断での故障情報が公開情報上の共通論点になっている。これらを横断して、言えることと言ってはいけないことを整理する公開情報ベースの1ケースsampleは作れる。
 
 まだ言ってはいけないこと:
 
@@ -143,7 +143,7 @@ EPSサプライヤとして言えること:
 
 次にやるなら:
 
-> `road wheel actuator redundancy degraded` を、公開情報だけで1ページにする。NHTSA/VCA/R79の要約で終わるならStop。診断・SOVD・driver warning・supplier boundaryを横断した独自の公開情報整理になるなら、もう1段だけ探索する。
+> 「車輪を動かす側の冗長系が一部落ちた」を、公開情報だけで1ページにする。NHTSA/VCA/R79の要約で終わるならStop。診断・次世代診断・運転者への警告・サプライヤが説明できる境界を横断した独自の公開情報整理になるなら、もう1段だけ探索する。
 
 ## 参照ソース
 

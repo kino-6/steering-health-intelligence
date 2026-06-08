@@ -122,7 +122,7 @@
 - `steer_by_wire_business_deep_dive.tsv`
   - Steer-by-wire方向の事業成立性を深掘りしたTSV。市場需要、既存業務との重複、残る狭い価値、初期提供物、Kill条件を整理。
 - `steer_by_wire_redundancy_degraded_sample.tsv`
-  - road wheel actuator冗長低下を題材にした1ケースsample。field、supplier-owned source、OEM回答価値、Kill条件を整理。
+  - 車輪を動かす側の冗長系が一部落ちた場合を題材にした1ケースsample。field、supplier-owned source、OEM回答価値、Kill条件を整理。
 - `sbw_decision_materials.tsv`
   - ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点、EPSサプライヤへの示唆に分けたTSV。
 - `sbw_8_material_verification.tsv`
@@ -131,6 +131,8 @@
   - Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDの公開情報を、何を支持し、何を支持しないか、EPSサプライヤがどう使うかで整理。
 - `sbw_public_only_value_check.tsv`
   - 公開情報だけでSbW市場変化、未解決pain、既存安全・認証・診断業務との差分、初期提供物、Kill条件をどこまで言えるかを判定。
+- `wheel_side_steering_unit_plain_deep_dive.tsv`
+  - `road wheel actuator` を「車輪側操舵ユニット」と言い直し、市場需要、未解決の痛み、仮説、解決策、利用者、初期提供物、検証方法、Kill条件を平易な言葉で整理。
 
 ## Interpretation
 
@@ -175,9 +177,10 @@
 - `sovd_kill_first_review.tsv` では、SOVD platform / server / API / ODX / UDS変換は既存標準・既存ツール領域として主商品から外した。残る可能性は、EPSのDTC、DID、freeze frame、extended data、software ID、security accessを、次世代診断でどう見せるべきかというcontent designに限定する
 - `public_market_monitor_input_plan.tsv` では、公開recall/ODI/TSB monitorを単体商品にしない判断を明確にした。価値は市場シグナルを売ることではなく、Steer-by-wireとSOVDの設計質問・診断質問・禁止主張を作る入力に変換することである
 - `steer_by_wire_business_deep_dive.tsv` では、Steer-by-wire方向をさらに狭めた。残すのは汎用安全支援ではなく、既存の安全・サイバー・診断・software update成果物を、OEM説明、RFQ回答、診断コンテンツ設計へ転記しやすくするcomponent-boundary整理だけである
-- `steer_by_wire_redundancy_degraded_sample.tsv` では、road wheel actuator冗長低下を題材に、driver-visible behavior、remaining steering capability、diagnostic content、safety/cyber source、OEM answer、禁止主張を1ケースで確認できる形にした
+- `steer_by_wire_redundancy_degraded_sample.tsv` では、車輪を動かす側の冗長系が一部落ちた場合を題材に、driver-visible behavior、remaining steering capability、diagnostic content、safety/cyber source、OEM answer、禁止主張を1ケースで確認できる形にした
 - `sbw_decision_materials.tsv` では、公開情報から見える市場変化、driver-visible degraded behavior、supplier-owned sensor/redundancy、NHTSA/VCAによる既存安全・認証業務との重複を分けた。これにより、SbW方向は公開情報だけで売れるとは言えないとした
 - `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknown。現行方針ではこの不足を非公開確認で埋めず、外販Proceedしない
-- `sbw_public_only_source_inventory.tsv` と `sbw_public_only_value_check.tsv` では、追加の公開情報収集を行った。SbWの市場変化は確認できるが、NHTSA、VCA、R79、ASAM SOVDにより安全・認証・診断論点は既存業務としてかなり見えており、公開情報だけで有償offerへ進める根拠は弱い。次に見る場合も、road wheel actuator冗長低下の1ケースが既存資料の要約を超えるかだけを確認する
+- `sbw_public_only_source_inventory.tsv` と `sbw_public_only_value_check.tsv` では、追加の公開情報収集を行った。SbWの市場変化は確認できるが、NHTSA、VCA、R79、ASAM SOVDにより安全・認証・診断論点は既存業務としてかなり見えており、公開情報だけで有償offerへ進める根拠は弱い。次に見る場合も、車輪を動かす側の冗長系が一部落ちた1ケースが既存資料の要約を超えるかだけを確認する
+- `wheel_side_steering_unit_plain_deep_dive.tsv` では、上記の英語中心表現を平易な日本語へ直した。結論は、車輪側操舵ユニット単独の新商材化は弱く、残すなら「異常時に何が起き、何を読め、何を断定してはいけないか」を1枚で説明できるかの検証に限定する
 - `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
 - `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

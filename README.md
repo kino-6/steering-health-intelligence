@@ -105,7 +105,7 @@ EPS Common Pain Productization
 Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある。
 ただし、公開情報を追加収集した結果、SbWの安全・認証・診断論点はNHTSA、VCA、R79、ASAM SOVDで既にかなり扱われている。
 したがって、公開情報だけで有償offerへ進める判断はしない。
-次に見るなら、`road wheel actuator redundancy degraded` の1ケースで、既存安全・認証資料の要約を超えた「EPSサプライヤが言えること / 言ってはいけないこと」の整理になるかだけを見る。
+次に見るなら、「車輪を動かす側の冗長系が一部落ちた」1ケースで、既存安全・認証資料の要約を超えた「EPSサプライヤが言えること / 言ってはいけないこと」の整理になるかだけを見る。
 それが出なければSbW方向もStopする。
 
 重要な境界:
@@ -137,7 +137,9 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 まず読むなら、この順番が分かりやすい。
 
-1. [docs/58_sbw_public_only_info_collection.md](docs/58_sbw_public_only_info_collection.md): 内部資料を使わず、公開情報だけでSbW方向を追加収集した最新判断。市場変化はあるが、汎用安全・認証・診断支援は既存論点と重なり、外販Proceedには進めない。
+1. [docs/59_wheel_side_steering_unit_plain_deep_dive.md](docs/59_wheel_side_steering_unit_plain_deep_dive.md): `road wheel actuator` を「車輪側操舵ユニット」と言い直し、何が市場変化で、何が既存安全・認証・診断業務の範囲かを平易に整理した最新判断。
+1. [data/wheel_side_steering_unit_plain_deep_dive.tsv](data/wheel_side_steering_unit_plain_deep_dive.tsv): 車輪側操舵ユニットについて、市場需要、未解決の痛み、仮説、解決策、利用者、初期提供物、検証方法、Kill条件を平易な言葉で整理したTSV。
+1. [docs/58_sbw_public_only_info_collection.md](docs/58_sbw_public_only_info_collection.md): 内部資料を使わず、公開情報だけでSbW方向を追加収集した判断。市場変化はあるが、汎用安全・認証・診断支援は既存論点と重なり、外販Proceedには進めない。
 1. [data/sbw_public_only_source_inventory.tsv](data/sbw_public_only_source_inventory.tsv): Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDの公開情報を、何を支持し、何を支持しないかで整理したTSV。
 1. [data/sbw_public_only_value_check.tsv](data/sbw_public_only_value_check.tsv): 公開情報だけで市場変化、未解決pain、既存業務との差分、診断コンテンツ余地、初期提供物をどこまで言えるかの判定表。
 1. [docs/54_steer_by_wire_business_deep_dive.md](docs/54_steer_by_wire_business_deep_dive.md): Steer-by-wire方向を事業成立性まで深掘りした判断。汎用安全支援ではなく、OEM説明・診断設計へ転記するcomponent-boundary整理だけを狭く残す。
@@ -146,7 +148,7 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/sbw_8_material_verification.tsv](data/sbw_8_material_verification.tsv): 8項目ごとのpublic verification result、公開情報で分からないこと、decision impact、公開情報だけでの限界。
 1. [docs/56_sbw_decision_materials.md](docs/56_sbw_decision_materials.md): SbW方向をProceed / Killするために集めた判断材料。公開ソースから見えることと、公開情報だけでは埋まらない8項目を分ける。
 1. [data/sbw_decision_materials.tsv](data/sbw_decision_materials.tsv): ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点へ対応づけたTSV。
-1. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): road wheel actuator冗長低下を題材にした公開情報ベースの1ケースsample。これ単体で独自価値が出るかを見る。
+1. [docs/55_sbw_redundancy_degraded_one_page_sample.md](docs/55_sbw_redundancy_degraded_one_page_sample.md): 車輪を動かす側の冗長系が一部落ちた場合を題材にした公開情報ベースの1ケースsample。これ単体で独自価値が出るかを見る。
 1. [data/steer_by_wire_redundancy_degraded_sample.tsv](data/steer_by_wire_redundancy_degraded_sample.tsv): 1ケースsampleのfield、supplier-owned source、OEM回答価値、Kill条件。
 1. [docs/51_steer_by_wire_kill_first_review.md](docs/51_steer_by_wire_kill_first_review.md): Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化はあるが、既存安全業務と被るためHold / explore next。
 1. [data/steer_by_wire_kill_first_review.tsv](data/steer_by_wire_kill_first_review.tsv): Steer-by-wireの市場シグナル、EPSサプライヤが持てる手札、Kill条件を整理したTSV。
@@ -409,7 +411,7 @@ scripts/
 - 次は `Steer-by-wire` を狭く見る。ただし、汎用安全支援ではなく、既存成果物をOEM説明・診断設計へ転記するcomponent-boundary整理に限定する
 - `SOVD / next-generation diagnostics content design` は主商品ではなく、EPS診断コンテンツの整理・露出方針・UDSからSOVDへの接続に限定して残す
 - `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
-- road wheel actuator redundancy degradedの1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る
+- 車輪を動かす側の冗長系が一部落ちた場合の1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る
 - 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報だけでは商品価値は証明しない
 - 8項目を公開情報で検証した結果、1-4はPartial、5-8はUnknown。現行方針では内部資料を要求しないため、この不足を非公開確認で埋めに行かない
 - 次にやるなら、公開情報だけで作った1ケースsampleがEPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自価値を出せるかを見る。出せなければSbW方向もStopする

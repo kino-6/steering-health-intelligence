@@ -1,4 +1,4 @@
-# SbW 1ケースsample: 冗長低下時に何を説明できるか
+# 車輪を動かす側の1ケースsample: 冗長低下時に何を説明できるか
 
 ## 結論
 
@@ -6,7 +6,7 @@
 
 見るのは、既存の安全・サイバー・診断・software update成果物を使って、OEMへ次の1文を説明できるかである。
 
-> road wheel actuator側の冗長低下を検知した場合、操舵機能はどの状態に落ち、運転者には何が見え、診断では何が読め、サプライヤは何を断定してはいけないか。
+> 車輪を動かす側の冗長系が一部落ちた場合、操舵機能はどの状態に落ち、運転者には何が見え、診断では何が読め、サプライヤは何を断定してはいけないか。
 
 これが公開情報だけでは汎用安全説明にしか見えないなら、この方向は弱い。
 現行方針では、既存safety caseや部署内資料を要求して差分を確認しに行かない。
@@ -15,7 +15,7 @@
 
 | Field | Sample |
 |---|---|
-| abnormal condition | road wheel actuator redundancy degraded |
+| abnormal condition | 車輪を動かす側の冗長系が一部落ちた |
 | assumed trigger | actuator position sensor disagreement、motor phase current abnormal、local inverter diagnostic、communication timeoutのいずれか |
 | driver-visible behavior | warning、chime、pull over request、drive torque reduction |
 | remaining steering capability | degraded steering available。条件によってlow-speed maneuvering onlyへ落とす |
@@ -29,7 +29,7 @@
 
 分かること:
 
-- SbWでは、異常時状態が運転者表示、drive torque、診断、software/calibration IDにまたがる
+- 機械的なつながりをなくす操舵では、異常時状態が運転者表示、駆動力制限、診断、ソフト番号や設定値にまたがる
 - EPSサプライヤが説明できるのは、部品境界内の状態、検知、診断、制限動作までである
 - OEM向け回答は、安全資料、診断仕様、cyber/security access、software update確認をまたぐ
 

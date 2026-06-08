@@ -1,5 +1,5 @@
 field	sample_value	eps_supplier_owned_source	oem_answer_value	kill_if
-abnormal_condition	road wheel actuator redundancy degraded	FMEA row; actuator diagnostic; sensor agreement monitor	何の冗長が落ちたかを部品境界で説明できる	既存safety caseに同じ説明がある
+abnormal_condition	車輪を動かす側の冗長系が一部落ちた	FMEA row; actuator diagnostic; sensor agreement monitor	何の冗長が落ちたかを部品境界で説明できる	既存safety caseに同じ説明がある
 driver_visible_behavior	warning; chime; pull over request; drive torque reduction	HMI request signal; degraded state transition; torque limitation request	運転者に何が見え、車両がどう退避を促すか説明できる	OEM HMI領域だけでsupplier側に説明余地がない
 remaining_steering_capability	degraded steering available; optional low-speed maneuvering only	fail-operational / fail-safe state; actuator remaining capability	操舵が残る条件と制限条件を説明できる	remaining capabilityがvehicle-levelでしか定義されていない
 supplier_owned_evidence	actuator status; sensor agreement; motor current; voltage; reset; communication state; software/calibration ID	diagnostic data; ECU logs; calibration/version management; HILS result	診断で読める事実と、読めない事実を分けられる	DTC/DID/freeze frameに接続しない
