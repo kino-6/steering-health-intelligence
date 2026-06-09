@@ -156,6 +156,9 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/kaggle_supplier_owned_source_collection.tsv](data/kaggle_supplier_owned_source_collection.tsv): Bosch、Mercedes-Benz、EPS/EPAS EOL、EOL品質データ、OBD/CAN、Car-Hackingのソース収集表。
 1. [data/kaggle_supplier_owned_hypotheses.tsv](data/kaggle_supplier_owned_hypotheses.tsv): 製造・EOL検査、bench/HILS評価時間、説明1枚、停止候補を、市場需要、未解決pain、解決策、買い手、Kill条件で整理。
 1. [data/kaggle_supplier_owned_pdca.tsv](data/kaggle_supplier_owned_pdca.tsv): 4周分のPlan / Do / Check / Actと判断。
+1. [docs/64_kaggle_pre_shipment_predictive_quality_deep_dive.md](docs/64_kaggle_pre_shipment_predictive_quality_deep_dive.md): Kaggleから「出荷前の予知保全」を掘り直した最新メモ。Bosch型を、出荷前品質スクリーニングとして読み替える。
+1. [data/kaggle_pre_shipment_quality_findings.tsv](data/kaggle_pre_shipment_quality_findings.tsv): Bosch/Mercedesから得られた具体情報、EPSサプライヤへの読み替え、使えること/使えないこと。
+1. [data/pre_shipment_quality_offer_candidate.tsv](data/pre_shipment_quality_offer_candidate.tsv): 出荷前品質スクリーニング候補を、市場需要、痛み、仮説、解決、買い手、初期artifact、検証、Kill条件で1行ずつ整理。
 1. [docs/60_sbw_explanation_support_no_go_reasoning.md](docs/60_sbw_explanation_support_no_go_reasoning.md): Steer-by-wire向けの説明資料整理支援が、なぜ有償サービスとしてNo-Goなのかを、市場需要からKill条件まで一本の論理で整理した最新判断。
 1. [data/sbw_explanation_support_no_go_reasoning.tsv](data/sbw_explanation_support_no_go_reasoning.tsv): 市場需要、未解決pain、仮説縮小、既存業務重複、EPSサプライヤ境界、Kill条件を対応づけたTSV。
 1. [docs/59_wheel_side_steering_unit_plain_deep_dive.md](docs/59_wheel_side_steering_unit_plain_deep_dive.md): `road wheel actuator` を「車輪側操舵ユニット」と言い直し、何が市場変化で、何が既存安全・認証・診断業務の範囲かを平易に整理した判断。

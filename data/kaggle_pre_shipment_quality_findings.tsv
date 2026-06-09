@@ -1,0 +1,9 @@
+finding_id	source	observed_kaggle_fact	eps_supplier_interpretation	useful_for	not_useful_for	confidence
+F001	Bosch Production Line Performance	部品が製造ラインを進む各段階で測定・試験データが記録され、品質管理failを予測する課題だった	EPSでも工程検査、EOL検査、再検査/保留ラベルをつなげれば、出荷前の要注意個体抽出に近い	出荷前品質スクリーニング	出荷後故障予測	High
+F002	NISTIR Bosch summary	特徴量はnumeric、categorical、dateに分かれ、ライン、ステーション、測定番号を示す命名規則を持つ	EPSでは工程、設備、測定項目、時刻を残すことが重要	工程グループ説明、時刻/設備影響の確認	物理量のroot cause断定	High
+F003	NISTIR Bosch summary	fail率は約0.6%で、希少事象予測として難しい	量産EPSでもfail/retest/holdは少数派の可能性が高く、正解率ではなく上位リスク個体捕捉を見るべき	上位1/5/10%リスク個体評価	単純accuracy評価	High
+F004	Kaggle Blog winner interview	時系列、部品順序、station内の同一測定値、短期/長期のfailure rate trendが効いていた	EPSでは単独測定値だけでなく、工程通過順、ロット、設備、直前/直後個体、時刻帯を見るべき	工程文脈特徴量設計	測定値だけのgeneric ML	Medium
+F005	Kaggle Blog winner interview	匿名化されていてdomain knowledgeなしでも予測は可能だったが、leakやfeature engineeringに強く依存した	公開Kaggleはデモには使えるが、現場改善には工程名・測定名・設備名を保持する必要がある	デモ境界の明示	Kaggle精度を業務価値と同一視	High
+F006	Mercedes-Benz Greener Manufacturing	車両構成からtest bench timeを予測する課題だった	EPSではvariant、software、calibration、試験セットからbench/HILS/EOL評価時間を見積もる用途に近い	評価時間スクリーニング	品質予兆やfield failure	Medium
+F007	Mercedes-Benz public analyses	特徴量は匿名化された構成情報で、目的変数はテスト時間	EPSで使うなら匿名化せず、構成名や評価項目名を残さないと評価計画に貼れない	評価計画支援	構成要因の断定	Medium
+F008	Acerta EOL overview	EOLで問題を見つけると、手戻り、scrap、reworkの非効率につながる	上流工程データから後工程failを予兆として拾う需要は自然	製造品質、EOL検査	購買意思の直接証明	Medium
