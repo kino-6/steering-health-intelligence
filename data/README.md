@@ -18,6 +18,12 @@
   - Kaggleから「出荷前の予知保全」を読み直した具体finding表。Boschのrare fail、line/station/date特徴量、工程順序、Mercedesのtest bench timeをEPSサプライヤ向けに翻訳。
 - `pre_shipment_quality_offer_candidate.tsv`
   - 出荷前品質スクリーニング候補を、市場需要、未解決pain、仮説、解決策、買い手、初期artifact、検証方法、Kill条件へ落とした1枚TSV。
+- `pre_shipment_quality_proxy_summary.tsv`
+  - Bosch型の出荷前品質スクリーニングproxy demoの捕捉率表。上位1/5/10/20%の要注意個体でfail/retest候補をどれだけ拾えるかを整理。
+- `pre_shipment_quality_proxy_top_units.tsv`
+  - proxy demoの上位リスク個体リスト。個体ID、risk score、proxy上の実ラベル、line/shift/variant、理由、推奨アクションを整理。
+- `pre_shipment_quality_proxy_station_signals.tsv`
+  - proxy demoの工程グループ説明。line/station/measurement系のsignalごとにfail/retest率と現場での読み方を整理。
 - `business_model_research.tsv`
   - Repo内の6案に対応する隣接ビジネスモデルを100件整理したTSV。
   - 各行に、顧客、課題、収益モデル、抽出知識、本Repoへの有効アイテム、関連度を記載。
@@ -159,6 +165,7 @@
 - `kaggle_hidden_demand_candidates.tsv` では、Kaggleを公開代替データではなく、企業が外部に設定した目的変数として読む。EPS故障予測には使わず、EPSサプライヤが持てる製造、EOL検査、bench/HILS評価データに近い製造品質・評価時間短縮だけを次探索候補に置く
 - `kaggle_supplier_owned_source_collection.tsv`、`kaggle_supplier_owned_hypotheses.tsv`、`kaggle_supplier_owned_pdca.tsv` では、Kaggle方向を深掘りし、Bosch型の製造・EOL検査の早期不良候補抽出を最優先にした。価値はEOL試験追加ではなく、再検査、保留、工程確認、評価計画の判断支援に置く
 - `kaggle_pre_shipment_quality_findings.tsv` と `pre_shipment_quality_offer_candidate.tsv` では、ユーザの指摘を受けて「出荷前の予知保全」として再整理した。主張は出荷後故障予測ではなく、出荷前品質スクリーニングである。次はBosch型proxy demoで、上位リスク個体と工程グループ説明が現場判断へ転記できるかを見る
+- `pre_shipment_quality_proxy_summary.tsv`、`pre_shipment_quality_proxy_top_units.tsv`、`pre_shipment_quality_proxy_station_signals.tsv` では、Bosch型構造をsynthetic proxyで再現した。上位5%個体でfail/retest候補17.5%を捕捉したが、これは実EPS性能ではなく、再検査・保留・工程確認へ翻訳できるかを見るための型である
 - EPS / ECU単体の故障予測として売らない
 - 「ログ追加」や既存診断証跡の言い換えではなく、返却品・NTF・再現不能案件の不足証跡を特定する
 - 故障予測そのものではなく、顧客品質報告や原因調査に使える確認済み事実・未確認事項を整理する
