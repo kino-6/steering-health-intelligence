@@ -14,3 +14,4 @@ Steer-by-wire safety / redundancy / cyber evidence pack	No-Go	市場変化はあ
 Wheel-side steering unit standalone offer	Kill-leaning	部品は重要だが、単独商材にすると安全/認証/診断資料の要約になりやすい	部品名を商品名にする	異常時説明1枚が既存資料の要約を超える	平易な説明に留める
 Kaggle as EPS field failure prediction	Kill	Kaggleの公開CAN/OBD/steering angleデータには、EPS内部故障ラベル、DTC、freeze frame、assist電流、motor電流、limit状態、保証ラベルが足りない	KaggleでEPS故障予測や劣化兆候を実証する	EPS故障ラベルと診断情報を持つ公開データが見つかる	公開データは使用条件proxyまでに留める
 Kaggle competition hidden demand for supplier-owned process/validation data	Explore	Bosch Production Line PerformanceとMercedes-Benz Greener Manufacturingは、企業が製造不良予測や評価時間短縮を目的変数として外に出した課題であり、EPSサプライヤの製造/EOL/bench/HILSデータに寄せやすい	すぐ外販商品化、保証費削減、field failure prediction	公開コンペで業務転記先を示せ、製造品質/評価計画の利用者が具体化する	Kaggleはデータではなく隠れた需要として読む
+Kaggle/Bosch pre-shipment quality screening as main EPS product value	Branch only	出荷前品質スクリーニングは製造品質、EOL検査、工程改善の話であり、EPS製品仕様やOEM向け製品付加価値ではない	EPS製品価値として主仮説にする	製造品質分析サービスとして別テーマに切り出す場合	需要調査の枝に留め、本題はEPS製品価値へ戻す

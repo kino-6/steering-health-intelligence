@@ -103,10 +103,10 @@ EPS Common Pain Productization
 次にこのRepoを読むLLMは、まずKill知識ベースを前提にすること。
 過去にKillした仮説を、名前だけ変えて再提案しない。
 
-ただし、Kaggleは例外的に再確認する価値がある。
-理由は、Kaggleの自動車系コンペは単なる公開データではなく、企業が「解きたい目的変数」を外に出した課題だからである。
-EPSの市場故障予測には使わないが、Bosch Production Line PerformanceやMercedes-Benz Greener Manufacturingは、サプライヤが自分で持てる製造、最終検査、EOL、bench/HILS評価データに近い。
-したがって、次の探索は「EPS市場故障」ではなく、「EPSサプライヤ内部の製造品質・評価時間短縮」へ寄せて見る。
+Kaggle/Bosch線は、需要調査の枝としては有用だった。
+ただし、これは製造品質、EOL検査、工程改善の話であり、EPS製品そのものの付加価値ではない。
+したがって、Repoの主仮説にはしない。
+本題に戻る場合は、EPS製品仕様、診断仕様、制御仕様、評価仕様、OEM説明に残る価値だけを主探索にする。
 
 `ECU内に証跡を残す` こと自体は既存診断の範囲にあるため、新規性として扱わない。
 `TARA/SBOM/CVE管理をやる` ことも既存CSMS/ISO21434/R155/R156対応と被るため、新規性として扱わない。
@@ -134,8 +134,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 | 観点 | 現在の見立て |
 |---|---|
 | 最新ピボット | Public regulation / software / next-generation steering exploration |
-| EPS向け軸 | Steer-by-wire component-boundary整理 |
-| 初期検証軸 | 既存ISO 26262 / SOTIF / CSMS / TARA / 診断設計 / software update業務と被らず、EPSサプライヤがOEM説明や診断設計へ転記できる差分があるか |
+| EPS向け軸 | EPS診断コンテンツの次世代化、または製品仕様に残る説明可能な運用限界 |
+| 初期検証軸 | 既存DTC/freeze frame/extended data、既存安全・認証資料、既存診断設計の言い換えで終わらず、EPS製品仕様・診断仕様・RFQ回答に残る差分があるか |
 | 近い商品名 | まだ作らない。商品名化前のKill-first探索 |
 | RCA/8Dの扱い | 単独主商品から下げる。副次artifactとしてのみ扱う |
 | Primary target | EPS supplier systems / functional safety / diagnostic engineering / cybersecurity / software calibration / customer technical interface |
@@ -143,6 +143,7 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 | OEMデータ | Optional extension |
 | AI / 予測 | 初期は故障予測モデルではなく、公開情報から設計レビュー・診断コンテンツ・RFQ質問へ転記できるかの探索 |
 | 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視、既存診断証跡の新規実装主張 |
+| Kaggle/Bosch線 | 需要調査の枝として残すが、主仮説にしない。製造品質分析サービスへ逸れるため |
 
 ## 推奨読書順
 
@@ -150,6 +151,7 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 1. [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md): 次のLLMが最初に読む前提知識。Kill済み仮説、再提案禁止、再開条件、前提変更時にだけ復活する候補を整理。
 1. [data/llm_kill_knowledge_base.tsv](data/llm_kill_knowledge_base.tsv): Kill済み仮説ごとの現行判断、Kill理由、再主張禁止、再開条件、LLM向けルール。
+1. [docs/66_return_to_eps_product_value_after_kaggle_branch.md](docs/66_return_to_eps_product_value_after_kaggle_branch.md): Kaggle/Bosch線を需要調査の枝に下げ、本題をEPS製品価値へ戻すための判断。次候補はEPS診断コンテンツの次世代化。
 1. [docs/62_kaggle_competition_hidden_demand_review.md](docs/62_kaggle_competition_hidden_demand_review.md): Kaggleコンペを、公開代替データではなく「企業が外に出した隠れた需要」として読み直した最新メモ。最有力はEPS市場故障ではなく、製造品質と評価時間短縮。
 1. [data/kaggle_hidden_demand_candidates.tsv](data/kaggle_hidden_demand_candidates.tsv): Bosch、Mercedes-Benz、OBD-II/CAN、Car-Hacking等を、隠れた需要、EPSサプライヤ適合、使ってはいけない主張、Kill条件で整理。
 1. [docs/63_kaggle_supplier_owned_data_pdca.md](docs/63_kaggle_supplier_owned_data_pdca.md): Kaggle方向を1時間Goalで深掘りし、データ収集、仮説、検証PDCAを回した結果。Bosch型の製造・EOL検査の早期不良候補抽出を最優先、Mercedes型の評価時間見積もりを2番手に置く。
