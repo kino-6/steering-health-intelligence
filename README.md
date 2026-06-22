@@ -2,6 +2,24 @@
 
 EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress / control-effort indicatorを作る事業仮説メモ。
 
+## 現在の状態
+
+旧テーマはArchive扱いにする。
+
+ここでいう旧テーマは、乗用車向けEPS単体について、公開情報だけを使い、故障予測、劣化兆候通知、追加ログ、公開市場pain分類、Coverage Benchmark、汎用SbW説明支援、SOVD基盤支援を外販商材にできるかを探した一連の探索である。
+現行条件では、この方向は閉じる。
+
+追加で見た自動運転・商用車両群向けの操舵系運行可否 / 点検優先度判断も、EPS/SbWサプライヤ単独の外販テーマとしてはArchiveする。
+最終判断は [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](docs/archive/motion_health/75_motion_health_mhq001_final_decision.md) に置く。
+
+結論は、市場需要はあるが、EPS/SbWサプライヤが公開情報だけで外販商品にできる差分は確認できない、である。
+必要データはOEM/fleet/platform契約に依存し、既存remote diagnosticsもDTC severity、action plan、API連携、診断時間短縮をすでに扱っている。
+
+ただし、新しい作業仮説として、OEM remote diagnostics networkに組み込む操舵系状態説明レイヤーは切り出す。
+これはfleet監視サービスではなく、EPS/SbW内部データからDTCだけでは分からない状態説明、追加DID読み順、禁止主張、field-to-engineering feedbackを作る部品側コンテンツである。
+入口は [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md) に置く。
+過去のmotion health調査は [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md) へArchiveする。
+
 ## 上位ルール
 
 このRepoでは、以後の調査・仮説・デモ・ドキュメント更新を必ず以下の順で提示する。
@@ -42,14 +60,14 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 `RCA / 8D Evidence Case Pack` は単独主商品から下げる。
 `EPS Diagnostic / Robustness Coverage Benchmark` も、内部資料を使わない現行方針ではNo-Goとして止める。
 
-現在は、公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探している。
-直近の探索対象は以下の3つだったが、深掘り後は1だけを狭く残す。
+旧テーマの最終局面では、公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探していた。
+その時点の探索対象は以下の3つだったが、深掘り後は汎用外販商品としてはどれも弱い。
 
 1. Steer-by-wire safety / cybersecurity / redundancy
 2. SOVD / next-generation diagnostics content design for EPS
 3. Public recall / ODI / TSB monitor as input only
 
-現在残すのは、Steer-by-wireの汎用安全支援ではない。
+その時点で残していたのは、Steer-by-wireの汎用安全支援でも、SOVD基盤支援でもない。
 既存の安全・サイバー・診断・software update成果物を、OEM説明、RFQ回答、診断コンテンツ設計に転記しやすくするcomponent-boundary整理だけである。
 
 ## EPSサプライヤ視点
@@ -93,13 +111,13 @@ EPS Common Pain Productization
   -> RCA/8D単体はドメイン固有でスケールしにくい。公開市場で繰り返すEPS共通pain familyを、既存診断・reader・HILS/bench評価のcoverage benchmarkへ変換する
 ```
 
-## 現在の立ち位置
+## 旧テーマの最終判断
 
-現時点では、以下を最新判断として扱う。
+旧テーマについては、以下を最終判断として扱う。
 
-> Coverage Benchmarkは、内部資料なしでは止める。広いcyber/SBOM商品も既存業務・既存ツールと被るためKill寄りに下げる。SOVDと公開市場モニタは主商品にせず、Steer-by-wireのcomponent-boundary整理だけを狭く残す。
+> Coverage Benchmarkは、内部資料なしでは止める。広いcyber/SBOM商品も既存業務・既存ツールと被るためKill寄りに下げる。Steer-by-wireの汎用説明支援も有償サービスとしてはNo-Go。SOVD / 次世代診断は基盤ではなく、EPS診断コンテンツの公開範囲・権限・禁止主張が製品仕様やRFQ回答に残るかだけをKill-firstで見る。
 
-さらに最新のメタ結論として、現行条件では外販ビジネスとしてProceedできる強い手札はほぼ残っていない。
+さらに旧テーマのメタ結論として、現行条件では外販ビジネスとしてProceedできる強い手札はほぼ残っていない。
 次にこのRepoを読むLLMは、まずKill知識ベースを前提にすること。
 過去にKillした仮説を、名前だけ変えて再提案しない。
 
@@ -116,8 +134,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 したがって、公開情報だけで有償offerへ進める判断はしない。
 深掘り後の結論は、Steer-by-wire向けの汎用説明資料整理支援も有償サービスとしてはNo-Goである。
 市場変化はあるが、異常時説明、安全設計、認証、診断、ソフト更新、顧客説明は既存業務の中に既に持ち主がいるためである。
-次に見るなら、「車輪を動かす側の冗長系が一部落ちた」1ケースで、既存安全・認証資料の要約を超えた「EPSサプライヤが言えること / 言ってはいけないこと」の整理になるかだけを見る。
-それが出なければSbW方向もStopする。
+次に見るなら、EPSサプライヤが持つDTC、DID、freeze frame、extended data、software/calibration ID、routine、security accessを、近接整備、リモート診断、車内診断、製造、開発の利用場面ごとに、公開/制限/禁止へ整理できるかを見る。
+それが既存診断仕様やODX authoringの言い換えで終わるなら、SOVD / 次世代診断方向もStopする。
 
 重要な境界:
 
@@ -133,17 +151,17 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 | 観点 | 現在の見立て |
 |---|---|
-| 最新ピボット | Public regulation / software / next-generation steering exploration |
-| EPS向け軸 | EPS診断コンテンツの次世代化、または製品仕様に残る説明可能な運用限界 |
-| 初期検証軸 | 既存DTC/freeze frame/extended data、既存安全・認証資料、既存診断設計の言い換えで終わらず、EPS製品仕様・診断仕様・RFQ回答に残る差分があるか |
-| 近い商品名 | まだ作らない。商品名化前のKill-first探索 |
-| RCA/8Dの扱い | 単独主商品から下げる。副次artifactとしてのみ扱う |
-| Primary target | EPS supplier systems / functional safety / diagnostic engineering / cybersecurity / software calibration / customer technical interface |
-| 初期データ前提 | 公開規制・標準・サプライヤ発表・公開NHTSA/recall/ODI/TSB |
-| OEMデータ | Optional extension |
-| AI / 予測 | 初期は故障予測モデルではなく、公開情報から設計レビュー・診断コンテンツ・RFQ質問へ転記できるかの探索 |
-| 避ける主張 | 個車RUL断定、エンドユーザ故障通知、サプライヤ単独fleet監視、既存診断証跡の新規実装主張 |
-| Kaggle/Bosch線 | 需要調査の枝として残すが、主仮説にしない。製造品質分析サービスへ逸れるため |
+| 最新判断 | 旧テーマ、単独fleet監視型motion health、RDI / OEM remote diagnostics説明レイヤーはArchive。次はKaggle problem-setting lensで製造品質 / EOL検査 / 評価時間短縮の別枝を見る |
+| EPS向け軸 | EPS単体の寿命予測はしない。次は企業がKaggleに出した目的変数、入力データ、評価指標から、EPSサプライヤ内部業務に近い隠れた需要を読む |
+| 最終検証軸 | Kaggle課題の意図が、製造品質、工程設計、EOL検査、評価計画、HILS/bench、software/calibration release gateの判断へ転記できるか |
+| 近い商品名 | まだ作らない。自然言語では「Kaggleの問題設定から読む製造・検査・評価の隠れた需要」 |
+| RCA/8Dの扱い | 主商品ではない。特定programの短期支援で、確認済み事実の転記先になる場合だけ |
+| Primary target | EPSサプライヤの製造品質、工程設計、EOL検査、評価計画、HILS/bench、software/calibration release gate |
+| 初期データ前提 | 内部資料は使わない。Kaggleの公開課題を、データセットではなく企業が外に出した問題設定として読む |
+| OEM / fleetデータ | 使わない。OEM保証DB、fleet data、service outcomeを必要とする方向へ戻さない |
+| AI / 予測 | 個車RULを当てにいかない。Kaggle精度競争ではなく、目的変数が業務判断へ転記できるかを見る |
+| 避ける主張 | EPS交換時期の正確予測、安全機能の代替、保証費削減断定、root cause断定、サプライヤ単独fleet監視 |
+| Kaggle/Bosch線 | 公開データそのものではなく、企業がKaggleに出した問題設定から隠れた需要を読む観点として残す。製造品質、EOL検査、評価時間短縮として別テーマに切る場合だけ再開 |
 
 ## 推奨読書順
 
@@ -151,9 +169,45 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 1. [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md): 次のLLMが最初に読む前提知識。Kill済み仮説、再提案禁止、再開条件、前提変更時にだけ復活する候補を整理。
 1. [data/llm_kill_knowledge_base.tsv](data/llm_kill_knowledge_base.tsv): Kill済み仮説ごとの現行判断、Kill理由、再主張禁止、再開条件、LLM向けルール。
+1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
+1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
+1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_eps_explanation_layer_questions.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_eps_explanation_layer_questions.tsv): 新仮説の検証質問。data field、既存remote diagnosticsとの差分、service outcome、責任境界、成果物転記を確認する。
+1. [docs/archive/oem_remote_diagnostics/80_oem_remote_diagnostics_validation_plan.md](docs/archive/oem_remote_diagnostics/80_oem_remote_diagnostics_validation_plan.md): 新仮説の検証計画。Network参加可能性、必要data field、既存remote diagnosticsとの差分、service outcome、責任境界、1ケースsampleへ分解。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_validation_items.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_validation_items.tsv): RDI001〜RDI006の調査item。Network参加経路を最初のKill gateとして整理。
+1. [docs/archive/oem_remote_diagnostics/81_rdi001_006_research_report.md](docs/archive/oem_remote_diagnostics/81_rdi001_006_research_report.md): RDI001〜RDI006を公開情報で調査した結果。Network参加経路はあるがopenではなく、公開APIだけではEPS/SbW固有data fieldとservice outcome feedbackが弱い。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi_research_findings.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi_research_findings.tsv): RDI001〜RDI006のitem別結論、根拠、反証、Proceed条件、Kill条件を整理したTSV。
+1. [docs/archive/oem_remote_diagnostics/82_rdi006_thermal_limit_4_column_sample.md](docs/archive/oem_remote_diagnostics/82_rdi006_thermal_limit_4_column_sample.md): thermal limit / assist limitationの1ケースsample。DTCだけ、既存remote diagnostics、EPS/SbW内部説明、OEM service noteを比較し、差分が出る条件を整理。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_thermal_limit_sample.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_thermal_limit_sample.tsv): RDI006 sampleのstep別4列比較。event snapshot、cool-down、repeated event、software/calibration、service outcome feedbackを整理。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_program_gap_template.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_program_gap_template.tsv): 実programまたは想定programで穴埋めする確認表。読めるdata field、既存action plan、追加説明、service note転記先、outcome feedback、責任境界を確認する。
+1. [docs/archive/oem_remote_diagnostics/83_rdi006_program_gap_pdca.md](docs/archive/oem_remote_diagnostics/83_rdi006_program_gap_pdca.md): RDI006 program gapをPDCAで穴埋めしたレポート。当時はConditional Continue / not offerに縮小したが、内部資料なしルールではArchive判断の根拠として扱う。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_program_gap_filled.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_program_gap_filled.tsv): 穴埋め完了版。10項目ごとにfilled status、必要artifact、owner、Proceed/Kill signal、EPS supplier decisionを整理。
+1. [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_pdca_log.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_pdca_log.tsv): PDCA 4周分のPlan / Do / Check / Actと判断変化。
+1. [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md): motion health / fleet運行可否調査をArchive化した索引。新仮説で使える知見と使ってはいけない主張を整理。
+1. [data/archive/motion_health/motion_health_archive_links.tsv](data/archive/motion_health/motion_health_archive_links.tsv): Archive化したsource link、使い方、限界を整理したTSV。
+1. [docs/archive/motion_health/69_old_theme_archive_and_new_focus.md](docs/archive/motion_health/69_old_theme_archive_and_new_focus.md): 旧テーマをArchiveし、新テーマを「自動運転・商用車両群向けの操舵系運行可否/点検優先度判断」に絞るための入口。
+1. [data/archive/motion_health/motion_health_new_focus_questions.tsv](data/archive/motion_health/motion_health_new_focus_questions.tsv): 新テーマで最初に確認する10個の検証質問。買い手、痛み、データアクセス、判断出力、Kill条件を整理。
+1. [docs/archive/motion_health/70_motion_health_mhq001_005_research_report.md](docs/archive/motion_health/70_motion_health_mhq001_005_research_report.md): 新テーマの検証質問1〜5を公開情報で確認したレポート。fleet一般の需要は強いが、操舵系固有の痛みとサプライヤのデータアクセスは追加検証が必要。
+1. [data/archive/motion_health/motion_health_mhq001_005_evidence.tsv](data/archive/motion_health/motion_health_mhq001_005_evidence.tsv): MHQ001〜005向けのsource、evidence signal、support、limit、confidence、URLを整理したTSV。
+1. [docs/archive/motion_health/72_mhq001_20min_deep_dive.md](docs/archive/motion_health/72_mhq001_20min_deep_dive.md): MHQ001を20分枠で深掘りしたメモ。fleet downtimeとAV maintenanceは強いが、steering単独では弱く、chassis / motion healthとしても `Hold / Continue Investigation` に留める判断。
+1. [docs/archive/motion_health/73_mhq001_second_20min_deep_dive.md](docs/archive/motion_health/73_mhq001_second_20min_deep_dive.md): MHQ001を再深掘りし、`Proceed` を `Hold / Continue Investigation` に下げた修正版。steering-onlyの購買painは未確認で、chassis / motion healthとしてのみ継続。
+1. [docs/archive/motion_health/74_mhq003_005_deep_dive_for_mhq001.md](docs/archive/motion_health/74_mhq003_005_deep_dive_for_mhq001.md): MHQ003のdata accessとMHQ005の既存remote diagnostics差分を深掘りし、MHQ001を `Hold / Stop-leaning` に下げた判断。次の1ケースsampleで差分が出なければStop。
+1. [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](docs/archive/motion_health/75_motion_health_mhq001_final_decision.md): MHQ001の最終判断。fleet downtime需要はあるが、data accessと既存remote diagnosticsとの差分が公開情報だけでは証明できないため、外販テーマとしてはStop / Archive。
+1. [docs/archive/motion_health/76_other_mhq_20min_deep_dive.md](docs/archive/motion_health/76_other_mhq_20min_deep_dive.md): MHQ001以外のMHQ002/004/006/007/008/009/010を20分枠で深掘りした最終補強メモ。市場側のYesはあるが、外販Stop判断は変わらない。
+1. [docs/archive/motion_health/77_mhq004_007_008_deeper_review.md](docs/archive/motion_health/77_mhq004_007_008_deeper_review.md): MHQ004/007/008を追加深掘りし、外販ではなく再開条件として残す判断を整理。MHQ004はoutput rubric、MHQ007はbundle boundary、MHQ008はfield-to-engineering feedbackとして保存。
+1. [data/archive/motion_health/motion_health_mhq_work_surface.tsv](data/archive/motion_health/motion_health_mhq_work_surface.tsv): MHQ001〜010の作業面。各questionの現在結論、confidence、弱点、次アクション、priorityを整理。
+1. [data/archive/motion_health/motion_health_mhq001_deep_dive_evidence.tsv](data/archive/motion_health/motion_health_mhq001_deep_dive_evidence.tsv): MHQ001向けにfleet downtime general、AV maintenance、chassis/motion specific、steering specificのevidenceを分類したTSV。
+1. [data/archive/motion_health/motion_health_mhq003_005_evidence.tsv](data/archive/motion_health/motion_health_mhq003_005_evidence.tsv): MHQ003/MHQ005向けに、vehicle data access、OEM/API、supplier cloud連携、既存remote diagnostics、SOVDの反証材料を整理したTSV。
+1. [data/archive/motion_health/motion_health_mhq001_final_kill_check_sample.tsv](data/archive/motion_health/motion_health_mhq001_final_kill_check_sample.tsv): 高負荷操舵でEPS thermal limit / assist limitationに入った仮想ケースを、DTCだけ、既存remote diagnostics、supplier domain triageの3列で比較したKill確認sample。
+1. [data/archive/motion_health/motion_health_other_mhq_deep_dive.tsv](data/archive/motion_health/motion_health_other_mhq_deep_dive.tsv): MHQ002/004/006/007/008/009/010のitem別結論、support/counter-signal、EPS supplier decisionを整理したTSV。
+1. [data/archive/motion_health/motion_health_mhq004_007_008_deeper.tsv](data/archive/motion_health/motion_health_mhq004_007_008_deeper.tsv): MHQ004/007/008について、深掘り結論、support/counter-signal、再開条件、EPS supplier boundaryを整理したTSV。
 1. [docs/66_return_to_eps_product_value_after_kaggle_branch.md](docs/66_return_to_eps_product_value_after_kaggle_branch.md): Kaggle/Bosch線を需要調査の枝に下げ、本題をEPS製品価値へ戻すための判断。次候補はEPS診断コンテンツの次世代化。
+1. [docs/67_next_generation_diagnostic_content_value_check.md](docs/67_next_generation_diagnostic_content_value_check.md): EPS診断コンテンツの次世代化が製品仕様・診断仕様・RFQ回答に残るかをKill-firstで確認した最新メモ。SOVD基盤ではなく、公開範囲、権限、禁止主張、software/calibration接続だけを見る。
+1. [data/next_generation_diagnostic_content_value_check.tsv](data/next_generation_diagnostic_content_value_check.tsv): 25件の仮診断コンテンツを、次世代診断での見せ方、EPSサプライヤ境界、RFQ/仕様文言、禁止主張、Kill signalへ整理したproxy demo。
 1. [docs/62_kaggle_competition_hidden_demand_review.md](docs/62_kaggle_competition_hidden_demand_review.md): Kaggleコンペを、公開代替データではなく「企業が外に出した隠れた需要」として読み直した最新メモ。最有力はEPS市場故障ではなく、製造品質と評価時間短縮。
 1. [data/kaggle_hidden_demand_candidates.tsv](data/kaggle_hidden_demand_candidates.tsv): Bosch、Mercedes-Benz、OBD-II/CAN、Car-Hacking等を、隠れた需要、EPSサプライヤ適合、使ってはいけない主張、Kill条件で整理。
+1. [docs/84_kaggle_problem_setting_lens.md](docs/84_kaggle_problem_setting_lens.md): Kaggleを「データセット」ではなく、企業が外に出した問題設定として読む観点。目的変数、入力データ、評価指標から隠れた業務意図を読む。
+1. [data/kaggle_problem_setting_lens.tsv](data/kaggle_problem_setting_lens.tsv): Kaggle課題ごとに、何を読むか、隠れた意図、EPSサプライヤでの読み替え、使ってよい用途、使ってはいけない用途を整理。
 1. [docs/63_kaggle_supplier_owned_data_pdca.md](docs/63_kaggle_supplier_owned_data_pdca.md): Kaggle方向を1時間Goalで深掘りし、データ収集、仮説、検証PDCAを回した結果。Bosch型の製造・EOL検査の早期不良候補抽出を最優先、Mercedes型の評価時間見積もりを2番手に置く。
 1. [data/kaggle_supplier_owned_source_collection.tsv](data/kaggle_supplier_owned_source_collection.tsv): Bosch、Mercedes-Benz、EPS/EPAS EOL、EOL品質データ、OBD/CAN、Car-Hackingのソース収集表。
 1. [data/kaggle_supplier_owned_hypotheses.tsv](data/kaggle_supplier_owned_hypotheses.tsv): 製造・EOL検査、bench/HILS評価時間、説明1枚、停止候補を、市場需要、未解決pain、解決策、買い手、Kill条件で整理。
@@ -434,13 +488,12 @@ scripts/
 ## 現在の次アクション
 
 - 以後の提案は `AGENTS.md` の上位ルールに従い、市場需要 -> 未解決の痛み -> 仮説 -> 解決策 -> 買い手 -> 初期提供物 -> 検証方法 -> Kill条件で書く
-- `EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goとして止める
-- 広い `steering ECU software/cyber evidence pack` は、既存CSMS/TARA/SBOM/CVE運用と被るためKill寄りに下げる
-- `Steer-by-wire` の汎用説明資料整理支援も、有償サービスとしてはNo-Go。市場変化はあるが、既存の安全設計、認証、診断設計、ソフト更新、顧客技術説明と重なるため
-- 残す場合も、既存成果物をOEM説明・診断設計へ転記する短期案件支援に限定する
-- `SOVD / next-generation diagnostics content design` は主商品ではなく、EPS診断コンテンツの整理・露出方針・UDSからSOVDへの接続に限定して残す
-- `Public recall / ODI / TSB monitor` は単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問を作る入力としてだけ使う
-- 車輪を動かす側の冗長系が一部落ちた場合の1ケースsampleは作成済み。次は、このsampleが既存safety caseからすぐ出るか、部署横断でないと作れないかを見る
-- 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報だけでは商品価値は証明しない
-- 8項目を公開情報で検証した結果、1-4はPartial、5-8はUnknown。現行方針では内部資料を要求しないため、この不足を非公開確認で埋めに行かない
-- 次にやるなら、公開情報だけで作った1ケースsampleがEPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自価値を出せるかを見る。出せなければSbW方向もStopする
+- 旧テーマはArchiveとして閉じる。詳細は [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md) と [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv) を参照する
+- motion health新テーマも外販テーマとしてはArchive。最終判断は [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](docs/archive/motion_health/75_motion_health_mhq001_final_decision.md) を参照する
+- RDI / OEM remote diagnostics系は [docs/archive/oem_remote_diagnostics/README.md](docs/archive/oem_remote_diagnostics/README.md) を入口にArchive参照する
+- RDI001〜RDI006の公開情報調査は [docs/archive/oem_remote_diagnostics/81_rdi001_006_research_report.md](docs/archive/oem_remote_diagnostics/81_rdi001_006_research_report.md) と [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi_research_findings.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi_research_findings.tsv) を参照する
+- RDI006の4列sampleは [docs/archive/oem_remote_diagnostics/82_rdi006_thermal_limit_4_column_sample.md](docs/archive/oem_remote_diagnostics/82_rdi006_thermal_limit_4_column_sample.md) と [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_thermal_limit_sample.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_thermal_limit_sample.tsv) に置いた
+- RDI006の穴埋めPDCAは [docs/archive/oem_remote_diagnostics/83_rdi006_program_gap_pdca.md](docs/archive/oem_remote_diagnostics/83_rdi006_program_gap_pdca.md) と [data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_program_gap_filled.tsv](data/archive/oem_remote_diagnostics/oem_remote_diagnostics_rdi006_program_gap_filled.tsv) に置いた
+- 次に作業する場合は、[docs/84_kaggle_problem_setting_lens.md](docs/84_kaggle_problem_setting_lens.md) を入口に、Bosch型をEPS製造 / EOL検査へ読み替える
+- 過去のmotion health調査は [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md) と [data/archive/motion_health/motion_health_archive_links.tsv](data/archive/motion_health/motion_health_archive_links.tsv) から参照する
+- 「EPS交換時期を当てる」方向には戻さない

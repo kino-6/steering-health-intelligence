@@ -76,32 +76,55 @@
 
 ## Current Main Hypothesis
 
-`EPS Diagnostic / Robustness Coverage Benchmark` は、内部資料を使わない現行方針ではNo-Goで止める。
-対象EPSの実HILS、DTC、freeze frame / extended data、既存レビューとの差分を確認できないためである。
+旧テーマはArchive扱いにする。
+旧テーマとは、乗用車向けEPS単体について、公開情報だけを使い、故障予測、劣化兆候通知、追加ログ、公開市場pain分類、Coverage Benchmark、汎用SbW説明支援、SOVD基盤支援を外販商材にできるかを探した一連の探索である。
+現行条件では、この方向は閉じる。
 
 次のLLMは、まず [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md) を前提知識として読むこと。
 現行条件では外販ビジネスとしてProceedできる強い手札はほぼ残っていない。
 過去にKillした仮説を、名前や英語ラベルだけ変えて再提案しない。
 
-現在の探索ブランチは以下。
+追加で検証した新ブランチも、EPS/SbWサプライヤ単独の外販テーマとしてはArchiveする。
 
-> EPS / steering ECU public-regulation and software evidence branch
+> 自動運転・商用車両群向けの操舵系運行可否 / 点検優先度判断
 
-これは商品名ではない。
-公開されている規制、標準、業界動向から、EPSサプライヤ側に実務負荷が増えている領域を探すための一時的な探索軸である。
+このブランチでは、EPS単体の寿命を当てるのではなく、自動運転車両、配送車、商用車、シャトルなどの車両群で、操舵系を含む重要部品について、次の運行に出してよいか、次回点検まで持つか、先に入庫させるべきかを判断できるかを見た。
 
-最新の探索優先順位:
+最終判断は [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](docs/archive/motion_health/75_motion_health_mhq001_final_decision.md) に置いた。
+結論は、fleet downtimeや診断時間短縮の市場需要はあるが、EPS/SbWサプライヤ単独の外販テーマとしてはStop / Archiveである。
+理由は、必要データがOEM/fleet/platform契約に依存し、既存remote diagnosticsがDTC severity、action plan、API連携、診断時間短縮をすでに強く扱っているためである。
 
-1. Steer-by-wire safety / cybersecurity / redundancy evidence pack
-2. SOVD / next-generation diagnostics content design for EPS
-3. Public recall / ODI / TSB monitor as input only
+追加で検証した以下の作業仮説も、内部資料を使わない現行ルールではArchiveする。
 
-これらは、故障予測、劣化兆候通知、追加ログではない。
-EPSサプライヤが、steer-by-wire移行、次世代診断、公開市場シグナルに対して、OEM説明・設計レビュー・RFQ回答に使える材料を作れるかを見る。
+> OEM遠隔診断に組み込む操舵系状態説明レイヤー
 
-最優先は `Steer-by-wire safety / cybersecurity / redundancy evidence pack` である。
-ただし、最初から商品名を作らない。
-既存ISO 26262 / SOTIF / cyber / safety caseに飲まれないか、steering supplierがcomponent boundaryで説明できる領域があるかをKill-firstで検証する。
+これはfleet監視サービスではない。
+OEM remote diagnostics networkに、EPS/SbWサプライヤが操舵系の説明ロジックを提供する仮説である。
+価値は、EPS内部データから、DTCだけでは分からない状態説明、追加で読むべきDID、service側に出す注意文、言ってよいことと言ってはいけないこと、field-to-engineering feedbackを作ることである。
+
+最初に読む資料は [docs/archive/oem_remote_diagnostics/README.md](docs/archive/oem_remote_diagnostics/README.md) である。
+過去のmotion health調査は [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md) にArchiveする。
+
+この仮説のArchive判断は以下である。
+
+公開情報だけでは、EPS/SbW固有DID、freeze frame、assist / limit state、thermal indicators、software / calibration ID、service note転記先、service outcome feedbackが埋まらない。
+既存remote diagnosticsはDTC description、severity、action plan、service routingをすでに強く扱う。
+したがって、現行条件では外販テーマとしてStop / Archiveとする。
+
+再開できるのは、特定OEM programで以下が確認できる場合だけである。
+
+1. EPS/SbW固有のDTC、DID、freeze frame、extended data、assist state、limit state、software/calibration IDへ触れる
+2. 整備履歴、交換結果、再発有無、作業時間の少なくとも一部へ接続できる
+3. 既存remote diagnosticsのseverity / action planでは足りない操舵系固有の判断がある
+4. 出力が、交換時期予測ではなく、運行可否、入庫優先度、診断読み順、顧客説明へ落ちる
+5. 安全保証、root cause断定、交換時期予測、既存remote diagnostics置換を主張しない
+
+現行の次探索は、Kaggleを「公開データ」ではなく「企業が外に出した問題設定」として読む観点である。
+入口は [docs/84_kaggle_problem_setting_lens.md](docs/84_kaggle_problem_setting_lens.md) と [data/kaggle_problem_setting_lens.tsv](data/kaggle_problem_setting_lens.tsv) に置く。
+狙いは、Bosch型をEPS製造 / EOL検査、Mercedes型をEPS評価時間短縮へ読み替えられるかを見ることである。
+Kaggleを、EPS市場故障予測やRDI006の内部data field穴埋めには使わない。
+
+以下は旧テーマArchiveと過去探索の詳細であり、現在の探索優先順位ではない。
 
 SOVD / next-generation diagnostics content designはextensionとして扱う。
 OEM診断基盤依存が強いため、EPSサプライヤが主語になれるのはUDS/DTC/DID/freeze frame/software ID/security accessを次世代診断コンテンツへ整理する部分までである。
@@ -124,10 +147,19 @@ Steer-by-wire深掘り後の現在地:
 - 判断材料として、ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を整理済み。公開情報は市場変化と既存業務重複を示す材料であり、商品価値の証明には使わない。
 - 8項目を公開情報で検証した結果、architecture、degraded state、FMEA、DTC coverageはPartial、software/calibration、security access、OEM質問、既存回答templateはUnknown。
 - 現行方針では内部資料を要求しない。したがって、SbW方向は公開情報だけで外販Proceedしない。内部資料確認を次アクションに置かず、公開情報だけで示せる価値がなければKillする。
-- 次にやるなら、公開情報だけで作った1ケースsampleが、EPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自の判断を出せるかを見る。出せなければSbWもStopする。
+- この段階での次アクションは、公開情報だけで作った1ケースsampleが、EPSサプライヤの公開営業資料・RFQ一般論・診断標準動向に対して独自の判断を出せるかを見ることだった。後続レビューで、SbW汎用説明支援は有償サービスとしてNo-Goに下げた。
 - 追加の公開情報収集では、Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDを見た。市場変化はあるが、fault strategy、verification、FMEA/FTA、safe state、driver warning、DTC coverage、SOVD fault informationは既存安全・認証・診断論点として既に強い。
 - よって現時点のSbW判断は、公開情報だけでは有償offerにしない。次にやる場合も、「車輪を動かす側の冗長系が一部落ちた」1ケースが既存資料の要約を超え、EPSサプライヤが言えること / 言ってはいけないことを自然言語で切れるかだけを見る。
 - さらに深掘りした結論として、Steer-by-wire向けの説明資料整理支援も、汎用の有償サービスとしてはNo-Goである。市場変化はあるが、異常時説明、安全設計、認証、診断、ソフト更新、顧客説明には既存業務の持ち主がいる。残すなら、特定案件で既存資料をOEM向け1枚へつなぐ短期支援だけである。
+
+SOVD / 次世代診断コンテンツ深掘り後の現在地:
+
+- 次世代診断は、公開情報上、classic ECU、fault entry、environment data、measurement、identification、routine、configuration、software updateを扱う方向に進んでいる。
+- ただし、SOVD基盤、SOVD server、SOVD stack、ODX/UDS変換、API検証、authoring、trainingは既存標準・既存ツール領域である。EPSサプライヤの外販商品として追わない。
+- 残すなら、DTC、DID、freeze frame、extended data、software/calibration ID、routine、security accessを、近接整備、リモート診断、車内診断、製造、開発の利用場面ごとに公開/制限/禁止へ整理するcontent mapだけである。
+- 25件の仮診断コンテンツproxy demoは作成済み。対象EPSの実DTCではなく、公開範囲、権限、禁止操作、安全影響、software/calibration接続が自然言語で切れるかを見るための表である。
+- これが既存DTC/DID表、ODX authoring、security access表の整形にしか見えなければ、SOVD / 次世代診断方向もStopする。
+- 現時点では、有償サービスとして売らない。残す場合も、特定programで既存診断仕様、security access、software update、顧客技術説明をOEM向けに短くつなぎ直す短期支援だけである。
 
 ## Recently Killed / Deprioritized
 
@@ -237,3 +269,4 @@ Repo更新時は、READMEの現在地と推奨読書順が古い仮説を最新�
 - `future-need-interviewing`: 顧客の最初のニーズ、最悪の未来、最高の未来、欲しい感情から本当のニーズを掘る。
 - `chain-of-verification`: 叩き台の結論を検証質問に分解し、エビデンスで潰してから修正版を出す。
 - `human-readable-reporting`: 人間向けレポートで、造語・商品名・phase名より先に自然言語で結論、業務文脈、判定条件を説明する。
+- `timeboxed-goal-deep-dive`: 時間指定Goalを初回ドラフトで終わらせず、item別結論、弱点深掘り、早期停止理由まで明示する。

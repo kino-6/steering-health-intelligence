@@ -48,6 +48,13 @@
 
 それ以外の公開情報ベースの探索は、かなりの確率で「事例紹介」「既存業務の言い換え」「買い手不明」に戻る。
 
+旧テーマはArchive扱いにする。
+ここでいう旧テーマは、乗用車向けEPS単体について、公開情報だけを使い、故障予測、劣化兆候通知、追加ログ、公開市場pain分類、Coverage Benchmark、汎用SbW説明支援、SOVD基盤支援を外販商材にできるかを探した一連の探索である。
+
+新しく見る場合は、EPS単体の寿命予測ではなく、自動運転車両、配送車、商用車、シャトルなどの車両群で、操舵系を含む重要部品について、次の運行に出してよいか、次回点検まで持つか、先に入庫させるべきかを判断できるかに絞る。
+最初に確認するのは、操舵系理由の運行停止・予定外入庫が本当に痛いか、EPS / SbWサプライヤが必要データにアクセスできるか、既存DTCや通常診断だけでは業務判断に不足するかである。
+この入口は [docs/69_old_theme_archive_and_new_focus.md](docs/69_old_theme_archive_and_new_focus.md) と [data/motion_health_new_focus_questions.tsv](../data/motion_health_new_focus_questions.tsv) に置く。
+
 Kaggleコンペは、需要調査の枝としてだけ再確認してよい。
 ただし、Repoの主仮説にはしない。
 Bosch型の製造不良予測とMercedes-Benz型の評価時間短縮は、EPSサプライヤが持てる製造、EOL検査、bench/HILS評価データに近い。
@@ -67,7 +74,7 @@ Bosch型の製造不良予測とMercedes-Benz型の評価時間短縮は、EPS�
 | RFQ / Design Review Pack単体 | Kill / historical | 公開情報だけだと一般論になりやすく、実RFQや内部レビューとの差分が見えない | 対象RFQまたは既存レビュー様式があり、差分を埋められる |
 | Steering ECU software/cyber evidence pack | Kill寄り | TARA、SBOM、CVE管理、ISO/SAE 21434、UN R155/R156対応は既存プレイヤーと既存業務が厚い | steering ECU固有のOEM問い合わせが実在し、既存回答に機能影響や回答文が欠けている |
 | SBOM / vulnerability response単体 | Kill | SBOM生成、SBOM管理、CVE監視は既存ツール領域。SBOMだけでは価値にならない | EPS機能影響、release ID、OEM回答文への接続不足が確認できる |
-| SOVD / next-generation diagnostics主商品 | Kill as main / extension only | SOVD基盤、API、ODX/UDS変換はOEM基盤・既存標準・既存ツール領域。EPSサプライヤが主語になれる範囲が狭い | EPS診断コンテンツの公開/制限/権限整理に明確な余地がある |
+| SOVD / next-generation diagnostics主商品 | No-Go as product / content map only | SOVD基盤、API、ODX/UDS変換、authoring、API検証、trainingはOEM基盤・既存標準・既存ツール領域。公開情報だけではEPSサプライヤ側の購買painや予算は見えない | 特定programで、DTC/DID/freeze frame/extended data/software ID/security access/routineの公開範囲、権限、禁止操作、安全影響、software/calibration接続を既存資料からOEM向けに短くつなぎ直せる場合 |
 | Public recall / ODI / TSB monitor単体 | Kill as product / input only | 市場シグナル整理だけでは有料価値が弱い。公開事例要約に戻る | 他の成果物の設計質問、診断質問、禁止主張を作る入力としてだけ使う |
 | Steer-by-wire safety / redundancy / cyber evidence pack | No-Go | 市場変化はあるが、安全設計、認証、診断、ソフト更新、顧客説明には既存業務の持ち主がいる。汎用外販は既存業務の言い換えになる | 特定案件で既存資料をOEM向け1枚へつなげない痛みが確認できる |
 | 車輪側操舵ユニット単独商材 | Kill寄り | 部品は重要だが、単独商材にすると安全・認証・診断資料の要約になりやすい | 異常時説明1枚が既存資料の要約を超え、部署横断の説明に使える |

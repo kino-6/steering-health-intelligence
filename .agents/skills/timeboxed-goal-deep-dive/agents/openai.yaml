@@ -1,0 +1,3 @@
+display_name: Timeboxed Goal Deep Dive
+short_description: Deepen timeboxed Goals instead of stopping early.
+default_prompt: Use timeboxed-goal-deep-dive to run this timeboxed Goal as an iterative deep dive with item conclusions, weak-point follow-up, and early-stop justification.

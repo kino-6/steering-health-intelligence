@@ -8,7 +8,7 @@ Public market scenario library alone	Kill	公開事例整理だけでは有料�
 RFQ / design review pack alone	Kill / historical	公開情報だけでは一般論になりやすく、実RFQや既存レビューとの差分が見えない	RFQ一般論を商品にする	対象RFQや既存レビュー様式がある	単体主商品にしない
 Steering ECU software/cyber evidence pack	Kill-leaning	TARA/SBOM/CVE/ISO21434/R155/R156は既存プレイヤーと既存業務が厚い	汎用cyber/SBOM商品	steering ECU固有OEM問い合わせと既存回答不足がある	OEM回答翻訳だけ最後に残す
 SBOM / vulnerability response alone	Kill	SBOM生成/管理/CVE監視は既存ツール領域。SBOMだけでは価値にならない	SBOM作成を商品にする	EPS機能影響、release ID、OEM回答文への接続不足がある	単体では出さない
-SOVD / next-generation diagnostics main product	Kill as main / extension only	OEM診断基盤、API、ODX/UDS変換は既存標準・既存ツール領域	OEM診断基盤所有、SOVDでRCA改善	EPS診断コンテンツの公開/制限/権限に余地がある	extensionとしてだけ扱う
+SOVD / next-generation diagnostics main product	No-Go as product / content map only	OEM診断基盤、API、ODX/UDS変換、authoring、API検証、trainingは既存標準・既存ツール領域。公開情報だけではEPSサプライヤ側の購買painや予算は見えない	OEM診断基盤所有、SOVDでRCA改善、SOVD server実装をEPSサプライヤ商品にする	特定programでDTC/DID/freeze frame/extended data/software ID/security access/routineの公開範囲、権限、禁止操作、安全影響、software/calibration接続を既存資料からOEM向けに短くつなぎ直せる	content mapとしてだけ扱う
 Public recall / ODI / TSB monitor alone	Kill as product / input only	市場シグナル整理だけでは有料価値が弱い	市場モニタを単体商品にする	他成果物の設計質問/診断質問/禁止主張に接続できる	入力としてだけ使う
 Steer-by-wire safety / redundancy / cyber evidence pack	No-Go	市場変化はあるが、安全設計、認証、診断、ソフト更新、顧客説明には既存業務の持ち主がいる	SbW evidence packを汎用外販にする	特定案件で既存資料をOEM向け1枚へつなげない痛みがある	汎用外販にしない
 Wheel-side steering unit standalone offer	Kill-leaning	部品は重要だが、単独商材にすると安全/認証/診断資料の要約になりやすい	部品名を商品名にする	異常時説明1枚が既存資料の要約を超える	平易な説明に留める
