@@ -74,6 +74,55 @@
 
 > 市場にはこういう需要がある。そのうちEPSサプライヤが初期に取れる手札は、EPS共通scenarioに対する既存DTC/freeze frame/extended data、reader、HILS/bench評価のCoverage Benchmarkである。RCA/8DやOEM保証DB連携は主商品ではなく、副次用途またはoptional extensionに置く。
 
+## Kaggle / Public Proxy Predictive Value Rule
+
+Kaggleや公開データを見るときの主目的は、EPSサプライヤが「予測のような付加価値」を作れる余地があるかを探索することである。
+
+ここでいう「予測のような付加価値」とは、個車のEPS残寿命、交換時期、故障発生、安全保証、保証費削減、root causeを当てることではない。
+公開proxyから、操舵要求、路面・振動exposure、使用負荷class、通信異常context、熱や走行環境の負荷傾向などを先読みまたは分類し、それがEPSサプライヤの製品価値、診断価値、サービス価値、品質改善価値に変わるかを見ることである。
+
+「実使用条件からEPS評価・診断の問いを作る」ことを主目的にしない。
+評価scenario、診断質問、顧客説明質問は、予測的な付加価値候補を検証するための副次artifactである。
+それ自体を最終成果物や有償価値として扱わない。
+
+Kaggle調査の成果物は、各IDや各proxyについて、最低限次を自然言語で整理する。
+
+1. 誰が、どの業務で、何を先読みできると嬉しいのか
+2. その先読みがEPSサプライヤの価値になる理由
+3. 公開proxyで何が見え、何が見えないのか
+4. 既存の評価、診断、品質、サービス業務と何が違う可能性があるのか
+5. EPSサプライヤとして売る / 内部で使う / 言ってはいけないこと
+6. 何が確認できなければKillするか
+
+Kaggle/Bosch/Mercedesを、製造品質、EOL検査、評価時間短縮だけへ閉じない。
+それらは別枝または補助材料であり、現行の中心は「予測のような付加価値がEPSサプライヤ側に残るか」である。
+
+## Mandatory Rule Check Before Stop / Kill / Archive
+
+このRepoで `Stop`、`Kill`、`Archive`、`No-Go`、`全滅`、`閉じる` といった結論を書く前に、必ず上位ルールを参照したRule Checkを本文に明示する。
+Rule Checkを書いていない結論は、最終判断ではなくdraft扱いにする。
+
+最低限、次を確認する。
+
+1. 今回の判断に関係する上位ルールを、`AGENTS.md` のどの節から適用したか
+2. 市場需要から始まっているか
+3. 自然言語で、誰のどの業務の話かを説明しているか
+4. EPSサプライヤとして何を売る / 実施する / 言ってはいけないかに戻っているか
+5. Kill理由が、上位ルールで禁止または制限された旧ロジックに戻っていないか
+6. 具体的な再開条件または次の検証質問があるか
+
+特に `Kaggle / Public Proxy / Predictive Value` 系で `Stop`、`Kill`、`Archive`、`全滅` と書く前には、必ず次を明示する。
+
+1. Kill理由が「EPS内部状態、DTC、freeze frame、extended data、assist state、交換結果が見えないから」になっていないか
+2. それを主Kill理由にしていないか
+3. 代わりに、以下で判断しているか
+   - EPSサプライヤの業務成果物に転記できるか
+   - 汎用テレマティクス、路面分類、ADAS、IDSと区別できるか
+   - 故障予測、交換時期、保証費削減、原因断定に寄らず価値説明できるか
+4. 内部事実不足は、故障予測や原因断定を禁止する境界として扱い、公開proxy価値そのものの主Kill理由にしていないか
+
+このRule Checkに失敗した場合は、結論を出さず、まず判断軸を修正する。
+
 ## Current Main Hypothesis
 
 旧テーマはArchive扱いにする。
@@ -119,10 +168,26 @@ OEM remote diagnostics networkに、EPS/SbWサプライヤが操舵系の説明�
 4. 出力が、交換時期予測ではなく、運行可否、入庫優先度、診断読み順、顧客説明へ落ちる
 5. 安全保証、root cause断定、交換時期予測、既存remote diagnostics置換を主張しない
 
-現行の次探索は、Kaggleを「公開データ」ではなく「企業が外に出した問題設定」として読む観点である。
+追加で検証したKaggle / 公開proxyによる予測的付加価値探索は、前回いったん「全滅 / Archive」としたが、この判断は補正済みである。
+EPS内部状態、DTC、freeze frame、交換結果が見えないことを主Kill理由にしてはいけない。
+
+この探索では、Kaggleを「公開データ」ではなく「企業や研究者が外に出した問題設定」として読み、EPSサプライヤが予測のような付加価値を作れる余地があるかを見た。
 入口は [docs/84_kaggle_problem_setting_lens.md](docs/84_kaggle_problem_setting_lens.md) と [data/kaggle_problem_setting_lens.tsv](data/kaggle_problem_setting_lens.tsv) に置く。
-狙いは、Bosch型をEPS製造 / EOL検査、Mercedes型をEPS評価時間短縮へ読み替えられるかを見ることである。
+補正前の判断は [docs/95_predictive_value_continue_final_decision.md](docs/95_predictive_value_continue_final_decision.md) に置く。
+最新判断は [docs/96_predictive_value_internal_fact_correction.md](docs/96_predictive_value_internal_fact_correction.md) に置く。
+
+最新結論は、Kaggleにあったネタは全滅ではない、である。
+公開proxyから、操舵要求、路面・振動exposure、使用負荷class、通信異常context、熱や走行環境の負荷傾向などを先読みまたは分類できる可能性は残る。
+ただし、それはEPS故障予測、交換時期予測、安全保証、保証費削減、root cause断定ではない。
+
+残すものは、PVC001を本線、ULC008を最有力候補、ULC004を二番手候補、PVC004を境界候補として、公開proxyだけでEPSサプライヤの業務価値へ転記できるかを見る方向である。
+次にやるなら、製品企画、診断企画、品質改善、評価企画、顧客技術説明、サイバー担当のどの成果物に、使用条件classや通信異常contextを転記できるか確認する。
+内部事実が見えないことは、故障予測や原因断定を禁止する境界として使う。
+しかし、それだけでKaggle / 公開proxy方向をKillしてはいけない。
+
 Kaggleを、EPS市場故障予測やRDI006の内部data field穴埋めには使わない。
+「実使用条件からEPS評価・診断の問いを作る」だけを成果物にしない。
+評価scenario、診断質問、顧客説明質問は、予測的な付加価値候補を検証するための副次artifactであり、現行では外販価値として扱わない。
 
 以下は旧テーマArchiveと過去探索の詳細であり、現在の探索優先順位ではない。
 
