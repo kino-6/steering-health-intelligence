@@ -120,6 +120,12 @@ AI活用の公開シグナルはある。
 ただし、ここから「AIがEPS故障予測をする」「QM AIがsteering safety制御を直接担う」とは言わない。
 Repoで使うなら、「AIや上位softwareが増えるほど、操舵側が受ける要求、制限、診断、禁止主張を明確にする必要が増える」という推論に留める。
 
+補足:
+
+2026年のBosch / Uptake発表とBosch Predictive Diagnosticsを見ると、fleet / connected vehicle / cloud diagnosticsの文脈では、predictive maintenance、vehicle health、component-specific load and diagnostic featuresが明確に出ている。
+この点は [docs/103_bosch_predictive_diagnostics_meaning_review.md](103_bosch_predictive_diagnostics_meaning_review.md) に切り出す。
+つまり、`AI cockpit` や `motion integration platform` からEPS故障予測を読むのではなく、`Predictive Diagnostics` と `Cloud and predictive diagnostics` から、操舵系feature readinessの仮説を読む。
+
 ## 未解決の痛み
 
 Boschの公開情報を見ると、vehicle motion、by-wire、vehicle computer、AIが同じ大きな方向へ収束しているように見える。
