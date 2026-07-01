@@ -29,6 +29,10 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、自社�
 この結論を受けた4枚の最小パックは、[docs/100_oem_usage_translation_minimum_pack.md](100_oem_usage_translation_minimum_pack.md) と [data/oem_usage_translation_minimum_pack.tsv](../data/oem_usage_translation_minimum_pack.tsv) に置く。
 その4枚を社内で確認する質問票は、[docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md) と [data/oem_usage_translation_review_questions.tsv](../data/oem_usage_translation_review_questions.tsv) に置く。
 
+追加で、Boschの公開情報から、by-wire、vehicle motion management、vehicle computer、AI活用が同じSDV文脈で語られていることを確認した。
+これはEPS故障予測の根拠ではないが、上位motion-domain制御から操舵側へ来る要求を、EPSサプライヤの受け入れ境界、制限境界、診断境界、禁止主張へ翻訳する必要が増える可能性を示す。
+この枝は [docs/102_bosch_motion_domain_ai_signal_review.md](102_bosch_motion_domain_ai_signal_review.md) と [data/bosch_motion_domain_ai_signal_review.tsv](../data/bosch_motion_domain_ai_signal_review.tsv) に置く。
+
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
 直近の議論で補正すべき点は、「駐車場 + 低速 + 大舵角 + 凹凸」を有望用途として先に置くと、意味がぼやけることである。

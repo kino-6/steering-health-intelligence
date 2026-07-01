@@ -168,7 +168,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 | AI / 予測 | 予測のような付加価値を探索する。ただし個車RUL、交換時期、安全保証、保証費削減、root cause断定は主張しない。Kaggle精度競争ではなく、予測対象がEPSサプライヤの価値へ転記できるかを見る |
 | 避ける主張 | EPS交換時期の正確予測、安全機能の代替、保証費削減断定、root cause断定、サプライヤ単独fleet監視 |
 | Kaggle/Bosch線 | 公開データそのものではなく、外に出された問題設定から隠れた需要を読む観点として使う。Bosch型の製造品質 / EOL検査、Mercedes型の評価時間短縮は現テーマ外。KGL003/005/006/007/008は、OEM用途想定をEPS側確認観点へ翻訳するための公開proxy入力として残す |
-| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。4枚の最小パックは `docs/100` に切り出した。内部事実の不足だけでKillしない |
+| Bosch公開シグナル | BoschのAct-by-Wire、Vehicle Motion Management、Motion integration platform、AI/SDV公開情報は、EPS故障予測の根拠ではない。ただし、by-wire / motion-domain時代に、上位制御から操舵側へ来る要求を、EPSサプライヤの受け入れ境界、制限境界、診断境界、禁止主張へ翻訳する必要が増える可能性を示す |
+| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。加えて、Bosch公開シグナルを受けて、上位motion controllerから来る操舵要求の受け入れ境界を確認する。4枚の最小パックは `docs/100`、質問票は `docs/101`、Bosch枝は `docs/102` に切り出した。内部事実の不足だけでKillしない |
 
 ## 推奨読書順
 
@@ -184,6 +185,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/oem_usage_translation_minimum_pack.tsv](data/oem_usage_translation_minimum_pack.tsv): 4枚の最小パックのartifact別TSV。decision question、OEM入力、public proxy role、EPS supplier output、Proceed/Kill signal、禁止主張、最初のレビュー質問を整理。
 1. [docs/101_oem_usage_translation_review_questions.md](docs/101_oem_usage_translation_review_questions.md): 4枚の最小パックを社内で確認する質問票。最初は製品企画と診断企画に絞り、既存RFQ回答、既存診断、既存評価との差分が出るかを見る。
 1. [data/oem_usage_translation_review_questions.tsv](data/oem_usage_translation_review_questions.tsv): 質問票のTSV。question、聞く理由、期待成果物、Proceed signal、Kill signal、禁止主張、Yes/No時の次アクションを整理。
+1. [docs/102_bosch_motion_domain_ai_signal_review.md](docs/102_bosch_motion_domain_ai_signal_review.md): Bosch公開情報を、EPS故障予測ではなく、by-wire / motion-domain時代の操舵側説明責任が増えるシグナルとして整理したレビュー。
+1. [data/bosch_motion_domain_ai_signal_review.tsv](data/bosch_motion_domain_ai_signal_review.tsv): Bosch公開情報のソース別TSV。public signal、公開されていること、EPSサプライヤへの含意、禁止主張、次の検証質問を整理。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
