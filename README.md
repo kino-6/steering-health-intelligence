@@ -169,8 +169,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 | 避ける主張 | EPS交換時期の正確予測、安全機能の代替、保証費削減断定、root cause断定、サプライヤ単独fleet監視 |
 | Kaggle/Bosch線 | 公開データそのものではなく、外に出された問題設定から隠れた需要を読む観点として使う。Bosch型の製造品質 / EOL検査、Mercedes型の評価時間短縮は現テーマ外。KGL003/005/006/007/008は、OEM用途想定をEPS側確認観点へ翻訳するための公開proxy入力として残す |
 | Bosch公開シグナル | BoschのAct-by-Wire、Vehicle Motion Management、Motion integration platform、AI/SDV公開情報は、EPS故障予測の根拠ではない。ただし、by-wire / motion-domain時代に、上位制御から操舵側へ来る要求を、EPSサプライヤの受け入れ境界、制限境界、診断境界、禁止主張へ翻訳する必要が増える可能性を示す |
-| Bosch予測診断シグナル | 2026年のBosch / Uptake発表とBosch Predictive Diagnosticsでは、fleet / connected vehicle / cloud diagnostics文脈でAI-driven predictive maintenance、vehicle health、component-specific load and diagnostic featuresが明確に出ている。これはEPS単体の交換時期予測ではなく、操舵系feature readinessの検証材料として扱う |
-| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。加えて、Bosch公開シグナルを受けて、上位motion controllerから来る操舵要求の受け入れ境界と、predictive diagnostics向けの操舵系load / diagnostic featureを確認する。4枚の最小パックは `docs/100`、質問票は `docs/101`、Bosch motion枝は `docs/102`、Bosch予測診断枝は `docs/103` に切り出した。内部事実の不足だけでKillしない |
+| Bosch予測診断シグナル | 2026年のBosch / Uptake発表とBosch Predictive Diagnosticsでは、fleet / connected vehicle / cloud diagnostics文脈でAI-driven predictive maintenance、vehicle health、component-specific load and diagnostic featuresが明確に出ている。これはEPS単体の交換時期予測ではなく、操舵系として故障前に早く分かると嬉しい状態を定義できるかの検証材料として扱う |
+| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。加えて、Bosch公開シグナルを受けて、上位motion controllerから来る操舵要求の受け入れ境界と、操舵系として早く分かると嬉しい状態を確認する。4枚の最小パックは `docs/100`、質問票は `docs/101`、Bosch motion枝は `docs/102`、Bosch予測診断枝は `docs/103` に切り出した。内部事実の不足だけでKillしない |
 
 ## 推奨読書順
 
@@ -188,7 +188,7 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/oem_usage_translation_review_questions.tsv](data/oem_usage_translation_review_questions.tsv): 質問票のTSV。question、聞く理由、期待成果物、Proceed signal、Kill signal、禁止主張、Yes/No時の次アクションを整理。
 1. [docs/102_bosch_motion_domain_ai_signal_review.md](docs/102_bosch_motion_domain_ai_signal_review.md): Bosch公開情報を、EPS故障予測ではなく、by-wire / motion-domain時代の操舵側説明責任が増えるシグナルとして整理したレビュー。
 1. [data/bosch_motion_domain_ai_signal_review.tsv](data/bosch_motion_domain_ai_signal_review.tsv): Bosch公開情報のソース別TSV。public signal、公開されていること、EPSサプライヤへの含意、禁止主張、次の検証質問を整理。
-1. [docs/103_bosch_predictive_diagnostics_meaning_review.md](docs/103_bosch_predictive_diagnostics_meaning_review.md): Boschが言う予測を、fleet predictive maintenance、Predictive Diagnostics、Cloud and predictive diagnostics、AI cockpitに分解し、EPSサプライヤが扱える操舵系feature readinessへ読み替えたレビュー。
+1. [docs/103_bosch_predictive_diagnostics_meaning_review.md](docs/103_bosch_predictive_diagnostics_meaning_review.md): Boschが言う予測を、fleet predictive maintenance、Predictive Diagnostics、Cloud and predictive diagnostics、AI cockpitに分解し、EPSサプライヤが扱える「操舵系として早く分かると嬉しい状態」へ読み替えたレビュー。
 1. [data/bosch_predictive_diagnostics_meaning_review.tsv](data/bosch_predictive_diagnostics_meaning_review.tsv): Bosch予測診断シグナルのソース別TSV。prediction type、予測対象、入力feature、出力action、EPSサプライヤ含意、禁止主張、次の質問を整理。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
