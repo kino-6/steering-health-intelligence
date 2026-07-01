@@ -1,0 +1,11 @@
+item	field	content	proceed_signal	kill_signal
+PVC004	plain_question	通信異常contextを、EPS故障と誤認しないための診断信頼性境界として使えるか。	EPS診断説明や診断読み順に転記できる。	汎用IDS/CSMS/TARA/SOC運用の言い換えにしかならない。
+PVC004	market_demand	CAN DoS、spoofing、fuzzy attack、steering wheel spoofingがあると、EPS診断値や操舵関連signalの信頼性が揺らぐ。	通信異常時にDTCやfreeze frameをどこまで信用するか整理できる。	EPS診断説明に関係しない。
+PVC004	evidence_signal	KGL004はCar-Hacking dataset、KGL011はCICIoV2024/steering spoofing/DoS系の境界材料。	CAN ID、payload、DoS、spoofing、timingを境界材料として使える。	EPS品質証拠やSbW安全証明として扱う。
+PVC004	solution	通信異常type、EPSサプライヤが言えること、言ってはいけないこと、診断読み順の注意を表にする。	診断企画とサイバー担当の間で役割境界を確認できる。	汎用cyber商品として売る話になる。
+PVC004	buyer_user	初期利用者は診断企画、サイバー担当、顧客技術説明。	2部署が境界整理に使える。	どの部署にも転記できない。
+PVC004	why_supplier_can_play	EPSサプライヤは汎用IDSは主語にしないが、EPS診断値や操舵関連signalの説明境界は持てる。	EPS診断値の信頼性境界に限定できる。	車両全体SOC/IDSやOEMセキュリティ運用に踏み込む。
+PVC004	what_not_to_claim	汎用IDS商品、SbW安全証明、EPS品質証拠、steering cyber productとは言わない。	禁止主張を同じ表に置ける。	安全証明や品質証拠に使おうとする。
+PVC004	next_review_question	診断企画に「通信異常時、DTC/freeze frameをどう信用するかの説明境界が必要か」と聞く。	診断読み順や説明境界に使える。	既存診断仕様で十分。
+PVC004	next_review_question	サイバー担当に「既存CSMS/TARA/SOC/IDSとEPS診断説明の境界を分けられるか」と聞く。	既存サイバー業務の補助境界になる。	完全に既存サイバー業務の中で完結する。
+PVC004	next_review_question	顧客技術説明に「通信異常とEPS故障を混同しない禁止主張が必要か」と聞く。	禁止主張リストとして使える。	顧客説明に出せない、または混乱を増やす。

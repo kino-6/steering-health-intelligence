@@ -1,0 +1,17 @@
+id_type	id	corrected_status	confidence	corrected_conclusion	evidence_base	why_still_not_external_offer	next_check	kill_condition
+PVC	PVC001	Corrected: continue as public-proxy validation candidate	Medium	使用負荷classの先読みは、EPS内部事実なしでも成立する可能性があるため継続候補に戻す。ただし外販商品ではなく、公開proxy価値の検証候補である。	KGL003/005/006/007/008; ULC001/004/008; docs/96	買い手の成果物、既存業務との差分、汎用テレマティクスとの差分が未確認。	製品企画、診断企画、品質改善、評価企画のどの成果物に転記できるかを見る。	一般的な運転行動分析や路面分類と区別できず、EPSサプライヤが主語になれなければKill。
+PVC	PVC002	Corrected: merged into PVC001/ULC004	Medium	操舵要求 x 路面・振動exposureは独立テーマではなく、ULC004としてPVC001に含める。	KGL005/006/007/008; ULC004/005/006	独立した買い手や成果物がまだ見えない。	ULC004の中で品質改善・評価企画に刺さるか見る。	既存NVH/耐久評価や路面分類の言い換えならKill。
+PVC	PVC003	Corrected: merged into PVC001/ULC008	Medium	都市・駐車場の低速高操舵profileは、ULC008の用途contextとして扱う。	KGL003/005/007/008; ULC001/002/003/008	単独では都市走行一般論になりやすい。	ULC008の用途別価値説明に使えるか見る。	駐車操作一般論で終わるならKill。
+PVC	PVC004	Corrected: continue as boundary candidate	Medium	通信異常contextは、故障予測ではなく操舵系説明の信用境界として継続候補に戻す。	KGL004/011; data/pvc004_communication_boundary_deep_dive.tsv	汎用IDS、CSMS、TARAに吸収されやすい。	EPS診断説明や顧客技術説明で、言ってよいこと/いけないことを分けられるか見る。	汎用IDSやCSMS/TARAの言い換えならKill。
+PVC	PVC005	Corrected: out of current scope	Medium	評価時間予測は面白いが、現テーマの実使用条件proxyではなく評価効率テーマである。	KGL002	現在の問いと違う。	評価効率テーマとして再開する場合だけ見る。	実使用条件価値として扱うならKill。
+PVC	PVC006	Corrected: out of current scope	Medium	製造・EOLリスクscreeningは予測として強いが、工程検査テーマなので現テーマ外である。	KGL001	ユーザーが工程検査目的ではないと明示済み。	製造品質テーマとして再開する場合だけ見る。	現テーマに混ぜるならKill。
+PVC	PVC007	Corrected: companion only	Low	熱・EV実走行contextは単独候補ではなく補助列に限る。	KGL012; ULC009	操舵要求や路面proxyとの接続が弱い。	ULC009の補助contextとしてだけ見る。	EPS thermal state推定に見えるならKill。
+ULC	ULC001	Corrected: support input	Medium	低速高操舵はULC008の根拠入力として残す。	KGL003/005; low_speed_high_steering_proxy_summary/windows	単独では既存の低速取り回し説明になりやすい。	ULC008の低速・大舵角根拠として使う。	低速高操舵が故障原因という読みになるならKill。
+ULC	ULC004	Corrected: continue as second candidate	Medium	荒れた路面 + 操舵は、品質改善、評価企画、顧客技術説明に使える可能性があるため継続候補に戻す。	KGL005/006/007/008; data/ulc004_rough_road_steering_deep_dive.tsv	既存NVH、耐久、路面評価、路面分類productの言い換えになりやすい。	既存評価や品質分類と違う判断を生むか見る。	既存NVH/耐久評価の別名で終わるならKill。
+ULC	ULC008	Corrected: continue as lead candidate	Medium	駐車場 + 低速 + 大舵角 + 凹凸は、製品企画と診断企画の両方に説明しやすいため最有力候補に戻す。	KGL003/005/008; data/pvc001_ulc008_two_department_sheets.tsv	外販商品にするには、用途別価値説明と診断説明境界への転記が未確認。	製品企画向けと診断企画向けの2面で、既存説明と違う判断を生むか見る。	故障予測、原因断定、保証判断に寄せないと価値が出ないならKill。
+KGL	KGL003	Corrected: core input	Medium	速度、stop-start、運転状態proxyとして使う。	KGL003 row	単独ではEPS価値ではなく運転行動分析に見える。	ULC001/003/008の入力として使う。	内部故障や交換時期の証拠として扱うならKill。
+KGL	KGL005	Corrected: core input	Medium	操舵要求proxyとして使う。	KGL005 row	ADAS制御や一般操舵モデルに寄りやすい。	ULC001/004/008の操舵要求入力として使う。	EPS内部stress推定として扱うならKill。
+KGL	KGL006	Corrected: core input	Medium	路面・振動proxyとして使う。	KGL006 row	路面分類productに流れやすい。	ULC004の路面・振動入力として使う。	路面分類そのものを商品にするならKill。
+KGL	KGL007	Corrected: support input	Medium	traffic、driving style、road conditionの複合contextとして使う。	KGL007 row	運転者責任や保証判断に見えるリスクがある。	ULC003/004の補助contextとして使う。	顧客非難や保証判断に見えるならKill。
+KGL	KGL008	Corrected: support input	Medium	凹凸・段差proxyとして使う。	KGL008 row	操舵要求と直接揃わない場合がある。	ULC004/008の凹凸contextとして使う。	凹凸が故障原因という読みになるならKill。
+KGL	KGL004/011	Corrected: boundary input	Medium	通信異常contextとして使う。	KGL004; KGL011	汎用cyber/IDSに吸収されやすい。	PVC004の説明境界入力として使う。	EPS故障証拠やSbW安全証明として扱うならKill。

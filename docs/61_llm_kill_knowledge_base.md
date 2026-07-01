@@ -41,6 +41,12 @@
 
 現行条件では、外販ビジネスとしてProceedできる案はない。
 
+> Trust recovery correction:
+> この文書のKaggleに関する記述は、後続レビューで補正された。
+> Kaggle / Public Proxy系では、EPS内部状態、DTC、freeze frame、交換結果が見えないことを主Kill理由にしてはいけない。
+> 最新判断は [docs/96_predictive_value_internal_fact_correction.md](96_predictive_value_internal_fact_correction.md) と [docs/97_trust_recovery_rule_check_audit.md](97_trust_recovery_rule_check_audit.md) を参照する。
+> 修正後は、`PVC001`、`ULC008`、`ULC004`、`PVC004` を公開proxy価値の検証候補として残す。
+
 残る可能性は、次のどちらかだけである。
 
 1. 内部資料を使える条件に変わった場合の再開

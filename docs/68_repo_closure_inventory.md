@@ -1,5 +1,11 @@
 # Repoを閉じるかどうかの棚卸し
 
+> Trust recovery correction:
+> この文書は、旧テーマ、motion health、RDI切り出しまでの棚卸しとしては有用だが、Kaggle / Public Proxyによる予測的付加価値探索の最新判断としては使わない。
+> 後続レビューで、EPS内部状態、DTC、freeze frame、交換結果が見えないことをKaggle/Public Proxy系の主Kill理由にしてはいけないと補正した。
+> 最新判断は [docs/96_predictive_value_internal_fact_correction.md](96_predictive_value_internal_fact_correction.md)、信用回復監査は [docs/97_trust_recovery_rule_check_audit.md](97_trust_recovery_rule_check_audit.md) を参照する。
+> 修正後は、`PVC001`、`ULC008`、`ULC004`、`PVC004` を公開proxy価値の検証候補として残す。
+
 ## 結論
 
 現行条件のままなら、このRepoの主探索はArchiveにして閉じてよい。

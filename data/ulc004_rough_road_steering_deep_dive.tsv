@@ -1,0 +1,11 @@
+item	field	content	proceed_signal	kill_signal
+ULC004	plain_question	荒れた路面と操舵入力が重なる使われ方を、品質改善・顧客技術説明・評価企画で使えるか。	品質改善や顧客説明で、路面外乱由来の体感とEPS異常を混同しない説明に使える。	路面分類product、既存評価scenario名の言い換え、または故障原因断定に見える。
+ULC004	market_demand	荒れた路面、段差、連続振動、操舵入力が重なると、音、振動、操舵感、違和感が混ざりやすい。	サービス/顧客説明/品質会議で使用contextとして扱える。	顧客説明に使うと責任転嫁に見える。
+ULC004	evidence_signal	KGL005は操舵要求proxy、KGL006/008は路面・振動proxy、KGL007はroad condition contextを持つ。	操舵要求と路面外乱を分けて根拠化できる。	同一dataset・同一時刻で操舵と路面が揃わない点を無視する。
+ULC004	solution	荒れた路面 x 操舵入力 x 体感/診断境界のsample cardを作る。	品質改善がfield issueの前段整理に使える。	既存NVH/耐久/評価scenarioの言い換えで終わる。
+ULC004	buyer_user	初期利用者は品質改善、評価企画、顧客技術説明。製品企画は二次。	2部署以上が具体的な使い道を挙げる。	どの部署も具体的な判断に使えない。
+ULC004	why_supplier_can_play	EPSサプライヤは、路面外乱そのものは支配しないが、操舵系の体感・診断・説明境界には関与できる。	操舵系の説明境界として扱える。	路面品質や車両全体NVHの話になり、EPSサプライヤの手札から外れる。
+ULC004	what_not_to_claim	荒れた路面がEPS故障原因、内部劣化、thermal limit、assist limitationを示すとは言わない。	禁止主張を同じ表に置ける。	禁止主張なしでしか説明できない。
+ULC004	next_review_question	品質改善に「このclassはfield issueを使用条件別に読み直す入口になるか」と聞く。	返却品解析や市場課題の前段に使える。	OEM保証DB/fleet dataがないと何もできない。
+ULC004	next_review_question	顧客技術説明に「路面外乱由来の体感とEPS異常を混同しない説明に使えるか」と聞く。	原因断定せずに説明境界を作れる。	責任転嫁に見える。
+ULC004	next_review_question	評価企画に「既存評価が荒れた路面 x 操舵を代表しているか」と聞く。	既存評価の代表性/gap確認に使える。	既存評価で完全に十分。

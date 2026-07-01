@@ -1,0 +1,11 @@
+sheet_id	department	section	content	proceed_signal	kill_signal
+ULC008-PD	product_planning	decision	駐車場走行で低速・大舵角・凹凸が重なる使われ方を、用途別のEPS価値説明に使えるかを見る。	都市配送、駐車操作が多い車両、狭い市街地などの用途別価値説明に使える。	既存カタログやRFQ回答で十分で、新しい判断が増えない。
+ULC008-PD	product_planning	market_demand	低速取り回し、駐車操作、路面外乱下の操舵感は、製品価値として説明しやすい可能性がある。	低速取り回し時の体感、自然さ、違和感の少なさとして説明できる。	故障しにくさ、寿命、保証費削減に寄せないと価値が説明できない。
+ULC008-PD	product_planning	evidence_boundary	公開proxyで見えるのは低速、大舵角、操舵頻度、凹凸/振動proxyまで。EPS内部状態は見えない。	公開proxyで見える範囲だけで用途別説明ができる。	EPS内部stressや耐久性を見た扱いにしないと説明できない。
+ULC008-PD	product_planning	initial_artifact	用途、使用負荷class、公開proxy、言ってよい価値、禁止主張を1枚にまとめる。	製品企画が次に見たい用途や車両タイプを具体名で挙げる。	用途や車両タイプが出ず、一般論で終わる。
+ULC008-PD	product_planning	what_not_to_claim	EPS故障、残寿命、交換時期、保証費削減、安全性は言わない。	禁止主張を同じ画面に置けば誤解を避けられる。	禁止主張を置いても故障しにくさの話に読まれる。
+ULC008-DG	diagnostic_planning	decision	低速・駐車・凹凸contextが、DTCやfreeze frameだけでは説明しにくい症状説明の補助になるかを見る。	既存診断だけでは使用contextが粗く、補助説明の余地がある。	既存DTC/freeze frame/extended dataで十分に説明できる。
+ULC008-DG	diagnostic_planning	market_demand	駐車時の操舵感、音、振動、違和感は、DTCなし/ありのどちらでも説明が難しくなりやすい。	診断読み順や説明境界に使える。	サービスや顧客説明で使えない、または責任転嫁に見える。
+ULC008-DG	diagnostic_planning	evidence_boundary	公開proxyではDTC、assist state、temperature、motor current、交換結果は見えない。	見える/見えないを分けた説明ができる。	公開proxyで見えないものを見えた扱いにしないと成立しない。
+ULC008-DG	diagnostic_planning	initial_artifact	既存診断で見える項目、見えない使用context、追加で読めると嬉しい項目、禁止主張を1枚にまとめる。	診断企画が既存診断仕様との差分確認に使える。	DTC追加や故障予測に寄せないと使い道がない。
+ULC008-DG	diagnostic_planning	what_not_to_claim	駐車場走行や凹凸が故障原因とは言わない。使用context labelは故障検出器ではない。	診断境界として使える。	原因断定、保証判断、責任転嫁に見える。

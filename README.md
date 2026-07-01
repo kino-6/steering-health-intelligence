@@ -20,6 +20,12 @@ EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress /
 入口は [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md) に置く。
 過去のmotion health調査は [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md) へArchiveする。
 
+Kaggle / 公開proxyによる予測的付加価値探索については、後続レビューで補正済みである。
+「EPS内部状態、DTC、freeze frame、交換結果が見えないから全滅」という判断は撤回する。
+最新判断は [docs/96_predictive_value_internal_fact_correction.md](docs/96_predictive_value_internal_fact_correction.md)、信用回復監査は [docs/97_trust_recovery_rule_check_audit.md](docs/97_trust_recovery_rule_check_audit.md) に置く。
+修正後は、`PVC001`、`ULC008`、`ULC004`、`PVC004` を公開proxy価値の検証候補として残す。
+補正後のビジネスモデル本線は [docs/98_business_model_mainline_after_correction.md](docs/98_business_model_mainline_after_correction.md) に置く。
+
 ## 上位ルール
 
 このRepoでは、以後の調査・仮説・デモ・ドキュメント更新を必ず以下の順で提示する。
@@ -151,17 +157,18 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 | 観点 | 現在の見立て |
 |---|---|
-| 最新判断 | 旧テーマ、単独fleet監視型motion health、RDI / OEM remote diagnostics説明レイヤーはArchive。次はKaggle problem-setting lensで製造品質 / EOL検査 / 評価時間短縮の別枝を見る |
-| EPS向け軸 | EPS単体の寿命予測はしない。次は企業がKaggleに出した目的変数、入力データ、評価指標から、EPSサプライヤ内部業務に近い隠れた需要を読む |
-| 最終検証軸 | Kaggle課題の意図が、製造品質、工程設計、EOL検査、評価計画、HILS/bench、software/calibration release gateの判断へ転記できるか |
-| 近い商品名 | まだ作らない。自然言語では「Kaggleの問題設定から読む製造・検査・評価の隠れた需要」 |
+| 最新判断 | 旧テーマ、単独fleet監視型motion health、RDI / OEM remote diagnostics説明レイヤーは外販商品としてArchive。Kaggle / 公開proxyによる予測的付加価値探索は、前回の全滅判断を補正し、PVC001 / ULC008 / ULC004 / PVC004を検証候補として残す |
+| EPS向け軸 | 個車のEPS残寿命や交換時期を当てるとは言わない。OEMが想定する車両用途や使われ方を、操舵要求、路面・振動exposure、使用負荷class、通信異常contextなどのEPS側確認観点へ翻訳できるかを見る |
+| 最終検証軸 | EPS内部状態、DTC、freeze frame、交換結果が見えないことを主Kill理由にしない。評価するのは、OEM用途想定をEPSサプライヤの製品企画、診断企画、品質改善、評価企画、顧客技術説明へ翻訳できるか |
+| 近い商品名 | まだ作らない。自然言語では「OEM用途想定をEPS側の確認観点へ翻訳する検証候補」。外販商品ではなく検証候補である |
 | RCA/8Dの扱い | 主商品ではない。特定programの短期支援で、確認済み事実の転記先になる場合だけ |
-| Primary target | EPSサプライヤの製造品質、工程設計、EOL検査、評価計画、HILS/bench、software/calibration release gate |
-| 初期データ前提 | 内部資料は使わない。Kaggleの公開課題を、データセットではなく企業が外に出した問題設定として読む |
+| Primary target | EPSサプライヤの商品企画、製品企画、診断企画、品質改善、評価企画。製造品質、EOL検査、評価時間短縮は別枝または補助材料として扱う |
+| 初期データ前提 | 内部資料は使わない。Kaggleの公開課題を、データセットそのものではなく、外に出された問題設定と公開proxyとして読む |
 | OEM / fleetデータ | 使わない。OEM保証DB、fleet data、service outcomeを必要とする方向へ戻さない |
-| AI / 予測 | 個車RULを当てにいかない。Kaggle精度競争ではなく、目的変数が業務判断へ転記できるかを見る |
+| AI / 予測 | 予測のような付加価値を探索する。ただし個車RUL、交換時期、安全保証、保証費削減、root cause断定は主張しない。Kaggle精度競争ではなく、予測対象がEPSサプライヤの価値へ転記できるかを見る |
 | 避ける主張 | EPS交換時期の正確予測、安全機能の代替、保証費削減断定、root cause断定、サプライヤ単独fleet監視 |
-| Kaggle/Bosch線 | 公開データそのものではなく、企業がKaggleに出した問題設定から隠れた需要を読む観点として残す。製造品質、EOL検査、評価時間短縮として別テーマに切る場合だけ再開 |
+| Kaggle/Bosch線 | 公開データそのものではなく、外に出された問題設定から隠れた需要を読む観点として使う。Bosch型の製造品質 / EOL検査、Mercedes型の評価時間短縮は現テーマ外。KGL003/005/006/007/008は、OEM用途想定をEPS側確認観点へ翻訳するための公開proxy入力として残す |
+| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。内部事実の不足だけでKillしない |
 
 ## 推奨読書順
 
@@ -169,6 +176,10 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 
 1. [docs/61_llm_kill_knowledge_base.md](docs/61_llm_kill_knowledge_base.md): 次のLLMが最初に読む前提知識。Kill済み仮説、再提案禁止、再開条件、前提変更時にだけ復活する候補を整理。
 1. [data/llm_kill_knowledge_base.tsv](data/llm_kill_knowledge_base.tsv): Kill済み仮説ごとの現行判断、Kill理由、再主張禁止、再開条件、LLM向けルール。
+1. [docs/97_trust_recovery_rule_check_audit.md](docs/97_trust_recovery_rule_check_audit.md): 信用回復監査。過去のStop/Kill/Archive報告を上位ルールで再監査し、最新判断として使う文書、補正前として扱う文書、Rule Check付きで再引用する文書を分類。
+1. [data/trust_recovery_rule_check_audit.tsv](data/trust_recovery_rule_check_audit.tsv): 信用回復監査のTSV。各文書のcurrent use status、Rule Check status、main issue、corrected use、action takenを整理。
+1. [docs/98_business_model_mainline_after_correction.md](docs/98_business_model_mainline_after_correction.md): 補正後のビジネスモデル本線。故障予測ではなく、OEM用途想定をEPSサプライヤの製品企画・診断企画・品質改善・評価企画・顧客技術説明へ翻訳できるかを見る固定スコープassessmentとして整理。
+1. [data/business_model_mainline_after_correction.tsv](data/business_model_mainline_after_correction.tsv): 補正後ビジネスモデル本線の市場需要、痛み、仮説、解決策、買い手、初期offer、Proceed/Kill条件、禁止主張、次アクションを整理。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
@@ -208,6 +219,34 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/kaggle_hidden_demand_candidates.tsv](data/kaggle_hidden_demand_candidates.tsv): Bosch、Mercedes-Benz、OBD-II/CAN、Car-Hacking等を、隠れた需要、EPSサプライヤ適合、使ってはいけない主張、Kill条件で整理。
 1. [docs/84_kaggle_problem_setting_lens.md](docs/84_kaggle_problem_setting_lens.md): Kaggleを「データセット」ではなく、企業が外に出した問題設定として読む観点。目的変数、入力データ、評価指標から隠れた業務意図を読む。
 1. [data/kaggle_problem_setting_lens.tsv](data/kaggle_problem_setting_lens.tsv): Kaggle課題ごとに、何を読むか、隠れた意図、EPSサプライヤでの読み替え、使ってよい用途、使ってはいけない用途を整理。
+1. [docs/85_kaggle_problem_setting_id_deep_dive.md](docs/85_kaggle_problem_setting_id_deep_dive.md): Kaggle問題設定をKGL001〜KGL006に分け、各IDの結論、EPSサプライヤへの読み替え、Proceed/Kill条件、次アクションを整理。工程検査を目的にしない前提では、KGL003/005/006を実使用条件proxyとして残し、KGL004を通信異常・禁止主張の境界確認として残す。KGL001/002は製造・評価効率の別枝として保存。
+1. [data/kaggle_problem_setting_id_deep_dive.tsv](data/kaggle_problem_setting_id_deep_dive.tsv): KGL001〜KGL006のID別作業面。problem setting signal、hidden intent、buyer/user、evidence、decision、kill condition、source URLを整理。
+1. [docs/86_kaggle_usage_proxy_refresh.md](docs/86_kaggle_usage_proxy_refresh.md): 工程検査ではなく実使用条件proxyとしてKaggleを再調査し、KGL007〜KGL012を追加。KGL003/005/006/007/008を実使用条件family、KGL011/KGL004を通信異常と禁止主張の境界確認に置く。
+1. [data/kaggle_usage_proxy_refresh.tsv](data/kaggle_usage_proxy_refresh.tsv): KGL003/005/006/007/008/009/010/011/012のproxy type、EPSサプライヤ用途、優先度、limit、next action、kill condition、source URLを整理。
+1. [docs/87_kaggle_each_id_deep_dive.md](docs/87_kaggle_each_id_deep_dive.md): KGL001〜KGL012を同じ判定軸で深掘り。KGL003/005/006/007/008を使用条件familyの主材料、KGL004/011を通信異常境界、KGL001/002/009/010/012を別枝または補助に整理。
+1. [data/kaggle_each_id_deep_dive.tsv](data/kaggle_each_id_deep_dive.tsv): 各IDのdeep_dive_decision、何を示すか、EPSサプライヤでの読み替え、次artifact、禁止主張、次checkを整理。
+1. [docs/88_kaggle_usage_condition_family_table.md](docs/88_kaggle_usage_condition_family_table.md): KGL003/005/006/007/008を中心に、KGL004/011通信異常境界も含めた30件の使用条件familyを人間向けに説明。最新ルールでは主成果物ではなく、予測的な付加価値候補を検証するための中間成果物として扱う。
+1. [data/kaggle_usage_condition_families.tsv](data/kaggle_usage_condition_families.tsv): 30件のusage family作業表。source ID、proxy signal、EPS評価質問、診断質問、顧客説明質問、禁止主張、priority、next checkを整理。次に「何を先読みできる可能性があるか」へ変換する土台として使う。
+1. [docs/89_kaggle_predictive_value_plan.md](docs/89_kaggle_predictive_value_plan.md): Kaggle / 公開proxyを、予測的付加価値候補として順次検証する計画。PVC001〜PVC007の優先順位、実施順、Kill条件を整理。
+1. [data/kaggle_predictive_value_candidates.tsv](data/kaggle_predictive_value_candidates.tsv): KGL/UFをPVC001〜PVC007へ変換した候補表。何を先読みするか、買い手/利用者、EPSサプライヤが関与できる理由、禁止主張、Kill条件を整理。
+1. [docs/90_pvc001_usage_load_class_deep_dive.md](docs/90_pvc001_usage_load_class_deep_dive.md): 最有望候補PVC001「使用負荷classの先読み」の初回深掘り。外販商品ではなく、EPSサプライヤ内の製品企画、診断企画、品質改善、評価企画へ転記できるかを見る。
+1. [data/pvc001_usage_load_class_sample.tsv](data/pvc001_usage_load_class_sample.tsv): PVC001の9件の使用負荷class sample。ULC001〜ULC009ごとに公開proxy、先読み対象、部署、価値、禁止主張、Kill条件、次checkを整理。
+1. [docs/91_pvc001_1h_goal_deep_dive.md](docs/91_pvc001_1h_goal_deep_dive.md): PVC001を1時間Goalで深掘りした結果。ULC001/003/004/008のitem別結論、ULC008中心の1枚sample、部署別価値、弱点、Continue/Kill条件を整理。
+1. [data/pvc001_four_class_deep_dive.tsv](data/pvc001_four_class_deep_dive.tsv): ULC001/003/004/008の4件について、結論、confidence、部署適合、価値、弱点、Proceed/Kill impact、next actionを整理。
+1. [data/pvc001_ulc008_one_page_sample.tsv](data/pvc001_ulc008_one_page_sample.tsv): ULC008「駐車場走行で低速・大舵角・凹凸が重なる使われ方」の1枚sample。市場需要、未解決pain、仮説、部署別用途、禁止主張、Kill条件を整理。
+1. [docs/92_pvc001_ulc008_department_review_deep_dive.md](docs/92_pvc001_ulc008_department_review_deep_dive.md): ULC008を、製品企画・診断企画に見せる社内レビューsampleとして深掘り。出力形式、evidence boundary、最小信号契約、部署別判断、Kill gateを整理。
+1. [data/pvc001_ulc008_department_review_questions.tsv](data/pvc001_ulc008_department_review_questions.tsv): ULC008の部署別レビュー質問。製品企画、診断企画、品質改善、評価企画、全体Kill gateごとに、Proceed signal、Kill signal、次アクションを整理。
+1. [data/pvc001_ulc008_kill_gate.tsv](data/pvc001_ulc008_kill_gate.tsv): ULC008の最小Kill gate。2部署以上に具体的な使い道があるか、原因断定に見えないか、既存評価・診断の言い換えで終わらないかを判定する表。
+1. [docs/93_predictive_value_id_status_inventory.md](docs/93_predictive_value_id_status_inventory.md): 手持ちのPVC/ULC/KGL IDを棚卸しした補正前レポート。EPS内部事実不足を主Kill理由にしすぎたため、最新判断はdocs/96を見る。
+1. [data/predictive_value_id_status_inventory.tsv](data/predictive_value_id_status_inventory.tsv): PVC001〜007、ULC001〜009、KGL001〜012の補正前ステータス表。最新ステータスはdata/predictive_value_corrected_status.tsvを見る。
+1. [docs/94_predictive_value_next_items_deep_dive.md](docs/94_predictive_value_next_items_deep_dive.md): 次アイテムとして挙げたULC008、ULC004、PVC004を深掘り。ULC008は製品企画向け/診断企画向けに分割し、ULC004は品質改善・顧客説明向け、PVC004は診断信頼性境界として整理。
+1. [data/pvc001_ulc008_two_department_sheets.tsv](data/pvc001_ulc008_two_department_sheets.tsv): ULC008を製品企画向けと診断企画向けに分けた社内レビュー用作業表。各sheetの判断、需要、evidence boundary、初期artifact、禁止主張、Proceed/Kill signalを整理。
+1. [data/ulc004_rough_road_steering_deep_dive.tsv](data/ulc004_rough_road_steering_deep_dive.tsv): ULC004「荒れた路面 + 操舵」の深掘り表。品質改善、評価企画、顧客技術説明で使えるか、路面分類productや原因断定へ流れないかを整理。
+1. [data/pvc004_communication_boundary_deep_dive.tsv](data/pvc004_communication_boundary_deep_dive.tsv): PVC004「通信異常context」の境界表。診断企画、サイバー担当、顧客技術説明での使い道、汎用IDS/CSMS/TARAへの逸脱、禁止主張を整理。
+1. [docs/95_predictive_value_continue_final_decision.md](docs/95_predictive_value_continue_final_decision.md): 残っていたContinue項目の最終判断。公開情報とKaggle proxyだけで継続深掘りする項目は残さず、ULC008/ULC004/PVC004を社内レビュー材料に限定。
+1. [data/predictive_value_continue_final_decisions.tsv](data/predictive_value_continue_final_decisions.tsv): PVC/ULC/KGL各IDのprevious status、final status、最終結論、停止理由、再開条件、次owner、禁止主張を整理。
+1. [docs/96_predictive_value_internal_fact_correction.md](docs/96_predictive_value_internal_fact_correction.md): 前回の全滅判断を補正した最新判断。EPS内部事実が見えないことを主Kill理由にせず、PVC001/ULC008/ULC004/PVC004を公開proxy価値の検証候補として戻す。
+1. [data/predictive_value_corrected_status.tsv](data/predictive_value_corrected_status.tsv): 補正後のID別ステータス。使用条件class、路面・操舵context、通信異常contextを、故障予測ではなくEPSサプライヤの業務価値候補として整理。
 1. [docs/63_kaggle_supplier_owned_data_pdca.md](docs/63_kaggle_supplier_owned_data_pdca.md): Kaggle方向を1時間Goalで深掘りし、データ収集、仮説、検証PDCAを回した結果。Bosch型の製造・EOL検査の早期不良候補抽出を最優先、Mercedes型の評価時間見積もりを2番手に置く。
 1. [data/kaggle_supplier_owned_source_collection.tsv](data/kaggle_supplier_owned_source_collection.tsv): Bosch、Mercedes-Benz、EPS/EPAS EOL、EOL品質データ、OBD/CAN、Car-Hackingのソース収集表。
 1. [data/kaggle_supplier_owned_hypotheses.tsv](data/kaggle_supplier_owned_hypotheses.tsv): 製造・EOL検査、bench/HILS評価時間、説明1枚、停止候補を、市場需要、未解決pain、解決策、買い手、Kill条件で整理。

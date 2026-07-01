@@ -1,0 +1,25 @@
+section	field	content
+sample	title	駐車場走行で低速・大舵角・凹凸が重なる使われ方を先読みできるか
+decision	current_judgment	Conditional Continue。外販商品ではなく、EPSサプライヤ内の製品企画、診断企画、品質改善、評価企画に見せる検証sampleとして残す。
+market_demand	who_needs_it	EPSサプライヤの製品企画、診断企画、品質改善、評価企画、顧客技術説明。
+market_demand	workflow_pain	駐車時や低速取り回し時の操舵感、音、振動、違和感は顧客説明や品質判断で混ざりやすい。故障原因を断定せず、使用条件の可能性を整理したい。
+hypothesis	plain_hypothesis	公開proxyから低速、大舵角、操舵頻度、凹凸/振動proxyを組み合わせると、駐車場相当の使用負荷classを先読みまたは分類できる可能性がある。
+source_proxy	proxy_inputs	KGL003=速度・stop-start、KGL005=操舵角・操舵変化、KGL008=都市部の路面凹凸proxy。補助として既存の低速高操舵proxy抽出結果を使う。
+source_proxy	local_support	data/low_speed_high_steering_proxy_summary.tsvでは、公開走行データから低速・高操舵要求candidate windowを231件抽出済み。ただし故障や劣化の証拠ではない。
+solution	initial_artifact	使用負荷class、公開proxy、部署別の使い道、禁止主張、Kill条件を1枚にまとめる。
+buyer_user	product_planning	用途別に、EPSがどのような低速・駐車・凹凸条件にさらされるかを説明できるかを見る。
+buyer_user	diagnostic_planning	DTCやfreeze frameだけでは説明しにくい低速・駐車・凹凸contextを補助説明に使えるかを見る。
+buyer_user	quality_improvement	field issueを使用条件別に読み直す入口になるかを見る。ただしOEM保証DBやservice outcomeなしで原因断定はしない。
+buyer_user	evaluation_planning	既存HILS/bench/vehicle評価が、駐車場相当の低速・大舵角・凹凸classを代表しているか確認する。
+why_supplier_can_play	supplier_boundary	EPSサプライヤはEPS内部状態を公開proxyから断定できない。一方で、操舵要求と使用条件をEPS製品・診断・評価の言葉へ翻訳する立場は持てる。
+validation	method_1	製品企画に見せ、用途別価値説明に使えるか確認する。
+validation	method_2	診断企画に見せ、既存DTC / freeze frame / extended dataだけで同じ説明ができるか確認する。
+validation	method_3	品質改善に見せ、field issueを使用条件別に見直す入口になるか確認する。
+validation	method_4	評価企画に見せ、既存評価条件がこのclassを代表しているか確認する。
+what_not_to_claim	forbidden_1	駐車場走行、低速高操舵、凹凸がEPS故障原因であるとは言わない。
+what_not_to_claim	forbidden_2	使用負荷classからEPS残寿命、交換時期、保証費削減、安全性が分かるとは言わない。
+what_not_to_claim	forbidden_3	公開proxyからEPS内部stress、thermal limit、assist limitation、DTC不足を断定しない。
+kill_criteria	kill_1	既存評価scenario名の言い換えにしかならない場合は止める。
+kill_criteria	kill_2	DTC / freeze frame / extended dataで十分に説明できる場合は止める。
+kill_criteria	kill_3	製品企画、診断企画、品質改善、評価企画の4部署のうち2部署以上に刺さらない場合は止める。
+next_action	next_step	このsampleを使い、4部署別の想定レビュー質問を作る。最初の確認対象は製品企画と診断企画。
