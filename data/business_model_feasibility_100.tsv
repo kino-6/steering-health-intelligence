@@ -1,0 +1,101 @@
+id	category	model	target	core_offer	revenue_model	core_data	optional_oem_data	feasibility	business_potential	dependency_risk	key_value	failure_mode	demo_possible	source_basis
+BMFE001	Core ECU-local	EPS Health Indicator Set Licensing	EPS system supplier	12-20個のECU内部health indicator定義と実装仕様	NRE + per-program license	ECU内部信号,DTC,NVM,HILS	なし	5	5	Low	EPSをhealth-ready部品として差別化できる	指標が物理意味を持たないとログ追加に見える	Yes	Repo + EPS research
+BMFE002	Core ECU-local	Health Summary DID Package	EPS system supplier / OEM diagnostics	低帯域のhealth summary DID / readout仕様	NRE + unit price uplift	DID,Extended Data,NVM	なし	5	4	Low	既存診断体系に載せやすい	DID追加価値が弱いとコスト扱いになる	Yes	UDS/SOVD diagnostics signal
+BMFE003	Core ECU-local	DTC-below-threshold Counter Pack	EPS supplier	故障未満イベントのカウンタと最新イベント履歴	Feature package NRE	内部診断閾値,イベント,NVM	なし	5	4	Low	再現困難や予測準備に効く	故障予測と誤解される	Yes	Repo
+BMFE004	Core ECU-local	Sensor Drift Watch Pack	EPS supplier	トルク/角度センサ冗長差とゼロ点傾向の監視	Feature package	センサ冗長信号,温度,電圧	なし	5	5	Low	EPS固有でECUメーカーが強い	正常ばらつきとの区別が難しい	Yes	EPS research
+BMFE005	Core ECU-local	Current Tracking Watch Pack	EPS supplier	目標電流/実電流/偏差ピークの兆候化	Feature package	電流制御信号,温度,電圧	なし	5	5	Low	モータ/制御/負荷の初期兆候になる	車両条件で偏差が出る	Yes	EPS research
+BMFE006	Core ECU-local	Thermal Stress Memory Pack	EPS supplier	ECU/モータ温度ピークとderating履歴	NRE + unit price uplift	温度,derating state,NVM	なし	5	4	Low	熱ストレス履歴は劣化材料として説明しやすい	地域差を劣化と誤認する	Yes	Automotive drive monitoring
+BMFE007	Core ECU-local	Power Stress History Pack	EPS supplier	低電圧/電圧dip/電源復帰履歴の保存	Feature package	電圧,assist limitation,NVM	なし	5	4	Low	誤判定防止と外部要因切分けに効く	EPS付加価値として地味	Yes	Repo
+BMFE008	Core ECU-local	Assist Limitation Recurrence Pack	EPS supplier	アシスト制限の回数/理由/直近条件の保存	Feature package	assist state,temperature,voltage,NVM	なし	5	4	Low	ユーザ症状に近いhealth状態を表せる	安全判断と誤解される	Yes	Repo
+BMFE009	Core ECU-local	Harsh Usage Stress Counter	EPS gear supplier	据え切り/高負荷低速/急操舵反転のストレス指標	Feature package	電流,トルク,車速,操舵角	車両衝撃情報	4	5	Medium	ギア/ラック側への価値が強い	運転癖や用途差の影響が大きい	Yes	EPS degradation reasoning
+BMFE010	Core ECU-local	End-stop Event Memory	EPS gear supplier	end-stop / curb-hit-like eventの履歴化	Feature package	操舵角,トルク,電流,end-stop flag	車両加速度	4	4	Medium	機械ストレス説明に使える	縁石衝突を断定できない	Yes	EPS degradation reasoning
+BMFE011	Core ECU-local	ECU-local Baseline Learning	EPS supplier	車両内baselineで電流/トルク比の変化を見る	NRE + algorithm license	内部信号,走行条件,NVM	なし	3	5	Medium	OEMデータなしで劣化傾向に近づける	ECUリソースと検証が重い	Maybe	EPS research
+BMFE012	Core ECU-local	Health State Rules Engine	EPS supplier	watch/check/reviewのルールベース分類	Algorithm license	indicator set,NVM	なし	4	4	Low	AIなしで説明可能な状態分類ができる	ルールが恣意的だと弱い	Yes	Repo
+BMFE013	Core ECU-local	Health Indicator Dictionary	EPS supplier / OEM diagnostics	指標の意味/単位/条件/注意点の辞書	Documentation NRE	既存信号定義	なし	5	3	Low	ログ追加を使える商品に変える	ドキュメントだけだと単価化しにくい	Yes	Repo
+BMFE014	Core ECU-local	NVM Evidence Map	EPS supplier	返却品で読むNVM health証跡マップ	NRE + unit price uplift	NVM,events,counters	なし	5	4	Low	返却品解析に直接効く	NVM容量と書換寿命が制約	Yes	Repo
+BMFE015	Core ECU-local	Low-bandwidth Health Payload	EPS supplier / OEM diagnostics	通信量を抑えたhealth summary payload設計	NRE	DID,summary,counters	なし	5	4	Low	connected診断にもサービス診断にも使える	情報圧縮で解釈が荒くなる	Yes	SOVD/remote diagnostics signal
+BMFE016	Core ECU-local	EPS Variant Traceability Add-on	EPS supplier	EPS variant/SW/CAL/lotをhealth dataに付与	Feature package	software,calibration,trace ID	車両仕様	5	4	Low	将来分析のキーになる	単体では価値が見えにくい	Yes	Repo
+BMFE017	Core ECU-local	False-positive Factor Library	EPS supplier	指標ごとの誤検知要因リストと補正方針	Consulting/NRE	HILS,bench,domain knowledge	なし	4	3	Low	安全責任を下げる説明に効く	売上化しにくい	Yes	Repo
+BMFE018	Core ECU-local	Health Indicator Calibration Service	EPS supplier	車種/機種ごとに閾値とbaselineを調整	NRE	bench,durability,HILS	なし	4	4	Low	量産適用に必須の作業になり得る	案件ごと個別対応でスケールしにくい	Maybe	Repo
+BMFE019	Core ECU-local	ECU Resource Budget Package	EPS project team	CPU/RAM/NVM/通信量を見積もる設計支援	NRE	実装仕様,測定	なし	5	3	Low	導入障壁を下げる	商品価値は補助的	Yes	Repo
+BMFE020	Core ECU-local	Health-ready EPS Feature Bundle	EPS supplier	上記Core機能を一括したEPS付加価値パッケージ	Per-program feature package	ECU内部信号,NVM,DID	なし	4	5	Low	商品として一番まとめやすい	範囲が広く初期合意が難しい	Yes	Repo
+BMFE021	EPS supplier differentiation	OEM-facing Health-ready EPS Proposal Kit	EPS supplier	OEM向け提案書/価値訴求/FAQの作成	Consulting/NRE	Core indicators	なし	5	4	Low	サプライヤがOEMに持ち込みやすくなる	資料だけで終わる	Yes	Repo
+BMFE022	EPS supplier differentiation	EPS Supplier Warranty Evidence Pack	EPS supplier	保証返却向けの使用履歴/ストレス履歴パッケージ	NRE + unit uplift	NVM,counters,DTC	保証DB	5	4	Medium	保証解析の痛みに近い	保証費削減効果の定量が必要	Yes	Repo
+BMFE023	EPS supplier differentiation	Gear Friction Proxy Package	EPS gear supplier	電流/トルク/角速度から摩擦proxyを定義	NRE + algorithm license	電流,トルク,角速度,温度	タイヤ/路面	3	5	Medium	ギアメーカーに刺さる	正規化が難しい	Maybe	EPS degradation research
+BMFE024	EPS supplier differentiation	Rack Load Stress Index	EPS gear supplier	ラック負荷proxyと高負荷使用履歴	Feature package	電流,トルク,車速,操舵角	積載/路面	3	4	Medium	機械系価値が明確	外部条件の影響が大きい	Maybe	EPS degradation research
+BMFE025	EPS supplier differentiation	Bearing/Motor Stress Indicator	EPS system supplier	温度/電流/稼働履歴からモータ周辺stress指標	Feature package	温度,電流,稼働時間	なし	4	4	Low	電動部品healthとして説明しやすい	実故障との相関が必要	Maybe	Drive monitoring
+BMFE026	EPS supplier differentiation	EPS Health-ready Branding Add-on	EPS supplier	health-readyをOEM提案の差別化ラベル化	Per-program marketing/NRE	Indicator dictionary	なし	4	3	Low	営業資料として使いやすい	実装実体が薄いと弱い	Yes	Repo
+BMFE027	EPS supplier differentiation	Health Indicator IP License	EPS supplier	指標定義/ルール/辞書をIPとしてライセンス	License	Core indicator set	なし	4	5	Low	スケールしやすい	IPの独自性証明が必要	No	Repo
+BMFE028	EPS supplier differentiation	Program-specific Health Option	EPS supplier / OEM	車種開発オプションとしてhealth機能を追加	Per-vehicle uplift	Core indicator set	なし	4	5	Medium	量産単価に載せられる可能性	採用まで長い	Maybe	Repo
+BMFE029	EPS supplier differentiation	EPS Health Integration Workshop	EPS supplier	営業/設計/品質向けワークショップ	Consulting	HILS,bench,indicator examples	なし	5	3	Low	初回案件化しやすい	継続収益が弱い	Yes	Repo
+BMFE030	EPS supplier differentiation	Diagnostic Design Upgrade Program	EPS supplier	既存DTC設計をhealth-readyに改訂	NRE	DTC,signals,NVM	なし	5	4	Low	既存開発プロセスに入りやすい	新規性が弱く見える	Yes	Repo
+BMFE031	Development validation	Offline Health Indicator Analyzer	EPS development team	HILS/benchログからhealth指標を計算するツール	Tool license/NRE	CSV logs,HILS,bench	なし	5	4	Low	すぐPoCできる	量産事業と離れる	Yes	Repo
+BMFE032	Development validation	Fault Injection Indicator Validation	EPS validation team	故障注入で指標反応を検証するサービス	NRE	HILS,fault injection	なし	4	4	Low	物理意味を検証できる	故障注入環境が必要	Maybe	EPS research
+BMFE033	Development validation	Normal Variation Baseline Library	EPS validation team	正常ばらつきbaselineを作成	NRE	durability logs,bench	なし	4	4	Low	閾値設計に必須	データ収集工数が重い	Maybe	Repo
+BMFE034	Development validation	Indicator Formula Development Service	EPS development team	指標式の設計と評価	NRE	ECU signals,logs	なし	4	4	Low	ECUメーカーの知識が活きる	属人的になりやすい	Yes	Repo
+BMFE035	Development validation	HILS Health Scenario Library	EPS validation team	劣化/異常シナリオと期待指標パターン	NRE	HILS scenario	なし	4	3	Low	検証資産として残る	市場価値が間接的	Maybe	Repo
+BMFE036	Development validation	Bench Durability Health Report	EPS durability team	耐久試験中のhealth指標レポート	Service/NRE	bench,durability	なし	4	4	Low	試験の価値を上げる	量産収益化と距離がある	Yes	Adjacent PHM
+BMFE037	Development validation	Health Indicator Regression Test	EPS software team	SW/CAL変更でhealth指標が悪化しないか確認	Tool license	logs,software version	なし	4	4	Low	開発品質に直結	外販テーマから逸れる	Yes	SDV diagnostics signal
+BMFE038	Development validation	Digital Twin Parameter Feedback	EPS modeling team	health指標をモデルparameter同定に使う	NRE	logs,simulation	なし	3	3	Low	設計改善に効く	研究色が強い	Maybe	EPS design research
+BMFE039	Development validation	Health Indicator Benchmark Dataset	EPS supplier group	匿名化した開発ログで指標ベンチを作る	Internal asset	bench,HILS,durability	なし	3	4	Low	将来の差別化IPになる	外販しにくい	No	Repo
+BMFE040	Development validation	Validation-ready Indicator Spec	EPS supplier	検証条件込みの指標仕様を納品	NRE	spec,logs	なし	5	4	Low	量産採用の前提になる	作業量が大きい	Yes	Repo
+BMFE041	Warranty / return part	Return-part Health Summary Reader	EPS quality team	返却品NVMからhealth summaryを読むツール	Tool license/NRE	NVM dump,DTC,counters	保証DB	5	5	Medium	保証解析に直接効く	返却品数が少ないと効果が見えにくい	Yes	Repo
+BMFE042	Warranty / return part	No-Trouble-Found Evidence Pack	EPS quality team	再現なし案件向けの使用/一時異常証跡	Feature package	NVM,counters,event recency	保証DB	5	4	Medium	NTF削減に近い	削減効果の証明が必要	Yes	Repo
+BMFE043	Warranty / return part	Usage Stress History Report	EPS quality team	高負荷/熱/低電圧/制限履歴の返却品レポート	Service/Tool	NVM,counters	保証DB	5	4	Medium	返却品解析の説明力が上がる	過去履歴の解釈が難しい	Yes	Repo
+BMFE044	Warranty / return part	Supplier Responsibility Evidence Set	EPS supplier / OEM	ECU/車両側/使用条件の切分け証跡	Feature package	voltage,thermal,sensors,current	保証DB	4	4	Medium	責任分界議論に効く	責任回避目的に見える	Yes	Repo
+BMFE045	Warranty / return part	Service Intake Health Snapshot	OEM service engineering	入庫時にEPS health summaryを読む	Feature/NRE	DID,health summary	サービス履歴	4	4	Medium	現場診断に接続できる	OEM/サービス網依存	Yes	Remote diagnostics signal
+BMFE046	Warranty / return part	Warranty Claim Triage Add-on	OEM warranty / EPS supplier	保証クレームにhealth indicatorを添付	Service/Integration	health summary	保証DB	3	4	High	保証費と紐づく	OEM保証DB依存が強い	Maybe	Market signal
+BMFE047	Warranty / return part	Returned ECU Stress Certificate	EPS quality team	返却ECUのストレス履歴証明書	Service	NVM,counters	なし	5	3	Low	小さく始めやすい	証明書の用途が限定的	Yes	Repo
+BMFE048	Warranty / return part	Intermittent Fault Recorder	EPS quality team	一時異常と正常復帰のring buffer	NRE + unit uplift	events,NVM	なし	5	4	Low	再現困難に効く	NVM管理が必要	Yes	Repo
+BMFE049	Warranty / return part	Dealer Diagnostic Context Pack	OEM service	販売店向け追加確認項目を出す	Feature/Doc	health summary,DTC	サービスDB	3	3	High	使い先が明確	OEM下流依存が強い	Yes	Remote diagnostics signal
+BMFE050	Warranty / return part	Quality Review One-pager Generator	EPS quality team	health指標から品質会議用1枚資料	Tool/NRE	health summary,NVM	保証DB	4	3	Medium	説明資料作成を短縮	本質価値が補助的	Yes	Repo
+BMFE051	ECU diagnostics integration	SOVD-ready EPS Health API	OEM diagnostics / EPS supplier	SOVD風のhealth summary API定義	NRE/API license	DID,diagnostics schema	OEM gateway	3	4	High	SDV診断に接続できる	標準/基盤依存が強い	Maybe	SOVD signal
+BMFE052	ECU diagnostics integration	UDS DID Health Extension	EPS supplier	UDS DIDでhealth indicatorを読める拡張	NRE	DID,summary,counters	なし	5	4	Low	既存診断に載せやすい	DID容量と合意が必要	Yes	UDS/diagnostics
+BMFE053	ECU diagnostics integration	Freeze Frame Health Extension	EPS supplier	DTC発生時にhealth指標をfreeze frame化	NRE	DTC,freeze frame	なし	5	3	Low	既存設計に近い	差別化は弱い	Yes	Repo
+BMFE054	ECU diagnostics integration	Extended Data Health Bundle	EPS supplier	DTC extended dataに劣化/ストレス指標を追加	NRE	Extended Data,NVM	なし	5	3	Low	実装現実性が高い	ログ追加に見える	Yes	Repo
+BMFE055	ECU diagnostics integration	Health Summary Security Access Profile	EPS supplier	health読出しのsecurity/session設計	NRE	diagnostics security	なし	4	3	Low	量産診断で必要	単体商品化は弱い	No	Diagnostics practice
+BMFE056	ECU diagnostics integration	Health Data Versioning Spec	EPS supplier	指標/閾値/辞書のversion管理	Documentation/NRE	metadata	なし	5	3	Low	将来分析に必須	地味	Yes	Repo
+BMFE057	ECU diagnostics integration	Minimum Health Payload Standard	EPS supplier group	最小health payloadを標準化	Consortium/IP license	indicator set	なし	3	4	Medium	横展開できる	標準化合意が難しい	No	Standards signal
+BMFE058	ECU diagnostics integration	Diagnostic Readout Time Optimizer	EPS supplier	読出し時間を抑えるpayload設計	NRE	DID,payload	なし	4	3	Low	サービス現場に効く	補助価値	Yes	Repo
+BMFE059	ECU diagnostics integration	NVM Write Policy Package	EPS supplier	NVM書換寿命を守る保存方針	NRE	NVM,events	なし	5	3	Low	実装リスクを下げる	ビジネス価値は間接	Yes	Repo
+BMFE060	ECU diagnostics integration	Health Indicator AUTOSAR Integration	EPS supplier	AUTOSAR診断/DEM/DCMへの組み込み支援	NRE	DEM/DCM,events	なし	4	4	Low	量産適用に近い	環境依存	Maybe	Automotive diagnostics
+BMFE061	Optional OEM-connected	OEM VHM EPS Signal Connector	Vehicle OEM VHM team	EPS health summaryをVHMに接続	Integration fee	health summary	OEM cloud,VHM	2	5	High	最終価値は大きい	OEM依存が強い	Maybe	Connected vehicle sources
+BMFE062	Optional OEM-connected	Connected EPS Cohort Analytics	OEM market quality	車種/地域/ロット別のEPS兆候分析	SaaS/analytics	health summary	fleet data,region,warranty	2	5	High	市場品質価値が高い	ECUメーカー単独で不可	Maybe	Sibros/Excelfore signal
+BMFE063	Optional OEM-connected	Post-OTA EPS Regression Monitor	OEM software quality	OTA前後のEPS指標悪化を監視	Integration/NRE	health summary	OTA history	2	4	High	OTA運用に刺さる	OTAに寄りすぎる	Maybe	OTA sources
+BMFE064	Optional OEM-connected	Remote Diagnostics EPS Health App	OEM connected platform	remote diagnosticsでEPS healthを読む	App/license	DID,summary	OEM gateway/cloud	2	4	High	使い先が明確	プラットフォーム依存	Maybe	Remote diagnostics sources
+BMFE065	Optional OEM-connected	Fleet Trend Feedback to EPS Supplier	OEM supplier quality	匿名集計したEPS兆候をサプライヤへ返す	Service contract	health summary	fleet data	2	5	High	サプライヤが欲しいfeedback	OEMのデータ共有合意が壁	No	Repo + market signal
+BMFE066	Optional OEM-connected	Warranty Correlation Analytics	OEM warranty / EPS supplier	health指標と保証クレームを相関分析	Analytics project	health summary	warranty DB	2	5	High	ビジネス価値が大きい	保証DB依存	Maybe	Market signal
+BMFE067	Optional OEM-connected	Regional Thermal Stress Map	OEM market quality	地域別の熱ストレス傾向を見る	Analytics	thermal indicators	region/weather	2	3	High	熱問題の説明に効く	地域データ依存	Maybe	Repo
+BMFE068	Optional OEM-connected	Vehicle-side Context Fusion	OEM engineering	EPS指標にバッテリ/タイヤ/路面を結合	Analytics/Integration	health summary	vehicle context	1	5	High	予測精度が上がる	OEMデータ前提	Maybe	Recent predictive maintenance critique
+BMFE069	Optional OEM-connected	Recall Pre-screen Evidence	OEM safety	対象検討の前段でEPS兆候を確認	Consulting/analytics	health summary	fleet,warranty	1	4	High	重大価値がある	責任と規制が重い	No	Repo
+BMFE070	Optional OEM-connected	OEM Supplier Scorecard Add-on	OEM purchasing	サプライヤ品質評価にhealth trendを使う	Analytics	health indicators	fleet,warranty	1	3	High	購買/品質に刺さる	サプライヤには嫌われる	No	Repo
+BMFE071	Optional OEM-connected	ADAS Availability Context Signal	OEM ADAS team	EPS healthをADAS可用性文脈に接続	Integration	assist availability	ADAS data	2	4	High	将来性がある	ADAS保証に踏み込むリスク	Maybe	EPS safety trend
+BMFE072	Optional OEM-connected	Commercial Fleet EPS Health Channel	Fleet/OEM	EPS healthをfleet dashboardに載せる	SaaS add-on	health summary	fleet ops data	2	3	High	低頻度でも安全重要	フリートはEPS単体に払いにくい	Maybe	Fleet health sources
+BMFE073	Optional OEM-connected	OTA Pre-update EPS Health Gate	OEM OTA ops	更新前にEPS状態を確認	Integration	health summary	OTA campaign	2	3	High	用途は明確	OTAが主役になるとズレる	Maybe	OTA sources
+BMFE074	Optional OEM-connected	OEM Cloud Health Dataset Export	OEM data team	EPS health datasetをクラウドにexport	Integration	health payload	cloud	2	4	High	分析の入口になる	クラウド基盤依存	Maybe	Connected vehicle sources
+BMFE075	Optional OEM-connected	Predictive Maintenance Partner API	OTA/SDV platform vendor	EPS health contentを外部platformに提供	API license	health summary	platform data	2	4	High	横展開できる	販路/契約が遠い	Maybe	Sibros/Sonatus/Excelfore signal
+BMFE076	Data/IP	Data Dictionary License	EPS supplier	health indicator辞書をライセンス	License	dictionary	なし	5	3	Low	低コストで展開可能	辞書だけでは弱い	Yes	Repo
+BMFE077	Data/IP	Indicator Formula IP Portfolio	EPS supplier	指標式/閾値設計をIP化	License	indicator formulas	なし	4	5	Low	利益率が高い	保護/独自性が課題	No	Repo
+BMFE078	Data/IP	Health Payload Compliance Checklist	EPS supplier	診断仕様レビュー用checklist	Template/license	spec	なし	5	3	Low	導入支援に使える	単価が低い	Yes	Repo
+BMFE079	Data/IP	EPS Health Taxonomy	EPS supplier group	劣化/兆候/指標の分類体系	License/standard	taxonomy	なし	4	3	Medium	標準化の土台	合意形成が必要	Yes	Repo
+BMFE080	Data/IP	False Positive Test Catalog	EPS validation team	誤検知評価ケース集	License/NRE	test catalog	なし	4	4	Low	安全な提案に必須	作成に工数	Maybe	Repo
+BMFE081	Data/IP	Health Indicator Requirements Template	EPS supplier	要求仕様テンプレート	Template/license	requirements	なし	5	3	Low	すぐ使える	競争優位は小さい	Yes	Repo
+BMFE082	Data/IP	Prognostic Readiness Scorecard	EPS supplier	既存EPSの予測準備度を評価	Assessment fee	spec,signals,NVM	なし	5	4	Low	営業入口として強い	評価だけで終わる	Yes	Repo
+BMFE083	Data/IP	EPS Health Maturity Assessment	EPS supplier	組織/仕様/データの成熟度診断	Consulting	spec,process	なし	5	3	Low	初回商談化しやすい	継続性が弱い	Yes	Repo
+BMFE084	Data/IP	Health Indicator Benchmark Report	EPS supplier	複数指標の実現性ベンチレポート	Report/NRE	logs	なし	4	3	Low	意思決定に効く	汎用レポートは陳腐化	Maybe	Repo
+BMFE085	Data/IP	Signal Availability Audit	EPS supplier	既存ECU信号で何が可能か棚卸し	Assessment	spec,signal list	なし	5	4	Low	最初の一歩として現実的	大きな収益にはなりにくい	Yes	Repo
+BMFE086	Adjacent subsystem	Brake-by-wire Health Indicator Transfer	Chassis supplier	EPSで作った手法をブレーキ系に展開	IP/license	subsystem signals	OEM data	2	4	High	横展開性がある	EPS主軸がぼやける	No	Adjacent x-by-wire
+BMFE087	Adjacent subsystem	Steer-by-wire Redundancy Health Package	Steer-by-wire supplier	冗長系health指標に特化	Feature package	redundant sensors,ECU,power	なし	3	5	Medium	将来性が高い	対象市場が限定	Maybe	EPS safety trend
+BMFE088	Adjacent subsystem	Chassis Health Indicator Bundle	Chassis supplier	EPS/Brake/Suspensionのhealth共通化	Platform license	chassis signals	OEM platform	1	5	High	大きな市場	ECUメーカー単独から遠い	No	Adjacent
+BMFE089	Adjacent subsystem	Motor Controller Health Reuse	Electric drive supplier	モータ制御health指標をEPS以外に展開	IP/license	current,temp,voltage	なし	3	4	Medium	技術転用しやすい	EPS特化価値が薄まる	Maybe	Drive monitoring
+BMFE090	Adjacent subsystem	By-wire Safety Evidence Package	By-wire supplier	by-wire向けhealth evidenceの共通パック	Feature/NRE	redundancy,diagnostics	なし	3	4	Medium	安全重要領域に合う	適用範囲が広すぎる	Maybe	x-by-wire sources
+BMFE091	Commercialization	Per-ECU Feature Royalty	EPS supplier	health機能をECU単価に上乗せ	Per-unit royalty	Core indicators	なし	3	5	Low	成功時の収益性が高い	採用ハードルが高い	No	Repo
+BMFE092	Commercialization	Per-program NRE	EPS supplier	車種開発単位でhealth機能設計	NRE	Core indicators	なし	5	4	Low	現実的な収益モデル	スケールは案件依存	Yes	Repo
+BMFE093	Commercialization	Internal Tool Subscription	EPS engineering	offline analyzerを社内ツールとして課金	Subscription/tool	logs	なし	4	3	Low	導入しやすい	事業規模は小さい	Yes	Repo
+BMFE094	Commercialization	Pilot-to-Production Package	EPS supplier	PoCから量産仕様まで段階契約	Milestone contract	logs,signals,NVM	なし	4	5	Low	実行計画として強い	期間が長い	Yes	Repo
+BMFE095	Commercialization	Health-ready EPS Certification	EPS supplier	社内/共同のhealth-ready認定	Certification fee	spec,validation	なし	3	3	Medium	差別化ラベルになる	外部信頼性が課題	No	Repo
+BMFE096	Commercialization	Co-development with Gear Maker	EPS gear supplier	ギア劣化proxyを共同開発	Co-dev NRE	signals,bench	なし	4	5	Low	ユーザ仮説に最も近い	相手のデータ/試験協力が必要	Maybe	Repo
+BMFE097	Commercialization	Warranty Savings Gainshare	EPS supplier / OEM	NTFや解析工数削減に応じて課金	Gainshare	health summary	warranty DB	1	4	High	成果報酬で価値が明確	OEM保証DB依存が強い	No	Market signal
+BMFE098	Commercialization	Health Indicator Starter Kit	EPS supplier	最小指標5個+辞書+検証手順をセット販売	Fixed package	core signals	なし	5	4	Low	最初の商品として売りやすい	機能が浅いとすぐ模倣される	Yes	Repo
+BMFE099	Commercialization	Engineering Review Support Retainer	EPS supplier	月額で指標評価/設計相談を支援	Retainer	logs,spec	なし	4	3	Low	継続収益になる	人手依存	Yes	Repo
+BMFE100	Commercialization	EPS Health Demo Kit	EPS supplier / internal sponsor	サンプルログからhealth summaryを出すデモ	Fixed PoC package	sample logs	なし	5	4	Low	意思決定者に価値を見せやすい	デモ止まりのリスク	Yes	Repo

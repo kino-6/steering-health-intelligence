@@ -1,0 +1,11 @@
+check_item	plain_question	required_for_continue	example_for_thermal_limit	current_status	stop_if
+Readable EPS/SbW DTC	DTCとして何がnetworkまたはservice toolへ出るか	Yes	EPS/SbW assist limitationまたはthermal limit関連DTC。実code名はprogram依存。	Unknown	操舵系DTCが出ない、または汎用system statusしか出ない
+Freeze frame / extended data	DTC発生時の速度、電圧、温度、電流、操舵負荷などが残るか	Yes for meaningful difference	vehicle speed low、steering activity high、ECU temperature high、motor current high、battery voltage normal/low。	Unknown	DTC名とtimestampだけ
+Assist / limit state	assist limitation、thermal derate、degraded stateを読めるか	Yes	assist limitation active、thermal derate active、cool-down後normal、再発counterあり/なし。	Unknown	stateが読めない
+Motor current / thermal indicators	負荷と温度の関係を説明できる内部値があるか	Useful	peak motor current、thermal model value、ECU temperature、limit duration。	Unknown	温度・電流が読めず、過負荷一過性か分けられない
+Software / calibration ID	software/calibrationと状態説明を接続できるか	Useful	calibration ID、variant coding、assist map version、thermal protection threshold version。	Unknown	IDがservice workflowへ出ない
+Existing remote diagnostics action plan	OEMまたは既存remote diagnosticsは既に何を言うか	Yes	入庫案内、severity、service routing、parts preparation、generic inspection。	Unknown	既存action planを見られない
+Supplier additional explanation	既存action planに対して何を足せるか	Yes	追加DID読み順、cool-down後の確認、再発counter確認、software/calibration確認、禁止主張。	Unknown	追加説明がDTC言い換えだけ
+Service note destination	説明はdealer、service engineering、fleet serviceのどこへ転記されるか	Yes	OEM service note、dealer diagnostic worksheet、remote diagnostics case comment。	Unknown	転記先がない
+Service outcome feedback	整備結果、交換結果、再発有無、作業時間、dealer commentが戻るか	Strongly needed for business	再発なし、部品交換なし、作業時間短縮、追加DID読了、dealer comment。	Unknown	alertを出すだけで結果が戻らない
+Responsibility boundary	サプライヤ説明とOEM判断を分けられるか	Yes	サプライヤは状態説明とDID読み順。OEM/serviceは運行可否、顧客通知、保証判断。	Unknown	サプライヤが安全保証、交換時期、root causeを断定する必要がある

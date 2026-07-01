@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coverage Benchmark の現時点結論</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --panel: #ffffff;
+      --ink: #202733;
+      --muted: #5d6878;
+      --line: #d9dee7;
+      --no: #9d2f2f;
+      --yes: #0e6b5f;
+      --blue: #285a86;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 40px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 20px; letter-spacing: 0; }
+    p { margin: 0 0 14px; }
+    .lead { color: var(--muted); max-width: 840px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 18px;
+      min-height: 150px;
+    }
+    .card.no { border-left: 6px solid var(--no); }
+    .card.yes { border-left: 6px solid var(--yes); }
+    .label {
+      display: inline-block;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .no .label { color: var(--no); }
+    .yes .label { color: var(--yes); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      margin: 12px 0 22px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th { background: #edf1f7; }
+    tr:last-child td { border-bottom: 0; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      main { padding: 28px 16px 44px; }
+      .summary { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Coverage Benchmark の現時点結論</h1>
+    <p class="lead">造語を外して言うと、今は「売る段階ではない」。内部資料を使わない前提では、既存レビューとの差分確認にも進めない。</p>
+
+    <section class="summary">
+      <div class="card no">
+        <span class="label">No-Go</span>
+        <h2>有償サービスとして売る</h2>
+        <p>対象EPSのHILS、DTC、freeze frame、release reviewを見ていないため、既存レビューとの差分を示せない。</p>
+      </div>
+      <div class="card yes">
+        <span class="label">Condition only</span>
+        <h2>4項目は再開条件</h2>
+        <p>試験名、DTC名、freeze frame項目名、会議体名はいずれも内部資料または内部業務情報。現行方針では実施しない。</p>
+      </div>
+    </section>
+
+    <h2>判断</h2>
+    <table>
+      <thead>
+        <tr><th>対象</th><th>現時点判断</th><th>理由</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>有償assessmentとして外に売る</td><td>No-Go</td><td>実資料がなく、既存レビューとの差分を示せない</td></tr>
+        <tr><td>公開データ分析を続ける</td><td>Stop</td><td>公開情報だけでは既存HILS/DTCで足りるか分からない</td></tr>
+        <tr><td>SaaS / HILツールとして作る</td><td>Kill</td><td>このRepoの差分はツールではなく、EPS固有の確認観点</td></tr>
+        <tr><td>RCA / 8D資料作成を主商品にする</td><td>Kill</td><td>案件依存が強く、スケールしにくい</td></tr>
+        <tr><td>最小資料で既存レビューとの差分を見る</td><td>現行ポリシーでは実施しない</td><td>4項目はいずれも内部資料または内部業務情報</td></tr>
+      </tbody>
+    </table>
+
+    <h2>内部資料を使える場合だけ見る4項目</h2>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>誰に聞くか</th><th>最低限の答え</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HILS / bench試験名</td><td>Validation / HILS担当</td><td>試験名だけ</td></tr>
+        <tr><td>関連DTC一覧</td><td>診断設計担当</td><td>DTC名だけ</td></tr>
+        <tr><td>freeze frame / extended data項目名</td><td>診断設計担当</td><td>field名だけ</td></tr>
+        <tr><td>既存レビュー/会議体名</td><td>Program / 診断 / software担当</td><td>会議名または帳票名だけ</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      Source:
+      <a href="../docs/43_coverage_benchmark_forced_conclusion.md">docs/43</a> /
+      <a href="../data/coverage_benchmark_forced_conclusion.tsv">forced conclusion TSV</a>
+    </p>
+  </main>
+</body>
+</html>

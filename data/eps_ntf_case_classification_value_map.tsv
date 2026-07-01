@@ -1,0 +1,7 @@
+id	stakeholder	current_pain	classification_output	decision_enabled	desired_emotion	business_value	kill_condition
+VAL001	warranty_return_part_team	DTCや返却品単体確認だけでは調査方針が立たない	NTF / 再現不能パターン分類	次に疑う条件や追加試験を絞る	毎回ゼロから悩まない安心	解析初動のばらつき低減	分類しても調査方針が変わらない
+VAL002	customer_quality_team	OEMへの顧客品質報告で確認済み事実と未確認事項を整理しにくい	Customer-quality fact template	断定せずに事実・仮説・追加調査を提示する	顧客前で説明できる防御力	報告品質の均一化	報告内容が既存と変わらない
+VAL003	diagnostic_engineering	次期DTC / freeze frame / extended dataに何を入れるべきか根拠が弱い	Missing evidence heatmap and Top 5 evidence candidates	NVM制約内で追加証跡を優先順位付けする	診断仕様提案への自信	OEM協議に使える根拠	既存診断で十分だった
+VAL004	supplier_quality_commercial	責任分界やchargeback議論で証拠と限界を示しにくい	ECU-local vs OEM-data boundary	自社で確認できることとOEMデータが必要なことを分ける	不利な断定を避ける安心	責任分界の議論材料	不足証跡がOEM側データだけだった
+VAL005	business_product_planning	技術的には面白いが事業として続けるべきか不明	Kill / continue judgment	PoC継続、設計支援化、撤退を判断する	筋が悪ければ早くやめられる納得感	投資判断の明確化	再利用できるパターンが出ない
+VAL006	oem_discussion_owner	OEMに何が欲しいか聞くだけで無手になりがち	Diagnostic spec proposal	具体ケースを根拠に追加証跡やデータ要求を提案する	協議に持ち込む手札がある安心	OEM協議の質向上	OEMが診断仕様変更に価値を認めない

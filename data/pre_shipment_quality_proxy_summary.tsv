@@ -1,0 +1,6 @@
+risk_bucket	units_reviewed	fail_or_retest_caught	capture_rate	precision	lift_vs_random	operational_read
+top_1pct	60	2	0.035	0.033	3.5	上位1%を先に見るとfail/retest候補の3.5%を拾う
+top_5pct	300	10	0.175	0.033	3.5	上位5%を先に見るとfail/retest候補の17.5%を拾う
+top_10pct	600	14	0.246	0.023	2.5	上位10%を先に見るとfail/retest候補の24.6%を拾う
+top_20pct	1200	19	0.333	0.016	1.7	上位20%を先に見るとfail/retest候補の33.3%を拾う
+overall	6000	57	1.000	0.009	1.0	全体母集団。正解率ではなく上位リストの捕捉率を見る

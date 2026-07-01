@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steering ECU Software / Cyber Evidence Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5e6a78;
+      --line: #d8dee8;
+      --soft: #f6f8fb;
+      --accent: #0f766e;
+      --accent-2: #8a4b12;
+      --warn: #a7352b;
+      --bg: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    header {
+      padding: 48px 24px 28px;
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 24px 56px;
+    }
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 900px;
+      margin: 18px 0 0;
+      font-size: 18px;
+      color: #2f3b49;
+    }
+    h2 {
+      margin: 40px 0 14px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 17px;
+    }
+    p { margin: 0 0 14px; }
+    .decision {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0 0;
+    }
+    .decision div {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px;
+      background: #fff;
+      min-height: 118px;
+    }
+    .decision strong {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .decision span {
+      display: block;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 26px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: var(--soft);
+      font-weight: 700;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e8f4f2;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .tag.warn {
+      background: #fff0ed;
+      color: var(--warn);
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      background: #f1faf8;
+      margin: 14px 0 22px;
+    }
+    ul {
+      margin: 8px 0 22px;
+      padding-left: 20px;
+    }
+    code {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.92em;
+    }
+    @media (max-width: 860px) {
+      h1 { font-size: 28px; }
+      .decision { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <p class="eyebrow">EPS supplier business hypothesis</p>
+      <h1>Steering ECU Software / Cyber Evidence Pack</h1>
+      <p class="lead">
+        EPSサプライヤが、OEMからのサイバー/SBOM/ソフト更新問い合わせに対して、
+        steering ECUの部品境界で答えるための証拠整理デモ。
+      </p>
+      <div class="decision">
+        <div><strong>結論</strong><span>候補1+2を統合して進める</span></div>
+        <div><strong>初期offer</strong><span>2週間程度の固定スコープassessment</span></div>
+        <div><strong>主な買い手</strong><span>Cybersecurity / Software / Diagnostics</span></div>
+        <div><strong>主張しないこと</strong><span>認証代行・車両全体保証・故障予測</span></div>
+        <div><strong>Kill条件</strong><span>既存CSMS/TARA/SBOMと差分がない</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h2>何を売るか</h2>
+    <p>
+      売るものはサイバー認証でもSBOM生成ツールでもない。steering ECUの診断アクセス、ソフト更新、
+      SBOM、脆弱性影響判断、security access、fail-safe stateを、OEM説明に転記できる証拠へ整理する。
+    </p>
+    <div class="note">
+      最初はSaaSではなく、固定スコープassessmentとして扱う。顧客ごとにCSMS/SUMS、SBOM形式、
+      OEM回答様式、診断資料、toolchainが違うため。
+    </div>
+
+    <h2>成果物</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>成果物</th>
+          <th>使う人</th>
+          <th>判断できること</th>
+          <th>Kill条件</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Asset and attack-surface map</td>
+          <td>EPS cybersecurity / systems</td>
+          <td>steering ECU固有の入口、資産、安全影響を説明できるか</td>
+          <td>汎用ECU asset listと差分がない</td>
+        </tr>
+        <tr>
+          <td>Diagnostic access exposure table</td>
+          <td>Diagnostics / cybersecurity</td>
+          <td>量産診断で許可する操作、禁止する操作、安全影響を分けられるか</td>
+          <td>既存診断security tableに同等内容がある</td>
+        </tr>
+        <tr>
+          <td>Software update evidence checklist</td>
+          <td>Software release / cybersecurity</td>
+          <td>authenticity、rollback、post-update stateを説明できるか</td>
+          <td>OEM SUMS資料に完全吸収されcomponent evidenceが不要</td>
+        </tr>
+        <tr>
+          <td>SBOM-to-EPS-function map</td>
+          <td>Software / supplier quality</td>
+          <td>SBOM部品がどのEPS機能やrelease IDに触れるか</td>
+          <td>SBOMが部品表で十分で、機能影響が求められない</td>
+        </tr>
+        <tr>
+          <td>CVE triage response template</td>
+          <td>Cybersecurity / OEM response</td>
+          <td>影響あり、影響なし、未確認をEPS機能と証拠に紐づけられるか</td>
+          <td>企業共通CVEプロセスが機能影響までカバー済み</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>CVE triageデモ</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>仮想issue</th>
+          <th>EPS機能接点</th>
+          <th>初期判断</th>
+          <th>OEM回答文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Crypto library</td>
+          <td>Signature verification bypass</td>
+          <td>Bootloader / software update</td>
+          <td><span class="tag">Needs confirmation</span></td>
+          <td>EPS update pathで該当API利用有無を確認中。利用ありの場合は署名検証試験を再実施する。</td>
+        </tr>
+        <tr>
+          <td>Diagnostic stack</td>
+          <td>Security access bypass</td>
+          <td>UDS session / routine / DID access</td>
+          <td><span class="tag warn">Potentially high</span></td>
+          <td>production session、routine control、DID access、seed/key handlingを確認し、修正またはaccess制限を提示する。</td>
+        </tr>
+        <tr>
+          <td>CAN communication stack</td>
+          <td>Malformed frame parser fault</td>
+          <td>Accepted signals / assist command boundary</td>
+          <td><span class="tag">Needs confirmation</span></td>
+          <td>EPSが受信する安全影響messageを特定し、negative testとgateway前提を確認する。</td>
+        </tr>
+        <tr>
+          <td>RTOS scheduler</td>
+          <td>Task starvation</td>
+          <td>Motor control / monitoring / fail-safe transition</td>
+          <td><span class="tag">Needs confirmation</span></td>
+          <td>motor control、monitoring、fail-safe transitionへの影響を確認する。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Proceed / Kill</h2>
+    <h3>Proceed</h3>
+    <ul>
+      <li>OEM回答や監査準備に転記できる。</li>
+      <li>SBOM-to-function mapが、既存SBOM運用にない視点だと確認できる。</li>
+      <li>diagnostic access exposure tableが、既存UDS仕様より説明に使いやすい。</li>
+    </ul>
+    <h3>Kill</h3>
+    <ul>
+      <li>既存CSMS/TARA/SBOM/CVE運用に同じ成果物が既にある。</li>
+      <li>OEM指定様式に完全に吸収され、サプライヤ側で提案余地がない。</li>
+      <li>EPS機能影響へ接続できず、汎用サイバー資料に見える。</li>
+    </ul>
+  </main>
+</body>
+</html>

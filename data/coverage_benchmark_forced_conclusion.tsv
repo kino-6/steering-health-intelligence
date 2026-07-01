@@ -1,0 +1,7 @@
+decision_id	target	current_decision	plain_reason	what_to_do_next
+FC001	有償assessmentとして外に売る	No-Go	対象EPSのHILS/DTC/freeze frame/release reviewを見ておらず、既存レビューとの差分を示せない	まだ売りに行かない
+FC002	公開データ分析を続ける	Stop	公開データでは市場pain分類や質問表までは作れるが、既存HILS/DTCで足りるかは分からない	公開分析は補助材料に下げる
+FC003	SaaS / HILツールとして作る	Kill	既存プレイヤーが強く、このRepoの差分はツールではなくEPS固有の確認観点にある	ツール化しない
+FC004	RCA / 8D資料作成を主商品にする	Kill	案件依存が強く、スケールしにくい	必要時の副産物に下げる
+FC005	最小資料で既存レビューとの差分を見る	現行ポリシーでは実施しない	試験名、DTC名、freeze frame項目名、会議体名はいずれも対象EPSの内部資料または内部業務情報に当たる	内部資料を使える条件になった場合だけ再開条件として扱う
+FC006	現時点の全体結論	Stop	商品としてはNo-Go。内部資料を使わない前提では、既存レビューとの差分確認にも進めない	この方向はいったん止める

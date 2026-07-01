@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steering Context Risk Explorer - Phase 1</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5f6f7a;
+      --line: #d8e0e6;
+      --soft: #f4f7f9;
+      --accent: #176b87;
+      --warn: #b45309;
+      --risk: #9f1239;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.55;
+    }
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 14px;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .subtitle {
+      max-width: 840px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .notice {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 18px 0;
+      font-weight: 650;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 14px;
+      border-radius: 8px;
+      min-height: 100px;
+    }
+    .metric .value {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .metric .label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bars {
+      display: grid;
+      gap: 10px;
+      margin: 12px 0 24px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 280px) 1fr 44px;
+      align-items: center;
+      gap: 10px;
+    }
+    .bar-label {
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+    .bar-track {
+      height: 18px;
+      background: #e9eef2;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+    .bar-fill.warn { background: var(--warn); }
+    .bar-fill.risk { background: var(--risk); }
+    .count {
+      text-align: right;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 24px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: var(--soft);
+      font-weight: 700;
+    }
+    .two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e9f5f8;
+      color: #0f5d75;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 6px 6px 0;
+    }
+    .gap {
+      border-left: 4px solid var(--risk);
+      background: #fff1f2;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    @media (max-width: 760px) {
+      .grid, .two { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr 44px; }
+      .bar-track { grid-column: 1 / -1; grid-row: 2; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Steering Context Risk Explorer</h1>
+      <p class="subtitle">Phase 1 static report from public EPS pain cases. This is a context and market-pain explorer, not an EPS failure prediction model.</p>
+    </header>
+
+    <section class="grid" aria-label="summary metrics">
+      <div class="metric"><div class="value">38</div><div class="label">public EPS pain cases</div></div>
+      <div class="metric"><div class="value">18</div><div class="label">proxy feature hints</div></div>
+      <div class="metric"><div class="value">10</div><div class="label">public data sources inventoried</div></div>
+      <div class="metric"><div class="value">0</div><div class="label">real EPS fault labels in this phase</div></div>
+    </section>
+
+    <div class="notice">Conclusion: public data can map driver-visible EPS pain and high-burden steering contexts. It cannot prove EPS failure prediction, DTC gaps, return-part value, or OEM adoption.</div>
+
+    <h2>Top Proxy Feature Hints</h2>
+    <div class="bars">
+      <div class="bar-row"><div class="bar-label">intermittent_ignition_cycle</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="count">8</div></div>
+      <div class="bar-row"><div class="bar-label">warning_plus_low_speed_effort</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="count">4</div></div>
+      <div class="bar-row"><div class="bar-label">low_speed_high_effort</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="count">4</div></div>
+      <div class="bar-row"><div class="bar-label">voltage_temperature_friction_context</div><div class="bar-track"><div class="bar-fill warn" style="width:37.5%"></div></div><div class="count">3</div></div>
+      <div class="bar-row"><div class="bar-label">rough_road_pothole_context</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="count">2</div></div>
+      <div class="bar-row"><div class="bar-label">stop_start_low_speed_context</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="count">2</div></div>
+      <div class="bar-row"><div class="bar-label">gradual_turn_sticking_oversteer</div><div class="bar-track"><div class="bar-fill risk" style="width:25%"></div></div><div class="count">2</div></div>
+    </div>
+
+    <div class="two">
+      <section class="panel">
+        <h2>Driver-Visible Pain</h2>
+        <p><span class="tag">increased effort</span><span class="tag">loss of assist</span><span class="tag">warning lamp</span><span class="tag">intermittent</span><span class="tag">sticking</span><span class="tag">low-speed burden</span></p>
+        <p>The strongest public pain pattern is not subtle degradation. It is driver-visible assist loss or increased steering effort, often worse at low speed or tied to warning indicators.</p>
+      </section>
+      <section class="panel">
+        <h2>Best Phase 2 Axis</h2>
+        <p><span class="tag">speed</span><span class="tag">steering angle</span><span class="tag">steering rate</span><span class="tag">lateral acceleration</span></p>
+        <p>Start with low-speed high steering demand. It is repeated in public cases and can be approximated from public steering/CAN datasets without claiming EPS failure prediction.</p>
+      </section>
+    </div>
+
+    <h2>Source Type Distribution</h2>
+    <table>
+      <thead><tr><th>Source type</th><th>Count</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>NHTSA ODI investigation</td><td>10</td><td>Dense public signals: complaints, population, incidents, warranty claims, crash allegations.</td></tr>
+        <tr><td>NHTSA recall bulletin</td><td>6</td><td>Remedy and symptom wording are useful for scenario mapping.</td></tr>
+        <tr><td>NHTSA recall FAQ</td><td>6</td><td>Often gives driver-facing language.</td></tr>
+        <tr><td>NHTSA recall acknowledgement</td><td>5</td><td>Provides affected population and defect summary.</td></tr>
+        <tr><td>Other public / NHTSA-linked reports</td><td>11</td><td>Useful support, but should not replace primary NHTSA material.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Evidence Gap Overlay</h2>
+    <table>
+      <thead><tr><th>Question</th><th>Public data can show</th><th>Still missing</th></tr></thead>
+      <tbody>
+        <tr><td>Was steering demand high?</td><td>Yes, with speed + steering angle / lateral dynamics.</td><td>Driver torque, EPS assist current, motor torque.</td></tr>
+        <tr><td>Was the driver exposed to low-speed high effort?</td><td>Yes, as a proxy context.</td><td>Actual driver effort and assist degradation state.</td></tr>
+        <tr><td>Was there a warning or DTC?</td><td>Only if public text says so.</td><td>DTC, freeze frame, event memory, service record.</td></tr>
+        <tr><td>Was EPS failing?</td><td>No.</td><td>Fault label, return-part analysis, warranty / supplier data.</td></tr>
+        <tr><td>Is there OEM-buyable value?</td><td>No direct proof.</td><td>OEM feature interest, adoption path, cost/benefit.</td></tr>
+      </tbody>
+    </table>
+
+    <section class="gap">
+      <h2>What This Does Not Prove</h2>
+      <p>This phase does not prove EPS failure prediction, diagnostic evidence value, NTF reduction, return-part analysis improvement, or OEM willingness to buy. It only makes public driver pain and context proxies visible.</p>
+    </section>
+
+    <h2>Recommended Next Step</h2>
+    <p>Download or sample <strong>commaSteeringControl</strong>, then compute low-speed high steering demand windows. Keep an explicit missing-evidence overlay so the demo remains honest.</p>
+
+    <footer>
+      Sources: data/eps_public_market_pain_cases.tsv, data/public_steering_dataset_inventory.tsv. Generated as a static Phase 1 artifact.
+    </footer>
+  </main>
+</body>
+</html>

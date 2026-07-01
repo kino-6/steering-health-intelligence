@@ -1,0 +1,214 @@
+# Data Notes
+
+このディレクトリは、Repo内の事業仮説に対して参照できるビジネスモデル探索メモを置く。
+
+## Files
+
+- `llm_kill_knowledge_base.tsv`
+  - 次のLLMが前提として読むためのKill済み仮説一覧。現行判断、Kill理由、再主張禁止、再開条件、LLM向けルールを整理。
+- `kaggle_hidden_demand_candidates.tsv`
+  - Kaggle自動車系コンペを、単なる公開データではなく「企業が外に出した隠れた需要」として読み替えた候補表。Bosch型の製造不良予測、Mercedes-Benz型の評価時間短縮を最有力に置き、EPS市場故障予測には使わない境界も明記。
+- `kaggle_supplier_owned_source_collection.tsv`
+  - Kaggle方向の深掘りで収集した公開ソース表。Bosch、Mercedes-Benz、EPS/EPAS EOL、EOL品質データ、OBD/CAN、Car-Hackingについて、何を支持し、何を支持しないかを整理。
+- `kaggle_supplier_owned_hypotheses.tsv`
+  - Kaggleから読める隠れた需要を、EPSサプライヤの製造・EOL検査、bench/HILS評価時間、説明1枚、停止候補へ落とした仮説表。
+- `kaggle_supplier_owned_pdca.tsv`
+  - Kaggle方向で実施したPDCA表。Bosch型を最優先、Mercedes型を2番手、OBD/CANやCAN cyberを主候補から外す判断を記録。
+- `kaggle_pre_shipment_quality_findings.tsv`
+  - Kaggleから「出荷前の予知保全」を読み直した具体finding表。Boschのrare fail、line/station/date特徴量、工程順序、Mercedesのtest bench timeをEPSサプライヤ向けに翻訳。
+- `pre_shipment_quality_offer_candidate.tsv`
+  - 出荷前品質スクリーニング候補を、市場需要、未解決pain、仮説、解決策、買い手、初期artifact、検証方法、Kill条件へ落とした1枚TSV。
+- `pre_shipment_quality_proxy_summary.tsv`
+  - Bosch型の出荷前品質スクリーニングproxy demoの捕捉率表。上位1/5/10/20%の要注意個体でfail/retest候補をどれだけ拾えるかを整理。
+- `pre_shipment_quality_proxy_top_units.tsv`
+  - proxy demoの上位リスク個体リスト。個体ID、risk score、proxy上の実ラベル、line/shift/variant、理由、推奨アクションを整理。
+- `pre_shipment_quality_proxy_station_signals.tsv`
+  - proxy demoの工程グループ説明。line/station/measurement系のsignalごとにfail/retest率と現場での読み方を整理。
+- `business_model_research.tsv`
+  - Repo内の6案に対応する隣接ビジネスモデルを100件整理したTSV。
+  - 各行に、顧客、課題、収益モデル、抽出知識、本Repoへの有効アイテム、関連度を記載。
+- `useful_items_for_steering_diagnostic_evidence.md`
+  - 100件から、本Repoに移植しやすい知見を統合したメモ。後半に `EPS Health Intelligence Package` への軸修正も記載。
+- `ota_connected_health_market_signals.tsv`
+  - OTA / connected vehicle / remote diagnostics / SOVD / EPS safety trendから、EPS connected health方向の需要シグナルを整理したTSV。
+- `target_feasibility_matrix.tsv`
+  - EPS Health Intelligence方向について、ターゲット別の実現性、魅力度、データアクセス、初期ピッチを整理したTSV。
+- `eps_health_indicator_candidates.tsv`
+  - EPS内部信号から作れるhealth / degradation indicator候補を、必要信号、劣化・故障ヒント、正規化難易度、OEMデータ依存度つきで整理したTSV。
+- `business_model_feasibility_100.tsv`
+  - EPS Health Intelligence周辺のビジネスモデル成立性を100案で整理したTSV。
+- `business_model_feasibility_sources.md`
+  - 100案の発想元にした市場・技術ソースのメモ。
+- `best5_business_model_candidates.md`
+  - 100案から選んだBest5と推奨初手。
+- `demo_eps_health_summary_examples.tsv`
+  - Best5のうちPoCに使いやすいhealth summary出力例。
+- `customer_pain_market_signals.tsv`
+  - 市場調査で見えたWarranty / NTF / supplier quality / 顧客品質報告 / remote diagnosticsの買い手痛みを整理したTSV。
+- `eps_event_context_market_research.tsv`
+  - EPSサプライヤ視点で、`EPS Event Context Memory` が接続できる市場痛みをWarranty / NTF / returned parts / 顧客品質報告 / 原因調査中心に整理したTSV。
+- `eps_ntf_case_review_template.tsv`
+  - 外部市場調査では見えない、EPS返却品・市場不具合・NTF・再現不能案件の内部一次調査用テンプレート。
+- `eps_ntf_case_classification_value_map.tsv`
+  - 20-50件のケース分類が完了した場合に、誰が何を嬉しいのか、どんな意思決定が可能になるのかを整理した価値マップ。
+- `public_proxy_data_sources.tsv`
+  - 内部NTF/返却品ケースにアクセスできない前提で、NHTSA、Kaggle、公開CAN/steering datasetから補える情報と補えない情報を整理したTSV。
+- `eps_public_market_pain_cases.tsv`
+  - NHTSA / recall / investigation / public reportから、driver-visibleなEPS痛みを抽出した公開ケース分類TSV。
+- `public_steering_dataset_inventory.tsv`
+  - 公開steering / CAN / OBD / Kaggle datasetの信号、用途、できないこと、優先度を整理したTSV。
+- `steering_context_risk_phase1_summary.tsv`
+  - `Steering Context Risk Explorer` Phase 1の静的集計結果。公開EPS pain caseのsource、proxy feature、driver-visible pain、boundaryを整理。
+- `low_speed_high_steering_proxy_summary.tsv`
+  - commaSteeringControl `CHRYSLER_PACIFICA_2018` の走査条件、件数、候補window件数の要約。
+- `low_speed_high_steering_proxy_windows.tsv`
+  - 低速・高操舵要求proxyとして抽出した上位12件の代表window。
+- `low_speed_high_steering_proxy_timeseries.tsv`
+  - 上位5件の代表windowについて、`vEgo`、`steerFiltered`、`steeringAngleDeg`、`latAccelDesired` などの時系列を切り出したTSV。
+- `eps_scenario_to_evidence_pack.tsv`
+  - 公開市場文脈と公開走行windowを、EPSサプライヤ向けの評価シナリオ、内部信号、既存診断との差分、次検証、kill criterionへ変換したTSV。
+- `s2e001_diagnostic_evidence_gap_check.tsv`
+  - `S2E001 low_speed_high_effort` に絞り、必要証跡、既存診断の想定カバー範囲、不足時の追加候補、内部確認項目を整理したTSV。
+- `s2e001_diagnostic_evidence_review_template.tsv`
+  - 内部DTC仕様、freeze frame、extended data、返却品reader可否、NVM制約を入力して、S2E001をProceed / Kill / Hold判定するテンプレート。
+- `business_model_rebranch_after_s2e001_hold.tsv`
+  - S2E001 Hold後に、内部データ不要で売れるもの、内部データがあれば売れるもの、OEM依存で後回しのものへビジネスモデルを再分岐したTSV。
+- `bmr001_market_pain_scenario_cards.tsv`
+  - `BMR001 EPS Market Pain Scenario Library` の初期3枚scenario card。公開市場case、代表proxy window、売り先、評価シナリオ、設計レビュー質問、診断証跡質問、RFQ文言、Kill条件を整理。
+- `bmr002_rfq_design_review_pack.tsv`
+  - BMR001のscenario cardを、RFQ/設計レビュー1ページに変換するための構成部品。Market Pain Coverage Statement、Scenario Readiness Matrix、Supplier-Owned Boundary、Diagnostic Explainability Checklist、Validation Scenario Hook、Customer Quality Fact Summary Skeletonを整理。
+- `market_demand_solution_map.tsv`
+  - `こんなEPS事例がある` ではなく、市場需要、未解決の痛み、買い手、現在の回避策、解決仮説、初期offer、demo、言ってはいけないことを対応づけたTSV。現在は `EPS Diagnostic / Robustness Coverage Benchmark` の前段材料として扱う。
+- `eps_supplier_business_model_reassessment.tsv`
+  - 上位ルールとEPSサプライヤ視点で既存データを再評価したTSV。主商品を `EPS RCA / 8D Evidence Case Pack` に寄せた当時の再評価表。現在はhistorical寄り。
+- `rca_8d_case_pack_viability_assessment.tsv`
+  - `RCA / 8D Evidence Case Pack` の市場需要、既存代替、EPSサプライヤ適合、収益モデル、差別化、買うきっかけ、Kill条件を検証したTSV。
+- `eps_common_market_pain_reclassification.tsv`
+  - 公開EPS case 30件を、low-speed high effort、warning+DTC、intermittent、stop-start、software/failsafeなどの共通pain familyへ再分類したTSV。
+- `eps_common_pain_business_scores.tsv`
+  - EPS共通pain family 13件について、共通性、EPSサプライヤ制御性、差別化、スケール性をスコアリングし、事業候補とKill条件を整理したTSV。
+- `eps_coverage_benchmark_business_value.tsv`
+  - Coverage Benchmark線について、business model別に市場需要、未解決痛み、買い手、予算経路、価値が出る理由、失敗理由、proof demo、Kill条件を整理したTSV。
+- `fam08_stop_start_low_speed_coverage_benchmark_sample.tsv`
+  - `FAM08 stop-start low-speed` の1ページcoverage benchmark sample。review item、expected EPS facts、supplier-owned source、coverage question、HILS/bench scenario、decision option、Kill条件を整理。
+- `fam08_immediate_visibility_triage.tsv`
+  - FAM08について、今日すぐ見えるmarket pain fit、HILS scenario duplication、diagnostic snapshot sufficiency、workflow fitをProceed / Hold / Killへ分ける即時triage表。
+- `coverage_benchmark_artifact_request_pack.tsv`
+  - Coverage Benchmark P1前に要求する10個の最小artifact、依頼先、placeholder、Proceed/Hold/Kill条件を整理したTSV。
+- `coverage_benchmark_artifact_intake_result.tsv`
+  - 10 artifact requestをRepo内資料と公開proxyだけで実行し、placeholder、actual artifact有無、今判定できること、できないこと、statusを整理したTSV。
+- `coverage_benchmark_artifact_intake_decision.tsv`
+  - Artifact intake後のProceed/Hold/Kill判断。現時点はactual artifact不足によりHold。
+- `coverage_benchmark_internal_placeholder_screening_sheet.tsv`
+  - 内部資料を使える場合だけ参照する最小入力シート。HILS title、related DTC、freeze frame field、review meeting nameの4項目。
+- `coverage_benchmark_forced_conclusion.tsv`
+  - Coverage Benchmarkを今売れるか、内部資料なしで次に進めるかを判断したTSV。有償assessmentはNo-Go、4項目確認は内部資料を使える場合だけの再開条件。
+- `coverage_benchmark_p1_assessment_plan.tsv`
+  - Coverage Benchmark P1 assessmentのworkstream、必要入力、成果物、owner、timebox、Proceed/Kill条件を整理した実施計画TSV。
+- `coverage_benchmark_family_reuse_matrix.tsv`
+  - FAM08、FAM02、FAM11で同じcoverage row構造を再利用できるかを比較したmatrix。
+- `coverage_benchmark_p1_decision_rubric.tsv`
+  - P1 assessment後にProceed / Hold / Killを判定するためのrubric。actionable gap、workflow fit、family reuse、supplier control、既存review重複などを見る。
+- `public_data_validation_sources.tsv`
+  - Kaggle、Hugging Face、Zenodo、NHTSAなどの公開データ源について、使える信号、Evidence Readiness Packでの用途、答えられない問い、採用判断を整理。
+- `scn001_public_data_evidence_readiness.tsv`
+  - `SCN001 low_speed_high_effort` について、commaSteeringControl + NHTSA公開caseで作れるfact、公開データでは答えられないfact、内部診断仕様で確認すべき項目を整理。
+- `public_only_alternative_item_candidates.tsv`
+  - Coverage Benchmark No-Go後に、公開情報だけで次に探索する候補を整理したTSV。サイバーセキュリティ設計証拠、SBOM/脆弱性対応、SOVD診断コンテンツ、steer-by-wire安全/サイバー/冗長化、市場要求モニタを比較。
+- `public_only_candidate_deep_dive.tsv`
+  - 公開情報だけで候補1-5を深掘りし、候補1+2を `steering ECU software/cyber evidence pack` としてProceed、SOVDをextension、steer-by-wireをconditional、市場要求モニタをinput onlyに整理したTSV。
+- `steering_ecu_cyber_evidence_sample.tsv`
+  - 候補1+2の最小デモ。診断アクセス、ソフト更新、SBOM、脆弱性、sensor input、communication、fail-safe stateについて、市場/標準圧力、steering ECUで見る問い、用意する証拠、OEM向け説明文を整理。
+- `steering_ecu_software_cyber_offer_model.tsv`
+  - 候補1+2を進めた初期offer表。fixed-scope assessment、RFQ/OEM inquiry support、SBOM-to-function workshop、diagnostic access review、software update checklistの買い手、収益モデル、必要入力、Kill条件を整理。
+- `steering_ecu_software_cyber_work_products.tsv`
+  - steering ECU software/cyber evidence packで作る成果物。asset map、diagnostic access exposure、software update evidence、SBOM-to-function map、CVE triage response、fail-safe evidence、OEM response one-pagerを整理。
+- `steering_ecu_cve_triage_demo.tsv`
+  - 仮想CVEを使い、crypto library、diagnostic stack、CAN stack、RTOS、debug utility、bootloader transport、sensor interfaceがEPS機能に触れるかを判断するデモTSV。
+- `steering_ecu_cyber_value_check.tsv`
+  - steering ECU software/cyber evidence packの価値確認。TARA、SBOM、CVE管理、diagnostic access、software update、fail-safe mappingが既存業務・既存ツールとどれだけ被るか、残る価値、Kill条件を整理。
+- `steering_ecu_cyber_kill_evidence_dossier.tsv`
+  - steering ECU cyber/SBOM方向をKillするか判断するための証拠集。市場需要、既存プレイヤー、残余価値、Kill支持をNHTSA、ISO、Auto-ISAC、NIST、ETAS、Ansys、Siemens、ThreatZ等と対応づけたTSV。
+- `steering_ecu_cyber_kill_questions.tsv`
+  - 完全Kill前に見る5つの存在確認質問。steering ECU固有のOEM問い合わせ有無、既存CVE回答、診断security、安全状態mapping、OEM回答templateの有無で判定する。
+- `next_exploration_candidates_after_cyber_kill.tsv`
+  - Cyber/SBOM Kill後の次探索候補。Steer-by-wireをPrimary、SOVDをExtension、公開recall/ODI/TSB市場要求モニタをInput only、cyber/SBOMをHold/Kill-leaningに整理。
+- `steer_by_wire_kill_first_review.tsv`
+  - Steer-by-wire安全・冗長・cyber方向の一次レビュー。市場変化、従来EPSとの差分、既存安全業務との重複、EPSサプライヤが残せる価値、Kill条件を整理。
+- `sovd_kill_first_review.tsv`
+  - SOVD / next-generation diagnostics方向の一次レビュー。SOVD標準、既存ツール、EPSサプライヤが主語になれる診断コンテンツ設計、Kill条件を整理。
+- `public_market_monitor_input_plan.tsv`
+  - 公開recall/ODI/TSB市場要求モニタを単体商品にせず、Steer-by-wireとSOVDの設計質問・診断質問へ変換する入力計画。
+- `steer_by_wire_business_deep_dive.tsv`
+  - Steer-by-wire方向の事業成立性を深掘りしたTSV。市場需要、既存業務との重複、残る狭い価値、初期提供物、Kill条件を整理。
+- `steer_by_wire_redundancy_degraded_sample.tsv`
+  - 車輪を動かす側の冗長系が一部落ちた場合を題材にした1ケースsample。field、supplier-owned source、OEM回答価値、Kill条件を整理。
+- `sbw_decision_materials.tsv`
+  - ZF、Mercedes-Benz、Tesla、Lexus、HELLA、NHTSA、VCAの公開情報を、判断への使い方、強める点、弱める点、EPSサプライヤへの示唆に分けたTSV。
+- `sbw_8_material_verification.tsv`
+  - SbW 8項目を公開情報で検証した結果。1-4はPartial、5-8はUnknownで、現行方針では内部資料を要求せず、外販Proceedしないことを整理。
+- `sbw_public_only_source_inventory.tsv`
+  - Bosch、ZF、Nexteer、Schaeffler、HELLA、JTEKT、Tesla、NHTSA、VCA、R79、ASAM SOVDの公開情報を、何を支持し、何を支持しないか、EPSサプライヤがどう使うかで整理。
+- `sbw_public_only_value_check.tsv`
+  - 公開情報だけでSbW市場変化、未解決pain、既存安全・認証・診断業務との差分、初期提供物、Kill条件をどこまで言えるかを判定。
+- `wheel_side_steering_unit_plain_deep_dive.tsv`
+  - `road wheel actuator` を「車輪側操舵ユニット」と言い直し、市場需要、未解決の痛み、仮説、解決策、利用者、初期提供物、検証方法、Kill条件を平易な言葉で整理。
+- `sbw_explanation_support_no_go_reasoning.tsv`
+  - Steer-by-wire向け説明資料整理支援が、なぜ有償サービスとしてNo-Goなのかを、市場需要、既存業務重複、EPSサプライヤ境界、Kill条件へ分解。
+
+## Interpretation
+
+この収集は、個別企業の公開情報を網羅するものではなく、`docs/` にある選択肢に対して、事業モデルの型と移植可能な知識を整理した初期リサーチである。
+特に重視した観点は以下。
+
+- `llm_kill_knowledge_base.tsv` は、次のLLMが同じ無理筋を復活させないための前提知識である。現行条件では強い外販商材はほぼ残っておらず、前提変更がない限り新規ビジネスモデル探索を続けない
+- `kaggle_hidden_demand_candidates.tsv` では、Kaggleを公開代替データではなく、企業が外部に設定した目的変数として読む。EPS故障予測には使わず、EPSサプライヤが持てる製造、EOL検査、bench/HILS評価データに近い製造品質・評価時間短縮だけを次探索候補に置く
+- `kaggle_supplier_owned_source_collection.tsv`、`kaggle_supplier_owned_hypotheses.tsv`、`kaggle_supplier_owned_pdca.tsv` では、Kaggle方向を深掘りし、Bosch型の製造・EOL検査の早期不良候補抽出を最優先にした。価値はEOL試験追加ではなく、再検査、保留、工程確認、評価計画の判断支援に置く
+- `kaggle_pre_shipment_quality_findings.tsv` と `pre_shipment_quality_offer_candidate.tsv` では、ユーザの指摘を受けて「出荷前の予知保全」として再整理した。主張は出荷後故障予測ではなく、出荷前品質スクリーニングである。次はBosch型proxy demoで、上位リスク個体と工程グループ説明が現場判断へ転記できるかを見る
+- `pre_shipment_quality_proxy_summary.tsv`、`pre_shipment_quality_proxy_top_units.tsv`、`pre_shipment_quality_proxy_station_signals.tsv` では、Bosch型構造をsynthetic proxyで再現した。上位5%個体でfail/retest候補17.5%を捕捉したが、これは実EPS性能ではなく、再検査・保留・工程確認へ翻訳できるかを見るための型である
+- EPS / ECU単体の故障予測として売らない
+- 「ログ追加」や既存診断証跡の言い換えではなく、返却品・NTF・再現不能案件の不足証跡を特定する
+- 故障予測そのものではなく、顧客品質報告や原因調査に使える確認済み事実・未確認事項を整理する
+- サプライヤが責任を持てる範囲に収める
+- ECUメーカー起点で成立するCoreと、OEMデータ接続で広がるOptional extensionを分ける
+- 将来OEM側のVHM / connected diagnostics / 市場品質データと接続しやすい形にする
+- まずはDTCだけでは説明できない市場不具合・返却品・NTF案件に対する、ECU内の小さな状況証拠として価値を検証する
+- ただしDTC、freeze frame、extended data、event memory自体は既存診断であり、新規性はサプライヤ内部の案件棚卸しから不足証跡を特定することに置く
+- ケース分類の価値は、分類表そのものではなく、診断仕様改善、顧客品質報告、追加データ要求、事業継続判断を可能にすることに置く
+- 内部一次情報がない場合、公開データでできるのは市場痛み分類とsteering context proxy demoまでであり、EPS内部故障予測や返却品解析価値は証明できない
+- commaSteeringControlのproxy demoは、低速・高操舵要求の正常走行windowを作るものであり、assist loss、劣化兆候、DTC不足を直接示すものではない
+- `eps_scenario_to_evidence_pack.tsv` の価値は、追加証跡を断定することではなく、既存DTC / freeze frame / extended dataで十分かをシナリオ別に潰すことにある
+- `s2e001_diagnostic_evidence_gap_check.tsv` では、車速/操舵角/電圧/温度/カウンタのように既存で残りやすいものを追加価値として扱わず、assist demand-to-output、limit/derating、pre-event scalar summaryだけを条件付き候補に残す
+- `s2e001_diagnostic_evidence_review_template.tsv` は、追加候補を提案するためではなく、内部診断仕様を入れた結果としてProceed / Kill / Holdを判定するためのレビュー表である。内部仕様を確認できない場合、S2E001はHoldとして扱う
+- `business_model_rebranch_after_s2e001_hold.tsv` では、ECU内追加証跡商品を現時点では追わず、公開市場文脈を使ったscenario library、RFQ/design review pack、diagnostic evidence workshopへ軸を戻す
+- `bmr001_market_pain_scenario_cards.tsv` では、故障予測や既存診断不足を主張せず、公開市場ペインを評価、設計レビュー、RFQ、顧客品質説明で使うscenario cardへ変換する
+- `bmr002_rfq_design_review_pack.tsv` では、scenario card単体では価値が弱い前提を置き、RFQ回答、設計レビュー、DRBFM、評価計画へ転記できる1ページに変換できるかを検証する
+- `market_demand_solution_map.tsv` では、BMR001/BMR002を主商品ではなく前段材料に下げ、市場需要をNTF、返却品解析、保証claim、SCAR/8D、顧客品質説明で使えるproduct-side evidenceへ置き直す
+- `eps_supplier_business_model_reassessment.tsv` では、`Evidence Readiness` でもまだログ追加の前段に見えるため、売り物をRCA/8D/顧客品質報告に転記できるcase artifactへ具体化する
+- `rca_8d_case_pack_viability_assessment.tsv` では、`RCA / 8D Evidence Case Pack` を単独外販/SaaSとしては弱いと判定し、炎上中または滞留中の品質案件に対するcase-triggered assessmentとしてのみ条件付き検証する
+- `eps_common_market_pain_reclassification.tsv` と `eps_common_pain_business_scores.tsv` では、RCA/8D単体をさらに主商品から下げ、市場で繰り返すEPS共通pain familyに対する `EPS Diagnostic / Robustness Coverage Benchmark` を主仮説に更新した
+- `eps_coverage_benchmark_business_value.tsv` では、Coverage BenchmarkはHIL/SILツールではなく、EPS市場painを診断coverage/評価coverage/release gateへ翻訳する短期assessmentとしてのみ価値が出ると整理した
+- `fam08_stop_start_low_speed_coverage_benchmark_sample.tsv` では、FAM08をstop-to-launch、power transient、motor drive、control state、calibration、diagnostic snapshot、HILS evidenceへ分解し、既存coverageとの差分を判断できるsampleにした
+- `fam08_immediate_visibility_triage.tsv` では、Coverage Benchmarkが既存HILS/DTC/diagnostic reviewの焼き直しか、評価・診断・release gateに入る余地があるかを1日以内に判定するための確認項目へ落とした
+- `coverage_benchmark_artifact_request_pack.tsv` では、P1本体へ進む前に、DTC/HILS/reader/release gate等の最小artifactをplaceholderで要求し、既存レビューの焼き直しかProceed余地があるかを切る
+- `coverage_benchmark_artifact_intake_result.tsv` と `coverage_benchmark_artifact_intake_decision.tsv` では、Repo/public proxyだけで10 artifact requestを実行した結果、row構造は作れるがactual HILS/DTC/freeze frame/review templateがなく、P1はProceedでもKillでもなくHoldと判定した
+- `coverage_benchmark_internal_placeholder_screening_sheet.tsv` では、Holdを次に進めるため、HILS title、related DTC、freeze frame field、review meeting nameの4点だけで既存reviewの焼き直しかを切る形にした
+- `coverage_benchmark_forced_conclusion.tsv` では、造語を減らし、有償assessmentとして売るのはNo-Go、公開分析継続・SaaS/HIL化・RCA/8D主商品化は止める、4項目確認は内部資料を使える場合だけの再開条件と整理した
+- `public_only_alternative_item_candidates.tsv` では、内部資料なしでも需要を説明しやすい候補として、EPS / steering ECU cybersecurity evidence pack、EPS ECU SBOM / vulnerability response pack、SOVD diagnostics content design、steer-by-wire evidence packを次の探索対象に置いた
+- `public_only_candidate_deep_dive.tsv` と `steering_ecu_cyber_evidence_sample.tsv` では、候補1と2を統合し、故障予測や追加ログではなく、EPS / steering ECUの診断アクセス、ソフト更新、SBOM、脆弱性対応をOEM説明・監査・設計レビューに使えるcomponent-level evidenceとして進める判断に更新した
+- `steering_ecu_software_cyber_offer_model.tsv`、`steering_ecu_software_cyber_work_products.tsv`、`steering_ecu_cve_triage_demo.tsv` では、候補1+2を固定スコープassessmentと仮想CVE triageデモへ落とした。現時点では売れる断定ではなく、既存CSMS/TARA/SBOM/CVE運用との差分を確認する探索継続判断である
+- `steering_ecu_cyber_value_check.tsv` では、既存TARA/SBOM/CVE管理ツールと強く被ることを確認し、この方向をかなりKill寄りのHoldへ下げた。残る価値はsteering ECU固有のOEM問い合わせ回答へ既存成果物を翻訳する薄い支援に限定した
+- `steering_ecu_cyber_kill_evidence_dossier.tsv` と `steering_ecu_cyber_kill_questions.tsv` では、広いTARA/SBOM/CVE/ISO21434/R155/R156商品をKillし、残す場合も5項目の存在確認で明確な不足が出た時だけ短期OEM回答支援に限定する判断へ更新した
+- `next_exploration_candidates_after_cyber_kill.tsv` では、次探索をSteer-by-wire安全/冗長/cyber設計証拠、SOVD/次世代診断コンテンツ設計、公開市場要求モニタの3つへ切り替えた。公開市場要求モニタは単体商品にせず、Steer-by-wireとSOVDの入力に限定する
+- `steer_by_wire_kill_first_review.tsv` では、Steer-by-wireに市場変化はあるが、汎用安全支援や汎用cyber支援は既存ISO 26262 / SOTIF / CSMS業務と被るため追わない判断にした。残る可能性は、従来EPSと異なるfail-operational / degraded state / redundancyを、EPSサプライヤのcomponent boundaryでOEM説明や設計レビューに接続できる場合だけである
+- `sovd_kill_first_review.tsv` では、SOVD platform / server / API / ODX / UDS変換は既存標準・既存ツール領域として主商品から外した。残る可能性は、EPSのDTC、DID、freeze frame、extended data、software ID、security accessを、次世代診断でどう見せるべきかというcontent designに限定する
+- `public_market_monitor_input_plan.tsv` では、公開recall/ODI/TSB monitorを単体商品にしない判断を明確にした。価値は市場シグナルを売ることではなく、Steer-by-wireとSOVDの設計質問・診断質問・禁止主張を作る入力に変換することである
+- `steer_by_wire_business_deep_dive.tsv` では、Steer-by-wire方向をさらに狭めた。残すのは汎用安全支援ではなく、既存の安全・サイバー・診断・software update成果物を、OEM説明、RFQ回答、診断コンテンツ設計へ転記しやすくするcomponent-boundary整理だけである
+- `steer_by_wire_redundancy_degraded_sample.tsv` では、車輪を動かす側の冗長系が一部落ちた場合を題材に、driver-visible behavior、remaining steering capability、diagnostic content、safety/cyber source、OEM answer、禁止主張を1ケースで確認できる形にした
+- `sbw_decision_materials.tsv` では、公開情報から見える市場変化、driver-visible degraded behavior、supplier-owned sensor/redundancy、NHTSA/VCAによる既存安全・認証業務との重複を分けた。これにより、SbW方向は公開情報だけで売れるとは言えないとした
+- `sbw_8_material_verification.tsv` では、8項目を公開情報で実際に当てた。architecture、degraded state、FMEA、DTC coverageは公開情報で論点確認できるが、software/calibration、security access、OEM質問、既存回答templateは公開情報ではUnknown。現行方針ではこの不足を非公開確認で埋めず、外販Proceedしない
+- `sbw_public_only_source_inventory.tsv` と `sbw_public_only_value_check.tsv` では、追加の公開情報収集を行った。SbWの市場変化は確認できるが、NHTSA、VCA、R79、ASAM SOVDにより安全・認証・診断論点は既存業務としてかなり見えており、公開情報だけで有償offerへ進める根拠は弱い。次に見る場合も、車輪を動かす側の冗長系が一部落ちた1ケースが既存資料の要約を超えるかだけを確認する
+- `wheel_side_steering_unit_plain_deep_dive.tsv` では、上記の英語中心表現を平易な日本語へ直した。結論は、車輪側操舵ユニット単独の新商材化は弱く、残すなら「異常時に何が起き、何を読め、何を断定してはいけないか」を1枚で説明できるかの検証に限定する
+- `sbw_explanation_support_no_go_reasoning.tsv` では、Steer-by-wire向け説明資料整理支援のNo-Go理由を明文化した。市場変化はあるが、成果物の持ち主が安全設計、認証、診断設計、ソフト、顧客技術窓口に既にいるため、汎用外販ではなく特定案件の短期支援にしか残らない
+- `coverage_benchmark_p1_assessment_plan.tsv`、`coverage_benchmark_family_reuse_matrix.tsv`、`coverage_benchmark_p1_decision_rubric.tsv` では、FAM08でProceed寄りになった場合にFAM02/FAM11へ横展開し、P1 assessmentとして成立するかを判定する最小構成へ落とした
+- `public_data_validation_sources.tsv` と `scn001_public_data_evidence_readiness.tsv` では、公開データで検証できるのは故障検知ではなく、RCA/8D/顧客品質説明に必要なfact骨格であることを確認した。assist current、limit state、DTC、reader可否は内部仕様なしでは検証できない

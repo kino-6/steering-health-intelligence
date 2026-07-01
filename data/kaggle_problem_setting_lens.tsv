@@ -1,0 +1,6 @@
+kaggle_item	what_to_read	hidden_intent	eps_supplier_translation	usable_as	not_use_as	buyer_user	next_artifact	kill_condition
+Bosch Production Line Performance	目的変数が内部不良、入力が製造ライン測定・試験データである点	後工程や最終検査で落ちる前に、怪しい個体や工程を早く見つけたい	EPS製造、工程検査、EOL検査で、再検査・保留・工程確認候補を順位付けする	製造品質 / EOL検査の隠れた需要シグナル	EPS市場故障予測、保証費削減実証、root cause断定	製造品質、工程設計、EOL検査	Bosch型をEPS製造/EOL検査へ読み替える1枚	既存SPC/BI/品質管理で十分、または個体単位の判断へ転記できない
+Mercedes-Benz Greener Manufacturing	目的変数がテストベンチ時間、入力が車両構成である点	多品種構成で評価・検査時間が読みにくく、試験計画や待ち時間を減らしたい	EPS variant、software、calibration、機能構成からbench/HILS/EOL評価時間や試験優先順位を見積もる	評価時間短縮 / 試験計画の隠れた需要シグナル	field failure prediction、OEM fleet analytics、品質保証DB連携	評価計画、HILS/bench、software/calibration release gate	Mercedes型をEPS評価計画へ読み替える1枚	評価時間のばらつきが小さい、または既存計画ツールで十分
+OBD-II and CAN driving behavior	目的変数が運転行動、入力がOBD/CANである点	車両利用状態や運転スタイルを分類したい	低速高操舵、急操舵、速度帯などの使用条件proxy	使用条件proxyの補助	EPS内部故障、DTC不足、assist/limit stateの実証	評価企画、公開proxy分析	使用条件proxyの補助棚卸し	EPS製造・評価判断へ接続しない
+Car-Hacking Dataset	目的変数がnormal/attack、入力がCAN trafficである点	車載通信の攻撃や異常を検出したい	診断通信やcyber demoの参考	cyber/IDS mechanicsの参考	EPS品質、製造不良、SbW安全説明の主証拠	サイバー担当、診断通信担当	既存cyber領域との重複確認	既存IDS/TARA/CSMS/ISO21434支援の言い換えになる
+Steering angle / behavioral cloning	目的変数が操舵角または操舵要求である点	自動運転・ADAS向けに操舵要求を推定したい	steering demand proxy	低速高操舵proxyの補助	品質判断、診断不足、故障予測の実証	公開proxy分析担当	優先度低の補助データ整理	ADAS/自動運転の話に流れ、EPSサプライヤの品質・評価判断に戻らない

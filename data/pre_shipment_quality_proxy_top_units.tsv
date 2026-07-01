@@ -1,0 +1,31 @@
+rank	unit_id	risk_score	actual_label_in_proxy	line	shift	variant	software	hour	lot	reason	recommended_action
+1	EPS-02403	0.963	pass	L2	B	base	SW_1.3	13	1030	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+2	EPS-03143	0.961	pass	L2	C	cold_region	SW_1.3	6	1039	functional current margin low; acoustic station high; electrical communication slow; EOL reserve low	EOL後に再検査または保留判定
+3	EPS-03070	0.953	pass	L2	C	base	SW_1.3	2	1038	calibration torque bias high; functional current margin low; electrical communication slow; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+4	EPS-02926	0.951	pass	L2	C	high_torque	SW_1.2	18	1036	calibration torque bias high; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+5	EPS-01532	0.945	pass	L2	B	base	SW_1.3	13	1019	calibration torque bias high; functional current margin low; acoustic station high; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+6	EPS-03256	0.942	pass	L3	C	high_torque	SW_1.2	12	1040	calibration torque bias high; functional current margin low; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+7	EPS-04729	0.938	pass	L2	C	cold_region	SW_1.3	22	1059	calibration torque bias high; functional current margin low; acoustic station high; electrical communication slow	EOL前にcalibration/torque関連を追加確認
+8	EPS-01146	0.932	pass	L2	C	base	SW_1.2	15	1014	calibration torque bias high; functional current margin low; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+9	EPS-03062	0.929	pass	L2	C	high_torque	SW_1.3	2	1038	calibration torque bias high; functional current margin low; acoustic station high; electrical communication slow	EOL前にcalibration/torque関連を追加確認
+10	EPS-03010	0.919	pass	L2	B	adas	SW_1.3	23	1037	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+11	EPS-02582	0.917	pass	L2	B	adas	SW_1.4	23	1032	calibration torque bias high; functional current margin low; acoustic station high; electrical communication slow	EOL前にcalibration/torque関連を追加確認
+12	EPS-02746	0.915	fail/retest	L2	B	high_torque	SW_1.3	8	1034	calibration torque bias high; functional current margin low; electrical communication slow; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+13	EPS-02515	0.909	pass	L2	B	high_torque	SW_1.3	19	1031	calibration torque bias high; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+14	EPS-02797	0.909	pass	L2	B	base	SW_1.4	11	1034	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+15	EPS-02551	0.908	pass	L2	C	high_torque	SW_1.3	21	1031	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+16	EPS-05230	0.907	pass	L2	C	cold_region	SW_1.3	2	1065	calibration torque bias high; functional current margin low; acoustic station high; electrical communication slow	EOL前にcalibration/torque関連を追加確認
+17	EPS-02912	0.907	pass	L2	C	high_torque	SW_1.4	17	1036	calibration torque bias high; acoustic station high; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+18	EPS-04115	0.897	pass	L3	B	adas	SW_1.3	12	1051	calibration torque bias high; functional current margin low; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+19	EPS-02985	0.892	pass	L2	C	adas	SW_1.2	21	1037	calibration torque bias high; functional current margin low; acoustic station high; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+20	EPS-05247	0.884	pass	L2	A	cold_region	SW_1.4	3	1065	calibration torque bias high; acoustic station high; electrical communication slow; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+21	EPS-05124	0.883	pass	L3	A	adas	SW_1.2	20	1064	calibration torque bias high; functional current margin low; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+22	EPS-02762	0.874	pass	L2	B	adas	SW_1.2	9	1034	calibration torque bias high; functional current margin low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+23	EPS-03021	0.870	pass	L2	A	adas	SW_1.3	23	1037	calibration torque bias high; functional current margin low; acoustic station high; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+24	EPS-02646	0.869	pass	L2	C	high_torque	SW_1.4	3	1033	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+25	EPS-04564	0.865	pass	L2	C	cold_region	SW_1.3	13	1057	calibration torque bias high; functional current margin low; acoustic station high	EOL前にcalibration/torque関連を追加確認
+26	EPS-05713	0.863	pass	L2	C	cold_region	SW_1.2	5	1071	calibration torque bias high; functional current margin low; acoustic station high	EOL前にcalibration/torque関連を追加確認
+27	EPS-02321	0.863	pass	L2	B	high_torque	SW_1.4	8	1029	calibration torque bias high; functional current margin low; electrical communication slow; EOL reserve low	EOL前にcalibration/torque関連を追加確認
+28	EPS-03140	0.862	pass	L2	B	high_torque	SW_1.3	6	1039	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+29	EPS-02726	0.858	pass	L2	B	high_torque	SW_1.3	7	1034	calibration torque bias high; functional current margin low; EOL reserve low; line L2 drift window	EOL前にcalibration/torque関連を追加確認
+30	EPS-02840	0.857	pass	L1	A	high_torque	SW_1.3	13	1035	calibration torque bias high; electrical communication slow; EOL reserve low	EOL前にcalibration/torque関連を追加確認

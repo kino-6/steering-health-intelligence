@@ -1,0 +1,5 @@
+cycle	plan	do	check	act	decision
+1	Kaggleを公開代替データではなく企業が外に出した目的変数として読む	Bosch、Mercedes-Benz、OBD/CAN、Car-Hacking、steering angle系を比較	BoschとMercedes-Benzは業務判断に近い目的変数を持つ。OBD/CAN等は使用条件proxy止まり	Bosch型とMercedes型だけを残す	Proceed narrowed
+2	Bosch型とMercedes型をEPSサプライヤの部署・帳票・判断に接続する	EOL検査、EPS/EPAS EOL test bench、品質データ蓄積、bench/HILS評価時間の公開情報を確認	EPS EOL試験は既に100%検査、機能・音響・通信、品質データ保存が存在。価値は試験追加ではなく判断支援へ移る	主仮説を製造・工程・EOLデータの判断支援へ修正	Proceed with reframing
+3	既存工程管理や評価計画の言い換えで終わらないかKill条件で絞る	仮説ごとに業務転記先、既存業務との差分、必要データ、Kill条件を整理	HYP001は再検査・保留・工程確認へ接続できるため残る。HYP002は評価時間のばらつき次第。HYP003は付属品	Bosch型proxyを最優先、Mercedes型は2番手、説明1枚は付属	Proceed to minimal demo
+4	次のデモで何を見ればKill/Proceedできるかを定義する	上位リスク個体、工程グループ説明、再検査/保留/工程確認への転記1枚をデモ要件に分解	精度競争ではなく、上位何件を見ればfail/retest候補を拾えるかと、現場判断が変わるかを見る	次アクションをBosch型proxy demoに固定	Next action defined

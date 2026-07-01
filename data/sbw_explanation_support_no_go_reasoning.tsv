@@ -1,0 +1,9 @@
+field	plain_conclusion	evidence_signal	impact_on_business	eps_supplier_decision
+Market demand	機械的なつながりをなくす操舵が量産へ進み、異常時説明の重要性は上がる	ZF/Mercedes-Benz 2026 supply; supplier public materials	市場変化はある	探索対象としては妥当
+Unresolved pain	公開情報では、外部サービスを買うほどの未解決painは見えない	VCA/NHTSA/ASAM show documentation, safety, diagnosis, and fault information as existing topics	購買需要は未証明	買い手を断定しない
+Hypothesis	既存資料をOEM向け1枚へつなぐ短期支援なら残る可能性がある	Existing public sources span safety, certification, diagnosis, software, and customer explanation	汎用商材ではなく案件支援に縮小	外販Proceedしない
+Solution	異常時に車がどう動き、何が表示され、何が読め、何を断定しないかを1枚にする	Docs 58/59 and public source inventory	既存資料の要約を超えるかだけを見る	判断資料として作る
+Buyer user	利用者候補はシステム設計、安全設計、診断設計、ソフト、顧客技術窓口	No public evidence of budget owner	買い手は未確定	予算主張しない
+Why weak	成果物の持ち主が既にいる	Safety, certification, diagnosis, software update, customer interface are existing roles	置き換え提案は弱い	既存成果物をつなぐだけに限定
+Supplier boundary	EPSサプライヤが言えるのは部品境界内の事実まで	NHTSA/VCA sources are vehicle/system-level; supplier materials are component-level	車両全体の安全や認証は言えない	禁止主張を明確化
+Kill criteria	既存安全/認証/診断資料の要約にしかならないなら止める	CoVe review	商材化しない	Stop

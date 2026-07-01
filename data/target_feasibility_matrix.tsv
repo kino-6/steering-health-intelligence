@@ -1,0 +1,11 @@
+id	target	role	offering_fit	feasibility	attractiveness	data_access	initial_pitch	recommended_role
+TF001	EPS system / gear supplier	Primary target	EPS Health Intelligence Package	Medium-High	High	Medium	EPS内部信号から故障可能性・劣化兆候・予測用材料を出し、OEMへhealth-ready EPSとして提案する	Primary buyer
+TF002	Vehicle OEM	VHM / connected platform owner	EPS health signal for Vehicle Health Management	Medium	High	High	EPSを車両全体のhealth signalに接続し、市場品質・保証・サービス診断に使う	Required adoption buyer
+TF003	OEM market quality	User / beneficiary	EPS cohort trend and warranty quality signal	Medium	Medium-High	High	車種・地域・calibration別にEPS兆候の偏りを見て、市場品質対応に使う	Secondary buyer
+TF004	OEM service engineering	User / beneficiary	EPS check recommendation and diagnostic context	Medium	Medium	Medium	サービス入庫時に追加診断要否と原因候補を示す	Downstream user
+TF005	OEM OTA / remote diagnostics	Readout channel	EPS health summary readout	Medium	Medium	High	OTAやremote diagnostics時にEPS health indicatorを読む	Channel, not core target
+TF006	OTA / SDV platform vendor	Channel partner	EPS-specific health content plugin	Medium-Low	Medium	Medium	水平基盤にEPSドメイン固有health logicを載せる	Possible partner
+TF007	Return-part analysis team	User / validator	Usage and stress history for returned EPS	Medium-High	Medium	Medium	返却品解析で市場使用中の負荷・一時異常履歴を確認する	Validation user
+TF008	ECU supplier internal team	Developer / proposer	Indicator extraction and diagnostic implementation	High	Medium	High	既存ECU信号からhealth indicatorを算出・保存・読出し可能にする	Phase 0 executor
+TF009	Fleet / commercial OEM	Later niche customer	EPS health as uptime and safety signal	Low-Medium	Medium	Medium	車両全体healthの一部としてEPS兆候を扱う	Later target
+TF010	End user	Avoid initial target	EPS failure / degradation notification	Low	Low	Low	ユーザ通知は誤通知・不安・責任リスクが高い	Avoid

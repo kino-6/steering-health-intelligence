@@ -1,0 +1,7 @@
+gate_id	gate	owner	pass_condition	fail_condition	current_status	impact
+KG01	製品企画で用途別価値説明に使える	製品企画	都市配送、駐車操作が多い用途、狭い市街地などの価値説明に使える	既存カタログ/RFQ回答で十分、または用途別価値に転記できない	Unknown	PVC001の製品価値が弱くなる
+KG02	診断企画で補助contextとして使える	診断企画	DTC / freeze frameだけでは説明しにくい低速・駐車・凹凸contextを補助できる	既存DTC / freeze frame / extended dataで十分に説明できる	Unknown	PVC001の診断価値が弱くなる
+KG03	原因断定に見えない	製品企画; 診断企画; 顧客技術説明	使用負荷classであり、故障原因、残寿命、交換時期ではないと理解される	駐車操作や凹凸が故障原因だと読まれる	Unknown	Failなら外部説明には使えない
+KG04	既存評価scenarioの言い換えで終わらない	評価企画	既存評価の代表性確認やgap確認に使える	既存評価scenario名の言い換えにしかならない	Unknown	Failなら評価企画向け価値はKill
+KG05	OEM保証DB/fleet dataなしでも初期価値がある	品質改善; 診断企画	社内の使用context整理、診断説明、製品価値説明に使える	OEM保証DB、fleet data、service outcomeがないと何も判断できない	Unknown	Failなら現行ルールではStop
+KG06	2部署以上に具体的な使い道がある	全体	製品企画、診断企画、品質改善、評価企画のうち2部署以上が具体的な利用場面を挙げる	0〜1部署しか刺さらない	Unknown	FailならULC008だけでなくPVC001全体を再検討

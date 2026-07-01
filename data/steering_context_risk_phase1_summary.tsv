@@ -1,0 +1,19 @@
+section	item	count	interpretation	next_use
+dataset	cases	38	Public EPS pain cases collected from NHTSA / recall / investigation / public report sources	Input size for Phase 1 static analysis
+source_type	NHTSA ODI investigation	10	Investigation records provide the densest public complaint / population / incident signals	Use as primary pain evidence
+source_type	NHTSA recall bulletin	6	Recall bulletins expose remedy and driver-visible symptom wording	Use for remedy and scenario mapping
+source_type	NHTSA recall FAQ	6	FAQs often describe what drivers see or feel	Use for customer-language pain wording
+source_type	NHTSA recall acknowledgement	5	Acknowledgements often include affected population and defect summary	Use for scale signals
+proxy_feature_hint	intermittent_ignition_cycle	8	Assist loss that lasts for an ignition cycle and may recover after restart is the strongest repeated pattern in the table	Demo as intermittent-context scenario, not prediction
+proxy_feature_hint	warning_plus_low_speed_effort	4	Warning plus increased low-speed effort is a clear driver-visible context	Use in Evidence Gap Overlay
+proxy_feature_hint	low_speed_high_effort	4	Low-speed steering effort appears repeatedly and is directly tied to driver burden	Use as first proxy feature
+proxy_feature_hint	voltage_temperature_friction_context	3	Public Ford investigation shows existing EPS DTC/context categories already include voltage, temperature, and friction	Use to avoid overclaiming novelty
+proxy_feature_hint	rough_road_pothole_context	2	Road disturbance appears in Tesla Model S/X recall context	Use as road-context proxy if dataset has roll/roughness signals
+proxy_feature_hint	stop_start_low_speed_context	2	Stop-start low-speed assist loss appears in Tesla Model 3/Y public reporting	Use as low-speed maneuver context
+proxy_feature_hint	gradual_turn_sticking_oversteer	2	Chrysler Pacifica investigation gives a specific gradual-turn / steering-position scenario	Use as a compelling context-specific scenario
+driver_visible_pain	increased_effort_family	25	Most public cases collapse to increased steering effort or loss of assist felt by the driver	Core market pain theme
+driver_visible_pain	warning_lamp_chime_family	8	Warnings / lamps / chimes appear often enough to model as a separate user experience signal	Use as simulated EPS-local missing signal
+driver_visible_pain	intermittent_or_sticking_family	10	Intermittent assist loss and sticking sensations are especially relevant to context exploration	Use for event-window visualization concept
+remedy	replace_steering_gear_or_motor_family	17	Many public remedies are hardware / gear / motor / assembly replacement, not user-facing analytics	Reinforces that proxy demo does not prove product adoption
+remedy	software_or_ota_family	5	Some public cases use software / OTA remedy, showing software path exists for certain EPS issues	Optional future channel, not core proof
+boundary	missing_internal_eps_signals	0	Public sources do not provide assist current, motor torque, DTC freeze frame, or return-part outcomes	Must be stated in demo

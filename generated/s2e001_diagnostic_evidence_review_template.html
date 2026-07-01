@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S2E001 Diagnostic Evidence Review Template</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #5d6678;
+      --line: #d9dee8;
+      --panel: #f7f9fc;
+      --go: #0f766e;
+      --hold: #b45309;
+      --kill: #b91c1c;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header, main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .decision-grid, .candidate-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .decision-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 20px;
+    }
+    .candidate-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .panel {
+      background: var(--panel);
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .go { background: var(--go); }
+    .hold { background: var(--hold); }
+    .kill { background: var(--kill); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      background: #fbfcfe;
+      font-weight: 700;
+    }
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code {
+      background: #eef3f8;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    @media (max-width: 820px) {
+      header, main { padding: 24px 16px; }
+      h1 { font-size: 27px; }
+      .decision-grid, .candidate-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>S2E001 Diagnostic Evidence Review Template</h1>
+    <p>現時点の結論はHold。公開データだけでは既存DTC / freeze frame / extended dataで足りないと断定できないため、low_speed_high_effortは追加証跡商品としては未成立です。</p>
+    <p>内部DTC仕様、freeze frame、extended data、返却品reader、NVM制約は「要求資料」ではなく、Proceed扱いに進めるための判定ゲートです。確認できない場合はHoldまたはKillに寄せます。</p>
+    <div class="decision-grid">
+      <section class="card panel">
+        <span class="tag hold">Default</span>
+        <h3>Hold</h3>
+        <p>内部仕様が未確認ならここで止める。公開データ分析を増やしても、追加証跡価値の証明には進みません。</p>
+      </section>
+      <section class="card panel">
+        <span class="tag kill">Kill</span>
+        <h3>既存診断で十分</h3>
+        <p>Candidate A/B/C相当が既に残る、読めない、NVMに収まらない、顧客品質報告で使えない場合。</p>
+      </section>
+      <section class="card panel">
+        <span class="tag go">Proceed</span>
+        <h3>最小候補だけ進める</h3>
+        <p>既存に明確な不足があり、scalar summaryで済み、サプライヤが読め、観測事実として説明できる場合。</p>
+      </section>
+    </div>
+  </header>
+  <main>
+    <h2>Candidate判定</h2>
+    <div class="candidate-grid">
+      <section class="card">
+        <h3>Candidate A</h3>
+        <p><strong>Demand-to-output margin</strong></p>
+        <p>assist command、actual motor current、current tracking errorが現行snapshotに無ければ候補。</p>
+      </section>
+      <section class="card">
+        <h3>Candidate B</h3>
+        <p><strong>Limit / derating reason</strong></p>
+        <p>current limit、thermal derating、voltage limitation、assist limitation reasonが現行DTCに残らなければ候補。</p>
+      </section>
+      <section class="card">
+        <h3>Candidate C</h3>
+        <p><strong>Pre-event scalar summary</strong></p>
+        <p>DTC発火前1-3秒のsummaryが既存event memoryに無い場合だけ候補。波形保存はしない。</p>
+      </section>
+    </div>
+
+    <h2>Review Rows</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Event family</th>
+            <th>What to fill</th>
+            <th>Main decision</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>REV001</td><td>assist_loss_or_assist_limited</td><td>freeze frame, extended data, A/B/C対応</td><td>ここで十分ならS2E001は大きく弱い</td><td>diagnostic engineering</td></tr>
+          <tr><td>REV002</td><td>current_limit_or_motor_current_tracking</td><td>assist command/current/current tracking error</td><td>Candidate Aの価値判定</td><td>control software</td></tr>
+          <tr><td>REV003</td><td>voltage_related_assist_reduction</td><td>assist関連DTCでも電圧が残るか</td><td>電圧は既存で十分なら追加不要</td><td>diagnostic engineering</td></tr>
+          <tr><td>REV004</td><td>thermal_derating_or_over_temperature</td><td>thermal derating level / assist limitation reason</td><td>Candidate Bの一部</td><td>control software</td></tr>
+          <tr><td>REV005</td><td>torque_sensor_plausibility_or_connector</td><td>raw / redundant / residual値</td><td>センサ/コネクタ文脈の説明力</td><td>diagnostic engineering</td></tr>
+          <tr><td>REV006</td><td>assist_mode_transition_or_failsafe</td><td>assist mode, failsafe, transition reason</td><td>一過性/復帰edgeの説明力</td><td>control software</td></tr>
+          <tr><td>REV007</td><td>no_dtc_customer_complaint</td><td>DTC無し苦情のevent trigger</td><td>価値は高いが過保存リスクも高い</td><td>quality engineering</td></tr>
+          <tr><td>REV008</td><td>return_part_reader_path</td><td>DID / reader / ODX / 権限</td><td>読めなければProceed不可</td><td>diagnostic tools</td></tr>
+          <tr><td>REV009</td><td>nvm_budget_and_write_policy</td><td>byte数、保存件数、debounce、write trigger</td><td>Candidate Cの実現性</td><td>software architecture</td></tr>
+          <tr><td>REV010</td><td>customer_quality_report_template</td><td>観測事実/未確認/推定の文言</td><td>報告で使えなければ価値低い</td><td>quality engineering</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>判定ゲート</h2>
+    <p><code>assist loss / assist limited</code> 系DTCのfreeze frame、<code>current limit / current tracking</code> 系DTCのextended data、assist mode transitionのevent memory有無、返却品readerで読めるDID一覧、NVM保存制約。これらが確認できない場合、S2E001は公開デモ/評価シナリオとして止め、追加証跡ビジネス仮説としては進めません。</p>
+  </main>
+</body>
+</html>

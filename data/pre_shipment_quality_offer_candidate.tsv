@@ -1,0 +1,12 @@
+field	content
+market_demand	EPSサプライヤの製造・検査・評価では、後工程で不合格、再検査、保留、手戻りになる個体や条件を早く見たい
+unresolved_pain	EOLで落ちるまで怪しい個体が見えず、工程測定値が多くても再検査、保留、工程確認の優先順位に落ちにくい
+hypothesis	工程・検査・EOLデータから、出荷前に要注意個体を順位付けし、工程グループ説明を付ければ、製造品質とEOL検査の判断支援になる
+solution	上位リスク個体リスト、工程グループ説明、再検査/保留/工程確認メモ、禁止主張リストを作る
+buyer_user	製造品質、工場品質保証、EOL検査、工程設計
+initial_artifact	Bosch型Kaggle proxyで、上位1/5/10%リスク個体がfail/retest/holdをどれだけ拾うかを示すHTML/TSV
+verification_method	Kaggle上ではrare fail捕捉、工程/時刻特徴量、上位リストの説明可能性を見る。実EPSでは工程名、測定名、設備、時刻、retest/holdラベルが必要
+eps_supplier_can_play	製造ライン、工程検査、EOL結果、retest/hold/scrap、設備、時刻、software/calibrationはサプライヤ側が持てる可能性がある
+what_not_to_claim	出荷後故障予測、EOL検査省略、保証費削減、root cause断定、既存工程管理より優れること
+kill_condition	上位リスク個体がfail/retest/holdを拾えない、拾えても現場アクションがない、既存SPC/MES/BIで十分、工程名や測定名が使えない
+current_decision	Proceed to Bosch型proxy demo。Mercedes型の評価時間スクリーニングは2番手

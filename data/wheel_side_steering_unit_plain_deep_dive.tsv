@@ -1,0 +1,9 @@
+field	plain_answer	evidence_signal	eps_supplier_conclusion	kill_condition
+Market demand	機械的なつながりをなくす操舵では、車輪を動かす側の部品が中心になる	Bosch, ZF, Schaeffler public product pages show steering wheel side, wheel side, and software functions	市場変化としては見る価値がある	車輪側部品の説明が公開情報で一般論にしかならない
+Unresolved pain	異常時説明がシステム、安全、診断、ソフト、顧客窓口をまたぐ	Public regulation and safety sources require documentation, fault strategy, verification, and diagnostic coverage	部署横断の説明1枚に狭い価値が残る可能性がある	既存安全資料だけで同じ説明が自然に出る
+Hypothesis	車輪側の異常時について、言えることと言ってはいけないことを平易な1枚にする	NHTSA covers motor/control/communication/warning/DTC topics; ASAM SOVD covers fault information and data access	売り物ではなく探索用の説明テンプレートとして試す	1枚がNHTSA/VCA/R79の要約にしかならない
+Solution	車がどう動くか、運転者に何が見えるか、診断で何が読めるかを並べる	Tesla manual and NHTSA/VCA public materials show degraded behavior and safety/diagnostic topics	顧客説明や設計レビューに転記できるかを見る	診断で何を読めるかが公開情報だけでは説明できない
+Buyer user	買い手は未確定。利用者候補はシステム設計、安全設計、診断設計、ソフト、顧客技術窓口	Public sources do not prove budget owner	買い手断定はしない	利用者の業務成果物に貼れない
+Initial artifact	車輪側操舵ユニット異常時説明1枚、言えること/言えないこと一覧、Kill判定表	Existing repo docs 55/58 plus Bosch/ZF/Schaeffler/VCA/NHTSA/ASAM	固定スコープ商材化前の探索資料に留める	資料名だけ増えて判断が進まない
+Verification method	公開情報だけで作り、既存安全・認証・診断資料の要約を超えるか見る	No internal DTC, safety case, RFQ, or customer template is used	内部資料を要求しない方針を維持する	内部資料なしでは何も言えない構成になる
+Kill criteria	既存資料の要約、一般安全説明、診断不明、境界不明なら止める	CoVe review in docs/59	Stop条件を明文化する	Stop条件を満たしたまま継続する

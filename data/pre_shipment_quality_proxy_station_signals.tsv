@@ -1,0 +1,7 @@
+signal_group	units	fail_or_retest_rate	lift_vs_overall	shop_floor_read
+line_l2_drift_window	264	0.030	3.2	L2の時刻/lot/設備ドリフトを工程確認
+eol_reserve_low	600	0.027	2.8	EOL reserve低下個体を保留/再検査候補へ
+functional_current_margin_low	600	0.025	2.6	機能検査の電流余裕低下を再検査条件へ
+calibration_torque_bias_high	600	0.012	1.2	calibration工程のトルク偏りを追加確認
+acoustic_noise_high	600	0.010	1.1	音響/組付工程の設備・治具確認
+electrical_can_response_slow	600	0.008	0.9	通信応答とsoftware/calibration条件を確認

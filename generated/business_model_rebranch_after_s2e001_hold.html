@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Model Rebranch After S2E001 Hold</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #5d6678;
+      --line: #d9dee8;
+      --panel: #f7f9fc;
+      --go: #0f766e;
+      --hold: #b45309;
+      --stop: #b91c1c;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header, main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .notice {
+      border-left: 4px solid var(--hold);
+      background: #fffbeb;
+      color: #713f12;
+      padding: 12px 14px;
+      margin-top: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+    }
+    .panel { background: var(--panel); }
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .go { background: var(--go); }
+    .hold { background: var(--hold); }
+    .stop { background: var(--stop); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      background: #fbfcfe;
+      font-weight: 700;
+    }
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code {
+      background: #eef3f8;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    @media (max-width: 820px) {
+      header, main { padding: 24px 16px; }
+      h1 { font-size: 27px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Business Model Rebranch After S2E001 Hold</h1>
+    <p>S2E001の追加証跡商品化はHold。次は、公開市場文脈を使って評価・設計レビュー・RFQ支援に再分岐する。</p>
+    <p class="notice">止めるのは「公開データだけでECU追加証跡商品を売ること」。進めるのは「市場痛みを設計・評価・品質の意思決定に変換すること」。</p>
+  </header>
+  <main>
+    <h2>Recommended Top 3</h2>
+    <div class="grid">
+      <section class="card panel">
+        <span class="tag go">1</span>
+        <h3>EPS Market Pain Scenario Library</h3>
+        <p>NHTSA/recall/public CANから、EPSで揉めやすいdriver-visible painを評価シナリオ化する。</p>
+        <p><strong>Sell now:</strong> scenario cards, proxy windows, design review questions.</p>
+      </section>
+      <section class="card panel">
+        <span class="tag go">2</span>
+        <h3>RFQ / Design Review Evidence Pack</h3>
+        <p>OEM向けRFQや設計レビューで、市場文脈への備えを説明する資料パック。</p>
+        <p><strong>Sell now:</strong> diagnostic explainability / scenario readiness.</p>
+      </section>
+      <section class="card panel">
+        <span class="tag go">3</span>
+        <h3>Diagnostic Evidence Design Review Workshop</h3>
+        <p>既存DTC/freeze frame/extended dataが市場痛みを説明できるかを短期レビューする。</p>
+        <p><strong>Sell now:</strong> Proceed / Kill / Hold assessment.</p>
+      </section>
+    </div>
+
+    <h2>Rebranch Matrix</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Lane</th>
+            <th>Business model</th>
+            <th>Why it survives</th>
+            <th>What not to claim</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Internal-data-light</td><td>BMR001 EPS Market Pain Scenario Library</td><td>公開データだけで初期成果物が作れる</td><td>故障予測、既存診断不足の断定</td></tr>
+          <tr><td>Internal-data-light</td><td>BMR002 RFQ / Design Review Evidence Pack</td><td>追加証跡なしでも提案資料として価値がある</td><td>量産診断証跡の搭載済み主張</td></tr>
+          <tr><td>Internal-data-light</td><td>BMR003 Diagnostic Evidence Design Review Workshop</td><td>S2E001 Holdをレビュー商品導線にできる</td><td>追加証跡実装の必要性断定</td></tr>
+          <tr><td>Internal-data-light</td><td>BMR004 Public NTF / Warranty Risk Intelligence</td><td>公開市場の痛みから品質レビュー論点を作れる</td><td>保証費削減保証</td></tr>
+          <tr><td>Internal-data-light</td><td>BMR005 Evaluation Scenario Generator</td><td>Phase 2のproxy抽出を評価入力に転用できる</td><td>EPS fault reproduction</td></tr>
+          <tr><td>Internal-data-optional</td><td>BMR006 Evidence Gap Assessment</td><td>DTC仕様がある場合だけ判定可能</td><td>公開情報だけでの不足断定</td></tr>
+          <tr><td>Internal-data-optional</td><td>BMR007 Customer Quality Fact Summary Generator</td><td>実案件があれば報告表現を整理できる</td><td>8D回答自動化、root cause断定</td></tr>
+          <tr><td>OEM-dependent</td><td>BMR010 Warranty Correlation Analytics</td><td>価値は大きいが初期には追わない</td><td>サプライヤ単独の商品</td></tr>
+          <tr><td>Do-not-pursue-now</td><td>BMR012 Embedded Low-Speed Event Add-on</td><td>S2E001 Holdのため現時点では売らない</td><td>公開データだけで価値ありという主張</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Next Action</h2>
+    <p>次は <code>BMR001 EPS Market Pain Scenario Library</code> として、<code>low_speed_high_effort</code>、<code>gradual_turn_sticking_oversteer</code>、<code>warning_plus_low_speed_effort</code> のscenario cardを3枚作る。</p>
+  </main>
+</body>
+</html>
