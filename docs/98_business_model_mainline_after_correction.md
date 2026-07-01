@@ -26,6 +26,9 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、自社�
 
 詳細表は [data/business_model_mainline_after_correction.tsv](../data/business_model_mainline_after_correction.tsv) に置く。
 
+この結論を受けた4枚の最小パックは、[docs/100_oem_usage_translation_minimum_pack.md](100_oem_usage_translation_minimum_pack.md) と [data/oem_usage_translation_minimum_pack.tsv](../data/oem_usage_translation_minimum_pack.tsv) に置く。
+その4枚を社内で確認する質問票は、[docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md) と [data/oem_usage_translation_review_questions.tsv](../data/oem_usage_translation_review_questions.tsv) に置く。
+
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
 直近の議論で補正すべき点は、「駐車場 + 低速 + 大舵角 + 凹凸」を有望用途として先に置くと、意味がぼやけることである。
