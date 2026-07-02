@@ -124,7 +124,7 @@ Repoで使うなら、「AIや上位softwareが増えるほど、操舵側が受
 
 2026年のBosch / Uptake発表とBosch Predictive Diagnosticsを見ると、fleet / connected vehicle / cloud diagnosticsの文脈では、predictive maintenance、vehicle health、component-specific load and diagnostic featuresが明確に出ている。
 この点は [docs/103_bosch_predictive_diagnostics_meaning_review.md](103_bosch_predictive_diagnostics_meaning_review.md) に切り出す。
-つまり、`AI cockpit` や `motion integration platform` からEPS故障予測を読むのではなく、`Predictive Diagnostics` と `Cloud and predictive diagnostics` から、操舵系として早く分かると嬉しい状態を定義できるかを見る。
+つまり、`AI cockpit` や `motion integration platform` からEPS故障予測を読むのではなく、`Predictive Diagnostics` と `Cloud and predictive diagnostics` から、steering predictive diagnostics / predictive maintenance / vehicle healthの対象を読む。
 
 ## 未解決の痛み
 
