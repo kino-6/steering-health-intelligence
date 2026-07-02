@@ -38,6 +38,10 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、自社�
 この補正は [docs/103_bosch_predictive_diagnostics_meaning_review.md](103_bosch_predictive_diagnostics_meaning_review.md) と [data/bosch_predictive_diagnostics_meaning_review.tsv](../data/bosch_predictive_diagnostics_meaning_review.tsv) に置く。
 公開情報から抽出した操舵系predictive state候補は、[docs/104_steering_predictive_state_candidate_scan.md](104_steering_predictive_state_candidate_scan.md) と [data/steering_predictive_state_candidates.tsv](../data/steering_predictive_state_candidates.tsv) に置く。
 
+改めてBoschの予測ビジネスを収集・分析した結果、Boschの本線はAIモデル単体ではなく、接続、クラウド診断、predictive diagnostics、predictive maintenance、vehicle health、整備計画、保証・品質判断までを束ねる業務パッケージであると整理した。
+EPSサプライヤ側では、Bosch型platformを自前で作るのではなく、操舵系をpredictive diagnostics / predictive maintenance / vehicle healthの対象として扱うためのstate、必要データ、整備action、禁止主張を切ることが次の論点になる。
+この分析は [docs/105_bosch_predictive_business_analysis.md](105_bosch_predictive_business_analysis.md) と [data/bosch_predictive_business_analysis.tsv](../data/bosch_predictive_business_analysis.tsv) に置く。
+
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
 直近の議論で補正すべき点は、「駐車場 + 低速 + 大舵角 + 凹凸」を有望用途として先に置くと、意味がぼやけることである。
