@@ -117,7 +117,7 @@ Acceptance criteria:
 
 Verification:
 
-- 「内部事実が見えないから全滅」に戻っていない
+- 内部事実が見えないことだけで候補全体を落とす旧ロジックに戻っていない
 - 内部事実不足は、過剰主張を禁止する境界として扱っている
 - OEM保証DBやfleet dataを前提にしすぎていない
 
@@ -147,7 +147,7 @@ Verification:
 
 Expected output:
 
-- `docs/108_steering_predictive_diagnostics_supplier_workflow_fit.md`
+- `docs/110_steering_predictive_diagnostics_supplier_workflow_fit.md`
 - `data/steering_predictive_diagnostics_supplier_workflow_fit.tsv`
 
 ## Phase 5: Proceed / Hold / Stopを決める
@@ -173,8 +173,23 @@ Verification:
 
 Expected output:
 
-- `docs/109_steering_predictive_diagnostics_screening_decision.md`
+- `docs/111_steering_predictive_diagnostics_screening_decision.md`
 - `data/steering_predictive_diagnostics_screening_decision.tsv`
+
+## Current File Numbering
+
+実行中にProceed候補の深掘りを追加したため、計画時点の想定番号から一部ずれている。
+
+現在の対応は次である。
+
+| Phase | 内容 | Current output |
+|---|---|---|
+| Phase 1 | Bosch型予測ビジネス要求を操舵系screening要求へ変換 | `data/steering_predictive_diagnostics_screening_requirements.tsv` |
+| Phase 2 | 操舵系predictive state候補を再整理 | `docs/107_steering_predictive_diagnostics_state_screening.md`, `data/steering_predictive_diagnostics_state_screening.tsv` |
+| Proceed deep dive | Proceed候補を深掘り | `docs/108_steering_predictive_diagnostics_proceed_deep_dive.md`, `data/steering_predictive_diagnostics_proceed_deep_dive.tsv` |
+| Phase 3 | 必要データと権限境界を切る | `docs/109_steering_predictive_diagnostics_data_boundary.md`, `data/steering_predictive_diagnostics_data_boundary.tsv` |
+| Phase 4 | EPSサプライヤ内の部署別に使い道を切る | `docs/110_steering_predictive_diagnostics_supplier_workflow_fit.md`, `data/steering_predictive_diagnostics_supplier_workflow_fit.tsv` |
+| Phase 5 | Proceed / Hold / Stopを決める | `docs/111_steering_predictive_diagnostics_screening_decision.md`, `data/steering_predictive_diagnostics_screening_decision.tsv` |
 
 ## Checkpoint
 

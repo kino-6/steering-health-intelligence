@@ -249,7 +249,7 @@ OEM / fleet / platformがないと言えないもの:
 
 ## 次のTask
 
-次は、Phase 3として [data/steering_predictive_diagnostics_data_boundary.tsv](../data/steering_predictive_diagnostics_data_boundary.tsv) を作る。
+次のPhase 3結果は、[docs/109_steering_predictive_diagnostics_data_boundary.md](109_steering_predictive_diagnostics_data_boundary.md) と [data/steering_predictive_diagnostics_data_boundary.tsv](../data/steering_predictive_diagnostics_data_boundary.tsv) に置く。
 
 対象は、まず次の5件に絞る。
 
