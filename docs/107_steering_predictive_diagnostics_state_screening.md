@@ -13,6 +13,7 @@ Phase 1とPhase 2を実行した結果、操舵系で `predictive diagnostics / 
 
 Task 1の要求変換表は [data/steering_predictive_diagnostics_screening_requirements.tsv](../data/steering_predictive_diagnostics_screening_requirements.tsv) に置く。
 Task 2のstate別screening表は [data/steering_predictive_diagnostics_state_screening.tsv](../data/steering_predictive_diagnostics_state_screening.tsv) に置く。
+Proceed候補の深掘りは [docs/108_steering_predictive_diagnostics_proceed_deep_dive.md](108_steering_predictive_diagnostics_proceed_deep_dive.md) と [data/steering_predictive_diagnostics_proceed_deep_dive.tsv](../data/steering_predictive_diagnostics_proceed_deep_dive.tsv) に置く。
 
 ## 何を判断しているか
 

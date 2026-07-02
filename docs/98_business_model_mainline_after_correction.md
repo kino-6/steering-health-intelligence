@@ -44,6 +44,8 @@ EPSサプライヤ側では、Bosch型platformを自前で作るのではなく�
 次に実施するscreening計画は [docs/106_steering_predictive_diagnostics_screening_plan.md](106_steering_predictive_diagnostics_screening_plan.md) に置く。
 Phase 1/2の実行結果として、Bosch型予測ビジネスの要求を操舵系screening要求へ変換し、既存の操舵系predictive state候補を再整理した。
 結果は [docs/107_steering_predictive_diagnostics_state_screening.md](107_steering_predictive_diagnostics_state_screening.md)、[data/steering_predictive_diagnostics_screening_requirements.tsv](../data/steering_predictive_diagnostics_screening_requirements.tsv)、[data/steering_predictive_diagnostics_state_screening.tsv](../data/steering_predictive_diagnostics_state_screening.tsv) に置く。
+Proceed候補を深掘りし、低/高電圧または過温度によるreduced assist、複合電気症状、外部信号/通信validity、熱保護近傍、DTC履歴再発監視の順でPhase 3対象に置いた。
+この深掘りは [docs/108_steering_predictive_diagnostics_proceed_deep_dive.md](108_steering_predictive_diagnostics_proceed_deep_dive.md) と [data/steering_predictive_diagnostics_proceed_deep_dive.tsv](../data/steering_predictive_diagnostics_proceed_deep_dive.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 

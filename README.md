@@ -170,7 +170,7 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 | Kaggle/Bosch線 | 公開データそのものではなく、外に出された問題設定から隠れた需要を読む観点として使う。Bosch型の製造品質 / EOL検査、Mercedes型の評価時間短縮は現テーマ外。KGL003/005/006/007/008は、OEM用途想定をEPS側確認観点へ翻訳するための公開proxy入力として残す |
 | Bosch公開シグナル | BoschのAct-by-Wire、Vehicle Motion Management、Motion integration platform、AI/SDV公開情報は、EPS故障予測の根拠ではない。ただし、by-wire / motion-domain時代に、上位制御から操舵側へ来る要求を、EPSサプライヤの受け入れ境界、制限境界、診断境界、禁止主張へ翻訳する必要が増える可能性を示す |
 | Bosch予測診断シグナル | 2026年のBosch / Uptake発表とBosch Predictive Diagnosticsでは、fleet / connected vehicle / cloud diagnostics文脈でAI-driven predictive maintenance、vehicle health、component-specific load and diagnostic featuresが明確に出ている。このブランチでは、steering predictive diagnostics / predictive maintenance / vehicle healthを正面から扱う |
-| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。加えて、Bosch公開シグナルを受けて、上位motion controllerから来る操舵要求の受け入れ境界と、steering predictive diagnostics / predictive maintenance / vehicle healthの対象を確認する。4枚の最小パックは `docs/100`、質問票は `docs/101`、Bosch motion枝は `docs/102`、Bosch予測診断枝は `docs/103`、操舵系predictive state候補は `docs/104`、Bosch予測ビジネス分析は `docs/105`、screening計画は `docs/106`、Phase 1/2結果は `docs/107` に切り出した。内部事実の不足だけでKillしない |
+| 次アクション | `ULC008` を最有力、`ULC004` を二番手、`PVC004` を境界候補として、OEM用途想定をどの業務成果物へ翻訳できるかを確認する。加えて、Bosch公開シグナルを受けて、上位motion controllerから来る操舵要求の受け入れ境界と、steering predictive diagnostics / predictive maintenance / vehicle healthの対象を確認する。4枚の最小パックは `docs/100`、質問票は `docs/101`、Bosch motion枝は `docs/102`、Bosch予測診断枝は `docs/103`、操舵系predictive state候補は `docs/104`、Bosch予測ビジネス分析は `docs/105`、screening計画は `docs/106`、Phase 1/2結果は `docs/107`、Proceed深掘りは `docs/108` に切り出した。内部事実の不足だけでKillしない |
 
 ## 推奨読書順
 
@@ -198,6 +198,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [docs/107_steering_predictive_diagnostics_state_screening.md](docs/107_steering_predictive_diagnostics_state_screening.md): Phase 1/2の実行結果。Bosch型予測ビジネス要求を操舵系screening要求へ変換し、SPS001-SPS007をmaintenance action、vehicle health output、diagnostic triage、quality/warranty investigationへ並べ替えた。
 1. [data/steering_predictive_diagnostics_screening_requirements.tsv](data/steering_predictive_diagnostics_screening_requirements.tsv): Bosch予測ビジネスのBBA001-BBA010を、操舵系screening requirementへ変換したTSV。
 1. [data/steering_predictive_diagnostics_state_screening.tsv](data/steering_predictive_diagnostics_state_screening.tsv): 操舵系predictive state候補のscreening TSV。Proceed / Hold / dependency、Bosch output fit、禁止主張、次checkを整理。
+1. [docs/108_steering_predictive_diagnostics_proceed_deep_dive.md](docs/108_steering_predictive_diagnostics_proceed_deep_dive.md): Proceed候補の深掘り。SPD002、SPD004、SPD003、SPD001、SPD007の順で、EPSサプライヤが定義できること、OEM/fleet/platform依存、vehicle health output、maintenance action、Hold/Kill riskを整理。
+1. [data/steering_predictive_diagnostics_proceed_deep_dive.tsv](data/steering_predictive_diagnostics_proceed_deep_dive.tsv): Proceed深掘りTSV。各stateのwhy proceed、必要依存、提案output、次artifactを整理。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
