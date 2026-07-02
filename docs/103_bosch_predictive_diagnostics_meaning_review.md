@@ -239,6 +239,7 @@ Stop候補と書く場合も、最終Stopではない。
 
 ## 次アクション
 
+この観点で公開情報を追加調査した結果は、[docs/104_steering_predictive_state_candidate_scan.md](104_steering_predictive_state_candidate_scan.md) と [data/steering_predictive_state_candidates.tsv](../data/steering_predictive_state_candidates.tsv) に置く。
 次は、[docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md) とは別に、predictive diagnostics向けの質問票を作る。
 最初の質問は2つに絞る。
 

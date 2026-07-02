@@ -36,6 +36,7 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、自社�
 さらに2026年のBosch / Uptake発表とBosch Predictive Diagnosticsを確認すると、fleet / connected vehicle / cloud diagnosticsの文脈では、AI-driven predictive maintenance、vehicle health services、component-specific load and diagnostic featuresが明確に出ている。
 この予測はEPS単体の交換時期予測ではないが、EPSサプライヤが操舵系として「故障前に早く分かると嬉しい状態」を定義し、それを既存の制御・診断・品質情報でどこまで説明できるかを見る根拠になる。
 この補正は [docs/103_bosch_predictive_diagnostics_meaning_review.md](103_bosch_predictive_diagnostics_meaning_review.md) と [data/bosch_predictive_diagnostics_meaning_review.tsv](../data/bosch_predictive_diagnostics_meaning_review.tsv) に置く。
+公開情報から抽出した操舵系の注意状態候補は、[docs/104_steering_predictive_state_candidate_scan.md](104_steering_predictive_state_candidate_scan.md) と [data/steering_predictive_state_candidates.tsv](../data/steering_predictive_state_candidates.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
