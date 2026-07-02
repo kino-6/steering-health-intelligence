@@ -308,3 +308,6 @@ OEM / fleet / service platform領域として初期対象外に置くもの:
 `SPD004` は戦略オプションとしてHold。
 `SPD001` は低優先。
 `SPD007` はrepair feedback loopが見える場合だけ再開する。
+
+この次のGoalでは、SPD008のinternal module runtime deviation map、SPD002のone-case diagnostic reading order、両者の比較判断を作成した。
+結果は [docs/115_steering_predictive_diagnostics_spd008_runtime_deviation_map.md](115_steering_predictive_diagnostics_spd008_runtime_deviation_map.md)、[docs/116_steering_predictive_diagnostics_spd002_one_case_reading_order.md](116_steering_predictive_diagnostics_spd002_one_case_reading_order.md)、[docs/117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md](117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md) に置く。
