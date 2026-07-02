@@ -254,3 +254,5 @@ Hold / Stop signal:
 SPD002は既存Proceed判断の検証である。
 SPD008は追加案の成立性確認である。
 この2本を比べると、既存診断読み順型と、新しいruntime deviation型のどちらにビジネスの芯があるかを見やすい。
+
+この次の深掘りは、[docs/113_steering_predictive_diagnostics_promising_candidate_deep_dive.md](113_steering_predictive_diagnostics_promising_candidate_deep_dive.md) と [data/steering_predictive_diagnostics_promising_candidate_deep_dive.tsv](../data/steering_predictive_diagnostics_promising_candidate_deep_dive.tsv) に置く。

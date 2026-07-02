@@ -58,6 +58,9 @@ Phase 5では、操舵系predictive diagnosticsを固定スコープの内部/�
 追加で、SPD002だけに閉じず、SPD003、SPD004、SPD001、SPD007、内部重要モジュールのruntime deviation案を並列に深掘りした。
 runtime deviation案は、EPS製品全体E2Eでは外乱が多すぎるため、torque / angle sensor plausibility、motor / inverter response、power monitor、thermal derating、communication input validityのような内部重要モジュール単位に限定する。
 この並列深掘りは [docs/112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md](112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md) と [data/steering_predictive_diagnostics_parallel_continuation.tsv](../data/steering_predictive_diagnostics_parallel_continuation.tsv) に置く。
+その中で見込みがある候補をさらに深掘りした結果、伸びしろはSPD008、実証しやすさはSPD002、実務価値はSPD003、vehicle health接続はSPD004にあると整理した。
+SPD001は二番手以下、SPD007はrepair feedback loopが見える場合だけ条件付きで扱う。
+この整理は [docs/113_steering_predictive_diagnostics_promising_candidate_deep_dive.md](113_steering_predictive_diagnostics_promising_candidate_deep_dive.md) と [data/steering_predictive_diagnostics_promising_candidate_deep_dive.tsv](../data/steering_predictive_diagnostics_promising_candidate_deep_dive.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
