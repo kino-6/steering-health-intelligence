@@ -214,3 +214,6 @@ Proceedしない範囲:
 次に実施する最小作業:
 
 > SPD002の1ケースdiagnostic reading orderを作る。
+
+その後の追加議論では、SPD002だけに閉じず、既存継続候補とユーザー提案の内部重要モジュールruntime deviation案を並列に深掘りした。
+この結果は [docs/112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md](112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md) と [data/steering_predictive_diagnostics_parallel_continuation.tsv](../data/steering_predictive_diagnostics_parallel_continuation.tsv) に置く。

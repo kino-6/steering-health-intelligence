@@ -55,6 +55,9 @@ Phase 4では、Phase 3のdata boundaryをEPSサプライヤ内の部署別成�
 Phase 5では、操舵系predictive diagnosticsを固定スコープの内部/顧客技術向けassessmentとしてProceedにした。
 ただし、これはEPS RUL、交換時期予測、Bosch型fleet predictive maintenance platform、安全保証、root cause / warranty cost reductionとしてProceedする判断ではない。
 最終判断は [docs/111_steering_predictive_diagnostics_screening_decision.md](111_steering_predictive_diagnostics_screening_decision.md) と [data/steering_predictive_diagnostics_screening_decision.tsv](../data/steering_predictive_diagnostics_screening_decision.tsv) に置く。
+追加で、SPD002だけに閉じず、SPD003、SPD004、SPD001、SPD007、内部重要モジュールのruntime deviation案を並列に深掘りした。
+runtime deviation案は、EPS製品全体E2Eでは外乱が多すぎるため、torque / angle sensor plausibility、motor / inverter response、power monitor、thermal derating、communication input validityのような内部重要モジュール単位に限定する。
+この並列深掘りは [docs/112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md](112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md) と [data/steering_predictive_diagnostics_parallel_continuation.tsv](../data/steering_predictive_diagnostics_parallel_continuation.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
