@@ -41,6 +41,7 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、自社�
 改めてBoschの予測ビジネスを収集・分析した結果、Boschの本線はAIモデル単体ではなく、接続、クラウド診断、predictive diagnostics、predictive maintenance、vehicle health、整備計画、保証・品質判断までを束ねる業務パッケージであると整理した。
 EPSサプライヤ側では、Bosch型platformを自前で作るのではなく、操舵系をpredictive diagnostics / predictive maintenance / vehicle healthの対象として扱うためのstate、必要データ、整備action、禁止主張を切ることが次の論点になる。
 この分析は [docs/105_bosch_predictive_business_analysis.md](105_bosch_predictive_business_analysis.md) と [data/bosch_predictive_business_analysis.tsv](../data/bosch_predictive_business_analysis.tsv) に置く。
+次に実施するscreening計画は [docs/106_steering_predictive_diagnostics_screening_plan.md](106_steering_predictive_diagnostics_screening_plan.md) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 

@@ -16,6 +16,29 @@ EPSサプライヤ側の論点は、Bosch型のfleet platformを自社で作る�
 
 ソース別の整理表は [data/bosch_predictive_business_analysis.tsv](../data/bosch_predictive_business_analysis.tsv) に置く。
 
+## 主な公式ソース
+
+今回使った主な公式ソースは次である。
+
+1. Bosch Mobility, `Cloud and predictive diagnostics`
+   <https://www.bosch-mobility.com/en/solutions/software-and-services/cloud-and-predictive-diagnostics/>
+2. Bosch Mobility, `Predictive Diagnostics`
+   <https://www.bosch-mobility.com/en/solutions/diagnostics/predictive-diagnostics/>
+3. Bosch Mobility, `Data-driven intelligence`
+   <https://www.bosch-mobility.com/en/solutions/software-and-services/data-driven-intelligence/>
+4. Bosch Media Service US, `Bosch strengthens U.S. mobility services portfolio`, 2026-03-19
+   <https://us.bosch-press.com/pressportal/us/en/press-release-30080.html>
+5. Bosch Mobility, `Vehicle connectivity services for commercial vehicle`
+   <https://www.bosch-mobility.com/en/solutions/connectivity/vehicle-connectivity-services-cv/>
+6. Bosch Mobility, `Fleet maintenance and repair`
+   <https://www.bosch-mobility.com/en/mobility-topics/fleet-solutions/maintenance-and-repair/>
+7. Bosch Mobility, `Battery in the cloud insights`
+   <https://www.bosch-mobility.com/en/solutions/software-and-services/battery-in-the-cloud/battery-in-the-cloud-insights/>
+8. Bosch Mobility, `Brake pad wear sensor`
+   <https://www.bosch-mobility.com/en/solutions/sensors/brake-pad-wear-sensor/>
+9. Bosch Mobility, `Lifecycle powertrain services`
+   <https://www.bosch-mobility.com/en/solutions/software-and-services/lifecycle-powertrain-services/>
+
 ## 何を判断しているか
 
 判断しているのは、Boschが「予測」と呼んでいる事業の中身である。
