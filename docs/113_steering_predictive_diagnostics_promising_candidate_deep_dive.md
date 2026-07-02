@@ -256,3 +256,5 @@ DTC履歴、発生頻度、再発間隔、status agingをservice outcomeと結�
 2. `SPD002`: one-case diagnostic reading order
 
 この2つを比較すると、新しい機能価値に寄せるべきか、まず診断読み順assessmentとして成立性を固めるべきかを判断しやすい。
+
+この次のGoal deep diveでは、各SPDの一定結論を [docs/114_steering_predictive_diagnostics_spd_final_conclusions.md](114_steering_predictive_diagnostics_spd_final_conclusions.md) と [data/steering_predictive_diagnostics_spd_final_conclusions.tsv](../data/steering_predictive_diagnostics_spd_final_conclusions.tsv) に整理した。
