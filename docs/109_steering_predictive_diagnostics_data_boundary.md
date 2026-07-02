@@ -155,7 +155,8 @@ DTC履歴とreduced assistの再発監視は、maintenance forecastに最も近�
 
 ## 次のTask
 
-次はPhase 4へ進む。
+Phase 4は実施済みである。
 
-Phase 4では、今回のdata boundaryを、EPSサプライヤ内の部署別成果物へ転記できるかを見る。
-最初に見る部署は、診断企画、品質改善、顧客技術説明、service / aftermarket連携でよい。
+今回のdata boundaryを、EPSサプライヤ内の部署別成果物へ転記できるかは、[docs/110_steering_predictive_diagnostics_supplier_workflow_fit.md](110_steering_predictive_diagnostics_supplier_workflow_fit.md) と [data/steering_predictive_diagnostics_supplier_workflow_fit.tsv](../data/steering_predictive_diagnostics_supplier_workflow_fit.tsv) に整理した。
+
+Phase 5の最終判断は、[docs/111_steering_predictive_diagnostics_screening_decision.md](111_steering_predictive_diagnostics_screening_decision.md) と [data/steering_predictive_diagnostics_screening_decision.tsv](../data/steering_predictive_diagnostics_screening_decision.tsv) に置く。

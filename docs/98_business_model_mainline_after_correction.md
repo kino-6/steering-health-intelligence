@@ -49,6 +49,12 @@ Proceed候補を深掘りし、低/高電圧または過温度によるreduced a
 Phase 3では、5件について必要データと権限境界を切った。
 EPSサプライヤ単独で言える範囲は、state定義、診断読み順、EPS内部故障と外部contextを混同しない説明境界であり、RUL、交換時期、failure prediction、保証費削減、安全保証はrepair feedbackやOEM/fleet/platform dataなしでは言わない。
 この結果は [docs/109_steering_predictive_diagnostics_data_boundary.md](109_steering_predictive_diagnostics_data_boundary.md) と [data/steering_predictive_diagnostics_data_boundary.tsv](../data/steering_predictive_diagnostics_data_boundary.tsv) に置く。
+Phase 4では、Phase 3のdata boundaryをEPSサプライヤ内の部署別成果物へ転記できるかを見た。
+診断企画、顧客技術説明、service / aftermarket連携、品質改善には具体用途が残る。
+この結果は [docs/110_steering_predictive_diagnostics_supplier_workflow_fit.md](110_steering_predictive_diagnostics_supplier_workflow_fit.md) と [data/steering_predictive_diagnostics_supplier_workflow_fit.tsv](../data/steering_predictive_diagnostics_supplier_workflow_fit.tsv) に置く。
+Phase 5では、操舵系predictive diagnosticsを固定スコープの内部/顧客技術向けassessmentとしてProceedにした。
+ただし、これはEPS RUL、交換時期予測、Bosch型fleet predictive maintenance platform、安全保証、root cause / warranty cost reductionとしてProceedする判断ではない。
+最終判断は [docs/111_steering_predictive_diagnostics_screening_decision.md](111_steering_predictive_diagnostics_screening_decision.md) と [data/steering_predictive_diagnostics_screening_decision.tsv](../data/steering_predictive_diagnostics_screening_decision.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
