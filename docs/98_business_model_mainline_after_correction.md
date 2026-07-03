@@ -68,8 +68,13 @@ SPD003は近い実務支援、SPD004は戦略オプション、SPD001は低優�
 結論は、SPD008を次の本線候補、SPD002をreference demoに置く、である。
 この結果は [docs/115_steering_predictive_diagnostics_spd008_runtime_deviation_map.md](115_steering_predictive_diagnostics_spd008_runtime_deviation_map.md)、[data/steering_predictive_diagnostics_spd008_runtime_deviation_map.tsv](../data/steering_predictive_diagnostics_spd008_runtime_deviation_map.tsv)、[docs/116_steering_predictive_diagnostics_spd002_one_case_reading_order.md](116_steering_predictive_diagnostics_spd002_one_case_reading_order.md)、[data/steering_predictive_diagnostics_spd002_one_case_reading_order.tsv](../data/steering_predictive_diagnostics_spd002_one_case_reading_order.tsv)、[docs/117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md](117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md)、[data/steering_predictive_diagnostics_spd008_vs_spd002_decision.tsv](../data/steering_predictive_diagnostics_spd008_vs_spd002_decision.tsv) に置く。
 さらに、SPD008のfirst samplesとして、power monitorとcommunication input validityをsample化した。
-どちらも故障判定ではなく、DTC未満または原因未確定のsoft contextを、追加ログ、診断読み順、品質feedback、顧客説明境界へ転記できるかを見る。
+どちらも故障判定ではなく、DTC未満または原因未確定のsoft contextを、内部重要モジュールのruntime状態説明として扱えるかを見る。
 この結果は [docs/118_steering_predictive_diagnostics_spd008_first_samples.md](118_steering_predictive_diagnostics_spd008_first_samples.md) と [data/steering_predictive_diagnostics_spd008_first_samples.tsv](../data/steering_predictive_diagnostics_spd008_first_samples.tsv) に置く。
+
+ただし、直近のLog補正として、SPD008の目的を「診断企画向け1枚schema」へ縮めない。
+中心は、EPS内部重要モジュールがruntimeで普段と違う状態に入りつつあることを検知、分類、説明できるか、そしてそれがpredictive diagnostics / vehicle healthの部品側contributionになるかである。
+診断読み順、追加ログschema、品質feedback、顧客説明は、この価値仮説を検証するための副次artifactとして扱う。
+この補正は [AGENTS.md](../AGENTS.md) の `Steering Predictive Diagnostics Value Rule` に反映した。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 

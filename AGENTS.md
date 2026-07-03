@@ -97,6 +97,40 @@ Kaggle調査の成果物は、各IDや各proxyについて、最低限次を自�
 Kaggle/Bosch/Mercedesを、製造品質、EOL検査、評価時間短縮だけへ閉じない。
 それらは別枝または補助材料であり、現行の中心は「予測のような付加価値がEPSサプライヤ側に残るか」である。
 
+## Steering Predictive Diagnostics Value Rule
+
+Bosch predictive diagnostics / predictive maintenance / vehicle health から派生した `SPD` 系の調査では、診断読み順、顧客説明、品質feedback、追加ログschemaを最終目的にしない。
+これらは、EPSサプライヤが「予測のような付加価値」を持てるかを検証するための副次artifactである。
+
+現行の中心は、EPSがruntimeで「普段と違う」状態を内部重要モジュール単位で検知、分類、説明できるかである。
+ここでいう「普段と違う」は、個車のEPS残寿命、交換時期、故障発生、安全保証、保証費削減、root causeを当てることではない。
+過去一定期間、同一条件、標準データ、設計上の期待応答、または既存monitorの境界に対して、入出力や状態遷移が通常範囲内だが偏っている、揺らいでいる、繰り返している、または依存contextと同時に出ていることを指す。
+
+SPD008では、EPS製品全体をE2Eで見て「普段と違う」と言わない。
+E2Eでは路面、タイヤ、車両重量、運転者、上位制御、外部ECU、電源、温度などの外乱が混ざり、外乱とEPS内部状態を切り分けにくい。
+したがって、対象は torque / angle sensor plausibility、motor / inverter response、power monitor、thermal derating、communication input validity のような内部重要モジュール単位に限定する。
+
+SPD008 / SPD002 / SPD003 / SPD004 などを扱うときは、必ず次の順に判断する。
+
+1. 市場需要: 誰が、どの業務で、故障確定前または原因未確定の状態を早く知りたいのか
+2. 予測的価値: 何を先読み、分類、早期検知、または状態説明できると嬉しいのか
+3. EPSサプライヤの手札: EPS内部モジュール、既存monitor、設計上の期待応答、状態遷移、calibration境界、ログtriggerとして何を持てるのか
+4. 既存monitorとの差分: 既存DTC、freeze frame、extended data、DEM/UDS、service manual、既存品質業務で十分ではないか
+5. 事業上の出力: 製品価値、診断価値、品質改善価値、顧客技術説明価値、vehicle health基盤への部品側contributionのどれになるのか
+6. 副次artifact: 診断読み順、顧客説明、品質feedback、追加ログschemaは上記を検証するためにだけ作る
+7. 禁止主張: EPS RUL、交換時期、安全保証、root cause、保証費削減、外乱原因断定を言っていないか
+
+悪いNext Action:
+
+> SPD008の2サンプルを診断企画向け1枚schemaに落とす。
+
+良いNext Action:
+
+> SPD008の2サンプルについて、runtimeで普段と違う状態を内部重要モジュール単位で検知・分類できるか、既存monitorとの差分があるか、EPSサプライヤの製品価値・診断価値・品質改善価値・顧客技術説明価値・vehicle healthへの部品側contributionのどれに転記できるかを確認する。その検証のために、必要なら診断読み順や追加ログschemaを副次artifactとして作る。
+
+SPD系で `Proceed` と書く場合は、「診断資料として作れる」では不十分である。
+必ず、predictive diagnostics / predictive maintenance / vehicle health の文脈で、EPSサプライヤが何を売る、何を内部実施する、何を言ってはいけないかまで書く。
+
 ## OEM Usage Translation Rule
 
 「駐車場 + 低速 + 大舵角 + 凹凸」のような表現を、有望用途や商品価値として先に出さない。
