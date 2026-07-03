@@ -162,3 +162,5 @@ SPD008で既存monitorとの差分が出なければ、SPD002型のdiagnostic re
 > SPD002でreduced assist履歴からEPS寿命が分かる。
 
 > どちらかで安全保証、root cause、保証費削減を主張できる。
+
+この次の作業として、SPD008のfirst samplesを [docs/118_steering_predictive_diagnostics_spd008_first_samples.md](118_steering_predictive_diagnostics_spd008_first_samples.md) と [data/steering_predictive_diagnostics_spd008_first_samples.tsv](../data/steering_predictive_diagnostics_spd008_first_samples.tsv) に整理した。
