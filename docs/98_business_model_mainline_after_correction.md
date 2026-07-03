@@ -75,6 +75,10 @@ SPD003は近い実務支援、SPD004は戦略オプション、SPD001は低優�
 中心は、EPS内部重要モジュールがruntimeで普段と違う状態に入りつつあることを検知、分類、説明できるか、そしてそれがpredictive diagnostics / vehicle healthの部品側contributionになるかである。
 診断読み順、追加ログschema、品質feedback、顧客説明は、この価値仮説を検証するための副次artifactとして扱う。
 この補正は [AGENTS.md](../AGENTS.md) の `Steering Predictive Diagnostics Value Rule` に反映した。
+この補正後のNext Actionとして、power monitorとcommunication input validityをpredictive value checkとして洗い直した。
+判断は、power monitorを第一検証候補、communication input validityを第二検証候補またはProceed寄りのHoldに置く、である。
+次はpower monitorについて、既存monitorで残る項目と残らないsoft contextを比較し、vehicle health向け状態説明文とsupporting artifact listを作る。
+この結果は [docs/120_steering_predictive_diagnostics_spd008_predictive_value_check.md](120_steering_predictive_diagnostics_spd008_predictive_value_check.md) と [data/steering_predictive_diagnostics_spd008_predictive_value_check.tsv](../data/steering_predictive_diagnostics_spd008_predictive_value_check.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
