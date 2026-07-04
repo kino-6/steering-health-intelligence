@@ -83,6 +83,10 @@ SPD003は近い実務支援、SPD004は戦略オプション、SPD001は低優�
 対象は、短い電圧dipまたはnear-reset contextがassist limitation / reduced assistの近傍で繰り返すが、permanent under-voltage DTCには至らないケースである。
 現時点の判断は限定Proceedであり、次はunder-voltage DTC、reset log、freeze frame / extended data、assist mode / limit state、key cycle recurrenceの実際の残り方を確認し、既存monitorで十分かを判定する。
 この結果は [docs/121_steering_predictive_diagnostics_power_monitor_case.md](121_steering_predictive_diagnostics_power_monitor_case.md) と [data/steering_predictive_diagnostics_power_monitor_case.tsv](../data/steering_predictive_diagnostics_power_monitor_case.tsv) に置く。
+さらに、power monitorのpayload sampleを作成した。
+これはpayload作成そのものを目的にせず、既存monitorで十分か、不足があるなら最小payloadとして何だけを渡すかを判定するための確認表である。
+次は対象programで、under-voltage DTC、reset log、freeze frame / extended data、assist mode / limit state、key cycle recurrenceに何が残るかを確認する質問表を作る。
+この結果は [docs/122_steering_predictive_diagnostics_power_monitor_payload_sample.md](122_steering_predictive_diagnostics_power_monitor_payload_sample.md) と [data/steering_predictive_diagnostics_power_monitor_payload_sample.tsv](../data/steering_predictive_diagnostics_power_monitor_payload_sample.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
