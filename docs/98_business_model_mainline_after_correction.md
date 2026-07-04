@@ -79,6 +79,10 @@ SPD003は近い実務支援、SPD004は戦略オプション、SPD001は低優�
 判断は、power monitorを第一検証候補、communication input validityを第二検証候補またはProceed寄りのHoldに置く、である。
 次はpower monitorについて、既存monitorで残る項目と残らないsoft contextを比較し、vehicle health向け状態説明文とsupporting artifact listを作る。
 この結果は [docs/120_steering_predictive_diagnostics_spd008_predictive_value_check.md](120_steering_predictive_diagnostics_spd008_predictive_value_check.md) と [data/steering_predictive_diagnostics_spd008_predictive_value_check.tsv](../data/steering_predictive_diagnostics_spd008_predictive_value_check.tsv) に置く。
+続けて、power monitorの1ケースを作成した。
+対象は、短い電圧dipまたはnear-reset contextがassist limitation / reduced assistの近傍で繰り返すが、permanent under-voltage DTCには至らないケースである。
+現時点の判断は限定Proceedであり、次はunder-voltage DTC、reset log、freeze frame / extended data、assist mode / limit state、key cycle recurrenceの実際の残り方を確認し、既存monitorで十分かを判定する。
+この結果は [docs/121_steering_predictive_diagnostics_power_monitor_case.md](121_steering_predictive_diagnostics_power_monitor_case.md) と [data/steering_predictive_diagnostics_power_monitor_case.tsv](../data/steering_predictive_diagnostics_power_monitor_case.tsv) に置く。
 
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
