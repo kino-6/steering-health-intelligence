@@ -1,8 +1,8 @@
 # Plan: Steering Predictive Diagnostics 次アクション
 
-作成日: 2026-07-06
+作成日: 2026-07-06 / 区切り更新: 2026-07-07
 前提ブランチ: `research/bosch-motion-domain-ai`
-現在地: SPD008 power monitor は「判定保留付きの限定Proceed」([docs/122](docs/122_steering_predictive_diagnostics_power_monitor_payload_sample.md))。判定を閉じるための検証タスクを以下に固定する。
+現在地: **区切り済み**。2サンプル(電源監視、通信入力妥当性)とも公開情報のみで価値仮説をConfirmedし「限定Proceed」。残項目はすべて実行段階の内部資料条件。**全体まとめとID対訳表は [docs/131](docs/131_steering_predictive_diagnostics_checkpoint_summary.md) を最初に読むこと。**
 
 ## 何を判断しようとしているか
 
@@ -40,6 +40,7 @@ Yesなら SPD008 は次の本線として続き、Noなら Hold / Stop に落と
 | 8 | SOTIF公開シグナル観測 | KQ1(SOTIF要求の部品側展開)の公算を公開情報で観測する | [docs/128](docs/128_steering_predictive_diagnostics_sotif_public_signal_watch.md) + TSV追記(SOTIF013〜016) | 完了。SOTIF-EooC(規格上の部品参加形式)とBosch定量SOTIF特許・by-wire量産を確認。KQ1公算は補強、最終確認は内部資料条件のまま |
 | 9 | 判定ゲートの公開ケース照合 | 質問シートの照合対象を「自社program」から「公開リコール是正実務」へ組み替え、内部資料なしで判定ゲートを閉じられるか試す | [docs/129](docs/129_steering_predictive_diagnostics_public_case_crosscheck.md) + [data TSV](data/steering_predictive_diagnostics_public_case_crosscheck.tsv) | 完了。Ford 15S18・GM 17276の一次文書精読により5項目中4項目の差分を公開レベルでConfirmed。SPD008は「公開レベルConfirmed付き限定Proceed」へ。内部資料条件は検証ではなく実行のみに縮小 |
 | 10 | comm input validityの公開ケース照合 | #9と同じ手法を第二候補に適用する | [docs/130](docs/130_steering_predictive_diagnostics_comm_validity_public_crosscheck.md) + [data TSV](data/steering_predictive_diagnostics_comm_validity_public_crosscheck.tsv) | 完了。GM TSB 17-NA-158原文で「無効な依存signal→操舵警告→直らないgear交換の連鎖」をOEM公式記録として確認し、Hold→公開レベルConfirmed付き限定Proceedへ。副産物としてFord SSM 49530(2021年)で現行世代のpower context誤帰属も確認 |
+| 11 | 区切りまとめとID対訳 | IDなしの自然言語で全体を言い直し、最終判定・実行条件・ID対訳表を1本に集約する | [docs/131](docs/131_steering_predictive_diagnostics_checkpoint_summary.md) | 完了。公開情報での仮説検証はここで区切り。以後は実行段階(内部資料条件)のみ |
 
 ## 実行順と依存関係
 
