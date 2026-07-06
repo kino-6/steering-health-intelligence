@@ -39,6 +39,7 @@ Yesなら SPD008 は次の本線として続き、Noなら Hold / Stop に落と
 |---|---|---|---|---|
 | 8 | SOTIF公開シグナル観測 | KQ1(SOTIF要求の部品側展開)の公算を公開情報で観測する | [docs/128](docs/128_steering_predictive_diagnostics_sotif_public_signal_watch.md) + TSV追記(SOTIF013〜016) | 完了。SOTIF-EooC(規格上の部品参加形式)とBosch定量SOTIF特許・by-wire量産を確認。KQ1公算は補強、最終確認は内部資料条件のまま |
 | 9 | 判定ゲートの公開ケース照合 | 質問シートの照合対象を「自社program」から「公開リコール是正実務」へ組み替え、内部資料なしで判定ゲートを閉じられるか試す | [docs/129](docs/129_steering_predictive_diagnostics_public_case_crosscheck.md) + [data TSV](data/steering_predictive_diagnostics_public_case_crosscheck.tsv) | 完了。Ford 15S18・GM 17276の一次文書精読により5項目中4項目の差分を公開レベルでConfirmed。SPD008は「公開レベルConfirmed付き限定Proceed」へ。内部資料条件は検証ではなく実行のみに縮小 |
+| 10 | comm input validityの公開ケース照合 | #9と同じ手法を第二候補に適用する | [docs/130](docs/130_steering_predictive_diagnostics_comm_validity_public_crosscheck.md) + [data TSV](data/steering_predictive_diagnostics_comm_validity_public_crosscheck.tsv) | 完了。GM TSB 17-NA-158原文で「無効な依存signal→操舵警告→直らないgear交換の連鎖」をOEM公式記録として確認し、Hold→公開レベルConfirmed付き限定Proceedへ。副産物としてFord SSM 49530(2021年)で現行世代のpower context誤帰属も確認 |
 
 ## 実行順と依存関係
 
