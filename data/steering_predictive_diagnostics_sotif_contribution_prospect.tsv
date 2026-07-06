@@ -11,3 +11,7 @@ SOTIF009	trigger_candidate	電圧dip / near-reset(SPD008 power monitor)	操舵�
 SOTIF010	trigger_candidate	依存signal validity揺らぎ(SPD008 comm input validity)	同上	SPD008で検証中(条件付きHold)	docs/124	-	-	外部ECU原因断定、security代替	Medium
 SOTIF011	trigger_candidate	熱derating(SPD004系)	同上	未着手。SPD008の判定後に検討	docs/114	-	-	root cause断定	Low
 SOTIF012	decision	故障予測(RUL / 交換時期 / 故障発生予測)	いつ壊れるかを当てる商品	Kill維持	必要データがOEM / サービス側、禁止主張に直結、既存プレイヤーが厚い。SOTIF転記は代替ではなく説明価値の宛先追加	-	-	故障予測、交換時期、RUL、安全保証、保証費削減	High
+SOTIF013	public_signal	ISO 21448のSOTIF-EooC	サプライヤが全体システムを知らずに部品を開発する場合の公式な参加形式。使われ方の前提と機能不足の許容発生率を仮定として差し出す	KQ1の公算を補強	SOTIF要求は構造的に部品側へ降りる設計。仮定発生率の市場検証にSPD008 payloadが部品側インプットになり得る。ただし規格構造の確認でありRFQ実在の確認ではない	-	-	仮定発生率の保証、SOTIF適合証明	Medium
+SOTIF014	public_signal	Bosch定量SOTIF手法特許(US12330693B2)	運転者状態eventとfault severityから故障率を式で計算する定量SOTIF手法をTier 1が公開	SOTIF定量化がTier 1の武器になる移行を示す	競合環境の変化。手法勝負はBosch先行のため避け、自社EPS内部の観測事実に差分を限定。特許は事業実装の証明ではない(二次情報)	-	-	手法での競争優位	Medium
+SOTIF015	public_signal	Bosch 2026事業展開(Auto China / CES)	L3実路試験ライセンス(無錫2026年3月〜)、steer-by-wire量産開始(中国複数OEM)、brake-by-wire 5社供給契約	操舵がSOTIF対象システムの中核部品になる流れを裏付け	by-wire×L3の市場が現実に立ち上がっている。CES 2026プレスにSOTIF展示の直接言及は確認できず	-	-	-	High
+SOTIF016	judgment	SOTIF枝の位置づけ更新	受け身の実施条件待ち→KQ1 Yesの公算が公開情報で補強された実施条件待ち	docs/128で更新	KQ1の具体形を「RFQ/安全要件にSOTIF-EooCの仮定の提出・検証要求が含まれるか」へ1段具体化。Proceedにはしない。KQ1最終確認は内部資料条件のまま	-	-	SOTIF適合証明、安全保証、故障予測	Medium

@@ -35,6 +35,10 @@ Yesなら SPD008 は次の本線として続き、Noなら Hold / Stop に落と
 
 現行方針で進められる次アクションは #7 である。
 
+| # | 作業 | 目的 | 出力 | 状態 |
+|---|---|---|---|---|
+| 8 | SOTIF公開シグナル観測 | KQ1(SOTIF要求の部品側展開)の公算を公開情報で観測する | [docs/128](docs/128_steering_predictive_diagnostics_sotif_public_signal_watch.md) + TSV追記(SOTIF013〜016) | 完了。SOTIF-EooC(規格上の部品参加形式)とBosch定量SOTIF特許・by-wire量産を確認。KQ1公算は補強、最終確認は内部資料条件のまま |
+
 ## 実行順と依存関係
 
 1. #1 質問シート(電源監視) — docs/122の明示的な次タスク。最優先
