@@ -23,7 +23,7 @@ Yesなら SPD008 は次の本線として続き、Noなら Hold / Stop に落と
 | 4 | SPD002デモ枝の扱いを明文化 | [docs/114](docs/114_steering_predictive_diagnostics_spd_final_conclusions.md) でProceed指定のまま停滞しているSPD002 reference demoを、1〜3が決着するまで意図的に凍結と記録し、暗黙の放置にしない | docs/125 内の1節 | 完了 |
 | 5 | ブランチのremote公開 | 23コミット未pushでlocalのみ。消失リスク回避 | `git push -u origin research/bosch-motion-domain-ai` | 未実施(ユーザ判断待ち) |
 | 6 | SOTIFへの乗り方の判定 | 「SOTIFに乗っかれるプロダクト」の見込みを3分解(プロセス支援 / 論証証拠 / 運用フェーズ監視インプット)で判定し、入口条件KQ1を固定する | [docs/126](docs/126_steering_predictive_diagnostics_sotif_contribution_prospect.md) + [data TSV](data/steering_predictive_diagnostics_sotif_contribution_prospect.tsv) | 完了 |
-| 7 | ターゲットケースの公開実在確認 | 「permanent DTCが残らない断続的なassist低下」が公開苦情 / TSB / リコール調査に実在するかを、既存pain family整理を「故障コードが残らない」条件で絞り直して確認する。実在しなければ市場需要側から弱まる | docs/127(未作成) | 未着手(公開情報のみで実施可能) |
+| 7 | ターゲットケースの公開実在確認 | 「permanent DTCが残らない断続的なassist低下」が公開苦情 / TSB / リコール調査に実在するかを、既存pain family整理を「故障コードが残らない」条件で絞り直して確認する。実在しなければ市場需要側から弱まる | [docs/127](docs/127_steering_predictive_diagnostics_target_case_public_evidence.md) + [data TSV](data/steering_predictive_diagnostics_target_case_public_evidence.tsv) | 完了。実在Confirmed(Ford 15V-340の「DTCなし」是正経路、GM 17V-414の1秒喪失・復帰、GM TSB 17-NA-158の外部signal起因警告ほか)。以後のSPD本線は内部資料条件待ち |
 
 ## 内部資料の扱い(2026-07-06追記)
 

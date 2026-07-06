@@ -1,0 +1,9 @@
+row_id	evidence_type	source_case	publicly_stated_fact	relation_to_spd	supports	caveat	source	confidence
+TCPE001	recall_remedy	Ford 15V-340 / 15S18 EPAS	是正手順がDTC有無で2経路: DTCあり=steering gear交換、DTCなし=PSCMソフト更新のみ。原因は断続的な電気接続不良(ribbon cable pinずれ、conformal coat汚染)	「症状はあるがDTCが残らない」車両群が公式是正の1経路になるほど存在	power monitorのターゲットケース実在、DTC有無がservice判断を分岐する実務	原因特定後のリコールであり、原因未確定段階の状態説明価値の直接証明ではない	NHTSA RCLRPT-15V340	High
+TCPE002	recall	GM 17V-414 / 18V-586	低速旋回中に一時的にEPS assistを喪失し約1秒以内に突然復帰。電気/ソフト起因	docs/121のケース定義(低速取り回し中の一時的assist limitation、短時間の不安定)とほぼ同型	ケース定義の形の妥当性	同上	NHTSA RCSB-17V414 / RCSB-18V586	High
+TCPE003	tsb	GM TSB 17-NA-158	Steering Assist Reduced警告の原因が操舵系ではなくECMからの無効な冷却水温signal	外部signalのvalidity起因で操舵側警告が出てserviceが混乱する実例	docs/124(comm input validity)のMarket Demand	TSB本文は二次情報経由で確認	oards.com(二次)	Medium
+TCPE004	aftermarket	公開整備情報(複数)	Steering Assist Reduced系警告の頻出原因として低バッテリー電圧・オルタネータ劣化が流通。PSCMは電圧変動に敏感	reduced assist近傍で電源contextを確認したい診断価値はaftermarketでも認知済みの痛み	docs/121のMarket Demand	二次情報。定量性なし	oards.com他(二次)	Medium
+TCPE005	odi_investigation	Tesla EA24001 / 25V-092	過電圧条件が操舵制御ユニット基板部品に過大ストレスを与え電動パワステ喪失。OTAソフト是正で調査クローズ	電源contextが操舵機能可用性に直結する因果の最新公式確認	power monitorという対象選定の妥当性	二次情報経由。詳細はODI文書の直接確認が望ましい	The EV Report(二次)	Medium
+TCPE006	odi_investigation	Ram ProMaster 2022-2023調査	power steering assistの断続的または完全な失陥。EPS制御モジュールコネクタへの水侵入指摘を含む	断続的assist失陥は現行世代でも継続発生	pain familyの現在性	調査中案件であり結論未確定	autoevolution(二次)	Medium
+TCPE007	recall	FCA 16V-167	EPS基板汚染による短絡で断続的または恒久的なassist喪失	断続的assist喪失のpain family実例の追加	pain familyの広がり(複数OEM)	同上	NHTSA RCRIT-16V167	High
+TCPE008	judgment	ターゲットケース実在判定	「permanent DTCが残らない断続的なassist低下」は公開情報で実在確認できた	SPD008の市場需要側を公開情報のみで1段補強	docs/122の判定ゲートは内部資料条件のまま変わらない	公開事例は痛みの実在を示すのみ。payloadの商品価値の証明ではない。特定OEMの設計優劣断定には使わない	docs/127	High
