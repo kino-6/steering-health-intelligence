@@ -22,6 +22,7 @@ Yesなら SPD008 は次の本線として続き、Noなら Hold / Stop に落と
 | 3 | 未検証デルタのファクトチェックと判定 | 「SPD008の既存monitor比優位性は未検証」([docs/117](docs/117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md))と「汎用テレマティクス / 路面分類 / ADAS / IDSとのデルタは未検証」([docs/98](docs/98_business_model_mainline_after_correction.md) Kill条件)を、公開情報で検証し判定を書く | [docs/125](docs/125_steering_predictive_diagnostics_unverified_delta_check.md) + [data TSV](data/steering_predictive_diagnostics_unverified_delta_check.tsv) | 完了 |
 | 4 | SPD002デモ枝の扱いを明文化 | [docs/114](docs/114_steering_predictive_diagnostics_spd_final_conclusions.md) でProceed指定のまま停滞しているSPD002 reference demoを、1〜3が決着するまで意図的に凍結と記録し、暗黙の放置にしない | docs/125 内の1節 | 完了 |
 | 5 | ブランチのremote公開 | 23コミット未pushでlocalのみ。消失リスク回避 | `git push -u origin research/bosch-motion-domain-ai` | 未実施(ユーザ判断待ち) |
+| 6 | SOTIFへの乗り方の判定 | 「SOTIFに乗っかれるプロダクト」の見込みを3分解(プロセス支援 / 論証証拠 / 運用フェーズ監視インプット)で判定し、入口条件KQ1を固定する | [docs/126](docs/126_steering_predictive_diagnostics_sotif_contribution_prospect.md) + [data TSV](data/steering_predictive_diagnostics_sotif_contribution_prospect.tsv) | 完了 |
 
 ## 実行順と依存関係
 
