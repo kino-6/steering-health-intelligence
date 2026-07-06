@@ -134,11 +134,16 @@ KQ1が入口である。**SOTIF由来の要求が部品側RFQまで降りてき�
 
 SOTIF転記(c)は、この代替ではない。予測(いつ壊れるか)を捨てて、**説明(何が起きていたか)**に価値を置き直した現行路線の、宛先が1つ増える話である。
 
+## 実施条件(内部資料の扱い)
+
+KQ1(RFQ / 安全要件の中身)とKQ2([docs/123](123_steering_predictive_diagnostics_power_monitor_program_question_sheet.md) の照合)は、いずれも内部資料への接触が必要である。
+現行方針(公開情報は使う、内部資料は使わない)では、これらを次アクションに置かず、**内部資料を使える条件になった場合だけの実施条件**として保存する。
+
 ## 次の作業
 
-1. 優先順位は変えない。最優先は [docs/123](123_steering_predictive_diagnostics_power_monitor_program_question_sheet.md) の照合(KQ2の前提)
-2. KQ1の確認質問を、次にRFQ / 安全要件を見る機会がある案件で1回だけ聞く(専用の調査は起こさない)
-3. KQ1がYesになった場合のみ、docs/122 payloadへのboundary行追加とtriggering condition候補リストの再編を実施する
+1. KQ1 / KQ2は実施条件として保存する。専用の調査は起こさない
+2. 現行方針で進められるのは、SOTIF運用フェーズ要求が部品サプライヤへ降り始めているかの公開情報(業界動向、規格解説、OEM公開要件)の観測だけである。これも専用調査ではなく、SPD本線の公開情報確認のついでに見る
+3. 内部資料を使える条件でKQ1がYesになった場合のみ、docs/122 payloadへのboundary行追加とtriggering condition候補リストの再編を実施する
 
 ## Sources
 

@@ -23,6 +23,17 @@ Yesなら SPD008 は次の本線として続き、Noなら Hold / Stop に落と
 | 4 | SPD002デモ枝の扱いを明文化 | [docs/114](docs/114_steering_predictive_diagnostics_spd_final_conclusions.md) でProceed指定のまま停滞しているSPD002 reference demoを、1〜3が決着するまで意図的に凍結と記録し、暗黙の放置にしない | docs/125 内の1節 | 完了 |
 | 5 | ブランチのremote公開 | 23コミット未pushでlocalのみ。消失リスク回避 | `git push -u origin research/bosch-motion-domain-ai` | 未実施(ユーザ判断待ち) |
 | 6 | SOTIFへの乗り方の判定 | 「SOTIFに乗っかれるプロダクト」の見込みを3分解(プロセス支援 / 論証証拠 / 運用フェーズ監視インプット)で判定し、入口条件KQ1を固定する | [docs/126](docs/126_steering_predictive_diagnostics_sotif_contribution_prospect.md) + [data TSV](data/steering_predictive_diagnostics_sotif_contribution_prospect.tsv) | 完了 |
+| 7 | ターゲットケースの公開実在確認 | 「permanent DTCが残らない断続的なassist低下」が公開苦情 / TSB / リコール調査に実在するかを、既存pain family整理を「故障コードが残らない」条件で絞り直して確認する。実在しなければ市場需要側から弱まる | docs/127(未作成) | 未着手(公開情報のみで実施可能) |
+
+## 内部資料の扱い(2026-07-06追記)
+
+現行方針は「公開情報は使う、内部資料は使わない」である。
+これに伴い、次の2つは次アクションから外し、**内部資料を使える条件になった場合だけの実施条件**として保存する(Coverage Benchmark / SbWと同じ扱い)。
+
+- #1 質問シートのprogram固有欄の回答取得(docs/123に実施条件として明記)
+- docs/126のKQ1(RFQ / 安全要件の中身確認)とKQ2
+
+現行方針で進められる次アクションは #7 である。
 
 ## 実行順と依存関係
 

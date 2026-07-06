@@ -121,12 +121,24 @@ check item(docs/122のRetained Field Checklistと同一):
 
 > EPS交換時期が分かる。
 
+## 実施条件(内部資料の扱い)
+
+本シートのprogram固有欄の回答には、対象programの診断仕様(Dem設定、DTC list)という内部資料への接触が必要である。
+
+現行方針は「公開情報は使う、内部資料は使わない」であり、[AGENTS.md](../AGENTS.md) の先例(Coverage Benchmark、SbW)に従い、**内部資料確認を次アクションに置かない**。
+回答の取得は、内部資料を使える条件になった場合だけの実施条件として保存する。
+
+したがって、本シートの位置づけは次である。
+
+- 公開標準(AUTOSAR)で埋められる一般論まで埋めた状態が、現行方針で作れる成果物の完成形
+- program固有欄が空欄のまま渡せる形にしてあるのは、この実施条件を明示するためである
+
 ## 次の作業
 
-1. 本シート(TSV)を対象programの診断設計担当に渡し、program固有欄を回答してもらう
-2. 回答を判定ロジックに通し、Proceed / Hold / Stopを docs/122 のDecision Gateで閉じる
-3. Proceedの場合だけ、minimum payloadをsupporting artifactとして確定する
-4. 並行して、第二候補のcommunication input validityは [docs/124](124_steering_predictive_diagnostics_comm_input_validity_case.md) で独立に判定する
+1. 本シートの作成まで(公開情報のみ)は完了。回答取得は実施条件として保存する
+2. 現行方針で進められる次の検証は、ターゲットケース(permanent DTCが残らない断続的なassist低下)が公開苦情・TSB・リコール調査データに実在するかの確認である。既存のpain family整理(intermittent assist loss)を「DTC/故障コードが残らない」条件で絞り直す。実在しなければ、判定ゲート以前に市場需要側から弱まる
+3. 内部資料を使える条件になった場合だけ、回答を判定ロジックに通し docs/122 のDecision Gateで閉じる
+4. 第二候補のcommunication input validity([docs/124](124_steering_predictive_diagnostics_comm_input_validity_case.md))の照合も同じ実施条件として扱う
 
 ## Sources
 
