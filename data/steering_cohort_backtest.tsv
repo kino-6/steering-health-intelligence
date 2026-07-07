@@ -1,4 +1,4 @@
-cutoff	baseline_share_2008_2009	baseline_n	MY2010_total	MY2010_steering	MY2010_share	MY2010_fired	MY2011_total	MY2011_steering	MY2011_share	MY2011_fired	MY2012_total	MY2012_steering	MY2012_share	MY2012_fired	MY2013_total	MY2013_steering	MY2013_share	MY2013_fired	MY2014_total	MY2014_steering	MY2014_share	MY2014_fired
+cutoff	baseline_share	baseline_n	MY2010_total	MY2010_steering	MY2010_share	MY2010_fired	MY2011_total	MY2011_steering	MY2011_share	MY2011_fired	MY2012_total	MY2012_steering	MY2012_share	MY2012_fired	MY2013_total	MY2013_steering	MY2013_share	MY2013_fired	MY2014_total	MY2014_steering	MY2014_share	MY2014_fired
 2011-06-30	0.0351	57	172	4	0.0233	-	15	1	0.0667	-	0	0	0.0000	-	0	0	0.0000	-	0	0	0.0000	-
 2011-12-31	0.0286	70	258	5	0.0194	-	36	6	0.1667	-	5	3	0.6000	-	0	0	0.0000	-	0	0	0.0000	-
 2012-06-30	0.0562	89	380	7	0.0184	-	62	14	0.2258	-	20	6	0.3000	-	0	0	0.0000	-	0	0	0.0000	-
@@ -9,9 +9,9 @@ cutoff	baseline_share_2008_2009	baseline_n	MY2010_total	MY2010_steering	MY2010_s
 2014-12-31	0.0380	263	2079	221	0.1063	-	843	296	0.3511	FIRE	421	246	0.5843	FIRE	154	25	0.1623	-	56	8	0.1429	-
 2015-06-30	0.0411	316	2231	298	0.1336	-	1002	424	0.4232	FIRE	541	337	0.6229	FIRE	203	34	0.1675	-	83	11	0.1325	-
 
-cohort	first_fire_cutoff	recall_announced	lead_time_months
-MY2010	never	2015-07-01	-
-MY2011	2014-12-31	2015-07-01	7
-MY2012	2013-06-30	2015-07-01	25
-MY2013	never	2015-07-01	-
-MY2014	never	2015-07-01	-
+cohort	role	first_fire_cutoff	recall_announced	lead_time_months
+MY2010	調査対象 (PE14-030)	never	-	-
+MY2011	リコール対象 (15V-340)	2014-12-31	2015-07-01	7
+MY2012	リコール対象 (15V-340)	2013-06-30	2015-07-01	25
+MY2013	比較対象	never	-	-
+MY2014	比較対象	never	-	-

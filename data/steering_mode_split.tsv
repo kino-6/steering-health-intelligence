@@ -1,0 +1,14 @@
+vehicle	cohort	steering_total	loss_of_assist	noise_vibration	wander_pull	column_lock_key	other	loss_of_assist_share
+fusion	MY2008	11	5	3	1	0	2	0.4545
+fusion	MY2009	16	1	1	2	0	12	0.0625
+fusion	MY2010	1657	1033	25	81	32	486	0.6234
+fusion	MY2011	1424	866	39	57	21	441	0.6081
+fusion	MY2012	1503	907	47	63	8	478	0.6035
+fusion	MY2013	417	212	28	40	3	134	0.5084
+fusion	MY2014	342	149	10	49	2	132	0.4357
+silverado	MY2011	11	1	0	1	2	7	0.0909
+silverado	MY2012	6	1	0	0	0	5	0.1667
+silverado	MY2014	425	136	53	26	11	199	0.3200
+silverado	MY2015	171	63	27	10	6	65	0.3684
+silverado	MY2016	109	24	13	12	4	56	0.2202
+silverado	MY2017	66	16	8	7	3	32	0.2424

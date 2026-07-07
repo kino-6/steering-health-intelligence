@@ -252,6 +252,9 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/steering_cohort_curve_summary.tsv](data/steering_cohort_curve_summary.tsv): cohort別サマリTSV。全苦情、操舵系件数、比率、車齢24/48/72/120ヶ月時点の累積。
 1. [docs/136_steering_cohort_backtest_verdict.md](docs/136_steering_cohort_backtest_verdict.md): **時点区切りバックテストの判定(事前検知成功)**。事前固定した検知ルールで、MY2012はリコール公表25ヶ月前(ODI調査開始より約1年前)、MY2011は7ヶ月前に発火。非リコールcohortは発火せず偽陽性ゼロ。MY2010は届出遅延で検知不能=苦情ベース検知の限界として記録し、部品内部観測(SPD008)との相補性を確定。実行は `python3 scripts/steering_cohort_backtest.py`。
 1. [data/steering_cohort_backtest.tsv](data/steering_cohort_backtest.tsv): バックテストTSV。cutoff別のcohort比率・発火判定と、初回発火時点・リード月数。
+1. [docs/137_residual_candidates_sweep.md](docs/137_residual_candidates_sweep.md): 残候補4件の一括消化。**①Silverado横展開は負の結果(事前固定ルールが両リコールcohortをMISS=絶対閾値は車種を跨いで汎化しない)** ②故障モード分類は成功(Fusionの浮きの60〜62%がアシスト喪失モード)、モードベース監視をルール改訂候補に ③DVSA MOTは年10GB級・EPS固有分類の存在確認・保留 ④品質改善向け月次監視レポートのモック。
+1. [data/steering_cohort_backtest_silverado.tsv](data/steering_cohort_backtest_silverado.tsv): Silverado横展開のバックテストTSV。
+1. [data/steering_mode_split.tsv](data/steering_mode_split.tsv): 故障モード分類TSV。車種×cohort別にアシスト喪失/騒音・振動/流れ・ふらつき/コラム・ロック/その他の件数とモード比率。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。

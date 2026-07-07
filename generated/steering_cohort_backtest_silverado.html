@@ -1,5 +1,5 @@
 <meta charset='utf-8'>
-<title>Steering Cohort Backtest — Ford Fusion</title>
+<title>Steering Cohort Backtest — Chevrolet Silverado 1500</title>
 <style>
 .viz-root {
   --surface-1:#fcfcfb; --page:#f9f9f7; --ink-1:#0b0b0b; --ink-2:#52514e; --muted:#898781;
@@ -40,7 +40,7 @@ th { color: var(--ink-2); font-weight: 600; }
 .boundary { border-left: 3px solid var(--axis); padding-left: .8rem; }
 </style>
 <div class='viz-root'>
-<h1>時点区切りバックテスト — Ford Fusion</h1>
+<h1>時点区切りバックテスト — Chevrolet Silverado 1500</h1>
 <p class='note card'><b>方法:</b> 各cutoff時点までに届出(filed)された苦情だけで操舵系比率を計算。検知ルールは事前固定:
 操舵系30件以上 かつ 比率が旧世代基準の2倍以上 かつ 30%以上。●印=ルール発火。
 <b>言っていないこと:</b> 個車の故障予測、原因、OEM設計優劣。</p>
@@ -55,47 +55,38 @@ th { color: var(--ink-2); font-weight: 600; }
 <line x1='56' y1='16.0' x2='750' y2='16.0' class='grid'/>
 <text x='48' y='20.0' class='tick' text-anchor='end'>80%</text>
 <line x1='56' y1='336' x2='750' y2='336' class='axis'/>
-<text x='56.0' y='354' class='tick' text-anchor='middle'>2011-06</text>
-<text x='142.8' y='354' class='tick' text-anchor='middle'>2011-12</text>
-<text x='229.5' y='354' class='tick' text-anchor='middle'>2012-06</text>
-<text x='316.2' y='354' class='tick' text-anchor='middle'>2012-12</text>
-<text x='403.0' y='354' class='tick' text-anchor='middle'>2013-06</text>
-<text x='489.8' y='354' class='tick' text-anchor='middle'>2013-12</text>
-<text x='576.5' y='354' class='tick' text-anchor='middle'>2014-06</text>
-<text x='663.2' y='354' class='tick' text-anchor='middle'>2014-12</text>
-<text x='750.0' y='354' class='tick' text-anchor='middle'>2015-06</text>
-<polyline points='56.0,322.0 142.8,324.6 229.5,313.5 316.2,312.0 403.0,316.6 489.8,320.6 576.5,322.1 663.2,320.8 750.0,319.5' fill='none' class='baseline' stroke-width='2'/>
-<text x='756' y='323.5' class='mlabel'>旧世代基準</text>
+<text x='56.0' y='354' class='tick' text-anchor='middle'>2014-06</text>
+<text x='133.1' y='354' class='tick' text-anchor='middle'>2014-12</text>
+<text x='210.2' y='354' class='tick' text-anchor='middle'>2015-06</text>
+<text x='287.3' y='354' class='tick' text-anchor='middle'>2015-12</text>
+<text x='364.4' y='354' class='tick' text-anchor='middle'>2016-06</text>
+<text x='441.6' y='354' class='tick' text-anchor='middle'>2016-12</text>
+<text x='518.7' y='354' class='tick' text-anchor='middle'>2017-06</text>
+<text x='595.8' y='354' class='tick' text-anchor='middle'>2017-12</text>
+<text x='672.9' y='354' class='tick' text-anchor='middle'>2018-06</text>
+<text x='750.0' y='354' class='tick' text-anchor='middle'>2018-12</text>
+<polyline points='56.0,326.1 133.1,328.7 210.2,326.4 287.3,323.3 364.4,325.5 441.6,328.1 518.7,327.0 595.8,328.0 672.9,329.1 750.0,328.1' fill='none' class='baseline' stroke-width='2'/>
+<text x='756' y='332.1' class='mlabel'>旧世代基準</text>
 <line x1='56' y1='216.0' x2='750' y2='216.0' class='marker'/>
 <text x='60' y='210.0' class='mlabel'>発火下限 30%</text>
-<polyline points='56.0,326.7 142.8,328.2 229.5,328.6 316.2,320.3 403.0,317.7 489.8,318.2 576.5,311.7 663.2,293.5 750.0,282.6' fill='none' class='s0' stroke-width='2'/>
-<text x='756' y='286.6' class='dlabel s0t'>MY2010</text>
-<polyline points='56.0,309.3 142.8,269.3 229.5,245.7 316.2,239.6 403.0,272.8 489.8,270.6 576.5,249.1 663.2,195.5 750.0,166.7' fill='none' class='s1' stroke-width='2'/>
-<circle cx='663.2' cy='195.5' r='5' class='s1f' stroke='var(--surface-1)' stroke-width='2'/>
-<circle cx='750.0' cy='166.7' r='5' class='s1f' stroke='var(--surface-1)' stroke-width='2'/>
-<text x='756' y='170.7' class='dlabel s1t'>MY2011</text>
-<polyline points='229.5,216.0 316.2,226.9 403.0,199.6 489.8,163.9 576.5,139.4 663.2,102.3 750.0,86.8' fill='none' class='s2' stroke-width='2'/>
-<circle cx='403.0' cy='199.6' r='5' class='s2f' stroke='var(--surface-1)' stroke-width='2'/>
-<circle cx='489.8' cy='163.9' r='5' class='s2f' stroke='var(--surface-1)' stroke-width='2'/>
-<circle cx='576.5' cy='139.4' r='5' class='s2f' stroke='var(--surface-1)' stroke-width='2'/>
-<circle cx='663.2' cy='102.3' r='5' class='s2f' stroke='var(--surface-1)' stroke-width='2'/>
-<circle cx='750.0' cy='86.8' r='5' class='s2f' stroke='var(--surface-1)' stroke-width='2'/>
-<text x='756' y='90.8' class='dlabel s2t'>MY2012</text>
-<polyline points='403.0,306.4 489.8,290.1 576.5,290.0 663.2,271.1 750.0,269.0' fill='none' class='s3' stroke-width='2'/>
-<text x='756' y='273.0' class='dlabel s3t'>MY2013</text>
-<polyline points='576.5,263.3 663.2,278.9 750.0,283.0' fill='none' class='s4' stroke-width='2'/>
-<text x='756' y='287.0' class='dlabel s4t'>MY2014</text>
+<polyline points='56.0,326.7 133.1,290.7 210.2,278.9 287.3,264.2 364.4,269.1 441.6,256.3 518.7,250.7 595.8,235.6 672.9,233.8 750.0,228.8' fill='none' class='s0' stroke-width='2'/>
+<text x='756' y='232.8' class='dlabel s0t'>MY2014</text>
+<polyline points='210.2,312.5 287.3,261.6 364.4,277.5 441.6,286.0 518.7,283.4 595.8,277.1 672.9,275.3 750.0,279.3' fill='none' class='s1' stroke-width='2'/>
+<text x='756' y='283.3' class='dlabel s1t'>MY2015</text>
+<polyline points='441.6,271.1 518.7,234.5 595.8,253.2 672.9,256.0 750.0,272.7' fill='none' class='s2' stroke-width='2'/>
+<text x='756' y='276.7' class='dlabel s2t'>MY2016</text>
+<polyline points='595.8,298.8 672.9,301.9 750.0,304.4' fill='none' class='s3' stroke-width='2'/>
+<text x='756' y='308.4' class='dlabel s3t'>MY2017</text>
 </svg>
-<div class='legend'><span class='key'><span class='swatch s0b'></span>MY2010</span><span class='key'><span class='swatch s1b'></span>MY2011</span><span class='key'><span class='swatch s2b'></span>MY2012</span><span class='key'><span class='swatch s3b'></span>MY2013</span><span class='key'><span class='swatch s4b'></span>MY2014</span><span class='key'><span class='swatch bl'></span>旧世代基準(MY2008-09)</span></div>
+<div class='legend'><span class='key'><span class='swatch s0b'></span>MY2014</span><span class='key'><span class='swatch s1b'></span>MY2015</span><span class='key'><span class='swatch s2b'></span>MY2016</span><span class='key'><span class='swatch s3b'></span>MY2017</span><span class='key'><span class='swatch bl'></span>旧世代基準(MY2011-12)</span></div>
 </div>
 <h2>発火時点とリード</h2>
 <table>
 <tr><th>年式</th><th>位置づけ</th><th>初回発火cutoff</th><th>リコール公表</th><th>リード</th></tr>
-<tr><td>MY2010</td><td>調査対象 (PE14-030)</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
-<tr><td>MY2011</td><td>リコール対象 (15V-340)</td><td>2014-12-31</td><td>2015-07-01</td><td class='num'>7ヶ月前</td></tr>
-<tr><td>MY2012</td><td>リコール対象 (15V-340)</td><td>2013-06-30</td><td>2015-07-01</td><td class='num'>25ヶ月前</td></tr>
-<tr><td>MY2013</td><td>比較対象</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
-<tr><td>MY2014</td><td>比較対象</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
+<tr><td>MY2014</td><td>リコール対象 (17V-414)</td><td>発火せず</td><td>2017-07-01</td><td class='num'>検知不能</td></tr>
+<tr><td>MY2015</td><td>リコール対象 (18V-586)</td><td>発火せず</td><td>2018-09-01</td><td class='num'>検知不能</td></tr>
+<tr><td>MY2016</td><td>比較対象</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
+<tr><td>MY2017</td><td>比較対象</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
 </table>
 <h2>限界</h2>
 <p class='note boundary'>現在のDBの届出日が当時のまま保存されている前提。旧世代基準は技術変化(油圧→EPS)を含むため2倍マージン+絶対下限を課している。届出行動に依存するため、届出が遅いcohortは検知できない(Fusion MY2010で確認済みの限界)。</p>
