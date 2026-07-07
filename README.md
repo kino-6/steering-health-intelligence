@@ -248,6 +248,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/failure_prediction_demand_map.tsv](data/failure_prediction_demand_map.tsv): 需要マップTSV。セグメント×(予測の形、粒度、データ所有、既存プレイヤー、入り口、公開Demo可否、判定)。
 1. [docs/134_group_level_data_feasibility.md](docs/134_group_level_data_feasibility.md): 群レベル曲線のデータ当たり付け。NHTSA苦情API(実働確認済み)を主データ、既知リコールを答え合わせ、DVSA MOT(分母付き)を拡張とし、フェーズC Goを判定。分母なし・報告バイアスの限界を明記。
 1. [data/group_level_data_feasibility.tsv](data/group_level_data_feasibility.tsv): データ当たり付けTSV。源別に実在確認、粒度、分母有無、曲線への使い方、限界、ライセンス、判定を整理。
+1. [docs/135_steering_cohort_curve_demo_verdict.md](docs/135_steering_cohort_curve_demo_verdict.md): **群レベルcohort曲線Demoの判定(答え合わせ成功)**。Ford Fusion 5年式・13,862件の公開苦情の盲検集計で、リコール対象cohort(MY2011-2012)の操舵系比率51.2%/57.7%が比較cohort(21.5%/24.2%)の2倍以上に浮き、公式リコール事実を再現。実行は `python3 scripts/steering_cohort_curve.py`、出力は [generated/steering_cohort_curve.html](generated/steering_cohort_curve.html)。報告バイアスの可視化と限界(分母なし、事後検証である点)も明記。
+1. [data/steering_cohort_curve_summary.tsv](data/steering_cohort_curve_summary.tsv): cohort別サマリTSV。全苦情、操舵系件数、比率、車齢24/48/72/120ヶ月時点の累積。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
