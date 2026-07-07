@@ -255,6 +255,7 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [docs/137_residual_candidates_sweep.md](docs/137_residual_candidates_sweep.md): 残候補4件の一括消化。**①Silverado横展開は負の結果(事前固定ルールが両リコールcohortをMISS=絶対閾値は車種を跨いで汎化しない)** ②故障モード分類は成功(Fusionの浮きの60〜62%がアシスト喪失モード)、モードベース監視をルール改訂候補に ③DVSA MOTは年10GB級・EPS固有分類の存在確認・保留 ④品質改善向け月次監視レポートのモック。
 1. [data/steering_cohort_backtest_silverado.tsv](data/steering_cohort_backtest_silverado.tsv): Silverado横展開のバックテストTSV。
 1. [data/steering_mode_split.tsv](data/steering_mode_split.tsv): 故障モード分類TSV。車種×cohort別にアシスト喪失/騒音・振動/流れ・ふらつき/コラム・ロック/その他の件数とモード比率。
+1. [docs/138_business_model_definition.md](docs/138_business_model_definition.md): **ビジネスモデル定義**。3層構造(第1層=状態説明機能つきEPS製品仕様をOEMへRFQ差別化+診断コンテンツNREとして売る唯一の収益線、第2層=市場シグナル監視は内部投資、第3層=assessmentはprogram付帯NREのみ)。金の流れ、競争優位、既往Killとの整合、事業のKill条件(BM-KQ1〜4)を定義。技術検証が「問題への手当て」で終わらないための土台。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
