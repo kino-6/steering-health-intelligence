@@ -1,0 +1,6 @@
+row_id	data_source	existence_check	granularity	denominator	curve_use	limitation	license	judgment
+GLDF001	NHTSA苦情DB(API)	実働確認済み。2010 Fusion単独で5122件返却	components(STEERING)、dateOfIncident、dateComplaintFiled、年式/make/model、苦情本文	なし(稼働台数不明)	車種×年式cohort別の車齢対操舵系苦情曲線。年式間比較+操舵系比率で正規化	報告バイアス(リコール公表後スパイク)、STEERINGはEPS以外も含む、米国のみ	公開(US Gov)	主データ。フェーズCで使用
+GLDF002	NHTSAリコール/ODI文書	第1ラウンドで精読済み(15V-340、17V-414等)	是正時期・対象年式・故障モードが既知	-	曲線の答え合わせ(既知リコールcohortが浮くかの検証)	-	公開	検証用。フェーズCで使用
+GLDF003	英国DVSA MOT車検データ	実在確認済み。結果+failure item(RfR)の年次CSV、2005年以降	make/model、初度登録(車齢算出可)、走行距離、RfR項目分類	あり(全テストが記録される)	車齢×操舵系不合格率の真の率曲線	英国のみ、2018年制度変更、操舵項目はEPS以外も含む、ファイル大	OGL v3.0	拡張。フェーズC第2段
+GLDF004	既存Kaggle/proxy資産	リポジトリ内に既存	使用条件proxy	-	使用条件側の補完のみ	故障ラベルなし	各データ規約	補助
+GLDF005	判定	「車齢×操舵系不具合率の曲線が誠実に引けるか」	-	-	-	-	-	引ける。フェーズC(Demo v2: NHTSA cohort曲線+リコール答え合わせ+バイアス可視化)へGo

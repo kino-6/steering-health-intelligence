@@ -14,8 +14,8 @@
 | # | 作業 | 内容 | 出力 | 状態 |
 |---|---|---|---|---|
 | A | 需要マップ | 故障予測を欲しがる主体(OEM保証/品質、fleet、整備、保険、vehicle health基盤、サプライヤ内部)ごとに、欲しい予測の形・粒度・必要データ・既存プレイヤー・EPSサプライヤの入り口を1表に整理 | [docs/133](docs/133_failure_prediction_demand_map.md) + [data TSV](data/failure_prediction_demand_map.tsv) | 完了。個車レベルの席(RUL/予兆/入庫優先度)はfleet側(Uptake/Questar/Stratio)もOEM側(Viaduct等)も埋まっている。空席は(1)部品内部のDTC未満信号=第1ラウンド検証済み、(2)群レベルの故障傾向(公開データ)=未検証でフェーズB/Cの本命 |
-| B | データ当たり付け | 空席(2)に対し、公開データ(NHTSA苦情DB、リコール/ODI、英国DVSA MOT車検統計、既存proxy資産)で「車齢×操舵系不具合率」曲線が誠実に引けるかを判定 | docs/134(予定) | 未着手 |
-| C | Demo構築 v2 | Bで可能と判定した群レベル操舵系リスク曲線Demoの実装 | scripts + generated(予定) | 未着手 |
+| B | データ当たり付け | 空席(2)に対し、公開データ(NHTSA苦情DB、リコール/ODI、英国DVSA MOT車検統計、既存proxy資産)で「車齢×操舵系不具合率」曲線が誠実に引けるかを判定 | [docs/134](docs/134_group_level_data_feasibility.md) + [data TSV](data/group_level_data_feasibility.tsv) | 完了。**引ける=フェーズC Go**。主データ=NHTSA苦情API(実働確認済み、STEERING/発生日/年式あり)、答え合わせ=既知リコール(15V-340対象cohortが浮くか)、拡張=DVSA MOT(分母付き率曲線)。分母なし・報告バイアス等の限界も明記 |
+| C | Demo構築 v2 | 群レベル操舵系リスク曲線Demo: Fusion MY2010-2014のcohort曲線+リコール答え合わせ+報告バイアスの可視化 | docs/135 + scripts + generated(予定) | 未着手 |
 
 ## 現在地(SPD本線=第1ラウンドの区切り)
 

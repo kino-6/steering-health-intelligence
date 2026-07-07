@@ -246,6 +246,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [docs/132_steering_predictive_diagnostics_payload_replay_demo.md](docs/132_steering_predictive_diagnostics_payload_replay_demo.md): 具体化デモ。公開3ケースを最小payloadで再演し、実務の判断材料(DTC 1bit / 誤帰属code)と「その場で出せた状態説明」を対比。禁止主張を機械的に拒否する境界ガードの動作確認込み。実行は `python3 scripts/spd008_payload_replay.py`、出力は [generated/spd008_payload_replay.html](generated/spd008_payload_replay.html)。
 1. [docs/133_failure_prediction_demand_map.md](docs/133_failure_prediction_demand_map.md): 故障予測の需要マップ。買い手6セグメント別に、欲しい予測の形・粒度・必要データ・既存プレイヤー・EPSサプライヤの入り口を整理。個車レベルの席は埋まっており、空席は(1)部品内部のDTC未満信号(検証済み)と(2)群レベルの故障傾向(公開データで未検証、次フェーズの本命)の2つ。
 1. [data/failure_prediction_demand_map.tsv](data/failure_prediction_demand_map.tsv): 需要マップTSV。セグメント×(予測の形、粒度、データ所有、既存プレイヤー、入り口、公開Demo可否、判定)。
+1. [docs/134_group_level_data_feasibility.md](docs/134_group_level_data_feasibility.md): 群レベル曲線のデータ当たり付け。NHTSA苦情API(実働確認済み)を主データ、既知リコールを答え合わせ、DVSA MOT(分母付き)を拡張とし、フェーズC Goを判定。分母なし・報告バイアスの限界を明記。
+1. [data/group_level_data_feasibility.tsv](data/group_level_data_feasibility.tsv): データ当たり付けTSV。源別に実在確認、粒度、分母有無、曲線への使い方、限界、ライセンス、判定を整理。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
