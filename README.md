@@ -262,6 +262,8 @@ Steer-by-wireでは、この範囲が従来EPSより広がる可能性がある�
 1. [data/steering_cohort_backtest_silverado.tsv](data/steering_cohort_backtest_silverado.tsv): Silverado横展開のバックテストTSV。
 1. [data/steering_mode_split.tsv](data/steering_mode_split.tsv): 故障モード分類TSV。車種×cohort別にアシスト喪失/騒音・振動/流れ・ふらつき/コラム・ロック/その他の件数とモード比率。
 1. [docs/138_business_model_definition.md](docs/138_business_model_definition.md): **ビジネスモデル定義**。3層構造(第1層=状態説明機能つきEPS製品仕様をOEMへRFQ差別化+診断コンテンツNREとして売る唯一の収益線、第2層=市場シグナル監視は内部投資、第3層=assessmentはprogram付帯NREのみ)。金の流れ、競争優位、既往Killとの整合、事業のKill条件(BM-KQ1〜4)を定義。技術検証が「問題への手当て」で終わらないための土台。
+1. [docs/139_log_sign_extraction_demo.md](docs/139_log_sign_extraction_demo.md): **技術者向けLog兆候抽出デモ**。公開走行log(commaSteeringControl、MIT)938セグメントから、操舵応答の残差6特徴をrobust z-scoreで機械抽出(学習モデルなし・決定的・再現可能)。raw波形の目視では分からない兆候を検出し、payload形式の状態説明とSOTIF語彙(triggering condition候補、EooC仮定検証)へ機械変換。故障検出ではない境界を明記。実行は `python3 scripts/steering_log_sign_extraction.py`、出力は [generated/steering_log_sign_extraction.html](generated/steering_log_sign_extraction.html)。
+1. [data/steering_log_sign_extraction.tsv](data/steering_log_sign_extraction.tsv): セグメント別特徴量TSV。6特徴の実値とz-score、max_abs_z、主特徴、有効サンプル、平均車速。
 1. [docs/68_repo_closure_inventory.md](docs/68_repo_closure_inventory.md): Repoを閉じるかどうかの人間向け棚卸し。探索枝ごとの現行判断、残す価値、再開条件、Close推奨を整理。
 1. [data/repo_closure_inventory.tsv](data/repo_closure_inventory.tsv): 探索枝ごとのmarket signal、tested artifact、latest decision、why not proceed、residual value、reopen condition、source docsを整理したTSV。
 1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。OEM remote diagnostics networkに組み込むEPS/SbW内部データ由来の操舵系状態説明レイヤー。
