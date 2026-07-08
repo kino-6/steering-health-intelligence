@@ -1,6 +1,7 @@
 <meta charset='utf-8'>
 <title>操舵応答の兆候抽出レポート — FORD_MAVERICK_1ST_GEN</title>
 <style>
+:root { color-scheme: light dark; }
 .viz-root {
   --surface-1:#fcfcfb; --page:#f9f9f7; --ink-1:#0b0b0b; --ink-2:#52514e; --muted:#898781;
   --grid:#e1e0d9; --axis:#c3c2b7; --s0:#2a78d6; --s1:#1baf7a; --s2:#4a3aa7; --flag:#e34948;
@@ -12,7 +13,7 @@
 .viz-root { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--page);
   color: var(--ink-1); margin: 0 auto; max-width: 64rem; padding: 2rem 1.5rem; line-height: 1.7; }
 h1 { font-size: 1.3rem; } h2 { font-size: 1.1rem; margin-top: 2.4rem; border-bottom: 2px solid var(--grid); padding-bottom: .3rem; }
-.card { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.card { background: var(--surface-1); color: var(--ink-1); border: 1px solid var(--grid); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
 .note { font-size: .88rem; color: var(--ink-2); }
 svg { width: 100%; height: auto; display: block; }
 .grid { stroke: var(--grid); } .axis { stroke: var(--axis); }
@@ -25,14 +26,14 @@ svg { width: 100%; height: auto; display: block; }
 .dnote { fill: var(--ink-2); font-size: 12px; }
 .hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: .8rem; }
 .hcell { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 8px; padding: .5rem; }
-table { border-collapse: collapse; width: 100%; background: var(--surface-1); font-size: .9rem; }
-th, td { border: 1px solid var(--grid); padding: .45rem .7rem; text-align: left; }
+table { border-collapse: collapse; width: 100%; background: var(--surface-1); color: var(--ink-1); font-size: .9rem; }
+th, td { border: 1px solid var(--grid); padding: .45rem .7rem; text-align: left; color: var(--ink-1); }
 td.num { text-align: right; font-variant-numeric: tabular-nums; }
 th { color: var(--ink-2); font-weight: 600; }
-pre { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 8px;
+pre { background: var(--surface-1); color: var(--ink-1); border: 1px solid var(--grid); border-radius: 8px;
   padding: .8rem; overflow-x: auto; font-size: .78rem; }
 .boundary { border-left: 3px solid var(--axis); padding-left: .8rem; }
-code { background: var(--surface-1); padding: .05rem .3rem; border-radius: 4px; }
+code { background: var(--surface-1); color: var(--ink-1); padding: .05rem .3rem; border-radius: 4px; }
 .lede { font-size: .95rem; }
 </style>
 <div class='viz-root'>
