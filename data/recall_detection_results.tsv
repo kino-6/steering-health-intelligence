@@ -1,0 +1,25 @@
+universe cohorts (>=50 complaints): 3,163
+positive cohorts labeled: 2,006 -> matched in universe: 414 (match rate 21%)
+train: pos 182 / total 1,255 (prevalence 14.502%)
+test : pos 119 / total 1,077 (prevalence 11.049%)
+
+TEST PR-AUC : 0.315   (no-skill = prevalence 0.110)
+TEST ROC-AUC: 0.783
+frozen operating point (train prec>=0.5): threshold=0.3242, train recall=0.40
+TEST precision=0.39, recall=0.17, alerts=51/1077
+baseline hand rule (docs/136 adapted): TEST precision=0.14, recall=0.02, alerts=14
+
+coefficients (standardized):
+          bias: -2.338
+   steer_share: +0.942
+   log_steer_n: +0.436
+  assist_share: +0.137
+        growth: +0.025
+      rel_make: -0.606
+      age_at_T: -1.218
+
+lead sweep (train-era-fit, test-era PR-AUC / recall at frozen-style operating point):
+  T = event -  6mo: PR-AUC 0.315, precision 0.39, recall 0.17
+  T = event - 12mo: PR-AUC 0.250, precision 0.28, recall 0.13
+  T = event - 18mo: PR-AUC 0.189, precision 0.20, recall 0.09
+  T = event - 24mo: PR-AUC 0.132, precision 0.14, recall 0.07
