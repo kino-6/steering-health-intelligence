@@ -126,13 +126,14 @@ def features_for(key, cohorts, make_index, event_m: int, lead: int):
         if t3 >= 20:
             shares.append(s3 / t3)
     med = float(np.median(shares)) if len(shares) >= 5 else np.nan
-    rel = share / med if (med and med > 0) else (share / 0.05)
+    # v2 (docs/142): difference instead of ratio to break collinearity with steer_share
+    rel = (share - med) if not math.isnan(med) else 0.0
     age = (T // 12) - c.year
     return {
         "steer_share": share, "log_steer_n": math.log1p(steer),
         "assist_share": (assist / steer) if steer else 0.0,
-        "growth": growth, "rel_make": min(rel, 20.0), "age_at_T": age,
-        "_steer_n": steer, "_tot": tot,
+        "growth": growth, "rel_make": rel, "age_at_T": age,
+        "_steer_n": steer, "_tot": tot, "_rel_ratio": (share / med) if (not math.isnan(med) and med > 0) else 6.0,
     }
 
 
@@ -174,11 +175,23 @@ def roc_auc(y, s):
     return (ranks[pos].sum() - n1 * (n1 + 1) / 2) / (n1 * n0)
 
 
+V2 = True  # docs/142 revision: consumer-make scope, rel_make as difference, EPS subset
+CONSUMER_MAKE_MIN = 5000
+
+
 def main() -> None:
     cohorts = load_cohorts()
     earliest, eps_flag, named_any = load_labels()
 
     universe = {k for k, c in cohorts.items() if c.tot[-1] >= 50}
+    if V2:
+        make_tot = defaultdict(int)
+        for k, c in cohorts.items():
+            make_tot[c.make] += c.tot[-1]
+        consumer = {m for m, t in make_tot.items() if t >= CONSUMER_MAKE_MIN}
+        universe = {k for k in universe if k[0] in consumer}
+        earliest = {k: d for k, d in earliest.items() if k[0] in consumer}
+        print(f"[v2] consumer makes: {len(consumer)}; labels in scope: {len(earliest)}")
     pos_all = {k: d for k, d in earliest.items() if k in universe}
     matched_rate = len(pos_all) / len(earliest)
     negatives = sorted(k for k in universe if k not in named_any)
@@ -241,7 +254,7 @@ def main() -> None:
         out = []
         for i in np.where(idx)[0]:
             r = rows[i]
-            fire = (r["_steer_n"] >= 30 and r["steer_share"] >= 0.30 and r["rel_make"] >= 2.0)
+            fire = (r["_steer_n"] >= 30 and r["steer_share"] >= 0.30 and r.get("_rel_ratio", 0) >= 2.0)
             out.append(1.0 if fire else 0.0)
         return np.array(out)
 
@@ -265,6 +278,19 @@ def main() -> None:
     p("coefficients (standardized):")
     for name, coef in zip(["bias"] + FEATURES, w):
         p(f"  {name:>12}: {coef:+.3f}")
+
+    # EPS subset evaluation (docs/142 change 3): test positives from ELECTRIC/ASSIST campaigns
+    eps_te = te & np.array([(y[i] == 0) or (meta[i] in eps_flag) for i in range(len(y))])
+    p("")
+    p(f"EPS-subset TEST (positives limited to ELECTRIC/ASSIST campaigns): pos {y[eps_te].sum():.0f} / total {eps_te.sum():,}")
+    if y[eps_te].sum() >= 10:
+        s_eps = predict(w, Xz[eps_te])
+        pred_eps = s_eps >= best_th
+        eps_prec = y[eps_te][pred_eps].mean() if pred_eps.sum() else float("nan")
+        eps_rec = y[eps_te][pred_eps].sum() / y[eps_te].sum()
+        p(f"  PR-AUC {pr_auc(y[eps_te], s_eps):.3f} (no-skill {y[eps_te].mean():.3f}), precision {eps_prec:.2f}, recall {eps_rec:.2f}")
+    else:
+        p("  insufficient EPS positives in test era for stable metrics")
 
     # lead sweep (model refit per lead on train era only, frozen procedure)
     p("")
