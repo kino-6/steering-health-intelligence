@@ -1,0 +1,71 @@
+<meta charset='utf-8'>
+<title>英国車検 2025 — 車齢×操舵系不合格率(分母つき)</title>
+<style>
+:root { color-scheme: light dark; }
+.viz-root { --surface-1:#fcfcfb; --page:#f9f9f7; --ink-1:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --s0:#2a78d6; --s1:#1baf7a; }
+@media (prefers-color-scheme: dark) {
+  .viz-root { --surface-1:#1a1a19; --page:#0d0d0d; --ink-1:#ffffff; --ink-2:#c3c2b7;
+    --grid:#2c2c2a; --axis:#383835; --s0:#3987e5; --s1:#199e70; } }
+.viz-root { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--page);
+  color: var(--ink-1); margin: 0 auto; max-width: 60rem; padding: 2rem 1.5rem; line-height: 1.7; }
+h1 { font-size: 1.25rem; } h2 { font-size: 1.05rem; margin-top: 2rem; border-bottom: 2px solid var(--grid); padding-bottom: .3rem; }
+.card { background: var(--surface-1); color: var(--ink-1); border: 1px solid var(--grid); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.note { font-size: .88rem; color: var(--ink-2); }
+svg { width: 100%; height: auto; display: block; }
+.grid { stroke: var(--grid); } .axis { stroke: var(--axis); } .tick { fill: var(--muted); font-size: 11px; }
+.dlabel { font-size: 12px; font-weight: 600; } .s0 { stroke: var(--s0); } .s1 { stroke: var(--s1); }
+.s0t { fill: var(--s0); } .s1t { fill: var(--s1); }
+table { border-collapse: collapse; width: 100%; background: var(--surface-1); color: var(--ink-1); font-size: .9rem; }
+th, td { border: 1px solid var(--grid); padding: .4rem .7rem; text-align: left; color: var(--ink-1); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; } th { color: var(--ink-2); font-weight: 600; }
+.boundary { border-left: 3px solid var(--axis); padding-left: .8rem; }
+</style>
+<div class='viz-root'>
+<h1>英国車検 2025 — 車齢に対する操舵系不合格率(全数検査=分母つき)</h1>
+<p class='note card'>米国苦情データの群曲線(分母なし・自己申告)に対する独立の再検証。英国の定期車検は対象車両が毎年全数受検するため、
+「率」を分母つきで直接計算できる。乗用車クラスの通常検査 29,402,960 件、うち操舵系不合格 567,893 件(1.93%)、
+電動パワステ項目の不合格 4,883 件。</p>
+<h2>車齢×不合格率</h2>
+<div class='card'><svg viewBox='0 0 720 360' role='img' aria-label='車齢に対する操舵系不合格率(2025年・全数検査)'>
+<line x1='56' y1='241.0' x2='700' y2='241.0' class='grid'/>
+<text x='48' y='245.0' class='tick' text-anchor='end'>1.2%</text>
+<line x1='56' y1='166.0' x2='700' y2='166.0' class='grid'/>
+<text x='48' y='170.0' class='tick' text-anchor='end'>2.5%</text>
+<line x1='56' y1='91.0' x2='700' y2='91.0' class='grid'/>
+<text x='48' y='95.0' class='tick' text-anchor='end'>3.7%</text>
+<line x1='56' y1='16.0' x2='700' y2='16.0' class='grid'/>
+<text x='48' y='20.0' class='tick' text-anchor='end'>5.0%</text>
+<line x1='56' y1='316' x2='700' y2='316' class='axis'/>
+<text x='56.0' y='334' class='tick' text-anchor='middle'>0年</text>
+<text x='167.0' y='334' class='tick' text-anchor='middle'>5年</text>
+<text x='278.1' y='334' class='tick' text-anchor='middle'>10年</text>
+<text x='389.1' y='334' class='tick' text-anchor='middle'>15年</text>
+<text x='500.1' y='334' class='tick' text-anchor='middle'>20年</text>
+<text x='611.2' y='334' class='tick' text-anchor='middle'>25年</text>
+<polyline points='56.0,313.3 78.2,311.5 100.4,310.8 122.6,309.5 144.8,303.9 167.0,288.6 189.2,267.5 211.4,260.3 233.7,233.2 255.9,203.6 278.1,180.1 300.3,153.7 322.5,147.8 344.7,131.7 366.9,113.0 389.1,116.2 411.3,111.2 433.5,105.5 455.7,104.8 477.9,97.0 500.1,57.3 522.3,55.1 544.6,71.1 566.8,79.8 589.0,91.3 611.2,85.7 633.4,102.4 655.6,103.6 677.8,80.7 700.0,86.2' fill='none' class='s0' stroke-width='2'/>
+<polyline points='56.0,316.0 78.2,316.0 100.4,315.2 122.6,314.1 144.8,313.3 167.0,312.8 189.2,312.9 211.4,312.6 233.7,310.9 255.9,310.1 278.1,306.5 300.3,300.3 322.5,300.2 344.7,298.2 366.9,302.3 389.1,297.6 411.3,297.9 433.5,293.6 455.7,287.3 477.9,289.5 500.1,285.9 522.3,296.1 544.6,298.3 566.8,302.7 589.0,310.6 611.2,315.2 633.4,307.6 655.6,309.6 677.8,309.1 700.0,311.6' fill='none' class='s1' stroke-width='2' stroke-dasharray='5 3'/>
+<text x='64' y='30' class='dlabel s0t'>操舵系全体</text>
+<text x='64' y='46' class='dlabel s1t'>電動パワステ項目(×10表示)</text>
+<text x='378' y='354' class='tick' text-anchor='middle'>車齢(初度登録からの年数)</text>
+</svg></div>
+<h2>メーカー別(5万件以上、不合格率順)</h2>
+<table><tr><th>make</th><th>検査数</th><th>操舵系不合格率</th></tr><tr><td>RENAULT</td><td class='num'>848,813</td><td class='num'>5.19%</td></tr>
+<tr><td>JEEP</td><td class='num'>63,027</td><td class='num'>4.33%</td></tr>
+<tr><td>NISSAN</td><td class='num'>1,481,026</td><td class='num'>4.27%</td></tr>
+<tr><td>VAUXHALL</td><td class='num'>2,508,017</td><td class='num'>3.45%</td></tr>
+<tr><td>MITSUBISHI</td><td class='num'>243,276</td><td class='num'>3.34%</td></tr>
+<tr><td>CITROEN</td><td class='num'>876,178</td><td class='num'>2.80%</td></tr>
+<tr><td>KIA</td><td class='num'>917,768</td><td class='num'>2.53%</td></tr>
+<tr><td>FORD</td><td class='num'>3,878,984</td><td class='num'>2.18%</td></tr>
+<tr><td>HYUNDAI</td><td class='num'>850,929</td><td class='num'>2.04%</td></tr>
+<tr><td>PEUGEOT</td><td class='num'>1,239,185</td><td class='num'>2.02%</td></tr>
+<tr><td>SEAT</td><td class='num'>500,165</td><td class='num'>1.98%</td></tr>
+<tr><td>DACIA</td><td class='num'>193,706</td><td class='num'>1.96%</td></tr></table>
+<p class='note'>順位は設計優劣の判定ではない(車齢構成・車種構成・使われ方が混ざる)。年齢調整前の生の率。</p>
+<h2>限界</h2>
+<p class='note boundary'>英国のみ・2025年のみ/検査項目の「操舵系」は機械系(ラック・ジョイント・ガタ)を広く含み、電動パワステ固有項目は別掲/
+検査は年1回のスナップショットであり、途中で修理された故障は数えない(生存バイアス)/率の絶対値は検査制度に依存し、米国苦情データとは定義が異なる——
+比べてよいのは「車齢に対する形」だけ。</p>
+<p class='note'>データ: DVSA MOT anonymised(OGL v3.0)。再現: <code>python3 scripts/dvsa_mot_steering_rates.py</code></p>
+</div>

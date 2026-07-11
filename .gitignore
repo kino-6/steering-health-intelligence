@@ -4,3 +4,4 @@ __pycache__/
 .nhtsa_cache/
 .public_log_cache/
 .nhtsa_flat/
+.dvsa_mot/
