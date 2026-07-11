@@ -29,10 +29,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import sys
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = REPO_ROOT / ".public_log_cache" / "FORD_MAVERICK_1ST_GEN"
-OUT_HTML = REPO_ROOT / "generated" / "steering_synthetic_sensitivity.html"
-OUT_TSV = REPO_ROOT / "data" / "steering_synthetic_sensitivity.tsv"
+PLATFORM = sys.argv[1] if len(sys.argv) > 1 else "FORD_MAVERICK_1ST_GEN"
+_SUFFIX = "" if PLATFORM == "FORD_MAVERICK_1ST_GEN" else "_" + PLATFORM.lower().replace("-", "_")
+DATA_DIR = REPO_ROOT / ".public_log_cache" / PLATFORM
+OUT_HTML = REPO_ROOT / "generated" / f"steering_synthetic_sensitivity{_SUFFIX}.html"
+OUT_TSV = REPO_ROOT / "data" / f"steering_synthetic_sensitivity{_SUFFIX}.tsv"
 
 MIN_SPEED, MIN_VALID, ANGLE_SPLIT = 5.0, 300, 2.0
 ANGLE_DOMAIN, DOMAIN_FRACTION, JUMP_MAX, EXCITATION_MIN = 45.0, 0.10, 2.0, 0.15

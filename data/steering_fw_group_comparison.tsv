@@ -1,0 +1,19 @@
+feature	class	median_A	median_B	effect_size_mad	p_perm
+bias	response	-0.00030	0.00012	-0.1284	0.1429
+drift	response	0.00002	0.00000	0.0642	0.3963
+asymmetry	response	0.04815	0.02752	0.5666	0.0025
+lag	response	0.10000	0.10000	nan	1.0000
+gain_dev	response	-0.02687	-0.02670	-0.0087	0.8846
+hf_noise	response	0.04387	0.03249	0.6360	0.0005
+v_mean	usage	26.85350	20.42951	1.1373	0.0005
+excitation	usage	0.41518	0.22479	0.7333	0.0005
+
+matched_feature	class	median_A	median_B	effect_size_mad	p_perm
+bias	response	-0.00062	-0.00008	-0.1606	0.2164
+drift	response	0.00001	0.00003	-0.0719	0.6622
+asymmetry	response	0.03815	0.02695	0.3186	0.0910
+lag	response	0.10000	0.10000	nan	1.0000
+gain_dev	response	-0.02528	-0.02688	0.0854	0.5842
+hf_noise	response	0.04283	0.03844	0.3341	0.0120
+v_mean	usage	26.37096	22.37496	1.0867	0.0005
+excitation	usage	0.42047	0.43175	-0.0674	0.6122
