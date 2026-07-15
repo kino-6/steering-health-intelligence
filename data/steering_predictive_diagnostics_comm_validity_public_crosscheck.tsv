@@ -1,0 +1,9 @@
+row_id	check_item	public_case	publicly_documented_practice	gap_confirmed	spd_implication	caveat	source	confidence
+CVPC001	invalid value DTCの保持	GM 17-NA-158	U0401:71がsteering gearに、P0128がECMに保存された	保持はされていた	comm validityの差分は「保持」ではなく「部品側の依存context説明」にある	hard DTC化した例。DTC未満の揺らぎの一次実例は未確認	NHTSA MC-10137654	High
+CVPC002	保持されたDTCでの切り分け	GM 17-NA-158	codeが保存された部品(steering gear)が犯人に見え、直らない交換が繰り返された。OEMが「U0401:71でgearを交換するな」と公式警告	Yes	code保存位置=故障位置という誤帰属構造の公式記録。部品側の状態説明があれば防げた分岐	-	同上	High
+CVPC003	依存signalと機能影響の説明	GM 17-NA-158	無効な冷却水温→低温補償停止→assist低下という因果は、2017年5月のTSB(人間の文書)で初めて説明された	Yes	TSBの内容はdocs/122 payloadと同一field構成。SPD008は「人手のTSBを、runtimeの機械的状態説明にする」提案だと言い直せる	-	同上	High
+CVPC004	fallback/機能低下との近接	GM 17-NA-158	P0128(ECM)とU0401(gear)を人間が結びつける必要があった。機械的な近接説明はない	Yes	同時性fieldの価値	-	同上	High
+CVPC005	再発contextの利用	GM 17-NA-158	走行20分ごとに再現する症状にもかかわらず、再発情報は診断に使われていない	Yes	recurrence fieldの価値	-	同上	High
+CVPC006	依存signal定義の主導権	GM 17-NA-158	依存signal(冷却水温)はEPS自身の機能(グリス硬化補償)が要求する入力だった	-	依存signal listの起点をOEM network設計ではなくEPS機能設計に置ける。docs/124のHold理由「OEM依存」が軽くなる	programにより依存構成は異なる	同上	Medium
+CVPC007	現行世代のpower context誤帰属	Ford SSM 49530(2021 F-150)	始動時電圧8V未満→U3000:96/U3001:68(内部故障系code)保存→「Steering Assist Fault」表示。OEMが「PSCM交換不要、原因は電圧」と人間向けSSMで説明。専用リセットが必要	Yes	電源contextが部品内部故障に見えるcodeとして残る誤帰属は2021年世代でも継続。docs/129の限界1(現行世代改善済みの可能性)を部分的に反証	1機種の実例	NHTSA MC-10187919	High
+CVPC008	decision	comm input validity判定	条件付きHold(Proceed寄り)→公開レベルConfirmed付き限定Proceed(第二候補)	Yes	残る内部条件は実行のみ: IdsM役割分担、部署の使い道、現行自社設定確認	IdsM役割分担は公開情報で判定不能	docs/130	High

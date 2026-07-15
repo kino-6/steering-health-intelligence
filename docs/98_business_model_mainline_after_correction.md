@@ -26,6 +26,68 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、自社�
 
 詳細表は [data/business_model_mainline_after_correction.tsv](../data/business_model_mainline_after_correction.tsv) に置く。
 
+この結論を受けた4枚の最小パックは、[docs/100_oem_usage_translation_minimum_pack.md](100_oem_usage_translation_minimum_pack.md) と [data/oem_usage_translation_minimum_pack.tsv](../data/oem_usage_translation_minimum_pack.tsv) に置く。
+その4枚を社内で確認する質問票は、[docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md) と [data/oem_usage_translation_review_questions.tsv](../data/oem_usage_translation_review_questions.tsv) に置く。
+
+追加で、Boschの公開情報から、by-wire、vehicle motion management、vehicle computer、AI活用が同じSDV文脈で語られていることを確認した。
+これはEPS故障予測の根拠ではないが、上位motion-domain制御から操舵側へ来る要求を、EPSサプライヤの受け入れ境界、制限境界、診断境界、禁止主張へ翻訳する必要が増える可能性を示す。
+この枝は [docs/102_bosch_motion_domain_ai_signal_review.md](102_bosch_motion_domain_ai_signal_review.md) と [data/bosch_motion_domain_ai_signal_review.tsv](../data/bosch_motion_domain_ai_signal_review.tsv) に置く。
+
+さらに2026年のBosch / Uptake発表とBosch Predictive Diagnosticsを確認すると、fleet / connected vehicle / cloud diagnosticsの文脈では、AI-driven predictive maintenance、vehicle health services、component-specific load and diagnostic featuresが明確に出ている。
+この予測はEPS単体の交換時期予測だけではない。EPSサプライヤがsteering predictive diagnosticsとして何を予測対象にでき、predictive maintenance actionやvehicle health outputへどうつなげられるかを見る根拠になる。
+この補正は [docs/103_bosch_predictive_diagnostics_meaning_review.md](103_bosch_predictive_diagnostics_meaning_review.md) と [data/bosch_predictive_diagnostics_meaning_review.tsv](../data/bosch_predictive_diagnostics_meaning_review.tsv) に置く。
+公開情報から抽出した操舵系predictive state候補は、[docs/104_steering_predictive_state_candidate_scan.md](104_steering_predictive_state_candidate_scan.md) と [data/steering_predictive_state_candidates.tsv](../data/steering_predictive_state_candidates.tsv) に置く。
+
+改めてBoschの予測ビジネスを収集・分析した結果、Boschの本線はAIモデル単体ではなく、接続、クラウド診断、predictive diagnostics、predictive maintenance、vehicle health、整備計画、保証・品質判断までを束ねる業務パッケージであると整理した。
+EPSサプライヤ側では、Bosch型platformを自前で作るのではなく、操舵系をpredictive diagnostics / predictive maintenance / vehicle healthの対象として扱うためのstate、必要データ、整備action、禁止主張を切ることが次の論点になる。
+この分析は [docs/105_bosch_predictive_business_analysis.md](105_bosch_predictive_business_analysis.md) と [data/bosch_predictive_business_analysis.tsv](../data/bosch_predictive_business_analysis.tsv) に置く。
+次に実施するscreening計画は [docs/106_steering_predictive_diagnostics_screening_plan.md](106_steering_predictive_diagnostics_screening_plan.md) に置く。
+Phase 1/2の実行結果として、Bosch型予測ビジネスの要求を操舵系screening要求へ変換し、既存の操舵系predictive state候補を再整理した。
+結果は [docs/107_steering_predictive_diagnostics_state_screening.md](107_steering_predictive_diagnostics_state_screening.md)、[data/steering_predictive_diagnostics_screening_requirements.tsv](../data/steering_predictive_diagnostics_screening_requirements.tsv)、[data/steering_predictive_diagnostics_state_screening.tsv](../data/steering_predictive_diagnostics_state_screening.tsv) に置く。
+Proceed候補を深掘りし、低/高電圧または過温度によるreduced assist、複合電気症状、外部信号/通信validity、熱保護近傍、DTC履歴再発監視の順でPhase 3対象に置いた。
+この深掘りは [docs/108_steering_predictive_diagnostics_proceed_deep_dive.md](108_steering_predictive_diagnostics_proceed_deep_dive.md) と [data/steering_predictive_diagnostics_proceed_deep_dive.tsv](../data/steering_predictive_diagnostics_proceed_deep_dive.tsv) に置く。
+Phase 3では、5件について必要データと権限境界を切った。
+EPSサプライヤ単独で言える範囲は、state定義、診断読み順、EPS内部故障と外部contextを混同しない説明境界であり、RUL、交換時期、failure prediction、保証費削減、安全保証はrepair feedbackやOEM/fleet/platform dataなしでは言わない。
+この結果は [docs/109_steering_predictive_diagnostics_data_boundary.md](109_steering_predictive_diagnostics_data_boundary.md) と [data/steering_predictive_diagnostics_data_boundary.tsv](../data/steering_predictive_diagnostics_data_boundary.tsv) に置く。
+Phase 4では、Phase 3のdata boundaryをEPSサプライヤ内の部署別成果物へ転記できるかを見た。
+診断企画、顧客技術説明、service / aftermarket連携、品質改善には具体用途が残る。
+この結果は [docs/110_steering_predictive_diagnostics_supplier_workflow_fit.md](110_steering_predictive_diagnostics_supplier_workflow_fit.md) と [data/steering_predictive_diagnostics_supplier_workflow_fit.tsv](../data/steering_predictive_diagnostics_supplier_workflow_fit.tsv) に置く。
+Phase 5では、操舵系predictive diagnosticsを固定スコープの内部/顧客技術向けassessmentとしてProceedにした。
+ただし、これはEPS RUL、交換時期予測、Bosch型fleet predictive maintenance platform、安全保証、root cause / warranty cost reductionとしてProceedする判断ではない。
+最終判断は [docs/111_steering_predictive_diagnostics_screening_decision.md](111_steering_predictive_diagnostics_screening_decision.md) と [data/steering_predictive_diagnostics_screening_decision.tsv](../data/steering_predictive_diagnostics_screening_decision.tsv) に置く。
+追加で、SPD002だけに閉じず、SPD003、SPD004、SPD001、SPD007、内部重要モジュールのruntime deviation案を並列に深掘りした。
+runtime deviation案は、EPS製品全体E2Eでは外乱が多すぎるため、torque / angle sensor plausibility、motor / inverter response、power monitor、thermal derating、communication input validityのような内部重要モジュール単位に限定する。
+この並列深掘りは [docs/112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md](112_steering_predictive_diagnostics_parallel_continuation_deep_dive.md) と [data/steering_predictive_diagnostics_parallel_continuation.tsv](../data/steering_predictive_diagnostics_parallel_continuation.tsv) に置く。
+その中で見込みがある候補をさらに深掘りした結果、伸びしろはSPD008、実証しやすさはSPD002、実務価値はSPD003、vehicle health接続はSPD004にあると整理した。
+SPD001は二番手以下、SPD007はrepair feedback loopが見える場合だけ条件付きで扱う。
+この整理は [docs/113_steering_predictive_diagnostics_promising_candidate_deep_dive.md](113_steering_predictive_diagnostics_promising_candidate_deep_dive.md) と [data/steering_predictive_diagnostics_promising_candidate_deep_dive.tsv](../data/steering_predictive_diagnostics_promising_candidate_deep_dive.tsv) に置く。
+さらにGoalとして各SPDの一定結論まで深掘りした結果、次に作るべきものはSPD008のinternal module runtime deviation mapと、SPD002のone-case diagnostic reading orderの2つに絞った。
+SPD003は近い実務支援、SPD004は戦略オプション、SPD001は低優先、SPD007はrepair feedback loopが見える場合だけ条件付き再開とした。
+この最終整理は [docs/114_steering_predictive_diagnostics_spd_final_conclusions.md](114_steering_predictive_diagnostics_spd_final_conclusions.md) と [data/steering_predictive_diagnostics_spd_final_conclusions.tsv](../data/steering_predictive_diagnostics_spd_final_conclusions.tsv) に置く。
+続けて、SPD008の内部重要モジュールruntime deviation map、SPD002のone-case diagnostic reading order、両者の比較判断を作成した。
+結論は、SPD008を次の本線候補、SPD002をreference demoに置く、である。
+この結果は [docs/115_steering_predictive_diagnostics_spd008_runtime_deviation_map.md](115_steering_predictive_diagnostics_spd008_runtime_deviation_map.md)、[data/steering_predictive_diagnostics_spd008_runtime_deviation_map.tsv](../data/steering_predictive_diagnostics_spd008_runtime_deviation_map.tsv)、[docs/116_steering_predictive_diagnostics_spd002_one_case_reading_order.md](116_steering_predictive_diagnostics_spd002_one_case_reading_order.md)、[data/steering_predictive_diagnostics_spd002_one_case_reading_order.tsv](../data/steering_predictive_diagnostics_spd002_one_case_reading_order.tsv)、[docs/117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md](117_steering_predictive_diagnostics_spd008_vs_spd002_decision.md)、[data/steering_predictive_diagnostics_spd008_vs_spd002_decision.tsv](../data/steering_predictive_diagnostics_spd008_vs_spd002_decision.tsv) に置く。
+さらに、SPD008のfirst samplesとして、power monitorとcommunication input validityをsample化した。
+どちらも故障判定ではなく、DTC未満または原因未確定のsoft contextを、内部重要モジュールのruntime状態説明として扱えるかを見る。
+この結果は [docs/118_steering_predictive_diagnostics_spd008_first_samples.md](118_steering_predictive_diagnostics_spd008_first_samples.md) と [data/steering_predictive_diagnostics_spd008_first_samples.tsv](../data/steering_predictive_diagnostics_spd008_first_samples.tsv) に置く。
+
+ただし、直近のLog補正として、SPD008の目的を「診断企画向け1枚schema」へ縮めない。
+中心は、EPS内部重要モジュールがruntimeで普段と違う状態に入りつつあることを検知、分類、説明できるか、そしてそれがpredictive diagnostics / vehicle healthの部品側contributionになるかである。
+診断読み順、追加ログschema、品質feedback、顧客説明は、この価値仮説を検証するための副次artifactとして扱う。
+この補正は [AGENTS.md](../AGENTS.md) の `Steering Predictive Diagnostics Value Rule` に反映した。
+この補正後のNext Actionとして、power monitorとcommunication input validityをpredictive value checkとして洗い直した。
+判断は、power monitorを第一検証候補、communication input validityを第二検証候補またはProceed寄りのHoldに置く、である。
+次はpower monitorについて、既存monitorで残る項目と残らないsoft contextを比較し、vehicle health向け状態説明文とsupporting artifact listを作る。
+この結果は [docs/120_steering_predictive_diagnostics_spd008_predictive_value_check.md](120_steering_predictive_diagnostics_spd008_predictive_value_check.md) と [data/steering_predictive_diagnostics_spd008_predictive_value_check.tsv](../data/steering_predictive_diagnostics_spd008_predictive_value_check.tsv) に置く。
+続けて、power monitorの1ケースを作成した。
+対象は、短い電圧dipまたはnear-reset contextがassist limitation / reduced assistの近傍で繰り返すが、permanent under-voltage DTCには至らないケースである。
+現時点の判断は限定Proceedであり、次はunder-voltage DTC、reset log、freeze frame / extended data、assist mode / limit state、key cycle recurrenceの実際の残り方を確認し、既存monitorで十分かを判定する。
+この結果は [docs/121_steering_predictive_diagnostics_power_monitor_case.md](121_steering_predictive_diagnostics_power_monitor_case.md) と [data/steering_predictive_diagnostics_power_monitor_case.tsv](../data/steering_predictive_diagnostics_power_monitor_case.tsv) に置く。
+さらに、power monitorのpayload sampleを作成した。
+これはpayload作成そのものを目的にせず、既存monitorで十分か、不足があるなら最小payloadとして何だけを渡すかを判定するための確認表である。
+次は対象programで、under-voltage DTC、reset log、freeze frame / extended data、assist mode / limit state、key cycle recurrenceに何が残るかを確認する質問表を作る。
+この結果は [docs/122_steering_predictive_diagnostics_power_monitor_payload_sample.md](122_steering_predictive_diagnostics_power_monitor_payload_sample.md) と [data/steering_predictive_diagnostics_power_monitor_payload_sample.tsv](../data/steering_predictive_diagnostics_power_monitor_payload_sample.tsv) に置く。
+
 ## Logからの補正: 駐車場ではなくOEM用途の翻訳
 
 直近の議論で補正すべき点は、「駐車場 + 低速 + 大舵角 + 凹凸」を有望用途として先に置くと、意味がぼやけることである。

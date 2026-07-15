@@ -1,3 +1,8 @@
 .DS_Store
 __pycache__/
 *.pyc
+.nhtsa_cache/
+.public_log_cache/
+.nhtsa_flat/
+.dvsa_mot/
+.jp_mlit/

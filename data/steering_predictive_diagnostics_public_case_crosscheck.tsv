@@ -1,0 +1,8 @@
+row_id	check_item	public_case	publicly_documented_practice	gap_confirmed	spd_implication	caveat	source	confidence
+PCCC001	DTC残存と判断粒度	Ford 15S18	loss of steering assist系DTCの有無だけでPSCM再プログラム(0.2h)かsteering gear交換(1.6-2.4h+0.6h+部品)かを分岐	判断粒度が1bit	大きなservice分岐が1bitで決まる実務が公式に存在。soft contextの状態説明はこの分岐を支えられる	2011-2013年世代	NHTSA RCMN-15V340-8835	High
+PCCC002	DTC未満eventの残存	Ford 15S18(15N01)	assist喪失を訴えてもDTCがなければプログラム対象外とし「通常診断へ進め」と規定。他に読む操舵側contextは手順に存在しない	Yes	「症状あり・コードなし」顧客が構造的に説明不能のまま放置される実務の公式記録	同上	NHTSA RCMN-15V340-8835	High
+PCCC003	snapshot/freeze frameの利用	Ford 15S18 / GM 17276	両是正手順ともsnapshot・freeze frame・event履歴の読み出し工程が一切ない	Yes	DTC未満event近傍のsnapshotは実務の判断材料として存在しなかった	是正手順に載らない=存在しない、とは論理的には言い切れないが、使われなかったことは確実	両文書	High
+PCCC004	assist状態との同時性	Ford 15S18 / GM 17276	電源/内部contextとassist状態の同時性を読む工程なし	Yes	同時性の状態説明は実務に存在しなかった	同上	両文書	High
+PCCC005	key cycle recurrence	Ford 15S18 / GM 17276	再発頻度・key cycle横断の情報を読む工程なし。GM 17276は全車盲目再プログラムで個車の発生有無すら確認しない	Yes	再発contextは実務に存在しなかった。FCA 16V-167ではリコール後も380件の苦情継続(docs/127)=再発追跡の穴の傍証	同上	両文書 + docs/127	High
+PCCC006	誤診・空振りコストの実在	GM 17276 / Ford 15N01	GM顧客レターに既払い修理の払い戻し規定。原因確定前に自費修理した顧客が実在	-	原因未確定段階の状態説明価値(切り分け短縮)の金銭的裏付け	払い戻し総額は非公開	NHTSA RCSB-17V414-6829	High
+PCCC007	decision	判定ゲートの公開レベル判定	5項目中4項目で差分をConfirmed(docs/122のGate条件「2項目以上」を満たす)	Yes	SPD008 power monitor価値仮説は公開情報のみでConfirmed。内部資料条件は検証ではなく実行(現行世代の自社設定確認、2部署以上の使い道確認)のみに縮小	実例は2011-2017年世代。現行世代で穴が塞がれている可能性の確認が残る内部確認点	docs/129	High

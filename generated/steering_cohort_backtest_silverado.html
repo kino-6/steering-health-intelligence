@@ -1,0 +1,93 @@
+<meta charset='utf-8'>
+<title>Steering Cohort Backtest — Chevrolet Silverado 1500</title>
+<style>
+.viz-root {
+  --surface-1:#fcfcfb; --page:#f9f9f7; --ink-1:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7;
+}
+.s0 { stroke: #2a78d6; } .s0t { fill: #2a78d6; } .s0f { fill: #2a78d6; } .s0b { background: #2a78d6; }
+.s1 { stroke: #1baf7a; } .s1t { fill: #1baf7a; } .s1f { fill: #1baf7a; } .s1b { background: #1baf7a; }
+.s2 { stroke: #eda100; } .s2t { fill: #eda100; } .s2f { fill: #eda100; } .s2b { background: #eda100; }
+.s3 { stroke: #008300; } .s3t { fill: #008300; } .s3f { fill: #008300; } .s3b { background: #008300; }
+.s4 { stroke: #4a3aa7; } .s4t { fill: #4a3aa7; } .s4f { fill: #4a3aa7; } .s4b { background: #4a3aa7; }
+
+@media (prefers-color-scheme: dark) {
+  .viz-root { --surface-1:#1a1a19; --page:#0d0d0d; --ink-1:#ffffff; --ink-2:#c3c2b7; --grid:#2c2c2a; --axis:#383835; }
+  .s0 { stroke: #3987e5; } .s0t { fill: #3987e5; } .s0f { fill: #3987e5; } .s0b { background: #3987e5; }
+.s1 { stroke: #199e70; } .s1t { fill: #199e70; } .s1f { fill: #199e70; } .s1b { background: #199e70; }
+.s2 { stroke: #c98500; } .s2t { fill: #c98500; } .s2f { fill: #c98500; } .s2b { background: #c98500; }
+.s3 { stroke: #008300; } .s3t { fill: #008300; } .s3f { fill: #008300; } .s3b { background: #008300; }
+.s4 { stroke: #9085e9; } .s4t { fill: #9085e9; } .s4f { fill: #9085e9; } .s4b { background: #9085e9; }
+
+}
+.viz-root { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--page);
+  color: var(--ink-1); margin: 0 auto; max-width: 62rem; padding: 2rem 1.5rem; line-height: 1.6; }
+h1 { font-size: 1.3rem; } h2 { font-size: 1.05rem; margin-top: 2rem; }
+.card { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.note { font-size: .88rem; color: var(--ink-2); }
+svg { width: 100%; height: auto; display: block; }
+.grid { stroke: var(--grid); stroke-width: 1; } .axis { stroke: var(--axis); stroke-width: 1; }
+.tick { fill: var(--muted); font-size: 12px; } .dlabel { font-size: 12px; font-weight: 600; }
+.baseline { stroke: var(--muted); stroke-dasharray: 6 4; } .bl { background: var(--muted); }
+.marker { stroke: var(--axis); stroke-width: 1; stroke-dasharray: 3 3; } .mlabel { fill: var(--ink-2); font-size: 11px; }
+.legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .85rem; color: var(--ink-2); margin-top: .4rem; }
+.key { display: inline-flex; align-items: center; gap: .35rem; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+table { border-collapse: collapse; width: 100%; background: var(--surface-1); font-size: .92rem; }
+th, td { border: 1px solid var(--grid); padding: .45rem .7rem; text-align: left; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+th { color: var(--ink-2); font-weight: 600; }
+.boundary { border-left: 3px solid var(--axis); padding-left: .8rem; }
+</style>
+<div class='viz-root'>
+<h1>時点区切りバックテスト — Chevrolet Silverado 1500</h1>
+<p class='note card'><b>方法:</b> 各cutoff時点までに届出(filed)された苦情だけで操舵系比率を計算。検知ルールは事前固定:
+操舵系30件以上 かつ 比率が旧世代基準の2倍以上 かつ 30%以上。●印=ルール発火。
+<b>言っていないこと:</b> 個車の故障予測、原因、OEM設計優劣。</p>
+<div class='card'>
+<svg viewBox='0 0 880 380' role='img' aria-label='時点区切りごとの操舵系苦情比率(届出ベース)'>
+<line x1='56' y1='256.0' x2='750' y2='256.0' class='grid'/>
+<text x='48' y='260.0' class='tick' text-anchor='end'>20%</text>
+<line x1='56' y1='176.0' x2='750' y2='176.0' class='grid'/>
+<text x='48' y='180.0' class='tick' text-anchor='end'>40%</text>
+<line x1='56' y1='96.0' x2='750' y2='96.0' class='grid'/>
+<text x='48' y='100.0' class='tick' text-anchor='end'>60%</text>
+<line x1='56' y1='16.0' x2='750' y2='16.0' class='grid'/>
+<text x='48' y='20.0' class='tick' text-anchor='end'>80%</text>
+<line x1='56' y1='336' x2='750' y2='336' class='axis'/>
+<text x='56.0' y='354' class='tick' text-anchor='middle'>2014-06</text>
+<text x='133.1' y='354' class='tick' text-anchor='middle'>2014-12</text>
+<text x='210.2' y='354' class='tick' text-anchor='middle'>2015-06</text>
+<text x='287.3' y='354' class='tick' text-anchor='middle'>2015-12</text>
+<text x='364.4' y='354' class='tick' text-anchor='middle'>2016-06</text>
+<text x='441.6' y='354' class='tick' text-anchor='middle'>2016-12</text>
+<text x='518.7' y='354' class='tick' text-anchor='middle'>2017-06</text>
+<text x='595.8' y='354' class='tick' text-anchor='middle'>2017-12</text>
+<text x='672.9' y='354' class='tick' text-anchor='middle'>2018-06</text>
+<text x='750.0' y='354' class='tick' text-anchor='middle'>2018-12</text>
+<polyline points='56.0,326.1 133.1,328.7 210.2,326.4 287.3,323.3 364.4,325.5 441.6,328.1 518.7,327.0 595.8,328.0 672.9,329.1 750.0,328.1' fill='none' class='baseline' stroke-width='2'/>
+<text x='756' y='332.1' class='mlabel'>旧世代基準</text>
+<line x1='56' y1='216.0' x2='750' y2='216.0' class='marker'/>
+<text x='60' y='210.0' class='mlabel'>発火下限 30%</text>
+<polyline points='56.0,326.7 133.1,290.7 210.2,278.9 287.3,264.2 364.4,269.1 441.6,256.3 518.7,250.7 595.8,235.6 672.9,233.8 750.0,228.8' fill='none' class='s0' stroke-width='2'/>
+<text x='756' y='232.8' class='dlabel s0t'>MY2014</text>
+<polyline points='210.2,312.5 287.3,261.6 364.4,277.5 441.6,286.0 518.7,283.4 595.8,277.1 672.9,275.3 750.0,279.3' fill='none' class='s1' stroke-width='2'/>
+<text x='756' y='283.3' class='dlabel s1t'>MY2015</text>
+<polyline points='441.6,271.1 518.7,234.5 595.8,253.2 672.9,256.0 750.0,272.7' fill='none' class='s2' stroke-width='2'/>
+<text x='756' y='276.7' class='dlabel s2t'>MY2016</text>
+<polyline points='595.8,298.8 672.9,301.9 750.0,304.4' fill='none' class='s3' stroke-width='2'/>
+<text x='756' y='308.4' class='dlabel s3t'>MY2017</text>
+</svg>
+<div class='legend'><span class='key'><span class='swatch s0b'></span>MY2014</span><span class='key'><span class='swatch s1b'></span>MY2015</span><span class='key'><span class='swatch s2b'></span>MY2016</span><span class='key'><span class='swatch s3b'></span>MY2017</span><span class='key'><span class='swatch bl'></span>旧世代基準(MY2011-12)</span></div>
+</div>
+<h2>発火時点とリード</h2>
+<table>
+<tr><th>年式</th><th>位置づけ</th><th>初回発火cutoff</th><th>リコール公表</th><th>リード</th></tr>
+<tr><td>MY2014</td><td>リコール対象 (17V-414)</td><td>発火せず</td><td>2017-07-01</td><td class='num'>検知不能</td></tr>
+<tr><td>MY2015</td><td>リコール対象 (18V-586)</td><td>発火せず</td><td>2018-09-01</td><td class='num'>検知不能</td></tr>
+<tr><td>MY2016</td><td>比較対象</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
+<tr><td>MY2017</td><td>比較対象</td><td>発火せず</td><td>-(非リコール)</td><td class='num'>-</td></tr>
+</table>
+<h2>限界</h2>
+<p class='note boundary'>現在のDBの届出日が当時のまま保存されている前提。旧世代基準は技術変化(油圧→EPS)を含むため2倍マージン+絶対下限を課している。届出行動に依存するため、届出が遅いcohortは検知できない(Fusion MY2010で確認済みの限界)。</p>
+</div>

@@ -1,0 +1,16 @@
+comparison_field	spd008_runtime_deviation	spd002_reading_order	decision	reason	confidence
+Market demand	DTC未満または原因未確定の段階で、追加ログ、診断読み順、品質feedback、顧客説明へ使えるsoft contextを残したい。	reduced assist eventで、DTCだけでEPS内部故障へ短絡せず、電源・温度・assist mode・再発を順番に読みたい。	両方あり。SPD008の方が上流、SPD002の方が実務直結。	市場需要の広さはSPD008、現場での分かりやすさはSPD002。	Medium
+Unresolved pain	既存monitorはhard faultや安全閾値中心で、DTC未満の説明用contextが残らない可能性がある。	DTC、電圧、温度、assist mode、key cycle、repair feedbackの読み順が弱いと、既存資料の断片になる。	SPD008の痛みの方が大きいが、検証難度も高い。	SPD008は機能価値に近いが、既存monitorとの差分証明が必要。	Medium
+Hypothesis	内部重要モジュール単位なら、規定範囲内deviationを追加ログや品質feedbackへ転記できる。	1ケース読み順なら、既存DTC表やservice manualを超える説明境界が作れる。	本線候補はSPD008、検証demoはSPD002。	SPD008は製品価値に近く、SPD002はassessmentの成立性確認に向く。	Medium-High
+Solution / artifact	internal module runtime deviation map	one-case diagnostic reading order	両方作成済み。次はSPD008をsample化、SPD002をreference demo化。	artifactの深さはSPD008、説明の明快さはSPD002。	High
+Buyer / user	診断企画, 製品企画, 品質改善, 顧客技術説明	診断企画, service / aftermarket, 顧客技術説明	SPD008は製品企画/品質改善に強く、SPD002はservice/診断に強い。	初期レビューは診断企画を共通窓口にし、SPD008は製品企画/品質改善へ、SPD002はserviceへ広げる。	Medium
+Why EPS supplier can play	内部モジュール、信号整合、既存monitor、追加ログtriggerを定義できる。	assist limit、reduced assist、DTC/freeze frame/extended dataの意味を説明できる。	両方サプライヤ主語が残る。	ただしSPD008は内部設計/monitor知識が必要、SPD002は既存診断仕様で始めやすい。	Medium-High
+Growth potential	高い。DTC未満の追加ログ/品質feedbackに展開できる可能性がある。	中程度。診断読み順assessmentとしては有効だが、機能価値は限定的。	SPD008が上。	ビジネスの芯はSPD008の方が作りやすい。	Medium
+Ease of validation	中から低。既存monitorとの差分、baseline安定性、外部負荷誤読を確認する必要がある。	高い。1ケースでDTC/電圧/温度/assist modeの読み順を作れる。	SPD002が上。	早く見せるdemoはSPD002。	High
+Existing-work overlap risk	高い。既存diagnostic monitor、plausibility check、thermal/power protectionと重複しやすい。	中程度。既存service manualの「電源と温度を確認」になるリスクがある。	両方リスクあり。SPD008はmonitor差分、SPD002は読み順差分で検証する。	弱点深掘りが必要なため、初回ドラフトでは止めない。	High
+OEM/fleet/platform dependency	中程度。内部モジュールはsupplier側だが、field outcomeにはOEM/service feedbackが必要。	中程度。電源系修理結果や再発有無はservice feedbackが必要。	同程度。どちらもRUL/原因断定には進めない。	依存は境界として扱う。	Medium
+Proceed condition	少なくとも2モジュールで既存monitorでは完結しないdeviationが追加ログ/品質feedbackへ転記できる。	DTC単体よりも、電圧、温度、assist mode、key cycle、repair feedback requirementを読む順番が具体化する。	次はSPD008を本線候補としてsample化し、SPD002をreference demoに置く。	SPD008のProceed条件が満たせれば本線。満たせなければSPD002型assessmentへ戻す。	Medium
+Hold condition	既存monitorで十分、baseline不安定、外部負荷誤読、使う部署がない。	既存service manualの言い換え、診断情報不足、一般免責文だけ。	Hold条件は明確。	次作業でこの2つを重点検証する。	High
+Stop / Kill boundary	部署成果物へ転記できない、または交換時期/安全保証/原因断定が必要になる。	電圧、温度、assist modeが残らず、説明境界も作れない。	Stopはまだしない。	どちらもartifactができ、次検証条件が明確なため。	Medium
+What not to claim	故障時期、交換時期、外乱原因特定、安全保証、root cause。	RUL、交換日、安全保証、root cause、保証費削減。	禁止主張は共通で維持。	旧テーマのEPS寿命予測へ戻さない。	High
+Final decision	本線候補として次にsample化。	実証demo / reference caseとして次に使う。	SPD008を次の本線候補、SPD002を比較用demoにする。	伸びしろと実証しやすさを分けて扱うのが最も安全。	Medium-High
