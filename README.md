@@ -2,6 +2,8 @@
 
 EPS / ステアリングECUを起点に、ECU内部信号からhealth / stress / control-effort indicatorを作る事業仮説メモ。
 
+**セッション復帰はまず [Memory.md](Memory.md) から**(現在地・読み順・観測台帳・禁止事項のインデックス)。
+
 ## 現在の状態
 
 旧テーマはArchive扱いにする。
