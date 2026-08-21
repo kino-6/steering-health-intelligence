@@ -91,7 +91,7 @@ OEM向けRFQや設計レビューで、
 
 Kill条件:
 
-- OEM/社内レビューで資料用途がない
+- OEM/サプライヤ内レビューで資料用途がない
 - 単なる調査レポートで終わる
 
 ### 3. Diagnostic Evidence Design Review Workshop

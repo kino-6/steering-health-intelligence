@@ -4,6 +4,6 @@ FPDM002	OEM品質/保証	build cohort別故障率、保証請求前の新興不�
 FPDM003	整備チェーン/service	診断時間短縮、criticality、読み順、部品事前手配	個車	DTC+freeze frame+修理結果feedback(OEM/service所有)	OEM remote diagnostics、Bosch cloud diagnostics	説明レイヤー外販はKill済み。SPD payloadのservice向け言い回しのみ	不可	既存判断維持	docs/archive/oem_remote_diagnostics
 FPDM004	保険/延長保証	車齢×車種×使用条件の故障リスク(価格付け用群統計)	群	請求データ(保険所有)	初期対象外として除外済み	なし(対象外維持)	形は可	対象外維持	docs/75:129-131
 FPDM005	Vehicle health基盤	end-to-endのvehicle health ecosystem	個車+車群	全車両データ	Bosch(Uptake買収、C-Hub/FleetME)、ZF Vehicle Health、Nexteer MotionIQ	基盤外販はKill済み。部品側contribution(SPD payload)=空席(1)	部分的に可(replay demo済み)	第1ラウンド検証済み	docs/105,128,132
-FPDM006	EPSサプライヤ内部(品質改善・製品企画)	サプライヤ搭載車種の操舵系が車齢・条件別にどう壊れてきたかの群傾向。設計・評価feedback、RFQ回答の裏付け	群	公開データで一部代替可(苦情・リコール・車検統計)+内部保証データ	各社内製(体系商品なし)	サプライヤ業務なので入り口不要。公開群曲線が道具になる=空席(2)	可	未検証。フェーズB/Cの本命	docs/133
+FPDM006	EPSサプライヤ内部(品質改善・製品企画)	サプライヤ搭載車種の操舵系が車齢・条件別にどう壊れてきたかの群傾向。設計・評価feedback、RFQ回答の裏付け	群	公開データで一部代替可(苦情・リコール・車検統計)+内部保証データ	各サプライヤ内製(体系商品なし)	サプライヤ業務なので入り口不要。公開群曲線が道具になる=空席(2)	可	未検証。フェーズB/Cの本命	docs/133
 FPDM007	構図まとめ	個車RUL/交換時期=全員Kill、個車予兆/入庫優先度=既存商品化済み、部品内部DTC未満=空席(1)検証済み、群レベル傾向=空席(2)未検証	-	-	-	-	-	フェーズBで空席(2)のデータ当たり付けへ	docs/133
 FPDM008	フェーズB候補データ	NHTSA苦情DB(車種×年式×steeringカテゴリ時系列)、NHTSAリコール/ODI、英国DVSA MOT車検(操舵系不合格率×車齢)、既存Kaggle/proxy資産	群	すべて公開	-	-	要確認(粒度・分類)	「車齢×操舵系不具合率」曲線が誠実に引けるならフェーズCへ	docs/133

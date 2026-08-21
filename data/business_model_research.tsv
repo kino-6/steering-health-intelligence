@@ -27,12 +27,12 @@ BM025	Option B: Fleet Predictive Maintenance	Leasing	Residual value health analy
 BM026	Option B: Fleet Predictive Maintenance	Last-mile delivery	Depot maintenance planner	Depot manager	夜間整備枠を最適化したい	SaaS	運用現場は修理優先度と部品準備に価値を見る	OEM品質向けにも解析優先度を示すtriage flagを設計する	Medium
 BM027	Option B: Fleet Predictive Maintenance	Emergency vehicles	Mission readiness monitoring	Public fleet	緊急車両の稼働不能を避けたい	保守契約	低頻度でもミッション重要度が高いと価値が出る	安全重要性を市場品質の説明価値として表現する	Medium
 BM028	Option B: Fleet Predictive Maintenance	Shared mobility	Vehicle availability score	Car sharing operator	利用不能車両を減らしたい	台数課金	可用性スコアは全車両データ前提	サプライヤ単独ではスコアを作らず証跡部品に徹する	Low
-BM029	Option C: OEM Market Quality Monitoring	OEM quality	Field quality analytics platform	OEM market quality	市場不具合を早期把握したい	年額SaaSまたは社内基盤	品質部門は個車予測より群の傾向と説明性を重視する	将来接続用にlot, software, calibrationのキーを持つ	High
+BM029	Option C: OEM Market Quality Monitoring	OEM quality	Field quality analytics platform	OEM market quality	市場不具合を早期把握したい	年額SaaSまたはサプライヤ内基盤	品質部門は個車予測より群の傾向と説明性を重視する	将来接続用にlot, software, calibrationのキーを持つ	High
 BM030	Option C: OEM Market Quality Monitoring	OEM quality	Warranty analytics service	OEM warranty team	保証費の増加要因を知りたい	分析サービス	保証データと診断データの接続で価値が増える	保証判断ではなく保証解析に使える証跡にする	High
 BM031	Option C: OEM Market Quality Monitoring	OEM quality	Complaint-to-signal correlation	OEM customer quality	苦情と車両データを結びたい	分析プロジェクト	主観苦情は客観信号と紐づくと強い	操舵違和感カテゴリに対応する信号セットを定義する	High
 BM032	Option C: OEM Market Quality Monitoring	OEM quality	Recall scope analysis support	OEM safety and compliance	対象車両範囲を検討したい	コンサルまたは解析料	リコール判断はOEM責任で、サプライヤは根拠提供が妥当	自動判断を避け、対象検討に使える分類軸を提供する	High
 BM033	Option C: OEM Market Quality Monitoring	OEM quality	Service campaign prioritization	OEM service engineering	サービスキャンペーン優先度を決めたい	プロジェクト課金	市場台数での発生率を見るにはOEMデータが必要	サプライヤ側は発生条件と再現条件の粒度を上げる	High
-BM034	Option C: OEM Market Quality Monitoring	OEM quality	Early warning quality dashboard	OEM quality executive	品質問題の早期兆候を見たい	社内基盤またはSaaS	経営向けには件数と重大度、技術者向けには証跡が必要	上位KPIではなく下位証跡データとして設計する	Medium
+BM034	Option C: OEM Market Quality Monitoring	OEM quality	Early warning quality dashboard	OEM quality executive	品質問題の早期兆候を見たい	サプライヤ内基盤またはSaaS	経営向けには件数と重大度、技術者向けには証跡が必要	上位KPIではなく下位証跡データとして設計する	Medium
 BM035	Option C: OEM Market Quality Monitoring	OEM engineering	Engineering issue triage portal	OEM engineering	報告案件の原因候補を振り分けたい	年額SaaS	triageは断定ではなく作業分配価値が大きい	suspected cause categoryを工程レビュー用に定義する	High
 BM036	Option C: OEM Market Quality Monitoring	OEM supplier management	Supplier evidence exchange portal	OEM and Tier1	サプライヤ間の原因切り分けを早めたい	プラットフォーム課金	共通データ辞書がないと議論が長引く	Signal dictionaryとinterpretation cautionを商品に含める	High
 BM037	Option C: OEM Market Quality Monitoring	Manufacturing quality	Production lot risk analytics	OEM manufacturing quality	ロット起因の偏りを見たい	分析料	ロット情報との結合で市場解析が強くなる	ECU production lotやtraceability IDの読出し可能性を検討する	Medium
@@ -48,7 +48,7 @@ BM046	Option C: OEM Market Quality Monitoring	Service parts	Return part analytic
 BM047	Option C: OEM Market Quality Monitoring	Brand protection	Quality risk briefing service	OEM quality leadership	ブランド影響を早く把握したい	リテイナー	経営には技術詳細より重大度分類が必要	技術分類を上位のQuality narrativeに変換できる項目名にする	Medium
 BM048	Option C: OEM Market Quality Monitoring	OEM diagnostics	DTC enrichment licensing	OEM diagnostic engineering	DTCの説明力を上げたい	NREと単価上乗せ	既存DTC体系の拡張として売ると受け入れやすい	Extended Data / Freeze Frame拡張として提案する	High
 BM049	Option C: OEM Market Quality Monitoring	Compliance	Post-market surveillance evidence	OEM regulatory team	市場監視の証拠を残したい	品質基盤費用	安全関連は監視結果の根拠が重要	断定予測でなくpost-market evidenceとして位置づける	High
-BM050	Option C: OEM Market Quality Monitoring	Supplier scorecard	Supplier quality KPI service	OEM purchasing and quality	サプライヤ品質を比較したい	社内基盤	比較KPIは政治性が高い	サプライヤ評価用途を主張せず共同解析用途にする	Low
+BM050	Option C: OEM Market Quality Monitoring	Supplier scorecard	Supplier quality KPI service	OEM purchasing and quality	サプライヤ品質を比較したい	サプライヤ内基盤	比較KPIは政治性が高い	サプライヤ評価用途を主張せず共同解析用途にする	Low
 BM051	Option D: OTA / ADAS Safety Monitoring	OTA operations	OTA rollout health monitoring	OEM software operations	更新後の不具合兆候を検知したい	OTA基盤費用	OTA履歴はOEM側だがECU内の版数と状態は接続キーになる	software versionとevent timestamp相当の順序情報を残す	High
 BM052	Option D: OTA / ADAS Safety Monitoring	OTA operations	Canary release telemetry	OEM software operations	少数配信で問題を止めたい	SaaS	段階配信では比較可能な診断指標が必要	配信前後比較に使える安定カウンタを定義する	Medium
 BM053	Option D: OTA / ADAS Safety Monitoring	ADAS operations	ADAS availability monitor	OEM ADAS team	ADAS機能の可用性を把握したい	機能基盤費用	EPSはADAS可用性の一部だが車両統合依存が強い	ADAS用語は避け、操舵ECU側のassist availability evidenceに留める	Medium
@@ -88,14 +88,14 @@ BM086	Option E: Diagnostic Evidence Package	Diagnostics	Supplier-OEM evidence co
 BM087	Option E: Diagnostic Evidence Package	Diagnostics	Diagnostic maturity assessment	OEM diagnostic lead	既存診断仕様の不足を見たい	アセスメント費	現状診断との差分を見せると価値が伝わる	現在DTC項目と追加Evidenceのgap analysisを作る	High
 BM088	Option E: Diagnostic Evidence Package	Diagnostics	Reusable platform package	ECU platform team	車種横断で使い回したい	プラットフォーム費	横展開には標準項目と車種別項目の分離が必要	common evidence setとproject-specific setに分ける	High
 BM089	Option E: Diagnostic Evidence Package	Diagnostics	Service manual augmentation	OEM service engineering	整備書の判断材料を増やしたい	ドキュメント費	整備現場では追加確認手順が重要	各カテゴリにrecommended next checkを付ける	Medium
-BM090	Option E: Diagnostic Evidence Package	Diagnostics	Offline evidence analyzer	Tier1 engineering	ログから原因候補を自動整理したい	社内ツールまたはNRE	小さなツールはMore Logs以上の価値を示せる	CSV snapshotを入力して原因候補と不足データを出すCLIを作る	High
-BM091	Option F: Development / HILS Quality AI	Development quality	HILS log anomaly mining	Tier1 validation	評価ログから異常兆候を見つけたい	社内効率化またはNRE	市場前のログは入手しやすく検証に使える	HILSログでevidence項目の有効性を先に検証する	High
+BM090	Option E: Diagnostic Evidence Package	Diagnostics	Offline evidence analyzer	Tier1 engineering	ログから原因候補を自動整理したい	サプライヤ内ツールまたはNRE	小さなツールはMore Logs以上の価値を示せる	CSV snapshotを入力して原因候補と不足データを出すCLIを作る	High
+BM091	Option F: Development / HILS Quality AI	Development quality	HILS log anomaly mining	Tier1 validation	評価ログから異常兆候を見つけたい	サプライヤ内効率化またはNRE	市場前のログは入手しやすく検証に使える	HILSログでevidence項目の有効性を先に検証する	High
 BM092	Option F: Development / HILS Quality AI	Development quality	Bench fault injection analytics	Tier1 validation	故障注入時の信号反応を整理したい	NRE	故障モードと信号の対応表を作りやすい	故障モード対証跡パターンの教師データを作る	High
-BM093	Option F: Development / HILS Quality AI	Development quality	Test failure clustering	Tier1 software team	大量のテスト失敗を分類したい	社内ツール	クラスタリングは調査着手点を作る価値がある	断定AIでなく類似イベント検索を補助機能にする	Medium
+BM093	Option F: Development / HILS Quality AI	Development quality	Test failure clustering	Tier1 software team	大量のテスト失敗を分類したい	サプライヤ内ツール	クラスタリングは調査着手点を作る価値がある	断定AIでなく類似イベント検索を補助機能にする	Medium
 BM094	Option F: Development / HILS Quality AI	Development quality	Requirement-to-test traceability	OEM and Tier1	要求と試験結果を追跡したい	ALMツール費	証跡は要求や故障モードに紐づくと強い	各Evidence項目にrelated failure modeを持つ	Medium
 BM095	Option F: Development / HILS Quality AI	Development quality	Calibration regression analytics	Calibration team	キャリブ変更の副作用を見たい	解析ツール	calibration差分解析は市場版数解析にもつながる	calibration IDを市場証跡でも保持する	High
-BM096	Option F: Development / HILS Quality AI	Development quality	Simulation scenario library	Validation team	異常シナリオを再利用したい	社内資産	シナリオ化すると検証と説明が繰り返せる	代表的な市場症状シナリオを作る	Medium
-BM097	Option F: Development / HILS Quality AI	Development quality	Issue ticket summarizer	Engineering team	不具合票を早く理解したい	社内AIツール	自然言語情報は信号証跡と併せると強い	将来は苦情文とevidence categoryの対応表を作る	Medium
+BM096	Option F: Development / HILS Quality AI	Development quality	Simulation scenario library	Validation team	異常シナリオを再利用したい	サプライヤ内資産	シナリオ化すると検証と説明が繰り返せる	代表的な市場症状シナリオを作る	Medium
+BM097	Option F: Development / HILS Quality AI	Development quality	Issue ticket summarizer	Engineering team	不具合票を早く理解したい	サプライヤ内AIツール	自然言語情報は信号証跡と併せると強い	将来は苦情文とevidence categoryの対応表を作る	Medium
 BM098	Option F: Development / HILS Quality AI	Development quality	Design FMEA feedback analytics	Quality engineering	市場や試験結果をFMEAに戻したい	品質プロセス費	証跡が設計改善に戻ると継続価値になる	Evidence項目を次期診断仕様改善に接続する	High
-BM099	Option F: Development / HILS Quality AI	Development quality	Automated diagnostic spec review	Diagnostic engineering	診断仕様の抜け漏れを見たい	社内ツール	仕様レビューはデータ項目選定の前段で有効	DTCごとのmissing evidence checklistを作る	High
+BM099	Option F: Development / HILS Quality AI	Development quality	Automated diagnostic spec review	Diagnostic engineering	診断仕様の抜け漏れを見たい	サプライヤ内ツール	仕様レビューはデータ項目選定の前段で有効	DTCごとのmissing evidence checklistを作る	High
 BM100	Option F: Development / HILS Quality AI	Development quality	Prototype evidence scoring notebook	Tier1 planning	企画価値を小さく実証したい	PoC	初期PoCは商談より学習目的に向く	既存ログでBefore/Afterの原因候補絞り込み効果を示す	High

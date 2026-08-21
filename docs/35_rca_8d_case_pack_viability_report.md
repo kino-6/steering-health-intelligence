@@ -34,7 +34,7 @@
 | 需要シグナル | 何を示すか | この仮説への意味 |
 |---|---|---|
 | AIAG warranty / CQI-14文脈 | NTF、returned parts、DTC、supplier、8Dなどが保証品質の用語として扱われる | NTF/返却品/診断データは市場品質の正式な業務文脈にある |
-| AIAGのNTFデータ分析記事 | 修理・保守データの分析でNTFに対処する文脈がある | NTFは単なる社内愚痴ではなく、データで潰すべき市場課題 |
+| AIAGのNTFデータ分析記事 | 修理・保守データの分析でNTFに対処する文脈がある | NTFは単なるサプライヤ内愚痴ではなく、データで潰すべき市場課題 |
 | SCAR/8D要求 | supplier corrective actionではproblem statement、scope、evidence、root cause、effectivenessが求められる | 事実整理と証拠添付はsupplier側の業務成果物になる |
 | Warranty analytics vendor | field claims、returned parts、dealer narratives、vehicle diagnosticsを扱う | 保証・返却品・診断データをつなぐ支払市場は存在する |
 | 8D/CAPA/QMS vendor | 8D、RCA、evidence evaluation、corrective actionを扱う | 一方で、汎用解決策は既に多い |
@@ -113,7 +113,7 @@
 | Customer quality | 顧客向け説明で、断定しすぎずに事実を出せる | 高め。8D/SCAR対応が直接業務 |
 | Warranty / return-part analysis | NTFや再現不能案件で、次に何を見るか明確になる | 中。案件数がある場合に成立 |
 | Diagnostic engineering | 現行DTC/freeze frame/extended dataで足りるかを実ケースから見られる | 中。仕様改善NREに接続できる |
-| Supplier quality liaison | 顧客/OEMとのやりとりで、要求データと境界を説明できる | 中。社内連携が必要 |
+| Supplier quality liaison | 顧客/OEMとのやりとりで、要求データと境界を説明できる | 中。サプライヤ内連携が必要 |
 
 エンドユーザ、サービス店、OEM fleet analytics部門は初期対象外。
 将来のextensionとしてはあり得るが、今の結論をそこに逃がすと、EPSサプライヤ視点から外れる。

@@ -27,7 +27,7 @@ EPSサプライヤが、OEMの用途想定を受け取ったときに、サプ�
 詳細表は [data/business_model_mainline_after_correction.tsv](../data/business_model_mainline_after_correction.tsv) に置く。
 
 この結論を受けた4枚の最小パックは、[docs/100_oem_usage_translation_minimum_pack.md](100_oem_usage_translation_minimum_pack.md) と [data/oem_usage_translation_minimum_pack.tsv](../data/oem_usage_translation_minimum_pack.tsv) に置く。
-その4枚を社内で確認する質問票は、[docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md) と [data/oem_usage_translation_review_questions.tsv](../data/oem_usage_translation_review_questions.tsv) に置く。
+その4枚をサプライヤ内で確認する質問票は、[docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md) と [data/oem_usage_translation_review_questions.tsv](../data/oem_usage_translation_review_questions.tsv) に置く。
 
 追加で、Boschの公開情報から、by-wire、vehicle motion management、vehicle computer、AI活用が同じSDV文脈で語られていることを確認した。
 これはEPS故障予測の根拠ではないが、上位motion-domain制御から操舵側へ来る要求を、EPSサプライヤの受け入れ境界、制限境界、診断境界、禁止主張へ翻訳する必要が増える可能性を示す。
@@ -204,7 +204,7 @@ EPSサプライヤが主語になりにくい。
 
 買い手として置くなら、商品企画またはprogram technical leadに近い。
 ただし、現時点では独立予算があるとは言わない。
-最初は、特定programまたは社内検討の固定スコープassessmentとして扱う。
+最初は、特定programまたはサプライヤ内検討の固定スコープassessmentとして扱う。
 
 ## Why Supplier Can Play
 

@@ -58,7 +58,7 @@ NHTSAのSbW functional safety assessmentや英国VCAのR79説明を見ると、S
 
 ZF、Mercedes-Benz、Tesla、Lexus、HELLAの公開情報から、SbWは単なる研究テーマではなく量産文脈に入っていると見てよい。
 
-EPSサプライヤ視点では、これは「市場が広い」という意味ではなく、対象顧客や社内programにSbWがある場合、説明業務が発生しうるという意味で使う。
+EPSサプライヤ視点では、これは「市場が広い」という意味ではなく、対象顧客やサプライヤ内programにSbWがある場合、説明業務が発生しうるという意味で使う。
 
 ### 2. 説明範囲は従来EPSより広い
 

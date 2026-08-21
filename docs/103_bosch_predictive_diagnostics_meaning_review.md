@@ -163,7 +163,7 @@ Boschの2026年発表を踏まえると、Repoのビジネス仮説は次へ補�
 
 外部の最終利用者はfleet operatorやOEM service部門かもしれない。
 しかし、EPSサプライヤ単独の初期買い手として置くのは危険である。
-最初は、操舵系としてpredictive diagnostics / predictive maintenance / vehicle healthに値する出力を持てるかの社内確認として扱う。
+最初は、操舵系としてpredictive diagnostics / predictive maintenance / vehicle healthに値する出力を持てるかのサプライヤ内確認として扱う。
 
 ## Why Supplier Can Play
 

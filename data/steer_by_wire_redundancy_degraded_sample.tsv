@@ -5,5 +5,5 @@ remaining_steering_capability	degraded steering available; optional low-speed ma
 supplier_owned_evidence	actuator status; sensor agreement; motor current; voltage; reset; communication state; software/calibration ID	diagnostic data; ECU logs; calibration/version management; HILS result	診断で読める事実と、読めない事実を分けられる	DTC/DID/freeze frameに接続しない
 diagnostic_content	DTC; redundancy degraded DID; freeze frame; extended data; security access	UDS/ODX diagnostic spec; security access policy; SOVD content map	サービス/工場/OEM cloudに何を見せるか議論できる	diagnostic exposure policyが既に完全に整理済み
 linked_safety_cyber_source	FMEA row; safety mechanism ID; TARA row; security control; post-update check	safety case; TARA; CSMS; software update checklist	安全・サイバー・更新後確認を1つの回答に束ねられる	安全資料だけで完結し横断整理が不要
-oem_answer	冗長低下を検知し、残存操舵能力を制限し、退避を促す。診断では状態と周辺条件を読めるが原因は断定しない	customer technical response; design review memo; RFQ answer	過剰主張せずOEM説明に転記できる	質問がなく社内資料整理にしかならない
+oem_answer	冗長低下を検知し、残存操舵能力を制限し、退避を促す。診断では状態と周辺条件を読めるが原因は断定しない	customer technical response; design review memo; RFQ answer	過剰主張せずOEM説明に転記できる	質問がなくサプライヤ内資料整理にしかならない
 do_not_claim	root cause; warranty reduction; field failure prediction; vehicle-level safety approval	claim guardrail; legal/customer quality review	責任境界を越えない	営業主張が故障予測や保証削減に寄る

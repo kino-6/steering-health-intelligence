@@ -6,7 +6,7 @@ SOTIF004	kq	KQ1: SOTIF由来の要求(fault未満の機能低下の記録・通�
 SOTIF005	kq	KQ2: docs/123の照合で既存設定では残らない差分が確認できたか	SPD008本体の判定と共通の前提	未確認(照合待ち)	-	Yes: 続行	No: SPD008ごとHold / Stop	-	-
 SOTIF006	kq	KQ3: 既存安全成果物(FMEA、safety case、UN R79適合証拠、既存監視仕様)で既に答えられていないか	重複チェック	未確認	-	No: 続行	Yes: Kill	-	-
 SOTIF007	kq	KQ4: 安全保証・適合証明なしで観測事実の提供だけで価値説明が成立するか	禁止主張チェック	未確認	-	Yes: 続行	No: Stop	-	-
-SOTIF008	kq	KQ5: 社内安全担当がこの転記を回答部品として使うと言うか	社内利用者の実在確認	未確認	-	Yes: Proceed	No: Hold(安全側宛先を外す)	-	-
+SOTIF008	kq	KQ5: サプライヤ内安全担当がこの転記を回答部品として使うと言うか	サプライヤ内利用者の実在確認	未確認	-	Yes: Proceed	No: Hold(安全側宛先を外す)	-	-
 SOTIF009	trigger_candidate	電圧dip / near-reset(SPD008 power monitor)	操舵機能の性能低下を引き起こすtriggering conditionのうちEPS内部でしか観測できないもの	SPD008で検証中	docs/121-123	-	-	電源原因断定	Medium
 SOTIF010	trigger_candidate	依存signal validity揺らぎ(SPD008 comm input validity)	同上	SPD008で検証中(条件付きHold)	docs/124	-	-	外部ECU原因断定、security代替	Medium
 SOTIF011	trigger_candidate	熱derating(SPD004系)	同上	未着手。SPD008の判定後に検討	docs/114	-	-	root cause断定	Low
