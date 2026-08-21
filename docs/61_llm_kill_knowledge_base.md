@@ -59,7 +59,7 @@
 
 新しく見る場合は、EPS単体の寿命予測ではなく、自動運転車両、配送車、商用車、シャトルなどの車両群で、操舵系を含む重要部品について、次の運行に出してよいか、次回点検まで持つか、先に入庫させるべきかを判断できるかに絞る。
 最初に確認するのは、操舵系理由の運行停止・予定外入庫が本当に痛いか、EPS / SbWサプライヤが必要データにアクセスできるか、既存DTCや通常診断だけでは業務判断に不足するかである。
-この入口は [docs/69_old_theme_archive_and_new_focus.md](docs/69_old_theme_archive_and_new_focus.md) と [data/motion_health_new_focus_questions.tsv](../data/motion_health_new_focus_questions.tsv) に置く。
+この入口は [docs/69_old_theme_archive_and_new_focus.md](archive/motion_health/69_old_theme_archive_and_new_focus.md) と [data/motion_health_new_focus_questions.tsv](../data/archive/motion_health/motion_health_new_focus_questions.tsv) に置く。
 
 Kaggleコンペは、需要調査の枝としてだけ再確認してよい。
 ただし、Repoの主仮説にはしない。

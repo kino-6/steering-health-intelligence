@@ -26,10 +26,10 @@ Archiveを読むときの注意:
 
 ## Reading Order
 
-1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。まずこれを読む。
-1. [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](docs/archive/motion_health/75_motion_health_mhq001_final_decision.md): 旧motion health外販テーマを閉じた理由。
-1. [docs/archive/motion_health/74_mhq003_005_deep_dive_for_mhq001.md](docs/archive/motion_health/74_mhq003_005_deep_dive_for_mhq001.md): data accessと既存remote diagnostics差分の壁。
-1. [docs/archive/motion_health/77_mhq004_007_008_deeper_review.md](docs/archive/motion_health/77_mhq004_007_008_deeper_review.md): 残すべき知見。output rubric、bundle boundary、field-to-engineering feedback。
+1. [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](../oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md): 新しい作業仮説。まずこれを読む。
+1. [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](75_motion_health_mhq001_final_decision.md): 旧motion health外販テーマを閉じた理由。
+1. [docs/archive/motion_health/74_mhq003_005_deep_dive_for_mhq001.md](74_mhq003_005_deep_dive_for_mhq001.md): data accessと既存remote diagnostics差分の壁。
+1. [docs/archive/motion_health/77_mhq004_007_008_deeper_review.md](77_mhq004_007_008_deeper_review.md): 残すべき知見。output rubric、bundle boundary、field-to-engineering feedback。
 1. [data/archive/motion_health/motion_health_archive_links.tsv](../../../data/archive/motion_health/motion_health_archive_links.tsv): source linkと使い方の一覧。
 
 ## Archived Documents
