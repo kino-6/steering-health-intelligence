@@ -36,6 +36,7 @@
   | `data/dvsa_mot_steering_2025.tsv` | `scripts/dvsa_mot_steering_rates.py` | 車齢別（65行） |
   | `data/dvsa_mot_concentration_2025.tsv` | `scripts/dvsa_mot_concentration.py` | メーカー／モデル別（97行） |
   | `data/mot_advisory_longitudinal.tsv` | `scripts/mot_advisory_longitudinal.py` | グループ×車齢帯別（12行） |
+  | `data/dvsa_mot_mode_split_2025.tsv` | `scripts/dvsa_mot_mode_split.py` | モデル×故障モード別（5行） |
   | `generated/dvsa_mot_steering_2025.html` | `scripts/dvsa_mot_steering_rates.py` | 同上 |
 
   個々の検査記録は一切含まない。元データ自体が匿名化済みだが、本リポジトリはさらに集計後の値のみを保持する。
@@ -52,6 +53,7 @@
   | `data/steering_cohort_curve_summary.tsv` | `scripts/steering_cohort_curve.py` | コホート別（5行） |
   | `data/recall_detection_results.tsv` | `scripts/recall_detection_model.py` | 判定サマリ（27行） |
   | `data/steering_cohort_backtest.tsv`, `data/steering_cohort_backtest_silverado.tsv` | `scripts/steering_cohort_backtest.py` | バックテスト結果 |
+  | `data/recall_miss_structure.tsv` | `scripts/recall_miss_structure.py` | 学習era見逃し構造（12行） |
   | `data/steering_mode_split.tsv` | `scripts/steering_mode_split.py` | 車種×モード別（13行） |
   | `data/spd008_payload_replay_cases.tsv` | `scripts/spd008_payload_replay.py` | 公開ケース3件 |
   | `generated/steering_cohort_curve.html`, `steering_cohort_backtest*.html`, `recall_detection_report.html`, `spd008_payload_replay.html` | 同上 | 同上 |
@@ -72,6 +74,7 @@
   |---|---|---|
   | `data/steering_log_sign_extraction.tsv` | `scripts/steering_log_sign_extraction.py` | セグメント別の**算出特徴量**（bias / drift / asymmetry / lag / gain_dev / hf_noise とそのz値、938行） |
   | `data/steering_fw_group_comparison.tsv` | `scripts/steering_fw_group_comparison.py` | 特徴量別の群間比較（18行） |
+  | `data/steering_window_recurrence*.tsv` | `scripts/steering_window_recurrence.py` | 窓長×再発則の検出率（各126行、4車種） |
   | `data/low_speed_high_steering_proxy_*.tsv` | `scripts/extract_low_speed_high_steering_proxy.py` | 抽出窓の要約 |
   | `generated/steering_log_sign_extraction.html`, `steering_synthetic_sensitivity*.html` | 上記＋`scripts/steering_synthetic_sensitivity.py` | レポート |
 

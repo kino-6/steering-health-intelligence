@@ -10,7 +10,7 @@
 
 **公開データで能動的に実行できる検証はほぼ消化した。以後は原則として観測台帳(受動)のみ**(docs/151)。
 
-ただし**未消化が1件残っている**: 「学習era内の見逃し構造分析」(docs/147, 148が残作業として登録したまま、docs/151が実施せず『すべて消化』と宣言していた)。棚卸しは [docs/154](docs/154_open_items_after_exhaustion_claim.md)。
+2026-08-22に横断棚卸し([docs/154](docs/154_open_items_after_exhaustion_claim.md))を実施し、**未消化3件を発見して全て消化した**([docs/155](docs/155_window_recurrence_verification.md) 窓長・再発、[docs/156](docs/156_train_era_miss_structure.md) 見逃し構造、[docs/157](docs/157_mode_split_and_corsa_correction.md) モード照合)。**うち docs/157 は docs/151 の Corsa 答え合わせを誤帰属と訂正した。**
 
 確立した証拠連鎖(技術主張の最終形、docs/150):
 
