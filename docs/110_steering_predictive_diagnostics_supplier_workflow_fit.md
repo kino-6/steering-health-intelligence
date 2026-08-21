@@ -8,7 +8,7 @@ Phase 4では、Phase 3で切ったdata boundaryを、EPSサプライヤ内の�
 特に強いのは、診断企画、顧客技術説明、service / aftermarket連携、品質改善である。
 
 ただし、ここでも売るものは「EPS交換時期予測」ではない。
-売る、または社内で使う候補は、操舵系stateについて、どの診断情報を読み、どの外部contextを確認し、何を言ってはいけないかを整理する固定スコープassessmentである。
+売る、またはサプライヤ内で使う候補は、操舵系stateについて、どの診断情報を読み、どの外部contextを確認し、何を言ってはいけないかを整理する固定スコープassessmentである。
 
 部署別整理表は [data/steering_predictive_diagnostics_supplier_workflow_fit.tsv](../data/steering_predictive_diagnostics_supplier_workflow_fit.tsv) に置く。
 

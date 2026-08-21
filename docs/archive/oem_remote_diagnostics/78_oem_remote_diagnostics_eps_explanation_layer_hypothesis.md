@@ -125,7 +125,7 @@ OEM / fleet / platform領域:
 | RDQ002 | 既存remote diagnosticsのaction planでは足りない操舵系説明があるか | EPS内部データで、追加診断、入庫優先度、注意文が変わる | 既存severity / action planと同じ |
 | RDQ003 | service outcomeが戻るか | 整備結果、交換結果、再発有無、作業時間の一部が戻る | feedbackがなく説明改善できない |
 | RDQ004 | 安全保証や原因断定に踏み込まず説明できるか | 言ってよいこと / 言ってはいけないことを分けられる | 走行可否保証やroot cause断定が必要になる |
-| RDQ005 | OEM service成果物へ転記できるか | service bulletin、remote diagnostics note、dealer support、customer explanationへ入る | 説明が社内メモで終わる |
+| RDQ005 | OEM service成果物へ転記できるか | service bulletin、remote diagnostics note、dealer support、customer explanationへ入る | 説明がサプライヤ内メモで終わる |
 
 ## Archiveとの関係
 

@@ -157,7 +157,7 @@ Repo内でも、EPS assist loss、警告灯+DTC、software/failsafe、MDPS hardw
 | fail-safe / assist state | 攻撃または異常時の安全状態 | assist limitation、limp home、manual steer前提、warning | state transition table、safety concept link、test evidence | サイバー起因の異常でも、EPSがどの状態へ遷移するかを安全設計と紐づけて説明する |
 
 このサンプルが刺さらない場合、候補1も弱い。
-具体的には、顧客や社内担当が「これは既存CSMS/TARAや標準帳票に全部ある」と言うなら止める。
+具体的には、顧客やサプライヤ内担当が「これは既存CSMS/TARAや標準帳票に全部ある」と言うなら止める。
 
 ## Chain-of-Verification
 

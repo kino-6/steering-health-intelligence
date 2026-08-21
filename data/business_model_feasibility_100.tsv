@@ -91,9 +91,9 @@ BMFE089	Adjacent subsystem	Motor Controller Health Reuse	Electric drive supplier
 BMFE090	Adjacent subsystem	By-wire Safety Evidence Package	By-wire supplier	by-wire向けhealth evidenceの共通パック	Feature/NRE	redundancy,diagnostics	なし	3	4	Medium	安全重要領域に合う	適用範囲が広すぎる	Maybe	x-by-wire sources
 BMFE091	Commercialization	Per-ECU Feature Royalty	EPS supplier	health機能をECU単価に上乗せ	Per-unit royalty	Core indicators	なし	3	5	Low	成功時の収益性が高い	採用ハードルが高い	No	Repo
 BMFE092	Commercialization	Per-program NRE	EPS supplier	車種開発単位でhealth機能設計	NRE	Core indicators	なし	5	4	Low	現実的な収益モデル	スケールは案件依存	Yes	Repo
-BMFE093	Commercialization	Internal Tool Subscription	EPS engineering	offline analyzerを社内ツールとして課金	Subscription/tool	logs	なし	4	3	Low	導入しやすい	事業規模は小さい	Yes	Repo
+BMFE093	Commercialization	Internal Tool Subscription	EPS engineering	offline analyzerをサプライヤ内ツールとして課金	Subscription/tool	logs	なし	4	3	Low	導入しやすい	事業規模は小さい	Yes	Repo
 BMFE094	Commercialization	Pilot-to-Production Package	EPS supplier	PoCから量産仕様まで段階契約	Milestone contract	logs,signals,NVM	なし	4	5	Low	実行計画として強い	期間が長い	Yes	Repo
-BMFE095	Commercialization	Health-ready EPS Certification	EPS supplier	社内/共同のhealth-ready認定	Certification fee	spec,validation	なし	3	3	Medium	差別化ラベルになる	外部信頼性が課題	No	Repo
+BMFE095	Commercialization	Health-ready EPS Certification	EPS supplier	サプライヤ内/共同のhealth-ready認定	Certification fee	spec,validation	なし	3	3	Medium	差別化ラベルになる	外部信頼性が課題	No	Repo
 BMFE096	Commercialization	Co-development with Gear Maker	EPS gear supplier	ギア劣化proxyを共同開発	Co-dev NRE	signals,bench	なし	4	5	Low	ユーザ仮説に最も近い	相手のデータ/試験協力が必要	Maybe	Repo
 BMFE097	Commercialization	Warranty Savings Gainshare	EPS supplier / OEM	NTFや解析工数削減に応じて課金	Gainshare	health summary	warranty DB	1	4	High	成果報酬で価値が明確	OEM保証DB依存が強い	No	Market signal
 BMFE098	Commercialization	Health Indicator Starter Kit	EPS supplier	最小指標5個+辞書+検証手順をセット販売	Fixed package	core signals	なし	5	4	Low	最初の商品として売りやすい	機能が浅いとすぐ模倣される	Yes	Repo

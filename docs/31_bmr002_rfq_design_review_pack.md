@@ -8,7 +8,7 @@ BMR001のscenario card単体は、まだ弱い。
 
 そこでBMR002では、scenario cardを次の1ページに変換する。
 
-> OEM向けRFQや社内設計レビューでそのまま使える `Scenario Readiness Page`
+> OEM向けRFQやサプライヤ内設計レビューでそのまま使える `Scenario Readiness Page`
 
 この形にすると、価値は少し見えやすくなる。
 

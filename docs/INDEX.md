@@ -43,9 +43,9 @@ README.md は結論とその根拠を読むための入口に整理し直した�
 1. [data/trust_recovery_rule_check_audit.tsv](../data/trust_recovery_rule_check_audit.tsv): 信用回復監査のTSV。各文書のcurrent use status、Rule Check status、main issue、corrected use、action takenを整理。
 1. [docs/98_business_model_mainline_after_correction.md](98_business_model_mainline_after_correction.md): 補正後のビジネスモデル本線。故障予測ではなく、OEM用途想定をEPSサプライヤの製品企画・診断企画・品質改善・評価企画・顧客技術説明へ翻訳できるかを見る固定スコープassessmentとして整理。
 1. [data/business_model_mainline_after_correction.tsv](../data/business_model_mainline_after_correction.tsv): 補正後ビジネスモデル本線の市場需要、痛み、仮説、解決策、買い手、初期offer、Proceed/Kill条件、禁止主張、次アクションを整理。
-1. [docs/100_oem_usage_translation_minimum_pack.md](100_oem_usage_translation_minimum_pack.md): OEM用途想定をEPS側の確認観点、提案観点、説明境界へ翻訳する4枚の最小パック。製品企画、診断企画、品質改善/評価企画、診断企画/サイバー担当の順で社内レビューする。
+1. [docs/100_oem_usage_translation_minimum_pack.md](100_oem_usage_translation_minimum_pack.md): OEM用途想定をEPS側の確認観点、提案観点、説明境界へ翻訳する4枚の最小パック。製品企画、診断企画、品質改善/評価企画、診断企画/サイバー担当の順でサプライヤ内レビューする。
 1. [data/oem_usage_translation_minimum_pack.tsv](../data/oem_usage_translation_minimum_pack.tsv): 4枚の最小パックのartifact別TSV。decision question、OEM入力、public proxy role、EPS supplier output、Proceed/Kill signal、禁止主張、最初のレビュー質問を整理。
-1. [docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md): 4枚の最小パックを社内で確認する質問票。最初は製品企画と診断企画に絞り、既存RFQ回答、既存診断、既存評価との差分が出るかを見る。
+1. [docs/101_oem_usage_translation_review_questions.md](101_oem_usage_translation_review_questions.md): 4枚の最小パックをサプライヤ内で確認する質問票。最初は製品企画と診断企画に絞り、既存RFQ回答、既存診断、既存評価との差分が出るかを見る。
 1. [data/oem_usage_translation_review_questions.tsv](../data/oem_usage_translation_review_questions.tsv): 質問票のTSV。question、聞く理由、期待成果物、Proceed signal、Kill signal、禁止主張、Yes/No時の次アクションを整理。
 1. [docs/102_bosch_motion_domain_ai_signal_review.md](102_bosch_motion_domain_ai_signal_review.md): Bosch公開情報を、EPS故障予測ではなく、by-wire / motion-domain時代の操舵側説明責任が増えるシグナルとして整理したレビュー。
 1. [data/bosch_motion_domain_ai_signal_review.tsv](../data/bosch_motion_domain_ai_signal_review.tsv): Bosch公開情報のソース別TSV。public signal、公開されていること、EPSサプライヤへの含意、禁止主張、次の検証質問を整理。
@@ -185,16 +185,16 @@ README.md は結論とその根拠を読むための入口に整理し直した�
 1. [docs/91_pvc001_1h_goal_deep_dive.md](91_pvc001_1h_goal_deep_dive.md): PVC001を1時間Goalで深掘りした結果。ULC001/003/004/008のitem別結論、ULC008中心の1枚sample、部署別価値、弱点、Continue/Kill条件を整理。
 1. [data/pvc001_four_class_deep_dive.tsv](../data/pvc001_four_class_deep_dive.tsv): ULC001/003/004/008の4件について、結論、confidence、部署適合、価値、弱点、Proceed/Kill impact、next actionを整理。
 1. [data/pvc001_ulc008_one_page_sample.tsv](../data/pvc001_ulc008_one_page_sample.tsv): ULC008「駐車場走行で低速・大舵角・凹凸が重なる使われ方」の1枚sample。市場需要、未解決pain、仮説、部署別用途、禁止主張、Kill条件を整理。
-1. [docs/92_pvc001_ulc008_department_review_deep_dive.md](92_pvc001_ulc008_department_review_deep_dive.md): ULC008を、製品企画・診断企画に見せる社内レビューsampleとして深掘り。出力形式、evidence boundary、最小信号契約、部署別判断、Kill gateを整理。
+1. [docs/92_pvc001_ulc008_department_review_deep_dive.md](92_pvc001_ulc008_department_review_deep_dive.md): ULC008を、製品企画・診断企画に見せるサプライヤ内レビューsampleとして深掘り。出力形式、evidence boundary、最小信号契約、部署別判断、Kill gateを整理。
 1. [data/pvc001_ulc008_department_review_questions.tsv](../data/pvc001_ulc008_department_review_questions.tsv): ULC008の部署別レビュー質問。製品企画、診断企画、品質改善、評価企画、全体Kill gateごとに、Proceed signal、Kill signal、次アクションを整理。
 1. [data/pvc001_ulc008_kill_gate.tsv](../data/pvc001_ulc008_kill_gate.tsv): ULC008の最小Kill gate。2部署以上に具体的な使い道があるか、原因断定に見えないか、既存評価・診断の言い換えで終わらないかを判定する表。
 1. [docs/93_predictive_value_id_status_inventory.md](93_predictive_value_id_status_inventory.md): 手持ちのPVC/ULC/KGL IDを棚卸しした補正前レポート。EPS内部事実不足を主Kill理由にしすぎたため、最新判断はdocs/96を見る。
 1. [data/predictive_value_id_status_inventory.tsv](../data/predictive_value_id_status_inventory.tsv): PVC001〜007、ULC001〜009、KGL001〜012の補正前ステータス表。最新ステータスはdata/predictive_value_corrected_status.tsvを見る。
 1. [docs/94_predictive_value_next_items_deep_dive.md](94_predictive_value_next_items_deep_dive.md): 次アイテムとして挙げたULC008、ULC004、PVC004を深掘り。ULC008は製品企画向け/診断企画向けに分割し、ULC004は品質改善・顧客説明向け、PVC004は診断信頼性境界として整理。
-1. [data/pvc001_ulc008_two_department_sheets.tsv](../data/pvc001_ulc008_two_department_sheets.tsv): ULC008を製品企画向けと診断企画向けに分けた社内レビュー用作業表。各sheetの判断、需要、evidence boundary、初期artifact、禁止主張、Proceed/Kill signalを整理。
+1. [data/pvc001_ulc008_two_department_sheets.tsv](../data/pvc001_ulc008_two_department_sheets.tsv): ULC008を製品企画向けと診断企画向けに分けたサプライヤ内レビュー用作業表。各sheetの判断、需要、evidence boundary、初期artifact、禁止主張、Proceed/Kill signalを整理。
 1. [data/ulc004_rough_road_steering_deep_dive.tsv](../data/ulc004_rough_road_steering_deep_dive.tsv): ULC004「荒れた路面 + 操舵」の深掘り表。品質改善、評価企画、顧客技術説明で使えるか、路面分類productや原因断定へ流れないかを整理。
 1. [data/pvc004_communication_boundary_deep_dive.tsv](../data/pvc004_communication_boundary_deep_dive.tsv): PVC004「通信異常context」の境界表。診断企画、サイバー担当、顧客技術説明での使い道、汎用IDS/CSMS/TARAへの逸脱、禁止主張を整理。
-1. [docs/95_predictive_value_continue_final_decision.md](95_predictive_value_continue_final_decision.md): 残っていたContinue項目の最終判断。公開情報とKaggle proxyだけで継続深掘りする項目は残さず、ULC008/ULC004/PVC004を社内レビュー材料に限定。
+1. [docs/95_predictive_value_continue_final_decision.md](95_predictive_value_continue_final_decision.md): 残っていたContinue項目の最終判断。公開情報とKaggle proxyだけで継続深掘りする項目は残さず、ULC008/ULC004/PVC004をサプライヤ内レビュー材料に限定。
 1. [data/predictive_value_continue_final_decisions.tsv](../data/predictive_value_continue_final_decisions.tsv): PVC/ULC/KGL各IDのprevious status、final status、最終結論、停止理由、再開条件、次owner、禁止主張を整理。
 1. [docs/96_predictive_value_internal_fact_correction.md](96_predictive_value_internal_fact_correction.md): 前回の全滅判断を補正した最新判断。EPS内部事実が見えないことを主Kill理由にせず、PVC001/ULC008/ULC004/PVC004を公開proxy価値の検証候補として戻す。
 1. [data/predictive_value_corrected_status.tsv](../data/predictive_value_corrected_status.tsv): 補正後のID別ステータス。使用条件class、路面・操舵context、通信異常contextを、故障予測ではなくEPSサプライヤの業務価値候補として整理。

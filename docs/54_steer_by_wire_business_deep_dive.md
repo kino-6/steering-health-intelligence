@@ -192,7 +192,7 @@ EPSサプライヤが持てるのは、vehicle-level safety approvalではない
 
 Proceed:
 
-- 対象顧客または社内にSbW開発テーマがある
+- 対象顧客またはサプライヤ内にSbW開発テーマがある
 - 既存safety / cyber / diagnostic成果物はあるが、OEM設計レビューやRFQ回答へ横断的に転記しにくい
 - degraded / fail-operational / fail-safe stateとdiagnostic contentの対応が未整理
 - 公開情報だけで、diagnostic、safety、cyber、software update、customer interfaceの複数観点を1つの説明に接続できる
@@ -205,7 +205,7 @@ Hold:
 
 Kill:
 
-- 対象顧客または社内にSbW開発テーマがない
+- 対象顧客またはサプライヤ内にSbW開発テーマがない
 - 既存safety caseがdegraded / fail-operational / fail-safe state、driver-visible behavior、diagnostic content、OEM回答まで既に整理している
 - OEMがvehicle-levelで全て指定し、サプライヤ側に提案余地がない
 - 診断設計、software update、security accessと接続しない

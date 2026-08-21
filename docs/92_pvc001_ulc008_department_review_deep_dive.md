@@ -2,7 +2,7 @@
 
 ## 結論
 
-ULC008は、現時点では **社内レビュー用sampleとしてContinue** である。
+ULC008は、現時点では **サプライヤ内レビュー用sampleとしてContinue** である。
 
 ただし、売り物として進める段階ではない。
 公開proxyだけでは、低速、大舵角、凹凸、EPS内部状態、DTC、交換結果が同一車両・同一時刻で揃わない。
@@ -50,7 +50,7 @@ ULC008は、現時点では **社内レビュー用sampleとしてContinue** で
 - EPS内部信号、assist state、limit state、motor current、temperature、DTC、freeze frame、交換結果は公開proxyから見えない。
 - 既存評価、既存診断、既存顧客説明に同じ整理があるかは未確認である。
 
-したがって、ULC008は実証済みの予測ではなく、社内レビュー用の仮説sampleである。
+したがって、ULC008は実証済みの予測ではなく、サプライヤ内レビュー用の仮説sampleである。
 
 ## 出力の形
 
@@ -113,13 +113,13 @@ ULC008で出すべき出力は、予測スコアではなく、使用context lab
 
 ## 最小信号契約
 
-ULC008を社内レビューに出す場合、最低限この信号・情報を分けて書く。
+ULC008をサプライヤ内レビューに出す場合、最低限この信号・情報を分けて書く。
 
 | 種類 | 例 | 扱い |
 |---|---|---|
 | 公開proxyで見える | 車速、操舵角または操舵要求、操舵頻度、路面凹凸/振動proxy | 仮説sampleの根拠 |
 | 公開proxyで見えない | EPS内部電流、assist state、limit state、temperature、DTC、freeze frame、交換結果 | 断定禁止 |
-| 社内確認が必要 | 既存評価条件、既存DTC項目、既存freeze frame項目、既存顧客説明文 | Proceed/Kill判断 |
+| サプライヤ内確認が必要 | 既存評価条件、既存DTC項目、既存freeze frame項目、既存顧客説明文 | Proceed/Kill判断 |
 
 この分離ができない場合、ULC008は危ない。
 公開proxyで見えないものを見えた扱いにすると、すぐに故障予測や原因断定へ滑る。

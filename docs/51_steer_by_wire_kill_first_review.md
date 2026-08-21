@@ -58,7 +58,7 @@ steer-by-wireでは、操舵指令、road wheel actuator、feedback、電源、�
 
 | ID | 確認すること | Kill条件 |
 |---|---|---|
-| SBW-KQ1 | 対象顧客または社内にsteer-by-wire開発テーマがあるか | Noなら短期Kill |
+| SBW-KQ1 | 対象顧客またはサプライヤ内にsteer-by-wire開発テーマがあるか | Noなら短期Kill |
 | SBW-KQ2 | 既存ISO 26262 / safety caseにredundancy、degraded state、fail-operational stateが既に整理されているか | Yesなら汎用safety支援はKill |
 | SBW-KQ3 | cyber abnormal conditionとsteering stateが紐づいているか | Yesならcyber-safety mappingはKill |
 | SBW-KQ4 | software update後のsteering state / calibration identity確認が既にあるか | Yesならupdate evidence支援はKill |
