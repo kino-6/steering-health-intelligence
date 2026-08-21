@@ -49,7 +49,7 @@ RCA/8Dは副産物に下げる。
 
 本当の痛みはこれ。
 
-> 公開市場で繰り返し問題化するEPS scenarioが、自社EPSの診断仕様、HILS/bench評価、software/failsafe release gateでどこまでcoverageされているか、program横断で説明しにくい。
+> 公開市場で繰り返し問題化するEPS scenarioが、サプライヤEPSの診断仕様、HILS/bench評価、software/failsafe release gateでどこまでcoverageされているか、program横断で説明しにくい。
 
 これは、既存HILツールや既存DTC仕様書だけでは埋まりにくい可能性がある。
 

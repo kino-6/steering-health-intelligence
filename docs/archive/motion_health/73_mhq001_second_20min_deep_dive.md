@@ -93,7 +93,7 @@ EPS/SbWサプライヤとして売るか:
 
 EPS/SbWサプライヤとして実施できること:
 
-> Steering-specific pain探しを続けるより、データアクセスと既存remote diagnosticsとの差分を潰す。自社が持つDTC、DID、assist state、limit state、thermal state、motor current、software/calibration ID、SbW degraded stateが、fleet側の運行可否や点検優先度へ本当に翻訳できるかを見る。
+> Steering-specific pain探しを続けるより、データアクセスと既存remote diagnosticsとの差分を潰す。サプライヤが持つDTC、DID、assist state、limit state、thermal state、motor current、software/calibration ID、SbW degraded stateが、fleet側の運行可否や点検優先度へ本当に翻訳できるかを見る。
 
 言ってはいけないこと:
 

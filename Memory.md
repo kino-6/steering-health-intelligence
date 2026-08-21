@@ -29,7 +29,7 @@
 | 3 | [docs/146](docs/146_business_framework_and_roadmap.md) | ビジネスの枠組み・段取り(時限の窓) |
 | 4 | [docs/150](docs/150_advisory_precedence_verification.md) | 最強の実証(兆候→故障 24倍) |
 | 5 | [docs/151](docs/151_high_rate_model_crosscheck.md) | 答え合わせ3例目 + **観測台帳(次に見るもの)** |
-| 補 | [Plan.md](Plan.md) / [README.md](README.md) | フェーズ全表 / 推奨読書順の全リスト |
+| 補 | [README.md](README.md) / [Plan.md](Plan.md) / [docs/INDEX.md](docs/INDEX.md) | 結論と根拠の入口 / フェーズ全表 / 全ドキュメント索引 |
 
 ## Kill済み・禁止事項(蒸し返さない)
 

@@ -125,7 +125,7 @@ EPSにとっての付加価値は、以下の3層で整理できる。
 
 EPSメーカー / ギアメーカーは、OEMに対して以下を言える。
 
-> 当社EPSは、Vehicle Health ManagementやConnected Diagnosticsに接続可能なhealth indicatorを持つ。
+> サプライヤEPSは、Vehicle Health ManagementやConnected Diagnosticsに接続可能なhealth indicatorを持つ。
 
 これは「安く作るEPS」ではなく、「市場品質・保証・将来VHMに使えるEPS」という差別化になる。
 

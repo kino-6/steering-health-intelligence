@@ -120,7 +120,7 @@ Volvo、OnStar、Smartcarも、DTC、vehicle health、diagnostic time reduction�
 
 EPS/SbWサプライヤとして言えること:
 
-> Fleet downtimeやremote diagnosticsの市場はある。ただし、公開情報だけでは、当社が外販商品として取れる差分は確認できない。価値が残るのは、特定OEM programで、操舵系状態量と既存診断・整備判断をつなぐ短期支援に限られる。
+> Fleet downtimeやremote diagnosticsの市場はある。ただし、公開情報だけでは、サプライヤが外販商品として取れる差分は確認できない。価値が残るのは、特定OEM programで、操舵系状態量と既存診断・整備判断をつなぐ短期支援に限られる。
 
 まだ言ってはいけないこと:
 

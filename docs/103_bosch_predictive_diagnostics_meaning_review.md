@@ -7,7 +7,7 @@ Boschが2026年に強く出している「予測」は、EPS単体の故障予�
 
 したがって、このRepoで戻すべき本線は、次である。
 
-> EPSサプライヤが、自社の操舵系を `predictive diagnostics / predictive maintenance / vehicle health` の対象として説明するには、どの操舵系状態を予測対象にでき、どこから先を言ってはいけないかを定義する。
+> EPSサプライヤが、サプライヤの操舵系を `predictive diagnostics / predictive maintenance / vehicle health` の対象として説明するには、どの操舵系状態を予測対象にでき、どこから先を言ってはいけないかを定義する。
 
 これは「公開proxyだけでEPS交換時期を当てる」話ではない。
 また、EPSサプライヤがfleet predictive maintenance platformを単独で売る話でもない。
@@ -57,7 +57,7 @@ fleet operator、mobility provider、OEMは、車両が止まる前に整備を�
 予期しない故障、緊急入庫、部品手配遅れ、車両稼働率低下は、運用コストに直結する。
 
 Boschの2026年3月19日の発表では、Uptake Technologiesの買収計画について、AI-driven predictive maintenanceがfleet managementの競争要因になっていると説明している。
-Boschは、UptakeのAI-based predictive analyticsを、自社のvehicle health servicesやfleet servicesへ取り込む意図を示している。
+Boschは、UptakeのAI-based predictive analyticsを、サプライヤのvehicle health servicesやfleet servicesへ取り込む意図を示している。
 
 出典:
 

@@ -46,7 +46,7 @@ Before naming an artifact, write what it does.
 
 Example:
 
-> 市場で繰り返すEPSの困りごとに対して、自社EPSの既存診断・既存評価・既存リリース確認で、どこまで説明または再現できているかを見る。
+> 市場で繰り返すEPSの困りごとに対して、サプライヤEPSの既存診断・既存評価・既存リリース確認で、どこまで説明または再現できているかを見る。
 
 Then, if useful:
 

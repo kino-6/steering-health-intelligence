@@ -125,7 +125,7 @@ DTCを読み、severityを付け、action planを出し、fleet platformへつ�
 
 EPS/SbWサプライヤとして言えること:
 
-> Fleet downtimeやremote diagnosticsの市場はある。ただし、当社が売れるかは、操舵系状態量を既存remote diagnosticsでは出せない運行・整備判断へ翻訳できるかで決まる。
+> Fleet downtimeやremote diagnosticsの市場はある。ただし、サプライヤが売れるかは、操舵系状態量を既存remote diagnosticsでは出せない運行・整備判断へ翻訳できるかで決まる。
 
 まだ言ってはいけないこと:
 
