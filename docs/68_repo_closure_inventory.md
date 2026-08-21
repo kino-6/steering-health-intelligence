@@ -24,15 +24,15 @@
 追加で検証した自動運転・商用車両群向けの操舵系運行可否/点検優先度判断も、外販テーマとしてはArchiveする。
 残るのは、内部資料を使える場合の再開条件、特定案件の短期整理支援、または製造品質/EOL検査の別テーマである。
 
-旧テーマArchive後の新しい入口は [docs/archive/motion_health/69_old_theme_archive_and_new_focus.md](docs/archive/motion_health/69_old_theme_archive_and_new_focus.md) に置いた。
-その後、MHQ001〜005を検証し、最終判断は [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](docs/archive/motion_health/75_motion_health_mhq001_final_decision.md) に置いた。
-さらにMHQ002/004/006/007/008/009/010も [docs/archive/motion_health/76_other_mhq_20min_deep_dive.md](docs/archive/motion_health/76_other_mhq_20min_deep_dive.md) で確認した。
-MHQ004/007/008については、[docs/archive/motion_health/77_mhq004_007_008_deeper_review.md](docs/archive/motion_health/77_mhq004_007_008_deeper_review.md) で追加深掘りし、外販ではなく再開条件として残す判断にした。
+旧テーマArchive後の新しい入口は [docs/archive/motion_health/69_old_theme_archive_and_new_focus.md](archive/motion_health/69_old_theme_archive_and_new_focus.md) に置いた。
+その後、MHQ001〜005を検証し、最終判断は [docs/archive/motion_health/75_motion_health_mhq001_final_decision.md](archive/motion_health/75_motion_health_mhq001_final_decision.md) に置いた。
+さらにMHQ002/004/006/007/008/009/010も [docs/archive/motion_health/76_other_mhq_20min_deep_dive.md](archive/motion_health/76_other_mhq_20min_deep_dive.md) で確認した。
+MHQ004/007/008については、[docs/archive/motion_health/77_mhq004_007_008_deeper_review.md](archive/motion_health/77_mhq004_007_008_deeper_review.md) で追加深掘りし、外販ではなく再開条件として残す判断にした。
 結論は、fleet downtime需要はあるが、data accessと既存remote diagnosticsとの差分を公開情報だけでは証明できないため、EPS/SbWサプライヤ単独の外販テーマとしてはStop / Archiveである。
 
-ただし、次の作業仮説として [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md) を切り出した。
+ただし、次の作業仮説として [docs/archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md](archive/oem_remote_diagnostics/78_oem_remote_diagnostics_eps_explanation_layer_hypothesis.md) を切り出した。
 これはfleet監視サービスではなく、OEM remote diagnostics networkに組み込まれる操舵系状態説明レイヤーである。
-過去のmotion health調査は [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md) にArchiveし、新仮説の背景知識としてだけ使う。
+過去のmotion health調査は [docs/archive/motion_health/79_motion_health_archive_index.md](archive/motion_health/79_motion_health_archive_index.md) にArchiveし、新仮説の背景知識としてだけ使う。
 
 ## 何を判断しているか
 

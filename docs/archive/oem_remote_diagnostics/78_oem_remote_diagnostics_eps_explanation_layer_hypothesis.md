@@ -138,7 +138,7 @@ OEM / fleet / platform領域:
 - 価値が残るなら、EPS内部データに基づくcomponent-specific explanationである
 - 再開にはOEM network参加、data field、service outcomeが必要である
 
-詳細なArchive indexは [docs/archive/motion_health/79_motion_health_archive_index.md](docs/archive/motion_health/79_motion_health_archive_index.md) に置く。
+詳細なArchive indexは [docs/archive/motion_health/79_motion_health_archive_index.md](../motion_health/79_motion_health_archive_index.md) に置く。
 
 ## Sources
 

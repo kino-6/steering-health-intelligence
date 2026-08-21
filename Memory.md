@@ -57,7 +57,7 @@ Nexteer MotionIQ の採用/撤退|2025年以降の操舵系リコール蓄積(�
 
 - `research/bosch-motion-domain-ai`: 作業ブランチ(コミット→push→mainへfast-forward mergeを都度実施)
 - `main`: 集約先
-- `public-snapshot`: **公開用**。履歴なしの単一スナップショット方式——mainのツリーをそのまま新コミットとして積む(`git commit-tree main^{tree} -p public-snapshot`)。公開前チェック: 追跡ファイルに PII・認証情報・ローカルパス・キャッシュディレクトリが無いこと(2026-07-15 実施、クリーン)
+- `public-snapshot`: **公開用**。履歴なしの単一スナップショット方式——mainのツリーをそのまま新コミットとして積む(`git commit-tree main^{tree} -p public-snapshot`)。公開前チェック: 追跡ファイルに PII・認証情報・ローカルパス・キャッシュディレクトリが無いこと(2026-08-21 再監査、クリーン。記録は [docs/152](docs/152_publication_readiness_reaudit.md))
 
 ## 復帰時の定型手順
 

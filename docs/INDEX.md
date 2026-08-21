@@ -269,3 +269,7 @@ README.md は結論とその根拠を読むための入口に整理し直した�
 1. [data/eps_public_market_pain_cases.tsv](../data/eps_public_market_pain_cases.tsv): NHTSA/recall/investigationから抽出したdriver-visible EPS painケース。
 1. [data/public_steering_dataset_inventory.tsv](../data/public_steering_dataset_inventory.tsv): 公開steering / CAN / Kaggle dataset棚卸し。
 
+## 公開準備
+
+- [152 公開準備 再監査](152_publication_readiness_reaudit.md): 2026-08-21実施。他者データ非再配布の確認、Git履歴の個人メール除去、一人称wordingの是正。前回監査は [99](99_publication_readiness_audit.md)
+- [SOURCES.md](../SOURCES.md): 出典・ライセンス・出典表示・取得日・派生ファイルの対応表
