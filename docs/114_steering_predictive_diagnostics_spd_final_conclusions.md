@@ -157,7 +157,7 @@ Hold条件:
 
 Stop境界:
 
-- 自社EPSの依存signal、fallback、表示影響を定義できない
+- サプライヤEPSの依存signal、fallback、表示影響を定義できない
 
 次アクション:
 

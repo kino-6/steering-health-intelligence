@@ -52,7 +52,7 @@ Vehicle Health Management の1項目としてはあり得るが、EPS単体サ�
 
 ### Concept
 
-OEMが自社販売車両群を巨大fleetとして見て、操舵系の安全・品質リスクを内々に監視する。
+OEMがサプライヤ販売車両群を巨大fleetとして見て、操舵系の安全・品質リスクを内々に監視する。
 
 ### Evaluation
 

@@ -46,7 +46,7 @@ BMR002の価値は、`新しい診断機能を提案すること` ではない�
 
 RFQ/設計レビューに貼るなら、最初の文言はこの程度が安全。
 
-> 当社EPS提案では、公開市場で問題化した低速高操舵時のincreased effort、緩旋回時のassist continuity、warning/DTC付きloss assistをscenario readiness対象として扱い、評価条件、診断snapshot、顧客品質説明の観点を設計レビューで確認する。
+> サプライヤEPS提案では、公開市場で問題化した低速高操舵時のincreased effort、緩旋回時のassist continuity、warning/DTC付きloss assistをscenario readiness対象として扱い、評価条件、診断snapshot、顧客品質説明の観点を設計レビューで確認する。
 
 この文言の良い点:
 

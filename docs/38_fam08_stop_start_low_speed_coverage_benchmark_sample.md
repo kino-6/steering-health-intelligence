@@ -29,7 +29,7 @@ EPSサプライヤ側の未解決痛みは、`このcaseのroot causeを当て�
 
 より実務的な問いはこれ。
 
-> 自社EPSの既存DTC、freeze frame、extended data、reader、HILS/bench評価は、停止後発進/低速操舵中のassist lossという市場painを説明・再現・判定できるか。
+> サプライヤEPSの既存DTC、freeze frame、extended data、reader、HILS/bench評価は、停止後発進/低速操舵中のassist lossという市場painを説明・再現・判定できるか。
 
 ここに答えられるなら、validation planning、diagnostic design review、software/calibration release gateに接続できる。
 
@@ -126,7 +126,7 @@ P0 sampleとしては、以下を1枚で提示する。
 
 売れる可能性があるとすれば、これ。
 
-> 停止後発進/低速操舵中のassist lossという市場painに対して、自社EPSの既存診断・reader・HILS/bench評価がどこまでcoverageしているかを、program横断で見えるようにする短期assessment。
+> 停止後発進/低速操舵中のassist lossという市場painに対して、サプライヤEPSの既存診断・reader・HILS/bench評価がどこまでcoverageしているかを、program横断で見えるようにする短期assessment。
 
 次の判断は明確。
 

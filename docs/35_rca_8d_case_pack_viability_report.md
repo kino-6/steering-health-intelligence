@@ -17,7 +17,7 @@
 | 判定 | 内容 |
 |---|---|
 | 市場需要 | ある。NTF、返却品解析、保証claim、SCAR/8D、顧客品質説明で証拠が足りない痛みは公開情報でも見える。 |
-| EPSサプライヤ適合 | 条件付きである。自社DTC、freeze frame、extended data、reader、現品解析結果を使える範囲なら成立し得る。 |
+| EPSサプライヤ適合 | 条件付きである。サプライヤDTC、freeze frame、extended data、reader、現品解析結果を使える範囲なら成立し得る。 |
 | 差別化 | 弱い。汎用QMS、8D、SCAR、warranty analytics、コンサルが既にある。EPS固有factに絞らないと埋もれる。 |
 | 収益モデル | 初期はSaaSではない。1ケースまたは20-50件の固定費assessment / NREが妥当。 |
 | Kill可能性 | 高い。既存8D/品質報告に転記できない、または現行DTCで十分ならKill。 |
@@ -208,7 +208,7 @@
 | 市場需要は本当にあるか | AIAG warranty/NTF文脈、SCAR/8D要求、warranty analytics/8D vendorが存在する。 | High | 需要はあるとする |
 | EPS-specificの支払意思まで証明できるか | 公開調査では直接見えない。Repo内でも内部案件確認が必要とされている。 | Low | `支払意思は未証明` に修正 |
 | これは既存ツールの言い換えではないか | QMS、CAPA、8D、SCAR、warranty analyticsが既に存在する。 | High | 汎用RCA/8DではなくEPS固有fact attachmentへ限定 |
-| EPSサプライヤが主語で成立するか | 自社DTC、freeze frame、extended data、reader、現品解析結果を扱える範囲なら主語にできる。 | Medium | OEM保証DB/fleet analyticsを初期対象外へ下げる |
+| EPSサプライヤが主語で成立するか | サプライヤDTC、freeze frame、extended data、reader、現品解析結果を扱える範囲なら主語にできる。 | Medium | OEM保証DB/fleet analyticsを初期対象外へ下げる |
 | ログ追加に戻っていないか | case packを先に作り、missing fact heatmapは二次成果物にする必要がある。 | High | 初期提供物から追加ログを外す |
 | 次の意思決定は何か | 1ページsampleが8D/品質報告に転記できるかでProceed/Killできる。 | Medium | 次アクションをsample検証へ固定 |
 

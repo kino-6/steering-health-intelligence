@@ -39,7 +39,7 @@ EPSサプライヤは、初期には機能・SaaS・ログ追加ではなく、�
 
 この仮説なら、EPSサプライヤが持つ手札に収まる。
 
-- 自社EPSのDTC / freeze frame / extended data仕様
+- サプライヤEPSのDTC / freeze frame / extended data仕様
 - engineering DID / reader / ODX
 - 返却品解析結果
 - 現品試験結果
@@ -159,7 +159,7 @@ EPSサプライヤは、初期には機能・SaaS・ログ追加ではなく、�
 | Question | Answer | Confidence | Impact |
 |---|---|---:|---|
 | これは市場需要から始まっているか | Yes. NTF、返却品、8D、SCAR、顧客品質説明の証拠不足から始まる。 | High | Keep |
-| EPSサプライヤの立場に戻っているか | Yes. 自社DTC、reader、返却品解析、顧客品質報告に限定する。 | High | Keep |
+| EPSサプライヤの立場に戻っているか | Yes. サプライヤDTC、reader、返却品解析、顧客品質報告に限定する。 | High | Keep |
 | ログ追加の話になっていないか | まだなりやすい。主商品をcase packに変更し、ログ追加は派生に下げる。 | High | Revise |
 | OEM領域に依存しすぎていないか | 保証DB/fleet analyticsはoptional extensionへ下げた。 | High | Keep |
 | 買い手の業務成果物に転記できるか | 仮説。次Demoで8D/品質報告への転記性を確認する。 | Medium | Next validation |

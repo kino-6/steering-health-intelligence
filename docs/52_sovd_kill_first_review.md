@@ -20,7 +20,7 @@ ASAM、Softing、DSA、ETAS、Sibros、Technvil、Eclipse OpenSOVDなどの公�
 
 良い方向:
 
-> OEM診断基盤やSOVD stackはOEM/ツールベンダー領域に置き、EPSサプライヤは自社ECUのUDS、DTC、DID、freeze frame、extended data、software/calibration ID、security accessを、次世代診断に載せる前の診断コンテンツとして整理できるかを見る。
+> OEM診断基盤やSOVD stackはOEM/ツールベンダー領域に置き、EPSサプライヤはサプライヤECUのUDS、DTC、DID、freeze frame、extended data、software/calibration ID、security accessを、次世代診断に載せる前の診断コンテンツとして整理できるかを見る。
 
 ## 市場需要
 

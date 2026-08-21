@@ -8,7 +8,7 @@ Boschの予測ビジネスは、AIモデルだけを売る話ではない。
 Boschが正面から使っている言葉は、`predictive diagnostics`、`predictive maintenance`、`vehicle health` である。
 このブランチでは、この言葉を避けずに扱う。
 
-EPSサプライヤ側の論点は、Bosch型のfleet platformを自社で作ることではない。
+EPSサプライヤ側の論点は、Bosch型のfleet platformをサプライヤで作ることではない。
 操舵系について、predictive diagnosticsの対象にできる状態、predictive maintenance actionへつなげられる条件、vehicle health outputとして説明できる範囲を定義できるかである。
 
 現時点の判定は、`Proceed to steering predictive diagnostics screening` である。

@@ -159,7 +159,7 @@ Proceed signal:
 
 Hold / Stop境界:
 
-- 自社EPSの依存signal、fallback、表示影響を定義できない
+- サプライヤEPSの依存signal、fallback、表示影響を定義できない
 - 通信診断や外部ECU診断の一般論に埋もれる
 
 ### 4. SPD004: 電気接続 / harness / network由来の複合症状

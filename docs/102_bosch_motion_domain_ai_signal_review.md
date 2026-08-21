@@ -202,7 +202,7 @@ Proceed候補:
 
 Hold:
 
-- Bosch公開情報は強いが、自社EPSサプライヤの成果物へ落ちる部署がまだ曖昧
+- Bosch公開情報は強いが、サプライヤEPSサプライヤの成果物へ落ちる部署がまだ曖昧
 - motion-domain architectureの具体入力がないと、質問が一般論で止まる
 
 Stop候補:

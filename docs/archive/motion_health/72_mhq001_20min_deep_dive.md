@@ -115,7 +115,7 @@ EPS/SbWサプライヤとして売るか:
 
 EPS/SbWサプライヤとして実施できること:
 
-> Steering-onlyではなく、chassis / motion healthとしてsource分類を続ける。自社が持つDTC、DID、assist state、limit state、thermal state、motor current、software/calibration ID、SbW degraded stateを、fleet側の運行可否や点検優先度へ翻訳できるかを見る。
+> Steering-onlyではなく、chassis / motion healthとしてsource分類を続ける。サプライヤが持つDTC、DID、assist state、limit state、thermal state、motor current、software/calibration ID、SbW degraded stateを、fleet側の運行可否や点検優先度へ翻訳できるかを見る。
 
 EPS/SbWサプライヤとして言ってはいけないこと:
 

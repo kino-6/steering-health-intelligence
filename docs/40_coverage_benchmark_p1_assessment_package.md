@@ -16,7 +16,7 @@
 
 P1の市場需要は、より上流に置く。
 
-> 公開市場で繰り返すEPS pain familyを、自社EPSの診断coverage、HILS/bench coverage、software release gateでどこまでcoverしているかを、program横断で説明したい。
+> 公開市場で繰り返すEPS pain familyを、サプライヤEPSの診断coverage、HILS/bench coverage、software release gateでどこまでcoverしているかを、program横断で説明したい。
 
 ## 未解決の痛み
 

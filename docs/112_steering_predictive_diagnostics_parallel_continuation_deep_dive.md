@@ -130,7 +130,7 @@ Proceed signal:
 
 Hold / Stop signal:
 
-- 自社EPSが依存signalとfallbackを定義できない
+- サプライヤEPSが依存signalとfallbackを定義できない
 
 ### 4. 熱保護に近い状態
 

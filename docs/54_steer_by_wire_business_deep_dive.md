@@ -10,7 +10,7 @@ Steer-by-wire方向は、**探索を続ける価値はあるが、売り物は�
 
 残すなら、狙いはこれだけにする。
 
-> EPS / steeringサプライヤが、自社が持つsteer-by-wire部品、ECU、センサ、アクチュエータ、診断、software/calibration ID、security accessについて、「異常時に何が起き、何を検知し、何を診断で見せ、OEMへ何を説明できるか」を部品境界で整理する。
+> EPS / steeringサプライヤが、サプライヤが持つsteer-by-wire部品、ECU、センサ、アクチュエータ、診断、software/calibration ID、security accessについて、「異常時に何が起き、何を検知し、何を診断で見せ、OEMへ何を説明できるか」を部品境界で整理する。
 
 これは安全設計の代替ではない。
 既存の安全・サイバー・診断成果物を、OEM設計レビュー、RFQ回答、診断コンテンツ設計に転記しやすくするための狭い整理である。
