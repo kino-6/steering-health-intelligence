@@ -1,0 +1,6 @@
+model	tests	steering_fails	fail_rate	linkage_wear_share	column_coupling_share	rack_gear_share	power_steering_share	other_steering_share
+Fiat 500X (照合対象)	32633	2683	0.08222	0.9859	0.0000	0.0134	0.0004	0.0004
+Jeep Renegade (照合対象)	26014	2052	0.07888	0.9876	0.0000	0.0106	0.0005	0.0014
+Vauxhall Corsa (参照:欠陥型)	392071	25584	0.06525	0.9899	0.0005	0.0072	0.0006	0.0018
+Vauxhall Vivaro (参照:摩耗型)	93861	8089	0.08618	0.9779	0.0011	0.0096	0.0056	0.0057
+Renault Trafic (参照:摩耗型)	55093	5440	0.09874	0.9804	0.0007	0.0086	0.0047	0.0056

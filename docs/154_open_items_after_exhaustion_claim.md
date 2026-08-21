@@ -2,15 +2,17 @@
 
 ## 判断
 
-**[docs/151](151_high_rate_model_crosscheck.md) の「公開データで能動的に実行できる検証はすべて消化した」は誤りだった。未消化が3件残っている。**
+**[docs/151](151_high_rate_model_crosscheck.md) の「公開データで能動的に実行できる検証はすべて消化した」は誤りだった。未消化が3件残っていた。**
+
+> **追記(2026-08-22)**: 3件すべて実施済み。結果は [docs/155](155_window_recurrence_verification.md)(窓長・再発)、[docs/156](156_train_era_miss_structure.md)(見逃し構造)、[docs/157](157_mode_split_and_corsa_correction.md)(モード照合)。**うち1件は既存結論の訂正を伴った**——docs/157 は docs/151 の Corsa 答え合わせを誤帰属と判定した。「残作業を放置すると、誤った結論も一緒に残る」ことの実例である。
 
 うち2件は、リポジトリ自身が残作業として明示的に登録したまま実施されなかったものである。全文検査(未実施 / 未照合 / 未検証 / 残作業 / 未着手 / 保留 の全出現)で確定した。
 
 | # | 未消化項目 | どこで登録されたか | 実施可否 | 停止ルールへの抵触 |
 |---|---|---|---|---|
-| 1 | **学習era内の見逃し構造分析** | [docs/147:31](147_multiplatform_and_variant_verification.md)、[docs/148:36](148_dvsa_mot_denominator_verification.md)が「残る唯一の机上作業(未)」と明記 | **可能**。データ在り、学習era(2013-2018)のみ使用 | **抵触しない**([docs/143](143_recall_detection_results_v2.md)の停止ルールはテストeraへの3回目アクセス禁止。本件はテストeraに触れない) |
-| 2 | **Fiat 500X / Jeep Renegade の照合** | [docs/151:12](151_high_rate_model_crosscheck.md)が「今回照合していない(推測で埋めない)」と明記 | **可能**。公開の不具合記録との突き合わせ | 抵触しない |
-| 3 | **窓長・再発カウントによる感度向上の定量** | [docs/144:29](144_synthetic_sensitivity_results.md)が「窓を長くする/再発を数えると感度は上がる方向(未検証)」と記載 | **可能**。既存キャッシュ(comma.ai)とスクリプトで完結 | 抵触しない |
+| 1 | ~~**学習era内の見逃し構造分析**~~ → **実施済([docs/156](156_train_era_miss_structure.md))** | [docs/147:31](147_multiplatform_and_variant_verification.md)、[docs/148:36](148_dvsa_mot_denominator_verification.md)が「残る唯一の机上作業(未)」と明記 | **可能**。データ在り、学習era(2013-2018)のみ使用 | **抵触しない**([docs/143](143_recall_detection_results_v2.md)の停止ルールはテストeraへの3回目アクセス禁止。本件はテストeraに触れない) |
+| 2 | ~~**Fiat 500X / Jeep Renegade の照合**~~ → **実施済([docs/157](157_mode_split_and_corsa_correction.md))** | [docs/151:12](151_high_rate_model_crosscheck.md)が「今回照合していない(推測で埋めない)」と明記 | **可能**。公開の不具合記録との突き合わせ | 抵触しない |
+| 3 | ~~**窓長・再発カウントによる感度向上の定量**~~ → **実施済([docs/155](155_window_recurrence_verification.md))** | [docs/144:29](144_synthetic_sensitivity_results.md)が「窓を長くする/再発を数えると感度は上がる方向(未検証)」と記載 | **可能**。既存キャッシュ(comma.ai)とスクリプトで完結 | 抵触しない |
 
 **閉じてよい項目**(誤って未消化に見えるが実施済み):
 
