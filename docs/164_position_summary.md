@@ -40,7 +40,8 @@
 | 残る未証明 | 内容 |
 |---|---|
 | **A''** | **EPSコネクタのfretting劣化は、機能影響が出る前に単調な発生率の上昇として観測できるか**([docs/168](168_transfer_reduces_to_spec.md)) |
-| **S** | **パラメータのずれが「機能不足」に翻訳できるか**([docs/169](169_sotif_link_check.md))。ここが埋まらないとSOTIFの根拠にならない |
+| ~~**S**~~ | ~~パラメータのずれ→機能不足~~ → **熱経路で埋まった**([docs/170](170_thermal_headroom_translation.md))。最初の兆候の時点で持続アシスト熱余裕を**13〜50%**失っている。faultは立たない=**SOTIFの主題** |
+| **T** | EPSインバータでdie-attach型の熱劣化が起きるか([docs/170](170_thermal_headroom_translation.md) 限界5) |
 
 転移(A')の大部分は **gain / offset の違いであり、製品規格の決めごとに還元される**([docs/168](168_transfer_reduces_to_spec.md))。
 同一型番6個体ですら温度係数が40%ばらつく中で6/6成立したため、手法はgainのばらつきに対して既に頑健である。
