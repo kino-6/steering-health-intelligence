@@ -1,8 +1,13 @@
 # 158. SOTIF-EooC 運用フェーズ監視デモ
 
+> **訂正(2026-08-22、ユーザ指摘)**: 本ドキュメントは [AGENTS.md](../AGENTS.md) 4条の「Demo」を
+> **画面・数字の陳列**と取り違えて作られた。4条が言うDemoは「**一定の結果が出るまでプロジェクトを回すこと**」であり、
+> UIを作ることではない。したがって本成果物は「Demoの達成」ではなく、
+> **EooC仮定シートを実行可能にした結線と、その実行で見えた設計上の問題(下記のゲイン問題)の記録**として読むこと。
+
 ## 判断
 
-**[AGENTS.md](../AGENTS.md) 4条のDemo方針が、初めて中身を持って動く形になった。** 宣言 → 較正 → 観測 → 報告の1本の流れを、公開走行logで実行できる。
+**[AGENTS.md](../AGENTS.md) 4条の要素を1本で動かせる形にした(ただし4条の言う「Demo」の達成ではない。上記訂正を参照)。** 宣言 → 較正 → 観測 → 報告の1本の流れを、公開走行logで実行できる。
 
 新規のデータ取得も新規モデルもない。[docs/153](153_sotif_eooc_assumption_sheet.md)(仮定シート)、[docs/155](155_window_recurrence_verification.md)(特徴量別の設計則)、[docs/121](121_steering_predictive_diagnostics_power_monitor_case.md)(payload)の結線である。
 
