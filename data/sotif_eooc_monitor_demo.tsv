@@ -1,0 +1,9 @@
+field	value
+platform	FORD_MAVERICK_1ST_GEN
+units_evaluated	806
+units_outside_envelope	40
+observed_rate	0.04963
+rate_lag	0.00124
+rate_gain_dev	0.04591
+rate_bias	0.00248
+acceptable_rate_target	BLANK_OEM_TO_FILL

@@ -1,0 +1,79 @@
+# 158. SOTIF-EooC 運用フェーズ監視デモ
+
+## 判断
+
+**[AGENTS.md](../AGENTS.md) 4条のDemo方針が、初めて中身を持って動く形になった。** 宣言 → 較正 → 観測 → 報告の1本の流れを、公開走行logで実行できる。
+
+新規のデータ取得も新規モデルもない。[docs/153](153_sotif_eooc_assumption_sheet.md)(仮定シート)、[docs/155](155_window_recurrence_verification.md)(特徴量別の設計則)、[docs/121](121_steering_predictive_diagnostics_power_monitor_case.md)(payload)の結線である。
+
+実行: `python3 scripts/sotif_eooc_monitor_demo.py`
+出力: [generated/sotif_eooc_monitor_demo.html](../generated/sotif_eooc_monitor_demo.html) / [data/sotif_eooc_monitor_demo.tsv](../data/sotif_eooc_monitor_demo.tsv)
+
+## 実行結果(Ford Maverick、806台分の60秒記録)
+
+| 機能不足 | 窓長 | 判定則 | 90%検出下限 | 観測された逸脱率 |
+|---|---|---|---|---|
+| 応答遅れ | 15 s | 4窓中2窓 | 0.3 s | **0.12%** |
+| ゲイン変化 | 60 s | 単発 | 0.10 | **4.59%** |
+| 応答バイアス | 15 s | 4窓中3窓 | 0.10 m/s² | **0.25%** |
+| 合計(いずれか) | | | | **4.96%**(40/806台) |
+
+**逸脱率はゲイン単独でほぼ決まっている。** 再発判定を持つ2特徴量(遅れ・バイアス)が0.1〜0.25%に収まるのに対し、単発判定のゲインだけが4.59%を出す。[docs/155](155_window_recurrence_verification.md) が「ゲインは長窓単発が勝つ」と結論した設計は検出感度では正しいが、**運用ではこの特徴量が逸脱率の大半を作る**——感度と静けさが同じ特徴量で両立しないことが、デモの出力として目に見える形になった。
+
+これは設計判断の材料になる。ゲインを宣言に含めるなら、逸脱率5%を許容するか、検出下限を犠牲にして再発則を入れるかの二択になる。
+
+## デモの構造
+
+1. **宣言** — 差し出す仮定(特徴量ごとの窓長・判定則・検出下限)。**設計則は車種不変**(4車種で優劣一致、[docs/155](155_window_recurrence_verification.md))、**下限値はprogram固有**([docs/147](147_multiplatform_and_variant_verification.md))
+2. **較正** — この programの母集団基準(窓長別の中央値・MAD)を取る。**この工程が診断コンテンツNREの実体**である
+3. **観測** — 走行logを流し、宣言した範囲を出た台数を数える
+4. **報告** — 逸脱した1台に対する部品側payload(component / observed_context / event_relation / recurrence / boundary)
+
+## このデモの核心は「埋まらない欄」である
+
+画面の中央に**空欄**を置いた。
+
+> **機能不足の許容発生率の目標値([EOOC011](../data/sotif_eooc_assumption_sheet.tsv))はOEMが埋める。**
+> 車両レベルの安全目標からの配分であり、部品側では決められない。公開情報では原理的に届かない。
+> 部品側が差し出せるのは「観測された4.96%」という実測値までで、それが目標以下かを判定するのはOEMの領域である。
+
+宣言できる範囲と、できない範囲を**同じ画面に並べて見せる**ことが、このデモの主張である。「監視できます」と言うデモは既にBoschが手法特許で先行しており([docs/128](128_steering_predictive_diagnostics_sotif_public_signal_watch.md))、そこで競っても勝ち目がない。差分は「サプライヤEPS内部の観測事実」と「その境界の明示」に限定する。
+
+## このデモが言っていないこと
+
+1. **故障を検出した / 予測した** — 言っていない。走行logは健全車両のもので、実故障の波形は公開されていない([docs/144](144_synthetic_sensitivity_results.md))。故障予測は[docs/143](143_recall_detection_results_v2.md)でKill確定
+2. **逸脱した40台が異常である** — 言っていない。母集団基準からの統計的な外れであり、路面・積載・運転操作でも起きる。実際この母集団は健全車両なので、**4.96%は不具合率ではなく騒がしさの率**である
+3. **SOTIF適合を証明した / 安全を保証した** — 言っていない。適合判断の主語はOEM
+4. **この逸脱率が妥当である** — 言っていない。妥当性の基準が上の空欄のままである
+
+## 限界
+
+1. **健全車両のみのデータで動かしている。** したがってこのデモが示すのは「宣言した設計が、健全な母集団に対してどれだけ静かか」であり、「劣化を捕まえられるか」は[docs/144](144_synthetic_sensitivity_results.md)/[docs/155](155_window_recurrence_verification.md)の合成注入に依存したままである
+2. **1 platform**。他車種では較正のやり直しが要る(それが仕様)
+3. **セグメント単位を「1台」と数えている。** 同一車両の複数記録が含まれる可能性があり、台数は厳密な個体数ではない
+4. 逸脱の判定は母集団基準に対する相対量である。母集団自体が劣化していれば逸脱として出ない(縦断監視でしか扱えない、[docs/147](147_multiplatform_and_variant_verification.md)の結論と同じ)
+
+## 公開データセットの再確認(今回のユーザ指摘に対する回答)
+
+「Kaggleに実故障の波形があるのではないか」という指摘について、既存の棚卸しを確認した。
+
+- [data/public_steering_dataset_inventory.tsv](../data/public_steering_dataset_inventory.tsv) に DS001〜DS010 を記録済み。**実故障ラベル付きは0件**
+- [data/llm_kill_knowledge_base.tsv](../data/llm_kill_knowledge_base.tsv) に「Kaggle as EPS field failure prediction」がKillとして登録済み。理由は「公開CAN/OBD/steering angleデータには、EPS内部故障ラベル、DTC、freeze frame、assist電流、motor電流、limit状態がない」
+- したがって**新規調査は起こさない**。ただし棚卸しは2026-06時点のものであり、新規データセットの出現は観測台帳([docs/151](151_high_rate_model_crosscheck.md))の対象として扱う
+
+## 次の候補: 理想回路モデルによる注入の格上げ(未実施)
+
+ユーザ指摘の「理想回路モデルを作る」は、既存のどのKillにも当たらない**新規の選択肢**である。性格を正確に記録しておく。
+
+- **できること**: [docs/144](144_synthetic_sensitivity_results.md) の注入は運動学的に理想化された変化(遅れ・ゲイン・バイアス)である。EPSの物理モデル(モータ・トルクセンサ・制御ループ・電源)を置けば、**トルクセンサドリフト、相電流不平衡、電源dip起因のアシスト制限**といった、故障モードに紐づいた波形を生成できる。試験台の格上げであり、bench/HILSと同じ位置づけの正当な成果物
+- **できないこと**: **実故障の証拠にはならない。** 自作モデルが吐いた波形で自作検出器を検証すると循環する。モデル自体の妥当性を独立に検証するには結局実データが要る
+- **したがって主張の形**: 「この物理モデルが表す故障モードなら、この粒度で観測できる」までであり、「実車の故障を検出できる」ではない。この境界を守れるなら着手してよい
+
+## Rule Check
+
+- 公開データのみ(commaSteeringControl、MIT)。新規のデータ取得なし
+- 「言っていないこと」を成果物(HTML)本体に埋め込み、デモ単体が独り歩きしても誤読されない形にした
+- 故障予測Kill([docs/143](143_recall_detection_results_v2.md))を動かしていない
+- 主語がOEM領域に入っていない。適合判断はOEM、部品側は観測提供者
+- 手法で競わない([docs/128](128_steering_predictive_diagnostics_sotif_public_signal_watch.md))。差分は観測事実と境界の明示に限定した
+- 期待に反する出力(逸脱率がゲイン単独でほぼ決まる)を、設計上の弱点として本文に記録した
