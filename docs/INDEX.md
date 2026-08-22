@@ -275,6 +275,7 @@ README.md は結論とその根拠を読むための入口に整理し直した�
 - [154 「すべて消化した」の棚卸し](154_open_items_after_exhaustion_claim.md): docs/151の完了宣言は誤り。未消化3件を確定し、全て消化
 - [155 窓長と再発判定の検証](155_window_recurrence_verification.md): 「再発を数えれば感度が上がる」は一律には成立しない。特徴量ごとに最適設計が逆を向き、その順序は4車種で一致
 - [156 学習era内の見逃し構造分析](156_train_era_miss_structure.md): 見逃しは調整不足ではなく情報の不在。見逃しcohortの操舵系苦情は中央値1件
+- [159 公開データセット棚卸しの更新](159_public_dataset_reinventory.md): **前回は部品レベルを見ていなかった**。実故障ラベル付きPMSMデータを2件発見(DS011はCC BY 4.0・severity 8段階・EPS同出力帯)
 - [158 SOTIF-EooC 運用フェーズ監視デモ](158_sotif_eooc_monitor_demo.md): 宣言→較正→観測→報告を1本で動かす。**核心は「OEMが埋める空欄」を同じ画面に並べたこと**
 - [157 モードによる照合とCorsa訂正](157_mode_split_and_corsa_correction.md): 500X/Renegadeはカバー型。**Corsaの答え合わせはモード水準で誤帰属**——車検の群シグナルはEPSの代理指標ではない
 
