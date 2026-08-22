@@ -10,7 +10,12 @@
 | B. 機能不足(functional insufficiency)の観測粒度 | **埋まる。数値で言える**。特徴量別の設計で、応答遅れ0.3s / ゲイン0.10 / バイアス0.10 を90%検出([docs/155](155_window_recurrence_verification.md)で更新) |
 | C. 機能不足の許容発生率の目標値 | **埋まらない。OEMが埋める欄**。車両レベル安全目標からの配分であり、公開情報では原理的に届かない。ここで問いを閉じる |
 
-シート本体: [data/sotif_eooc_assumption_sheet.tsv](../data/sotif_eooc_assumption_sheet.tsv)(17項目)
+シート本体: [data/sotif_eooc_assumption_sheet.tsv](../data/sotif_eooc_assumption_sheet.tsv)(19項目)
+
+> **追記(2026-08-22)**: [docs/162](162_pmsm_model_validation_results.md) の結果を2行反映した。
+> **EOOC018** は本シート初の**実測に基づく行**である(合成注入ではない)——EPSアシストモータと同型・同出力帯のPMSMで、
+> 巻線間短絡severityに対する相電流不平衡の実測関係。
+> **EOOC019** は物理モデルによる外挿が**検証に失敗した**ことの記録であり、空欄として残す。
 
 この作業は新規のデータ取得を伴わない。既存の [docs/144](144_synthetic_sensitivity_results.md) / [147](147_multiplatform_and_variant_verification.md) / [148](148_dvsa_mot_denominator_verification.md) / [150](150_advisory_precedence_verification.md) / [121](121_steering_predictive_diagnostics_power_monitor_case.md) の結果を、EooCの様式へ転記したものである。
 
