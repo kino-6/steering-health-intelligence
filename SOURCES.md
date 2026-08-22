@@ -18,6 +18,7 @@
 | S5 | リコール届出内容の分析結果／不具合情報（集計PDF） | 国土交通省 | 政府標準利用規約（第2.0版） | 必須 | 2026-07-12 | `.jp_mlit/` (約28MB) |
 | S6 | ODI recall / TSB / investigation 個別文書（PDF） | NHTSA | 米国政府著作物・パブリックドメイン | 任意 | 随時 | （キャッシュなし。URLのみ記録） |
 | S7 | 三相PMSM 固定子故障データセット（1.0 kW） | KAIST（Data in Brief 2023） | **CC BY 4.0** | **必須** | 2026-08-22 | `.pmsm_fault/` (約1.7GB) |
+| S8 | MOSFET Thermal Overstress Aging（run-to-failure） | NASA PCoE | 米国政府著作物・パブリックドメイン | 任意 | 2026-08-23 | `.nasa_pcoe/` (約7.5GB) |
 
 ---
 
@@ -126,3 +127,16 @@
   | `data/pmsm_model_vs_measured.tsv` | `scripts/pmsm_model_vs_measured.py` | モデルとの比較（3行） |
 
   `data/pmsm_interturn_model.tsv` は物理モデルの出力であり、本データセット由来ではない。
+
+## S8. NASA PCoE — MOSFET Thermal Overstress Aging
+
+- 取得元: <https://phm-datasets.s3.amazonaws.com/NASA/13.+MOSFET+Thermal+Overstress+Aging.zip>（一覧: <https://data.phmsociety.org/nasa/>）
+- ライセンス: NASA は米国連邦政府の著作物であり、著作権による保護を受けない（パブリックドメイン）
+- 内容: パワーMOSFET の熱過負荷加速劣化。42テスト・106ファイル（.mat）。**うち7 run 揃った6デバイス（Test_8/9/10/11/12/14）が run-to-failure**
+- 信号: steadyState（supplyVoltage / packageTemperature / drainSourceVoltage / drainCurrent / flangeTemperature）、transient（500点・dt=2µs の波形4ch）
+- 派生（すべて**集計値**。波形は再配布していない）:
+
+  | 出力 | スクリプト | 粒度 |
+  |---|---|---|
+  | `data/mosfet_precursor.tsv` | `scripts/mosfet_precursor.py` | デバイス×run（42行） |
+  | `data/mosfet_precursor_v2.tsv` | `scripts/mosfet_precursor_v2.py` | 同上、温度除去後（42行） |
