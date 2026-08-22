@@ -17,6 +17,7 @@
 | S4 | commaSteeringControl | comma.ai | **MIT License** | **必須** | 2026-07-11 | `.public_log_cache/` (約651MB) |
 | S5 | リコール届出内容の分析結果／不具合情報（集計PDF） | 国土交通省 | 政府標準利用規約（第2.0版） | 必須 | 2026-07-12 | `.jp_mlit/` (約28MB) |
 | S6 | ODI recall / TSB / investigation 個別文書（PDF） | NHTSA | 米国政府著作物・パブリックドメイン | 任意 | 随時 | （キャッシュなし。URLのみ記録） |
+| S7 | 三相PMSM 固定子故障データセット（1.0 kW） | KAIST（Data in Brief 2023） | **CC BY 4.0** | **必須** | 2026-08-22 | `.pmsm_fault/` (約1.7GB) |
 
 ---
 
@@ -106,3 +107,22 @@
 
 取得日以降に元データが更新されている場合、数値は本リポジトリの値と一致しないことがある。
 各表の値は「取得日」列の時点のスナップショットに対する結果である。
+
+## S7. KAIST 三相PMSM 固定子故障データセット
+
+- 取得元: <https://data.mendeley.com/datasets/rgn5brrgrn/5>（DOI 10.17632/rgn5brrgrn.5）
+- ファイル: `1.0kW.zip`（他に 1.5kW / 3.0kW あり。本リポジトリは 1.0 kW 機のみ取得）
+- ライセンス: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+> Vibration and current dataset of three-phase permanent magnet synchronous motors with stator faults.
+> Data in Brief (2023), KAIST. Licensed under CC BY 4.0.
+
+- 内容: 三相PMSM 1.0 kW / 3000 rpm、巻線間短絡（severity 0〜21.69%、8段階）とコイル間短絡。電流100 kHz・振動25.6 kHz、各120秒
+- 派生（すべて**集計値**。波形は再配布していない）:
+
+  | 出力 | スクリプト | 粒度 |
+  |---|---|---|
+  | `data/pmsm_measured_signature.tsv` | `scripts/pmsm_measured_signature.py` | severity別の不平衡・逆相比（8行） |
+  | `data/pmsm_model_vs_measured.tsv` | `scripts/pmsm_model_vs_measured.py` | モデルとの比較（3行） |
+
+  `data/pmsm_interturn_model.tsv` は物理モデルの出力であり、本データセット由来ではない。
