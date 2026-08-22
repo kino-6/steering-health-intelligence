@@ -41,7 +41,7 @@
 |---|---|
 | **A''** | **EPSコネクタのfretting劣化は、機能影響が出る前に単調な発生率の上昇として観測できるか**([docs/168](168_transfer_reduces_to_spec.md)) |
 | ~~**S**~~ | ~~パラメータのずれ→機能不足~~ → **熱経路で埋まった**([docs/170](170_thermal_headroom_translation.md))。最初の兆候の時点で持続アシスト熱余裕を**13〜50%**失っている。faultは立たない=**SOTIFの主題** |
-| **T** | EPSインバータでdie-attach型の熱劣化が起きるか([docs/170](170_thermal_headroom_translation.md) 限界5) |
+| ~~**T**~~ | ~~EPSでdie-attach型熱劣化が起きるか~~ → **公開情報では決着しない**([docs/171](171_eps_wearout_mechanism_scan.md))。リコールは摩耗故障を構造的に見られない。**問いを閉じる**。代わりに公開記録が支持するのは接点・接続の断続故障(2.81倍)であり、**A''を優先する** |
 
 転移(A')の大部分は **gain / offset の違いであり、製品規格の決めごとに還元される**([docs/168](168_transfer_reduces_to_spec.md))。
 同一型番6個体ですら温度係数が40%ばらつく中で6/6成立したため、手法はgainのばらつきに対して既に頑健である。

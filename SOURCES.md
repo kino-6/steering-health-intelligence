@@ -58,6 +58,7 @@
   | `data/recall_miss_structure.tsv` | `scripts/recall_miss_structure.py` | 学習era見逃し構造（12行） |
   | `data/steering_mode_split.tsv` | `scripts/steering_mode_split.py` | 車種×モード別（13行） |
   | `data/spd008_payload_replay_cases.tsv` | `scripts/spd008_payload_replay.py` | 公開ケース3件 |
+  | `data/eps_wearout_mechanism_scan.tsv` | `scripts/eps_wearout_mechanism_scan.py` | 機構グループ別の出現率（6行） |
   | `generated/steering_cohort_curve.html`, `steering_cohort_backtest*.html`, `recall_detection_report.html`, `spd008_payload_replay.html` | 同上 | 同上 |
 
   `scripts/build_cohort_monthly.py` が生成する中間ファイル `cohort_monthly.tsv` は `.nhtsa_flat/` 配下に置かれ、コミットしていない。
