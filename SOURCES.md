@@ -76,6 +76,7 @@
   | `data/steering_fw_group_comparison.tsv` | `scripts/steering_fw_group_comparison.py` | 特徴量別の群間比較（18行） |
   | `data/steering_window_recurrence*.tsv` | `scripts/steering_window_recurrence.py` | 窓長×再発則の検出率（各126行、4車種） |
   | `data/low_speed_high_steering_proxy_*.tsv` | `scripts/extract_low_speed_high_steering_proxy.py` | 抽出窓の要約 |
+  | `data/sotif_eooc_monitor_demo.tsv`, `generated/sotif_eooc_monitor_demo.html` | `scripts/sotif_eooc_monitor_demo.py` | EooC監視デモの実行結果 |
   | `generated/steering_log_sign_extraction.html`, `steering_synthetic_sensitivity*.html` | 上記＋`scripts/steering_synthetic_sensitivity.py` | レポート |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
