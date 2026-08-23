@@ -275,6 +275,7 @@ README.md は結論とその根拠を読むための入口に整理し直した�
 - [154 「すべて消化した」の棚卸し](154_open_items_after_exhaustion_claim.md): docs/151の完了宣言は誤り。未消化3件を確定し、全て消化
 - [155 窓長と再発判定の検証](155_window_recurrence_verification.md): 「再発を数えれば感度が上がる」は一律には成立しない。特徴量ごとに最適設計が逆を向き、その順序は4車種で一致
 - [156 学習era内の見逃し構造分析](156_train_era_miss_structure.md): 見逃しは調整不足ではなく情報の不在。見逃しcohortの操舵系苦情は中央値1件
+- [179 EooCシートの欠落](179_eooc_sheet_completion.md): **SOTIFの中核 triggering conditions が丸ごと無かった**。規格Clause 4.4.3と照合してE節(発現条件5)・F節(統合要求2)を追加、26項目に
 - [178 SOTIFへの直答](178_sotif_straight_answer.md): **乗る。出せるのはEooC仮定シート1つだけ**。シートの埋まり具合を全欄提示。**Nexteerが取ったのは予知保全の席でSOTIFではない**(公式仕様に21448の言及なし)
 - [177 SOTIF方向の判定更新](177_sotif_direction_update.md): **需要は規制の義務へ格上げ**(UN ADS GTR 2026-06採択)。**同時に競合Nexteerが量産投入**。観測台帳の2項目が両方発火。窓は開いたと同時に最初の席が埋まった
 - [176 訂正: 接点系にも劣化の窓は存在する](176_correction_degradation_window.md): 「測れない」を「無い」と書いた飛躍を、公開リコール文書(断続・回復・再発)で訂正。**SOTIF方向は弱まっていない**

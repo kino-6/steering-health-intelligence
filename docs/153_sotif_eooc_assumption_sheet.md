@@ -10,7 +10,7 @@
 | B. 機能不足(functional insufficiency)の観測粒度 | **埋まる。数値で言える**。特徴量別の設計で、応答遅れ0.3s / ゲイン0.10 / バイアス0.10 を90%検出([docs/155](155_window_recurrence_verification.md)で更新) |
 | C. 機能不足の許容発生率の目標値 | **埋まらない。OEMが埋める欄**。車両レベル安全目標からの配分であり、公開情報では原理的に届かない。ここで問いを閉じる |
 
-シート本体: [data/sotif_eooc_assumption_sheet.tsv](../data/sotif_eooc_assumption_sheet.tsv)(19項目)
+シート本体: [data/sotif_eooc_assumption_sheet.tsv](../data/sotif_eooc_assumption_sheet.tsv)(**26項目**、[docs/179](179_eooc_sheet_completion.md)でE節/F節を追加)
 
 > **追記(2026-08-22)**: [docs/162](162_pmsm_model_validation_results.md) の結果を2行反映した。
 > **EOOC018** は本シート初の**実測に基づく行**である(合成注入ではない)——EPSアシストモータと同型・同出力帯のPMSMで、
