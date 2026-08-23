@@ -19,6 +19,7 @@
 | S6 | ODI recall / TSB / investigation 個別文書（PDF） | NHTSA | 米国政府著作物・パブリックドメイン | 任意 | 随時 | （キャッシュなし。URLのみ記録） |
 | S7 | 三相PMSM 固定子故障データセット（1.0 kW） | KAIST（Data in Brief 2023） | **CC BY 4.0** | **必須** | 2026-08-22 | `.pmsm_fault/` (約1.7GB) |
 | S8 | MOSFET Thermal Overstress Aging（run-to-failure） | NASA PCoE | 米国政府著作物・パブリックドメイン | 任意 | 2026-08-23 | `.nasa_pcoe/` (約7.5GB) |
+| S9 | SOReDD（電磁リレーの run-to-failure） | Uni Stuttgart IAS | **CC BY 4.0** | **必須** | 2026-08-23 | `.soredd/` (約3.1GB) |
 
 ---
 
@@ -142,3 +143,19 @@
   | `data/mosfet_precursor.tsv` | `scripts/mosfet_precursor.py` | デバイス×run（42行） |
   | `data/mosfet_precursor_v2.tsv` | `scripts/mosfet_precursor_v2.py` | 同上、温度除去後（42行） |
   | `data/thermal_headroom_translation.tsv` | `scripts/thermal_headroom_translation.py` | 熱余裕損失への換算（54行） |
+
+## S9. SOReDD — Stuttgart Open Relay Degradation Dataset
+
+- 取得元: <https://darus.uni-stuttgart.de/dataset.xhtml?persistentId=doi:10.18419/darus-2785>（論文 [arXiv:2204.01626](https://arxiv.org/abs/2204.01626)）
+- ライセンス: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+> Stuttgart Open Relay Degradation Dataset (SOReDD), Institute of Industrial Automation and
+> Software Engineering, University of Stuttgart. Licensed under CC BY 4.0.
+
+- 内容: 電磁リレー100個体（種別A〜E）を負荷条件別に故障まで開閉。開閉サイクルごとの接触抵抗と波形
+- **配布ファイルの不備**: 3ファイルが末尾カンマで不正JSON（読み込み時に修復）、1ファイルが末尾で切断（修復不能）。サイズは配布元マニフェストと一致
+- 派生（**集計値のみ**。波形・生時系列は再配布していない）:
+
+  | 出力 | スクリプト | 粒度 |
+  |---|---|---|
+  | `data/contact_variance_lead.tsv` | `scripts/contact_variance_lead.py` | 個体×窓の水準・変動（13行） |
