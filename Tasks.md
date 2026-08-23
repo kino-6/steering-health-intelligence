@@ -26,3 +26,19 @@
 ## 実施ログ
 
 (順次追記)
+
+---
+
+# Goal 2 — A''の決着(2026-08-23着手)
+
+**問い**: 接点界面の劣化において、抵抗の変動は水準の上昇に先行するか([docs/168](docs/168_transfer_reduces_to_spec.md), [docs/173](docs/173_contact_variance_protocol.md))
+
+**Timebox(想定)**: 本セッション内。上限であって使い切る対象ではない。
+**新しい選定条件**([docs/174](docs/174_contact_variance_results.md)): 採用前に配布論文の「目的」節と「劣化機構」節を読む。**スキーマ一致は機構一致ではない**。
+
+| ID | 平易な問い | 現在の結論 | 確信度 | 次の弱点 | Kill/Proceed影響 | 状態 |
+|---|---|---|---|---|---|---|
+| G1 | 機構が一致する公開データは存在するか | **存在しない**。Zenodo API・Web・PHM総覧110件のいずれにも接点劣化データなし。総覧本文で relay/connector/contact/fretting は**0回**(bearing 45回) | High | 総覧はv3 2026-02。以後の新規は観測台帳で拾う | G3へ | **済** [docs/175](docs/175_close_contact_question.md) |
+| G2 | あれば A'' を検証する | **実施不可**(G1が不存在) | High | - | - | **済** |
+| G3 | 「公開データではA''に答えられない」を確定し閉じる | **確定・閉じた**。ただし文献の3段階カーブから事業判断は構成した——**fretting系に先行時間はない。価値は予告でなくevent時点の説明** | High | 文献は二次情報 | 第1層は動かない。**言い方を故障族ごとに分ける** | **済** [docs/175](docs/175_close_contact_question.md) |
+| G4 | 手順の教訓を上位文書へ反映 | **完了**。[AGENTS.md](AGENTS.md) に「検証作業の作法」6項目、[Memory.md](Memory.md) に現在地、[docs/164](docs/164_position_summary.md) に故障族別の主張表 | High | 作法が守られるかは次セッションで判明 | 再発防止 | **済** |

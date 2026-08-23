@@ -33,6 +33,14 @@
 | 5 | [docs/151](docs/151_high_rate_model_crosscheck.md) | 答え合わせ3例目 + **観測台帳(次に見るもの)** |
 | 補 | [README.md](README.md) / [Plan.md](Plan.md) / [docs/INDEX.md](docs/INDEX.md) | 結論と根拠の入口 / フェーズ全表 / 全ドキュメント索引 |
 
+## 直近の更新(2026-08-23)
+
+- **本丸だった「兆候→故障の橋」は熱・接合部の族で実証**([docs/167](docs/167_precursor_results_v2.md))。故障の1〜2段階前、ノイズの20〜300倍。個体基準+動作点正規化で成立([docs/163](docs/163_per_unit_baselining.md))
+- **ただし SOTIF ではなく 26262 側**([docs/169](docs/169_sotif_link_check.md))。SOTIFの接点は「兆候〜故障確定の窓」で、熱余裕13〜50%喪失として翻訳した([docs/170](docs/170_thermal_headroom_translation.md))
+- **熱経路はEPSの公開記録に支持されない**([docs/171](docs/171_eps_wearout_mechanism_scan.md))。市場で優勢なのは接点・接続系(2.81倍)、熱系は平均以下(0.54倍)
+- **接点系(A'')は公開情報では答えられないため問いを閉じた**([docs/175](docs/175_close_contact_question.md))。公開劣化データ110件の総覧に接点は0件。**fretting系に実用的な先行時間はない**
+- **作業の作法6項目を [AGENTS.md](AGENTS.md) に追加**(データセット採用前に論文の機構節を読む、棚卸しは3軸、事前登録、完了宣言前の全文検査、数える単位を疑う、故障族ごとに主張を分ける)
+
 ## 直近の更新(2026-08-22)
 
 - **公開データセット棚卸しを更新**([docs/159](docs/159_public_dataset_reinventory.md))。前回は車両レベルしか探しておらず、**部品レベル(PMSM/インバータ)の実故障ラベル付きデータ2件を見落としていた**。
