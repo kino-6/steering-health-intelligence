@@ -65,7 +65,7 @@
 > **「再現しない故障のとき、その瞬間に部品の中で何が起きていたかを、宣言した粒度で出せる」ことを、
 > EPS製品仕様として組み込み、RFQ差別化と診断コンテンツNREとして売る。**
 
-- ×「壊れる前に教えます」 — 市場最多の接点系には先行時間が無い([docs/175](175_close_contact_question.md))
+- ×「壊れる前に教えます」 — 市場最多の接点系には先行時間が無い([docs/175](175_close_contact_question.md))。**[docs/193](193_str_capability_rule_results.md) が別機構で独立に裏付けた**——個体基準は母集団閾値より早くは鳴らない(事前登録P1が6中3で不成立)
 - ×「保証費をN%減らします」 — データが支持しない([docs/187](187_replacement_no_fix_result.md))、金額も非公開([docs/145](145_final_conclusions_and_interpretations.md))
 - ○「**判断材料が無い状態を、材料がある状態にします**」
 
@@ -73,8 +73,13 @@
 
 **同じ記録の第2の用途であり、需要の柱ではない**([docs/186](186_how_it_becomes_money.md))。
 
-- 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート26項目、空欄ゼロ([docs/180](180_eooc_sheet_all_filled.md))
+- 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート**33項目**([docs/180](180_eooc_sheet_all_filled.md), [docs/195](195_capability_rule_second_mechanism_results.md))
+- **capability 決定則が2機構で成立した**([docs/193](193_str_capability_rule_results.md), [docs/195](195_capability_rule_second_mechanism_results.md))。
+  宣言粒度 **0.08〜1.0%**。AUTOSAR `STR capability` の欄を埋める値を、公開データで実際に生成した
+- **故障が立たないまま能力が縮む窓は実在する**。パワー段で終端 C=0.832〜0.930、巻線で severity21.69% に C=0.952
 - 対象は**ADS搭載車のみ**。西側ではL3が後退中([docs/184](184_ads_deployment_reality.md))
+  - **未確認の論点**: ISO 21448 の適用範囲がL2(車線維持など)を含むなら、対象はADS搭載車より広い。
+    規格本文で確認していないため主張しない。**未解決として残す**
 - 維持する理由は2つだけ: **宣言の様式をくれる**、**ADS再拡大時の枠**
 
 ## まだ言えないこと
