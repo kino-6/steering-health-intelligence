@@ -59,6 +59,7 @@
   | `data/steering_cohort_backtest.tsv`, `data/steering_cohort_backtest_silverado.tsv` | `scripts/steering_cohort_backtest.py` | バックテスト結果 |
   | `data/recall_miss_structure.tsv` | `scripts/recall_miss_structure.py` | 学習era見逃し構造（12行） |
   | `data/eps_assembly_remedy_split.tsv` | `scripts/eps_assembly_remedy_split.py` | EPS系Assy交換リコール（11行。是正文はリコール公式文でありパブリックドメイン） |
+  | `data/eps_sotif_shape_scan.tsv` | `scripts/eps_sotif_shape_scan.py` | SOTIF形状の目印を持つ操舵系リコール（47行） |
   | `data/steering_mode_split.tsv` | `scripts/steering_mode_split.py` | 車種×モード別（13行） |
   | `data/spd008_payload_replay_cases.tsv` | `scripts/spd008_payload_replay.py` | 公開ケース3件 |
   | `data/eps_wearout_mechanism_scan.tsv` | `scripts/eps_wearout_mechanism_scan.py` | 機構グループ別の出現率（6行） |
