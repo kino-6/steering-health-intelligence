@@ -151,6 +151,7 @@
   | `data/mosfet_precursor_v2.tsv` | `scripts/mosfet_precursor_v2.py` | 同上、温度除去後（42行） |
   | `data/str_capability_rule.tsv` | `scripts/str_capability_rule.py` | STR capability 指標と3監視の発火run（42行） |
   | `data/capability_declaration_limits.tsv` | `scripts/capability_declaration_limits.py` | 指紋幅の要求とRth仮定の感度（20行） |
+  | `data/pulse_thermal_path.tsv` | `scripts/pulse_thermal_path.py` | パルス自己発熱による熱経路指標（42行） |
   | `data/thermal_headroom_translation.tsv` | `scripts/thermal_headroom_translation.py` | 熱余裕損失への換算（54行） |
   | `data/thermal_resistance_measured.tsv` | `scripts/thermal_resistance_measured.py` | 熱抵抗の直接測定（42行、分離不能の記録） |
 

@@ -13,6 +13,12 @@
 
 **P1は落ちた。事前登録どおり落ちたと書く。v2は作らない。**
 
+> **重大な訂正(2026-08-26, [docs/199](199_pulse_thermal_results.md))**: この文書が使った `Vds/Id` は**オン抵抗ではない。**
+> 素子は能動領域にあり(供給5.61Vのうち約4.9Vを負担して13Wを捨てている)、試験機は一度もスイッチとして動かしていない。
+> **`C = √(R_base/R_on)` は導通損から導いた式であり、このデータはその物理を測っていない。**
+> ここでの C は**劣化指標であって能力比ではない。**個体基準の有効性([docs/167](167_precursor_results_v2.md))は観測量に依存しないので残る。
+
+
 実行: `python3 scripts/str_capability_rule.py` / 数表: [data/str_capability_rule.tsv](../data/str_capability_rule.tsv)
 
 ## P1が落ちた理由と、それが意味すること
