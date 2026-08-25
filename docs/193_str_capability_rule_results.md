@@ -8,6 +8,9 @@
 | **P2 窓が雑音でない**(低下量 ≥ 3g) | 6中4以上 | **6/6 — 成立** |
 | **P3 宣言できる粒度 g** | 報告のみ | **0.081% 〜 0.641%** |
 
+> **訂正(2026-08-26, [docs/197](197_what_limits_the_declaration.md))**: この粒度は**測定の分解能であって、capability値の確度ではない。**
+> Rth一定の仮定が0.16〜2.0%崩れるだけで誤差は粒度に並ぶ。**また終端の低下量7〜17%は下限であって値ではない。**
+
 **P1は落ちた。事前登録どおり落ちたと書く。v2は作らない。**
 
 実行: `python3 scripts/str_capability_rule.py` / 数表: [data/str_capability_rule.tsv](../data/str_capability_rule.tsv)
