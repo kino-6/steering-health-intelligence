@@ -40,6 +40,7 @@
   | `data/dvsa_mot_concentration_2025.tsv` | `scripts/dvsa_mot_concentration.py` | メーカー／モデル別（97行） |
   | `data/mot_advisory_longitudinal.tsv` | `scripts/mot_advisory_longitudinal.py` | グループ×車齢帯別（12行） |
   | `data/dvsa_mot_mode_split_2025.tsv` | `scripts/dvsa_mot_mode_split.py` | モデル×故障モード別（5行） |
+  | `data/eps_specific_precedence.tsv` | `scripts/eps_specific_precedence.py` | EPS固有項目の群×車齢帯（12行） |
   | `generated/dvsa_mot_steering_2025.html` | `scripts/dvsa_mot_steering_rates.py` | 同上 |
 
   個々の検査記録は一切含まない。元データ自体が匿名化済みだが、本リポジトリはさらに集計後の値のみを保持する。
@@ -145,6 +146,7 @@
   | `data/mosfet_precursor.tsv` | `scripts/mosfet_precursor.py` | デバイス×run（42行） |
   | `data/mosfet_precursor_v2.tsv` | `scripts/mosfet_precursor_v2.py` | 同上、温度除去後（42行） |
   | `data/thermal_headroom_translation.tsv` | `scripts/thermal_headroom_translation.py` | 熱余裕損失への換算（54行） |
+  | `data/thermal_resistance_measured.tsv` | `scripts/thermal_resistance_measured.py` | 熱抵抗の直接測定（42行、分離不能の記録） |
 
 ## S9. SOReDD — Stuttgart Open Relay Degradation Dataset
 
