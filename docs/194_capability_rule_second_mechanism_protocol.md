@@ -85,4 +85,4 @@ S1 は基準を持たないため、**自身の最小severityを仮基準とし�
 - S1を捨てず、参考値として別掲すると決めた
 - 「1台4点は統計ではない」を先に認めた
 
-出典: KAIST 三相PMSM 固定子故障 振動・電流データセット (S9, CC BY 4.0), Mendeley 10.17632/rgn5brrgrn.5
+出典: KAIST 三相PMSM 固定子故障 振動・電流データセット (S7, CC BY 4.0), Mendeley 10.17632/rgn5brrgrn.5

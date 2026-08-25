@@ -277,6 +277,8 @@ README.md は結論とその根拠を読むための入口に整理し直した�
 - [156 学習era内の見逃し構造分析](156_train_era_miss_structure.md): 見逃しは調整不足ではなく情報の不在。見逃しcohortの操舵系苦情は中央値1件
 - [192 STR capability 決定則 — 事前登録](192_str_capability_rule_protocol.md): 結果を見る前に固定。`C = sqrt(R_on_base/R_on(t))`。**比を取るとRthが消える**ので docs/189② の測定失敗を迂回できる
 - [193 STR capability 決定則 — 実行結果](193_str_capability_rule_results.md): **P1(早く鳴る)は3/6で不成立。**P2は6/6成立、**宣言粒度 0.081〜0.641%**。個体基準が買うのは警報の早さではなく**値の解像度**。終端で能力7〜17%喪失
+- [194 capability決定則 — 第2機構の事前登録](194_capability_rule_second_mechanism_protocol.md): 1機構では規則ではなく計器。層間短絡へ同じ形を当てる
+- [195 capability決定則 — 第2機構で転移](195_capability_rule_second_mechanism_results.md): **R1/R2成立(ρ=−1.000)。**2機構をまたいだ**宣言粒度 0.08〜1.0%**。副産物: 個体基準が docs/162 の不成立(ρ=0.381)を ρ=−1.000 に解消。**発症は容易、進行は難しい**
 - [191 劣化を知る需要とSOTIFの境界](191_degradation_demand_and_sotif.md): 需要は実在し既に134万台で稼働中。**DTC未到達は2つに割れ、「故障が無いまま性能包絡が縮んだ」側はSOTIFである**(初版の否定を訂正)。宛先は `STR capability`、空欄はその値の決め方。操舵系715件中EPS×運転支援依存は0件
 - [190 「Assyごと交換」は何を意味するか](190_assembly_replacement_meaning.md): docs/189の140万台を223,159台に訂正。**EPS交換の選別根拠は「動作履歴」か「製造ロット」の2種類しかなく、ECU内部の記録で134万台の交換可否が決まっていた**
 - [189 「まだ言えないこと」5件をデータ検証](189_five_limits_tested.md): ①は**検証不能を確定**(EPS兆候が2,177万台中64台)。②は直接測定を**試みて失敗**。⑤の台数は[190](190_assembly_replacement_meaning.md)で訂正。副産物: EPS不合格の再発が**121〜417倍**

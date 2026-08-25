@@ -132,6 +132,7 @@
   |---|---|---|
   | `data/pmsm_measured_signature.tsv` | `scripts/pmsm_measured_signature.py` | severity別の不平衡・逆相比（8行） |
   | `data/pmsm_model_vs_measured.tsv` | `scripts/pmsm_model_vs_measured.py` | モデルとの比較（3行） |
+  | `data/capability_second_mechanism.tsv` | `scripts/capability_second_mechanism.py` | severity別 capability 指標と宣言粒度（8行） |
 
   `data/pmsm_interturn_model.tsv` は物理モデルの出力であり、本データセット由来ではない。
 
