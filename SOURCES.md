@@ -133,6 +133,7 @@
   | `data/pmsm_measured_signature.tsv` | `scripts/pmsm_measured_signature.py` | severity別の不平衡・逆相比（8行） |
   | `data/pmsm_model_vs_measured.tsv` | `scripts/pmsm_model_vs_measured.py` | モデルとの比較（3行） |
   | `data/capability_second_mechanism.tsv` | `scripts/capability_second_mechanism.py` | severity別 capability 指標と宣言粒度（8行） |
+  | `data/eps_health_element_run.tsv` | `scripts/eps_health_element.py` | 要素の宣言記録（機構別・合成、58行。NASA S8と共同） |
 
   `data/pmsm_interturn_model.tsv` は物理モデルの出力であり、本データセット由来ではない。
 

@@ -1,0 +1,53 @@
+mechanism	unit	index	operating_point	capability	granularity	valid	reason
+power stage	Test_8	1	154.992	0.999839	0.000811848	1	in span
+power stage	Test_8	2	149.971	1.00031	0.000811848	1	in span
+power stage	Test_8	3	144.643	0.999848	0.000811848	1	in span
+power stage	Test_8	4	139.345	0.990268	0.00122748	1	extrapolated 5.3C, granularity x1.51
+power stage	Test_8	5	137.933	0.911086	0.00133828	1	extrapolated 6.7C, granularity x1.65
+power stage	Test_8	6	138.583	0.88746	0.00128727	1	extrapolated 6.1C, granularity x1.59
+power stage	Test_8	7	123.804			0	operating point 123.8C is 20.8C outside the fingerprint span 144.6-155.0C
+power stage	Test_9	1	154.579	1.00024	0.00123589	1	in span
+power stage	Test_9	2	149.282	0.999524	0.00123589	1	in span
+power stage	Test_9	3	143.896	1.00024	0.00123589	1	in span
+power stage	Test_9	4	138.509	1.00031	0.001859	1	extrapolated 5.4C, granularity x1.50
+power stage	Test_9	5	132.48	0.970421	0.00255652	1	extrapolated 11.4C, granularity x2.07
+power stage	Test_9	6	133.102	0.928881	0.00248451	1	extrapolated 10.8C, granularity x2.01
+power stage	Test_9	7	132.77	0.89528	0.002523	1	extrapolated 11.1C, granularity x2.04
+power stage	Test_10	1	157.202	0.99954	0.00224266	1	in span
+power stage	Test_10	2	152.273	1.00086	0.00224266	1	in span
+power stage	Test_10	3	146.631	0.999598	0.00224266	1	in span
+power stage	Test_10	4	141.673	0.992067	0.00329466	1	extrapolated 5.0C, granularity x1.47
+power stage	Test_10	5	139.323	0.929616	0.00379325	1	extrapolated 7.3C, granularity x1.69
+power stage	Test_10	6	139.923	0.908889	0.00366585	1	extrapolated 6.7C, granularity x1.63
+power stage	Test_10	7	140.776	0.890159	0.003485	1	extrapolated 5.9C, granularity x1.55
+power stage	Test_11	1	149.993	0.999785	0.00110538	1	in span
+power stage	Test_11	2	145.161	1.00043	0.00110538	1	in span
+power stage	Test_11	3	140.203	0.99979	0.00110538	1	in span
+power stage	Test_11	4	135.436	0.999971	0.00164352	1	extrapolated 4.8C, granularity x1.49
+power stage	Test_11	5	132.739	0.982424	0.00194806	1	extrapolated 7.5C, granularity x1.76
+power stage	Test_11	6	133.389	0.947641	0.00187467	1	extrapolated 6.8C, granularity x1.70
+power stage	Test_11	7	133.081	0.921166	0.00190941	1	extrapolated 7.1C, granularity x1.73
+power stage	Test_12	1	151.599	1.00042	0.00231101	1	in span
+power stage	Test_12	2	145.934	0.999112	0.00231101	1	in span
+power stage	Test_12	3	140.919	1.00047	0.00231101	1	in span
+power stage	Test_12	4	135.962	1.00472	0.00338376	1	extrapolated 5.0C, granularity x1.46
+power stage	Test_12	5	132.394	0.978493	0.00415579	1	extrapolated 8.5C, granularity x1.80
+power stage	Test_12	6	133.514	0.953016	0.00391339	1	extrapolated 7.4C, granularity x1.69
+power stage	Test_12	7	133.376	0.92962	0.00394331	1	extrapolated 7.5C, granularity x1.71
+power stage	Test_14	1	152.597	0.998724	0.0064143	1	in span
+power stage	Test_14	2	147.708	1.00247	0.0064143	1	in span
+power stage	Test_14	3	142.437	0.998817	0.0064143	1	in span
+power stage	Test_14	4	137.671	0.994394	0.00942307	1	extrapolated 4.8C, granularity x1.47
+power stage	Test_14	5	135.045	0.91538	0.0110807	1	extrapolated 7.4C, granularity x1.73
+power stage	Test_14	6	134.586	0.890547	0.0113704	1	extrapolated 7.9C, granularity x1.77
+power stage	Test_14	7	133.855	0.875963	0.0118316	1	extrapolated 8.6C, granularity x1.84
+motor winding	KAIST 1.0kW	0	199.986	1	0.00144751	1	in span
+motor winding	KAIST 1.0kW	3.35	199.986	0.981069	0.00228326	1	in span
+motor winding	KAIST 1.0kW	6.48	199.986	0.976557	0.00381809	1	in span
+motor winding	KAIST 1.0kW	21.69	199.986	0.951773	0.0100542	1	in span
+composed	Test_8 run1 + sev0.0	1	0	0.999839	0.00165943	1	composed by D1 (multiplicative) -- NOT verified on one unit
+composed	Test_8 run1 + sev21.69	1	21.69	0.95162	0.0100823	1	composed by D1 (multiplicative) -- NOT verified on one unit
+composed	Test_14 run1 + sev0.0	1	0	0.998724	0.00657519	1	composed by D1 (multiplicative) -- NOT verified on one unit
+composed	Test_14 run1 + sev21.69	1	21.69	0.950559	0.0117516	1	composed by D1 (multiplicative) -- NOT verified on one unit
+composed	Test_14 run7 + sev0.0	7	0	0.875963	0.0118994	1	composed by D1 (multiplicative) -- NOT verified on one unit
+composed	Test_14 run7 + sev21.69	7	21.69	0.833718	0.014296	1	composed by D1 (multiplicative) -- NOT verified on one unit
