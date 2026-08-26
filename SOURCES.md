@@ -17,7 +17,7 @@
 | S4 | commaSteeringControl | comma.ai | **MIT License** | **必須** | 2026-07-11 | `.public_log_cache/` (約651MB) |
 | S5 | リコール届出内容の分析結果／不具合情報（集計PDF） | 国土交通省 | 政府標準利用規約（第2.0版） | 必須 | 2026-07-12 | `.jp_mlit/` (約28MB) |
 | S6 | ODI recall / TSB / investigation 個別文書（PDF） | NHTSA | 米国政府著作物・パブリックドメイン | 任意 | 随時 | （キャッシュなし。URLのみ記録） |
-| S7 | 三相PMSM 固定子故障データセット（1.0 kW） | KAIST（Data in Brief 2023） | **CC BY 4.0** | **必須** | 2026-08-22 | `.pmsm_fault/` (約1.7GB) |
+| S7 | 三相PMSM 固定子故障データセット（**1.0 / 1.5 / 3.0 kW**） | KAIST（Data in Brief 2023） | **CC BY 4.0** | **必須** | 2026-08-22 / **1.5・3.0 kWは2026-08-26** | `.pmsm_fault/` (約7GB) |
 | S8 | MOSFET Thermal Overstress Aging（run-to-failure） | NASA PCoE | 米国政府著作物・パブリックドメイン | 任意 | 2026-08-23 | `.nasa_pcoe/` (約7.5GB) |
 | S9 | SOReDD（電磁リレーの run-to-failure） | Uni Stuttgart IAS | **CC BY 4.0** | **必須** | 2026-08-23 | `.soredd/` (約3.1GB) |
 
@@ -125,7 +125,9 @@
 > Vibration and current dataset of three-phase permanent magnet synchronous motors with stator faults.
 > Data in Brief (2023), KAIST. Licensed under CC BY 4.0.
 
-- 内容: 三相PMSM 1.0 kW / 3000 rpm、巻線間短絡（severity 0〜21.69%、8段階）とコイル間短絡。電流100 kHz・振動25.6 kHz、各120秒
+- 内容: 三相PMSM **3機体（1.0 / 1.5 / 3.0 kW）**、巻線間短絡とコイル間短絡。電流3相100 kHz・振動1ch 25.6 kHz、各120秒
+  - 1.0 kW: 2026-08-22取得。層間短絡 severity 0〜21.69%（8段階）、コイル間短絡 0〜7.56%（8段階）
+  - **1.5 kW / 3.0 kW: 2026-08-26取得**（[docs/202](docs/202_cross_machine_replication_protocol.md) の再現用。取得前に事前登録をコミット済み）
 - 派生（すべて**集計値**。波形は再配布していない）:
 
   | 出力 | スクリプト | 粒度 |
