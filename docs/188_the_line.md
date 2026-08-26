@@ -75,7 +75,10 @@
 
 - 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート**41項目**([docs/180](180_eooc_sheet_all_filled.md), [docs/195](195_capability_rule_second_mechanism_results.md))
 - **capability 決定則は別機体で再現しなかった**([docs/203](203_cross_machine_replication_results.md))。パワー段側は能力比ですらなく([docs/199](199_pulse_thermal_results.md))、
-  巻線側は1.0 kWの1機体限定で、1.5/3.0 kWでは向きが逆になる。**現時点で機体をまたいで成立している capability 指標は無い**([docs/193](193_str_capability_rule_results.md), [docs/195](195_capability_rule_second_mechanism_results.md))。
+  巻線側は1.0 kWの1機体限定で、1.5/3.0 kWでは向きが逆になる。**現時点で機体をまたいで成立している capability 指標は無い**
+- **符号を捨てた逸脱検知なら1指標が3機体で成立する**([docs/205](205_sign_free_deviation_results.md))。
+  ただし通ったのは**振動(2f0)**であり、**相電流ベースは2つとも落ちた**。**センサ追加ゼロでは成立しない**
+- **「検出できる」は機体をまたぐが、「どこから検出できる」はまたがない**(最小検出severityが3.35〜17.86%)([docs/193](193_str_capability_rule_results.md), [docs/195](195_capability_rule_second_mechanism_results.md))。
   宣言粒度(分解能) **0.08〜1.0%**。**確度はRth仮定に依存し未検証**([docs/197](197_what_limits_the_declaration.md))。AUTOSAR `STR capability` の欄を埋める値を、公開データで実際に生成した
 - **故障が立たないまま能力が縮む窓は実在する**。パワー段で終端 C=0.832〜0.930、巻線で severity21.69% に C=0.952
 - 対象は**ADS搭載車のみ**。西側ではL3が後退中([docs/184](184_ads_deployment_reality.md))

@@ -137,6 +137,7 @@
   | `data/capability_second_mechanism.tsv` | `scripts/capability_second_mechanism.py` | severity別 capability 指標と宣言粒度（8行） |
   | `data/motor_fault_types_and_vibration.tsv` | `scripts/motor_fault_types_and_vibration.py` | 故障種×チャネル別の指標と粒度（16行） |
   | `data/cross_machine_replication.tsv` | `scripts/cross_machine_replication.py` | 1.5/3.0 kW の機体別・故障種別指標（13行） |
+  | `data/sign_free_deviation.tsv` | `scripts/sign_free_deviation.py` | 3機体5セルの符号なし逸脱指標（20行） |
   | `data/eps_health_element_run.tsv` | `scripts/eps_health_element.py` | 要素の宣言記録（機構別・合成、58行。NASA S8と共同） |
 
   `data/pmsm_interturn_model.tsv` は物理モデルの出力であり、本データセット由来ではない。
