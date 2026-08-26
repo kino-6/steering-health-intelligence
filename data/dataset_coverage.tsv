@@ -1,0 +1,484 @@
+dataset	member	kind	field	status
+.nhtsa_flat	CMPL_layout.txt	(file)		used:列定義。ヘッダ無しファイルの読み方
+.nhtsa_flat	CMPL_layout.txt	field	(free text)	used:列定義。ヘッダ無しファイルの読み方
+.nhtsa_flat	FLAT_CMPL.txt	(file)		used
+.nhtsa_flat	FLAT_CMPL.txt	field	(headerless, 51 tab-separated columns; see the accompanying layout file)	used:苦情本文と部品名(docs/185, 187)
+.nhtsa_flat	FLAT_CMPL.zip!FLAT_CMPL.txt	(member)		used:苦情本文と部品名(docs/185, 187)
+.nhtsa_flat	FLAT_RCL.zip	(archive)	(unreadable)	unused:296バイトのスタブ。中身が無い
+.nhtsa_flat	FLAT_RCL_POST_#.txt	(file)		used:リコールの是正文・対象台数(docs/190, 191)
+.nhtsa_flat	FLAT_RCL_POST_#.txt	field	(headerless, 29 tab-separated columns; see the accompanying layout file)	used:リコールの是正文・対象台数(docs/190, 191)
+.nhtsa_flat	FLAT_RCL_POST_2010.zip!FLAT_RCL_POST_#.txt	(member)		used:リコールの是正文・対象台数(docs/190, 191)
+.nhtsa_flat	RCL_layout.txt	(file)		used:列定義。ヘッダ無しファイルの読み方
+.nhtsa_flat	RCL_layout.txt	field	(free text)	used:列定義。ヘッダ無しファイルの読み方
+.nhtsa_flat	cohort_monthly.tsv	(file)		used
+.nhtsa_flat	cohort_monthly.tsv	field	make	used
+.nhtsa_flat	cohort_monthly.tsv	field	model	used
+.nhtsa_flat	cohort_monthly.tsv	field	year	used
+.nhtsa_flat	cohort_monthly.tsv	field	ym	used:本Repoが生成した中間ファイル
+.nhtsa_flat	cohort_monthly.tsv	field	total	used
+.nhtsa_flat	cohort_monthly.tsv	field	steer	used
+.nhtsa_flat	cohort_monthly.tsv	field	assist	used
+.nhtsa_cache	chevrolet_silverado#_#.json	(file)		used:車種別苦情のAPIキャッシュ
+.nhtsa_cache	ford_fusion_#.json	(file)		used:車種別苦情のAPIキャッシュ
+.dvsa_mot	cache_eps_tests.txt	(file)		used
+.dvsa_mot	cache_eps_tests.txt	field	(free text)	used:本Repoが生成した中間ファイル
+.dvsa_mot	cache_steer_tests.txt	(file)		used
+.dvsa_mot	cache_steer_tests.txt	field	(free text)	used:本Repoが生成した中間ファイル
+.dvsa_mot	dft_test_item_extracts_2024.zip!dft_test_item_extract_#.csv	(member)		used:車両別の不合格理由(docs/150)
+.dvsa_mot	dft_test_item_extracts_2025.zip!dft_test_item_extract_#.csv	(member)		used:車両別の不合格理由(docs/150)
+.dvsa_mot	dft_test_result_extracts_2024.zip!dft_test_result_extract_#.csv	(member)		used:車両ID・車齢・検査結果(docs/150)
+.dvsa_mot	dft_test_result_extracts_2025.zip!dft_test_result_extract_#.csv	(member)		used:車両ID・車齢・検査結果(docs/150)
+.dvsa_mot	item_detail.csv	(file)		used
+.dvsa_mot	item_detail.csv	field	rfr_id	used
+.dvsa_mot	item_detail.csv	field	test_class_id	used
+.dvsa_mot	item_detail.csv	field	test_item_id	used
+.dvsa_mot	item_detail.csv	field	minor_item	used:不合格理由コードの説明とadvisory対
+.dvsa_mot	item_detail.csv	field	rfr_deficiency_category	used:不合格理由コードの説明とadvisory対
+.dvsa_mot	item_detail.csv	field	rfr_desc	used
+.dvsa_mot	item_detail.csv	field	rfr_loc_marker	used:不合格理由コードの説明とadvisory対
+.dvsa_mot	item_detail.csv	field	rfr_insp_manual_desc	used
+.dvsa_mot	item_detail.csv	field	rfr_advisory_text	used:不合格理由コードの説明とadvisory対
+.dvsa_mot	item_detail.csv	field	test_item_set_section_id	used:不合格理由コードの説明とadvisory対
+.dvsa_mot	item_group.csv	(file)		used
+.dvsa_mot	item_group.csv	field	test_item_id	used
+.dvsa_mot	item_group.csv	field	test_class_id	used
+.dvsa_mot	item_group.csv	field	parent_id	used
+.dvsa_mot	item_group.csv	field	test_item_set_section_id	used:項目の親子関係(操舵系の抽出)
+.dvsa_mot	item_group.csv	field	item_name	used
+.jp_mlit	quarter_r#_#.pdf	(file)		unused:日本のリコール情報。分母が公開されておらず率が出せない(docs/149)
+.jp_mlit	r#recallbunseki.pdf	(file)		unused:日本のリコール情報。分母が公開されておらず率が出せない(docs/149)
+.jp_mlit	r#-defects.pdf	(file)		unused:日本のリコール情報。分母が公開されておらず率が出せない(docs/149)
+.pmsm_fault	1.0kW.zip!#W_#.#_current_intercoil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.0kW.zip!#W_#_#_current_intercoil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.0kW.zip!#W_#_#_current_interturn.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.0kW.zip!#W_#_#_vibration_intercoil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.0kW.zip!#W_#_#_vibration_interturn.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.5kW.zip!#W_#_#_current_intercoil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.5kW.zip!#W_#_#_current_interturn.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.5kW.zip!#W_#_#_vibration_intercoil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	1.5kW.zip!#W_#_#_vibration_interturn.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	3.0kW.zip!#W_#_#_current_intercoil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	3.0kW.zip!#W_#_#_current_interturn.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	3.0kW.zip!#W_#_#_vibration_coil.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	3.0kW.zip!#W_#_#_vibration_interturn.tdms	(member)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	(file)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Test Information/(no channels)	unused:配布物で空グループ。チャネルが無い
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.maximum	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.minimum	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_start_time	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.maximum	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.minimum	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_start_time	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.maximum	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.minimum	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_start_time	used
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	(file)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Test Information/(no channels)	unused:配布物で空グループ。チャネルが無い
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.maximum	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.minimum	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.wf_start_time	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai0.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.maximum	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.minimum	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.wf_start_time	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai2.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.maximum	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.minimum	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.wf_start_time	used
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_current_interturn.tdms	field	Log/cDAQ1Mod2/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	(file)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Test Information/(no channels)	unused:配布物で空グループ。チャネルが無い
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.maximum	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.minimum	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_start_time	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai0.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.maximum	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.minimum	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_start_time	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai2.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Filter~FilterType	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Info	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorScale~Y-Intercept	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.maximum	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.minimum	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_start_time	used
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#.#_current_intercoil.tdms	field	Log/cDAQ1Mod2/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	(file)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Test Information/(no channels)	unused:配布物で空グループ。チャネルが無い
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_ExcitationSource	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_ExcitationValue	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.maximum	used
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.minimum	used
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_time	used
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_intercoil.tdms	field	Log/cDAQ1Mod1/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	(file)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Test Information/(no channels)	unused:配布物で空グループ。チャネルが無い
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_ExcitationSource	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_ExcitationValue	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.maximum	used
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.minimum	used
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_time	used
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_interturn.tdms	field	Log/cDAQ1Mod1/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_coil.tdms	(file)		used:3機体×2故障種×2チャネルを全て読む(docs/205)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Test Information/(no channels)	unused:配布物で空グループ。チャネルが無い
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~HighRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~LowRange	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Sensor	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Channel~Type	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Chassis~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Chassis~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Device~Id	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.DAC~Device~Name	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_ChannelValueAverage	used:1.0kWの2022-03-08のみ電流chに約0.17AのDCオフセットを確認
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_DeviceName	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_ExcitationSource	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_ExcitationValue	used:電流3相・振動1chの本体
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_SensorScale~ScaleType	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_SensorSensitivity	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.NI_TerminalConfiguration	used:機体間・セッション間で同一であることを確認済(全て感度1.0・±10V・Rse)
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.maximum	used
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.minimum	used
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.monotony	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.novaluekey	unused:計測器の識別情報。解析に用いる量ではない
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.unit_string	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_increment	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_samples	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_offset	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_time	used
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_xname	used:サンプリング条件の確認に参照
+.pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.nasa_pcoe	13. MOSFET Thermal Overstress Aging/MOSFET_Thermal_Overstress_Aging_v0.zip!Test_#_run_# # (error setting up this run).mat	(member)		used
+.nasa_pcoe	13. MOSFET Thermal Overstress Aging/MOSFET_Thermal_Overstress_Aging_v0.zip!Test_#_run_#.mat	(member)		used
+.nasa_pcoe	13. MOSFET Thermal Overstress Aging/MOSFET_Thermal_Overstress_Aging_v0.zip!test_rampup.mat	(member)		used
+.nasa_pcoe	Test_#_run_#.mat	(file)		used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.time	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.timeEpoch	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.nanosec_time	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.lowTemp	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.highTemp	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.shutdownTemp	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.gateVoltage	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.supplyVoltage	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.switchingFrequency	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.dutyCycle	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.pwmTempControllerState.gateState	used:試験機の設定温度がrun毎に下がることを確認(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.date	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.nanosec_time	used:パルス自己発熱による熱経路測定(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.timeEpoch	used:パルス自己発熱による熱経路測定(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.timeDomain.dt	used:パルス自己発熱による熱経路測定(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.timeDomain.gateSignalVoltage	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.timeDomain.gateSourceVoltage	used:パルス自己発熱による熱経路測定(docs/199)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.timeDomain.drainSourceVoltage	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.transient.timeDomain.drainCurrent	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.date	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.nanosec_time	used:オン抵抗相当量と温度(docs/165-167)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeEpoch	used:オン抵抗相当量と温度(docs/165-167)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.supplyVoltage	used:オン抵抗相当量と温度(docs/165-167)
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.packageTemperature	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.drainSourceVoltage	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.drainCurrent	used
+.nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.flangeTemperature	used
+.nasa_pcoe	mosfet_thermal_aging.zip!MOSFET_Thermal_Overstress_Aging_v#.zip	(member)		used
+.soredd	A#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	B#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	C#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	D#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	E#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	SOReDD_paper.pdf	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	dl.sh	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	filelist.tsv	(file)		used
+.soredd	filelist.tsv	field	id	unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	filelist.tsv	field	filename	unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
+.soredd	filelist.tsv	field	size	used
+.public_log_cache	#.csv	(file)		used:commaSteeringControl の走行ログ
+.public_log_cache	#.csv	field	vEgo	used
+.public_log_cache	#.csv	field	aEgo	used:commaSteeringControl の走行ログ
+.public_log_cache	#.csv	field	steeringAngleDeg	used
+.public_log_cache	#.csv	field	steeringPressed	used
+.public_log_cache	#.csv	field	steer	used
+.public_log_cache	#.csv	field	steerFiltered	used
+.public_log_cache	#.csv	field	latActive	used
+.public_log_cache	#.csv	field	roll	used
+.public_log_cache	#.csv	field	t	used:commaSteeringControl の走行ログ
+.public_log_cache	#.csv	field	latAccelSteeringAngle	used
+.public_log_cache	#.csv	field	latAccelDesired	used
+.public_log_cache	#.csv	field	latAccelLocalizer	used
+.public_log_cache	#.csv	field	epsFwVersion	used
+.public_log_cache	AUDI_Q3_2ND_GEN.zip!#.csv	(member)		used:commaSteeringControl の走行ログ
+.public_log_cache	FORD_MAVERICK_1ST_GEN.zip!#.csv	(member)		used:commaSteeringControl の走行ログ
+.public_log_cache	GENESIS_G70_2018.zip!#.csv	(member)		used:commaSteeringControl の走行ログ
+.public_log_cache	HONDA_CR_V_2016.zip!#.csv	(member)		used:commaSteeringControl の走行ログ

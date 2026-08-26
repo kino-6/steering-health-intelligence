@@ -78,6 +78,9 @@ AUTOSAR CP R22-11 `EXP_AIADASAndVMC`(Explanation of Application Interface of AD/
 [docs/170](170_thermal_headroom_translation.md) が計算した「持続アシスト熱余裕の13〜50%喪失」は、
 **まさに STR capability の縮小である。** faultは立たないが、実現できる操舵能力が減っている。
 
+> **補足([docs/191](191_degradation_demand_and_sotif.md))**: この状態がSOTIFの担当であることを docs/191 で確定した。
+> DTC未到達は「故障が既にあり閾値に達していない(ISO 26262)」と「故障が無いまま性能包絡が縮んだ(ISO 21448)」に割れる。
+
 つまり本研究の出力は、**独自payloadを発明しなくても、既存の標準信号に載る。**
 
 | 本研究の観測 | AUTOSARの宛先 |
