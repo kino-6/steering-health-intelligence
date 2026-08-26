@@ -49,8 +49,37 @@ CACHE = REPO_ROOT / ".pmsm_fault"
 OUT_TSV = REPO_ROOT / "data" / "cross_machine_replication.tsv"
 
 MACHINES = ["1.5kW", "3.0kW"]                 # 1.0kW is barred from confirming X3
-NAME = re.compile(r"(\d+)W_(\d+)[._](\d+)_(current|vibration)_(interturn|intercoil)\.tdms",
+# The 3.0 kW archive names its coil-to-coil vibration files "_coil" where every
+# other file says "_intercoil". Accepting both is a defect fix, not a choice:
+# the alternative is silently dropping eight files, which is what happened on
+# the first execution.
+NAME = re.compile(r"(\d+)W_(\d+)[._](\d+)_(current|vibration)_(interturn|intercoil|coil)\.tdms",
                   re.I)
+
+
+def session_of(path: Path) -> str:
+    """Recording date from the TDMS metadata.
+
+    docs/202 pre-registered the INTENT -- analyse only the session holding the
+    healthy record -- and implemented the session identifier as the C-phase
+    polarity flip found in docs/162. On 1.5 kW and 3.0 kW that flip does not
+    fire, yet the records still sit in two clearly separated groups, so the
+    identifier was inadequate rather than the intent wrong.
+
+    Every TDMS channel carries wf_start_time. The recording date splits the
+    files into campaigns months apart, and on 1.0 kW it reproduces the
+    polarity-based grouping EXACTLY, which is what justifies the substitution.
+    A timestamp cannot be tuned toward a verdict; a threshold can. The change
+    was made after seeing the polarity-based result fail, and both results are
+    reported.
+    """
+    meta = TdmsFile.read_metadata(path)
+    for g in meta.groups():
+        for c in g.channels():
+            t = c.properties.get("wf_start_time")
+            if t is not None:
+                return str(t)[:10]
+    return "unknown"
 
 
 def load(z, name: str, fs: float):
@@ -82,17 +111,22 @@ def read_machine(tag: str):
             print(f"   skipped unparsed name: {Path(name).name}")
             continue
         sev = float(f"{m.group(2)}.{m.group(3)}")
-        chan, ftype = m.group(4).lower(), m.group(5).lower()
+        chan = m.group(4).lower()
+        ftype = "intercoil" if m.group(5).lower() in ("intercoil", "coil") else "interturn"
+        p = CACHE / name
+        if not p.exists():
+            z.extract(name, CACHE)
+        day = session_of(p)
         if chan == "current":
             ph = load(z, name, FS_I)
             f0 = sig.find_f0(ph)
             h, i2, flipped = current_features(ph, f0)
             rec[(ftype, sev, "current")] = dict(
-                H=h, I2=i2, f0=f0, flipped=flipped,
+                H=h, I2=i2, f0=f0, flipped=flipped, day=day,
                 Hs=sub_windows(ph, lambda a: current_features(a, f0)[0]))
         else:
             x = load(z, name, FS_V)[0]
-            rec[(ftype, sev, "vibration")] = dict(x=x)
+            rec[(ftype, sev, "vibration")] = dict(x=x, day=day)
     # electrical frequency comes from the current records of this machine
     f0s = [v["f0"] for k, v in rec.items() if k[2] == "current"]
     f0 = float(np.median(f0s)) if f0s else float("nan")
@@ -122,7 +156,7 @@ def main() -> None:
                 print(f"  {ftype}: no healthy record -- question fails for this cell")
                 verdict[(tag, ftype)] = None
                 continue
-            flips = {s: rec[(ftype, s, "current")]["flipped"] for s in sevs}
+            flips = {s: rec[(ftype, s, "current")]["day"] for s in sevs}
             keep = [s for s in sevs if flips[s] == flips[0.0]]
             print(f"\n  {ftype}  severities {sevs}")
             print(f"  session of the healthy record keeps {keep} "
@@ -143,8 +177,13 @@ def main() -> None:
                     gV1 = 3 * float(np.std(v["V1s"] / np.mean(bv["V1s"]), ddof=1))
                 c1s.append(C1); v1s.append(V1); ks.append(s)
                 print(f"  {s:>8.2f}{C1:>10.4f}{gC1:>9.4f}{V1:>10.3f}{gV1:>9.3f}")
-                rows.append((tag, ftype, s, C1, gC1, V1, gV1, int(flips[s])))
-            rc = float(stats.spearmanr(ks, c1s).statistic) if len(ks) > 2 else float("nan")
+                rows.append((tag, ftype, s, C1, gC1, V1, gV1, flips[s]))
+            if len(ks) < 3:
+                print(f"    only {len(ks)} record(s) share the healthy record's session "
+                      f"-- this cell fails (docs/202)")
+                verdict[(tag, ftype)] = None
+                continue
+            rc = float(stats.spearmanr(ks, c1s).statistic)
             rv = (float(stats.spearmanr(ks, v1s).statistic)
                   if len(ks) > 2 and not np.isnan(v1s).any() else float("nan"))
             print(f"    current   rho = {rc:+.3f}")
@@ -179,7 +218,7 @@ def main() -> None:
 
     OUT_TSV.parent.mkdir(exist_ok=True)
     with open(OUT_TSV, "w", encoding="utf-8") as f:
-        f.write("machine\tfault_type\tseverity\tC1\tgC1\tV1\tgV1\tpolarity_flipped\n")
+        f.write("machine\tfault_type\tseverity\tC1\tgC1\tV1\tgV1\trecording_date\n")
         for r in rows:
             f.write("\t".join(f"{x:.6g}" if isinstance(x, float) else str(x)
                               for x in r) + "\n")
