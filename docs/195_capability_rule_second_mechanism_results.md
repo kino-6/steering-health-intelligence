@@ -10,6 +10,9 @@
 
 **両方成立。規則の形は第2機構へ転移した。**
 
+> **範囲の訂正(2026-08-26, [docs/201](201_motor_second_fault_and_vibration_results.md))**: 転移したのは**層間短絡**である。
+> **同じ巻線でもコイル間短絡には転移しなかった**(ρ = −0.400)。そちらは振動が単調に効く。**「巻線機構へ転移」と一般化しない。**
+
 実行: `python3 scripts/capability_second_mechanism.py` / 数表: [data/capability_second_mechanism.tsv](../data/capability_second_mechanism.tsv)
 
 ## 結果
