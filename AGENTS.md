@@ -1,5 +1,12 @@
 # Repository Operating Rule
 
+> **これらのルールのうち機械的に検査できるものは、[CHECKS.md](CHECKS.md) で自動化してある。**
+> `.git/hooks/pre-commit` から `scripts/check_repo.py` が走り、禁止語・未棚卸しのデータ・
+> 事前登録の順序・訂正の前方リンク・壊れたリンクを**コミット時に止める**。
+> **新しい規則を思いついたら、まず機械で検査できないかを考える。**文章を足すだけでは4回破った。
+> 新規クローン時は `sh scripts/install_hooks.sh` を一度実行すること。
+
+
 このRepoの事業仮説、調査、デモ、ドキュメント更新では、以下を最上位ルールにする。
 
 ## Personal Public-Only Research Rule
