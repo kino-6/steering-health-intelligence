@@ -39,6 +39,7 @@
   | `data/dvsa_mot_steering_2025.tsv` | `scripts/dvsa_mot_steering_rates.py` | 車齢別（65行） |
   | `data/dvsa_mot_concentration_2025.tsv` | `scripts/dvsa_mot_concentration.py` | メーカー／モデル別（97行） |
   | `data/mot_advisory_longitudinal.tsv` | `scripts/mot_advisory_longitudinal.py` | グループ×車齢帯別（12行） |
+  | `data/mot_cause_breakdown.tsv` | `scripts/mot_cause_breakdown.py` | パワーステアリング原因族別の先行率（10行） |
   | `data/dvsa_mot_mode_split_2025.tsv` | `scripts/dvsa_mot_mode_split.py` | モデル×故障モード別（5行） |
   | `data/eps_specific_precedence.tsv` | `scripts/eps_specific_precedence.py` | EPS固有項目の群×車齢帯（12行） |
   | `generated/dvsa_mot_steering_2025.html` | `scripts/dvsa_mot_steering_rates.py` | 同上 |
@@ -72,6 +73,14 @@
 - 個別に参照した一次文書（本文は転記せず、URLと要旨のみ `data/eps_public_market_pain_cases.tsv` 等に記録）:
   Ford 15V-340 / 15S18、GM 17V-414 / 17276、GM TSB 17-NA-158、Ford SSM 49530、
   NHTSA EPS report (13501_812575)、ODI investigation EA11014 / PE25009 ほか。
+
+## 本Repoが手で維持している表
+
+- [data/sotif_eooc_assumption_sheet.tsv](data/sotif_eooc_assumption_sheet.tsv): **手動維持(hand-maintained)。**
+  SOTIF-EooC 仮定シート。個々の行は [docs/153](docs/153_sotif_eooc_assumption_sheet.md) 以降の各検証結果を
+  EooCの様式へ転記したものであり、単一のスクリプトが生成するものではない。各行の `source` 列が根拠文書を指す。
+- [data/dataset_coverage.tsv](data/dataset_coverage.tsv): `scripts/dataset_coverage.py` が列挙し、
+  **状態の判断は手動**で入れる([CHECKS.md](CHECKS.md))。
 
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 

@@ -14,6 +14,10 @@
 
 ## ① EPSでの兆候→故障 — 検証不能を確定した
 
+> **範囲の訂正(2026-08-27, [docs/207](207_mot_cause_breakdown_results.md))**: **検証不能なのは `Electronic power steering` 配下の9項目についてである。**
+> 一般の `Power steering` 59項目では、兆候のみの車両が **54,431台**あり、翌年のPS不合格が **33.9倍**である。
+> **ただしその74.2%は油圧の漏れであり、電動EPSを代表しない。**また機能不全(inoperative/malfunctioning)には**兆候の区分が制度に存在しない。**
+
 英国車検2024/2025を車両IDで連結し、**EPS固有の9項目に限定**して [docs/150](150_advisory_precedence_verification.md) と同じ解析を回した。
 
 対象項目(`Vehicle > Steering > Electronic power steering` 配下):

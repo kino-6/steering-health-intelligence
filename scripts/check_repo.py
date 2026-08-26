@@ -94,7 +94,12 @@ def check_derived_files() -> list[str]:
             continue
         if t.name not in src:
             out.append(f"{t.name}: not listed in SOURCES.md")
-        if t.name not in corpus:
+        # A table declared hand-maintained in SOURCES.md needs no producing
+        # script -- the EooC assumption sheet is transcribed from the results
+        # documents, row by row, and no single script owns it.
+        declared_manual = any(t.name in line and ("手動" in line or "hand-maintained" in line)
+                              for line in src.splitlines())
+        if t.name not in corpus and not declared_manual:
             out.append(f"{t.name}: no script produces it")
     return out
 
