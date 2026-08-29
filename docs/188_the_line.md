@@ -1,5 +1,7 @@
 # 188. 筋道 — 何が言えて、何を売るのか
 
+> **本文書はその後の検証で大きく更新された。現在の結論は [docs/224](224_current_conclusion.md) にある。**
+
 **Goal 4 の到達点。[docs/185](185_misdiagnosis_quantified.md)〜[187](187_replacement_no_fix_result.md) の検証を経て、主張を1本に通す。**
 
 ## 一行
