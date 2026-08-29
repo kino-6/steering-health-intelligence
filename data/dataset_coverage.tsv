@@ -418,6 +418,125 @@ dataset	member	kind	field	status
 .pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_start_time	used
 .pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_xname	used:サンプリング条件の確認に参照
 .pmsm_fault	#W_#_#_vibration_coil.tdms	field	Log/cDAQ1Mod1/ai3.wf_xunit_string	used:サンプリング条件の確認に参照
+.pmsm_inverter	.DS_Store	(file)		unused:macOSのメタデータ。データではない
+.pmsm_inverter	README.md	(file)		used
+.pmsm_inverter	calibrage_thermistance.ino	(file)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	dataAcq.ino	(file)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	data_conversion_script_v#.py	(file)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	converted_dataset-#.csv	(file)		used:処理済みデータ本体
+.pmsm_inverter	converted_dataset-#.csv	field	Ia	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	Ib	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	VDC	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	IDC	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	T1	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	T2	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	T3	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	VD	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	FDD	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	Timestamp	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset-#.csv	field	Ia_original	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Ia_arduino	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Ib_original	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Ib_arduino	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	IDC_original	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	IDC_arduino	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Power_DC	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Power_AC	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Current_Imbalance	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Temp_Diff_Max	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Ia_Normalized	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	Ib_Normalized	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	VDC_RateOfChange	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	IDC_RateOfChange	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	VDC_MovingAvg	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset-#.csv	field	IDC_MovingAvg	unused:配布元が作った派生特徴量。本研究は生信号から自分で計算する
+.pmsm_inverter	converted_dataset.csv	(file)		used:処理済みデータ本体
+.pmsm_inverter	converted_dataset.csv	field	Ia	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	Ib	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	VDC	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	IDC	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	T1	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	T2	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	T3	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	VD	used:生8信号・ラベル・時刻
+.pmsm_inverter	converted_dataset.csv	field	FDD	used:生8信号・ラベル・時刻
+.pmsm_inverter	dataset CSV.csv	(file)		used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	Ia	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	Ib	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	VDC	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	IDC	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	T1	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	T2	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	T3	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	VD	used:全条件をまとめた生CSV
+.pmsm_inverter	dataset CSV.csv	field	FDD	used:全条件をまとめた生CSV
+.pmsm_inverter	HB#&#_OVER_TEMP.txt	(file)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#&#_OVER_TEMP.txt	field	(free text)	used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_LOW_SIDE_SC.txt	(file)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_LOW_SIDE_SC.txt	field	(free text)	used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_OVER_TEMP.txt	(file)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_OVER_TEMP.txt	field	(free text)	used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_HIGH_SIDE_OC.txt	(file)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_HIGH_SIDE_OC.txt	field	(free text)	used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_HIGH_SIDE_SC.txt	(file)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_HIGH_SIDE_SC.txt	field	(free text)	used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_LOW_SIDE_OC.txt	(file)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	HB#_LOW_SIDE_OC.txt	field	(free text)	used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	NORMAL_OP.txt	(file)		used:各条件の生時系列。一次証拠
+.pmsm_inverter	NORMAL_OP.txt	field	(free text)	used:各条件の生時系列。一次証拠
+.pmsm_inverter	SETPOINT#.txt	(file)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	SETPOINT#.txt	field	(free text)	unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	SETPONT#.txt	(file)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	SETPONT#.txt	field	(free text)	unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	temperature_data.txt	(file)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	temperature_data.txt	field	(free text)	unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	thermistor_calib_data.txt	(file)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	thermistor_calib_data.txt	field	(free text)	unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	Distribution_of_Fault_Types.png	(file)		unused:図であって数値ではない。生データから計算する
+.pmsm_inverter	feature_box.png	(file)		unused:図であって数値ではない。生データから計算する
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!.DS_Store	(member)		unused:macOSのメタデータ。データではない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._.DS_Store	(member)		unused:macOSのメタデータ。データではない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._Distribution_of_Fault_Types.png	(member)		unused:図であって数値ではない。生データから計算する
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._HB#&#_OVER_TEMP.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._HB#_HIGH_SIDE_OC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._HB#_HIGH_SIDE_SC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._HB#_LOW_SIDE_OC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._HB#_LOW_SIDE_SC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._HB#_OVER_TEMP.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._NORMAL_OP.txt	(member)		used:各条件の生時系列。一次証拠
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._PMSM-inverter-fault-diagnosis-#.#.#	(member)		unused:macOSのリソースフォークメタデータ。データではない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._README.md	(member)		unused:macOSのリソースフォークメタデータ。データではない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._SETPOINT#.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._SETPONT#.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._calibrage_thermistance.ino	(member)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._converted_dataset-#.csv	(member)		used:処理済みデータ本体
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._converted_dataset.csv	(member)		used:処理済みデータ本体
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._dataAcq.ino	(member)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._data_conversion_script_v#.py	(member)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._dataset CSV.csv	(member)		used:全条件をまとめた生CSV
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._feature_box.png	(member)		unused:図であって数値ではない。生データから計算する
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._temperature_data.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!._thermistor_calib_data.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!Distribution_of_Fault_Types.png	(member)		unused:図であって数値ではない。生データから計算する
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!HB#&#_OVER_TEMP.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!HB#_HIGH_SIDE_OC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!HB#_HIGH_SIDE_SC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!HB#_LOW_SIDE_OC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!HB#_LOW_SIDE_SC.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!HB#_OVER_TEMP.txt	(member)		used:各条件の生時系列。一次証拠(タイムスタンプ + ADC 8列)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!NORMAL_OP.txt	(member)		used:各条件の生時系列。一次証拠
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!README.md	(member)		used:取得条件・センサ仕様・故障定義
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!SETPOINT#.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!SETPONT#.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!calibrage_thermistance.ino	(member)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!converted_dataset-#.csv	(member)		used:処理済みデータ本体
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!converted_dataset.csv	(member)		used:処理済みデータ本体
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!dataAcq.ino	(member)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!data_conversion_script_v#.py	(member)		used:取得条件の確認(10Hz、ADC 0-1023、ACS712/NTCの構成)
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!dataset CSV.csv	(member)		used:全条件をまとめた生CSV
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!feature_box.png	(member)		unused:図であって数値ではない。生データから計算する
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!temperature_data.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
+.pmsm_inverter	PMSM-inverter-fault-diagnosis-1.0.0.zip!thermistor_calib_data.txt	(member)		unused:NTCの温度換算校正用。本研究はADC生値の相対変化を扱うため換算しない
 .nasa_pcoe	13. MOSFET Thermal Overstress Aging/MOSFET_Thermal_Overstress_Aging_v0.zip!Test_#_run_# # (error setting up this run).mat	(member)		used
 .nasa_pcoe	13. MOSFET Thermal Overstress Aging/MOSFET_Thermal_Overstress_Aging_v0.zip!Test_#_run_#.mat	(member)		used
 .nasa_pcoe	13. MOSFET Thermal Overstress Aging/MOSFET_Thermal_Overstress_Aging_v0.zip!test_rampup.mat	(member)		used

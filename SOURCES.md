@@ -186,3 +186,19 @@
   | 出力 | スクリプト | 粒度 |
   |---|---|---|
   | `data/contact_variance_lead.tsv` | `scripts/contact_variance_lead.py` | 個体×窓の水準・変動（13行） |
+
+## S10. インバータ駆動PMSM 故障データセット
+
+- 取得元: <https://zenodo.org/records/13974503>（DOI 10.5281/zenodo.13974503）/ 論文 Data in Brief 58 (2025), DOI [10.1016/j.dib.2025.111286](https://doi.org/10.1016/j.dib.2025.111286)
+- ライセンス: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — **出典表示が必須**
+
+> Bacha, A., El Idrissi, R., Janati Idrissi, K., Lmai, F.
+> "Comprehensive dataset for fault detection and diagnosis in inverter-driven permanent magnet
+> synchronous motor systems", Data in Brief 58 (2025). Licensed under CC BY 4.0.
+
+- 取得日: 2026-08-30
+- 内容: 三相インバータ（MOSFET IRF540N）+ PMSM（DENSO製オルタネータ改造）+ Arduino制御の実機。
+  9条件（正常 / 開放故障2 / 短絡故障3 / 過熱3、いずれもハーフブリッジ単位）。
+  ADC生値8列（Ia, Ib, Vdc, Idc, T1〜T3, Vd）、10 Hz、タイムスタンプ付き。合計 10,892 サンプル
+- 保存先: `.pmsm_inverter/`（約1.4 MB、gitignore）
+- **本Repoが初めて持つインバータ側の故障データ**（KAISTはモータのみ、NASAは単体MOSFET）

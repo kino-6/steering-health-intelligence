@@ -38,7 +38,8 @@ OUT_TSV = REPO_ROOT / "data" / "dataset_coverage.tsv"
 
 # The gitignored acquisition directories, from .gitignore.
 DATASETS = [".nhtsa_flat", ".nhtsa_cache", ".dvsa_mot", ".jp_mlit",
-            ".pmsm_fault", ".nasa_pcoe", ".soredd", ".public_log_cache"]
+            ".pmsm_fault", ".pmsm_inverter", ".nasa_pcoe", ".soredd",
+            ".public_log_cache"]
 
 PATTERN = re.compile(r"\d+")
 
