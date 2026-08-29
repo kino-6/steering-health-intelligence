@@ -67,4 +67,4 @@ g_norm = 3 × 1.4826 × MAD(e_norm)
 - 単位が個体ではなくログであることを明記した
 - R2が落ちた場合に何と書くかを先に決めた
 
-出典: commaSteeringControl (S5, MIT License), comma.ai
+出典: commaSteeringControl (S4, MIT License), comma.ai

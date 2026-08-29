@@ -97,6 +97,7 @@
   | `data/low_speed_high_steering_proxy_*.tsv` | `scripts/extract_low_speed_high_steering_proxy.py` | 抽出窓の要約 |
   | `data/sotif_eooc_monitor_demo.tsv`, `generated/sotif_eooc_monitor_demo.html` | `scripts/sotif_eooc_monitor_demo.py` | EooC監視デモの実行結果 |
   | `generated/steering_log_sign_extraction.html`, `steering_synthetic_sensitivity*.html` | 上記＋`scripts/steering_synthetic_sensitivity.py` | レポート |
+  | `data/real_vehicle_granularity.tsv` | `scripts/real_vehicle_granularity.py` | 車種別の粒度と逸脱の裾（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
   なお、このデータセットは**正常動作中の車両のログ**であり、故障データではない。故障検知の実証には使えない。
