@@ -66,6 +66,7 @@
   | `data/eps_wearout_mechanism_scan.tsv` | `scripts/eps_wearout_mechanism_scan.py` | 機構グループ別の出現率（6行） |
   | `data/misdiagnosis_rate_scan.tsv` | `scripts/misdiagnosis_rate_scan.py` | 誤診関連語の出現率（6行） |
   | `data/replacement_no_fix_scan.tsv` | `scripts/replacement_no_fix_scan.py` | 交換後に直らない率（6行） |
+  | `data/trigger_conditions.tsv` | `scripts/trigger_conditions.py` | 断続故障の発生条件カテゴリ別（10行） |
   | `generated/steering_cohort_curve.html`, `steering_cohort_backtest*.html`, `recall_detection_report.html`, `spd008_payload_replay.html` | 同上 | 同上 |
 
   `scripts/build_cohort_monthly.py` が生成する中間ファイル `cohort_monthly.tsv` は `.nhtsa_flat/` 配下に置かれ、コミットしていない。
