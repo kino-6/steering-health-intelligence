@@ -202,3 +202,8 @@
   ADC生値8列（Ia, Ib, Vdc, Idc, T1〜T3, Vd）、10 Hz、タイムスタンプ付き。合計 10,892 サンプル
 - 保存先: `.pmsm_inverter/`（約1.4 MB、gitignore）
 - **本Repoが初めて持つインバータ側の故障データ**（KAISTはモータのみ、NASAは単体MOSFET）
+- 派生（**集計値のみ**）:
+
+  | 出力 | スクリプト | 粒度 |
+  |---|---|---|
+  | `data/inverter_signal_requirement.tsv` | `scripts/inverter_signal_requirement.py` | 条件×相の非対称比（9行） |
