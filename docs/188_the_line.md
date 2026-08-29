@@ -73,12 +73,14 @@
 
 **同じ記録の第2の用途であり、需要の柱ではない**([docs/186](186_how_it_becomes_money.md))。
 
-- 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート**41項目**([docs/180](180_eooc_sheet_all_filled.md), [docs/195](195_capability_rule_second_mechanism_results.md))
+- 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート**51項目**([docs/180](180_eooc_sheet_all_filled.md), [docs/195](195_capability_rule_second_mechanism_results.md))
 - **capability 決定則は別機体で再現しなかった**([docs/203](203_cross_machine_replication_results.md))。パワー段側は能力比ですらなく([docs/199](199_pulse_thermal_results.md))、
   巻線側は1.0 kWの1機体限定で、1.5/3.0 kWでは向きが逆になる。**現時点で機体をまたいで成立している capability 指標は無い**
 - **符号を捨てた逸脱検知なら1指標が3機体で成立する**([docs/205](205_sign_free_deviation_results.md))。
   ただし通ったのは**振動(2f0)**であり、**相電流ベースは2つとも落ちた**。**センサ追加ゼロでは成立しない**
 - **「検出できる」は機体をまたぐが、「どこから検出できる」はまたがない**(最小検出severityが3.35〜17.86%)
+- **実車で 0.10 m/s² の床に届く窓は2.0〜5.0秒**([docs/223](223_window_and_firmware_results.md))。
+  平均の効きは白色雑音より1.6〜2.3倍悪いが、**docs/144 の粒度主張は実車の雑音構造でも支持された**
 - **実車の宣言粒度が初めて出た**([docs/221](221_real_vehicle_granularity_results.md)): **0.19〜0.24 m/s²**(標本あたり)。
   ただし**動作点正規化は実車では効かない**(4車種中0、2車種は悪化)。効いたのは試験装置の性質だった
 - **トリガ設計の最初の入力が公開データから出た**([docs/213](213_trigger_conditions_results.md))。

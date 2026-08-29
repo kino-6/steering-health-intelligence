@@ -98,6 +98,7 @@
   | `data/sotif_eooc_monitor_demo.tsv`, `generated/sotif_eooc_monitor_demo.html` | `scripts/sotif_eooc_monitor_demo.py` | EooC監視デモの実行結果 |
   | `generated/steering_log_sign_extraction.html`, `steering_synthetic_sensitivity*.html` | 上記＋`scripts/steering_synthetic_sensitivity.py` | レポート |
   | `data/real_vehicle_granularity.tsv` | `scripts/real_vehicle_granularity.py` | 車種別の粒度と逸脱の裾（4行） |
+  | `data/window_and_firmware.tsv` | `scripts/window_and_firmware.py` | 窓長別の床とfirmware群比較（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
   なお、このデータセットは**正常動作中の車両のログ**であり、故障データではない。故障検知の実証には使えない。
