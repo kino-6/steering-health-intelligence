@@ -56,6 +56,8 @@ FAMILIES = [
     ("modification", r"modif|repair"),
 ]
 FAM_IX = {n: i for i, (n, _) in enumerate(FAMILIES)}
+LEAK_BIT = 1 << FAM_IX["leak"]        # hydraulic-only items, excluded in docs/208
+NONLEAK_MASK = ((1 << len(FAMILIES)) - 1) & ~LEAK_BIT
 WIRING = re.compile(r"wiring")
 
 
@@ -145,7 +147,8 @@ def scan_results_2024(f_mask, s_mask, s_wire):
 
 def scan_results_2025(all24, vf24, vs24, vw24, f_mask25):
     # group -> [n, fail_any, per-family fail counts]
-    tally = defaultdict(lambda: [0, 0] + [0] * len(FAMILIES))
+    # [n, any PS fail, non-leak PS fail, per-family fail...]
+    tally = defaultdict(lambda: [0, 0, 0] + [0] * len(FAMILIES))
     zf = zipfile.ZipFile(D / "dft_test_result_extracts_2025.zip")
     for name in sorted(n for n in zf.namelist() if n.endswith(".csv")):
         fh = io.TextIOWrapper(zf.open(name), encoding="utf-8", errors="replace")
@@ -176,19 +179,25 @@ def scan_results_2025(all24, vf24, vs24, vw24, f_mask25):
                 groups.append("fail24")
             elif vid in vs24:
                 groups.append("sign24")
+                s24m = vs24[vid]
                 for nm, i2 in FAM_IX.items():
-                    if vs24[vid] & (1 << i2):
+                    if s24m & (1 << i2):
                         groups.append(f"sign24:{nm}")
                 if vid in vw24:
                     groups.append("sign24:wiring")
+                # docs/208: purity, not presence. A vehicle carrying ANY
+                # leak-family advisory leaves the non-hydraulic cohort.
+                if not (s24m & LEAK_BIT):
+                    groups.append("sign24:nonleak")
             else:
                 groups.append("clean24")
             for g in groups:
                 rec = tally[g]
                 rec[0] += 1
                 rec[1] += bool(m25)
+                rec[2] += bool(m25 & NONLEAK_MASK)      # non-hydraulic outcome
                 for nm, i2 in FAM_IX.items():
-                    rec[2 + i2] += bool(m25 & (1 << i2))
+                    rec[3 + i2] += bool(m25 & (1 << i2))
         print(f"  2025 {Path(name).name}")
     return tally
 
@@ -206,17 +215,17 @@ def main() -> int:
     print("\n" + "=" * 84)
     print(f"{'group':<22}{'n':>12}{'PS fail%':>11}{'lift':>8}   per-family fail%")
     rows = []
-    for g in ["clean24", "sign24", "fail24"] + \
+    for g in ["clean24", "sign24", "sign24:nonleak", "fail24"] + \
              [f"sign24:{n}" for n, _ in FAMILIES] + ["sign24:wiring"]:
         rec = tally.get(g)
         if not rec or rec[0] == 0:
             print(f"{g:<22}{0:>12}   (no vehicles)")
             continue
         rate = rec[1] / rec[0]
-        per = "  ".join(f"{n[:4]}={rec[2+i]/rec[0]:.3%}" for n, i in FAM_IX.items())
+        per = "  ".join(f"{n[:4]}={rec[3+i]/rec[0]:.3%}" for n, i in FAM_IX.items())
         print(f"{g:<22}{rec[0]:>12,}{rate:>10.3%}{rate/base_any:>8.1f}   {per}")
-        rows.append((g, rec[0], rate, rate / base_any,
-                     *[rec[2 + i] / rec[0] for i in range(len(FAMILIES))]))
+        rows.append((g, rec[0], rate, rate / base_any, rec[2] / rec[0],
+                     *[rec[3 + i] / rec[0] for i in range(len(FAMILIES))]))
 
     print("\nM2 cause specificity  S_X = P(fail X | sign X) / P(fail X | any PS sign)")
     any_sign = tally["sign24"]
@@ -227,8 +236,8 @@ def main() -> int:
             print(f"  {nm:<14} n={0 if not rec else rec[0]:>9,}  untestable (n < {N_FLOOR_M2:,})")
             continue
         tested += 1
-        num = rec[2 + i] / rec[0]
-        den = any_sign[2 + i] / any_sign[0] if any_sign[0] else float("nan")
+        num = rec[3 + i] / rec[0]
+        den = any_sign[3 + i] / any_sign[0] if any_sign[0] else float("nan")
         s = num / den if den else float("nan")
         spec.append(s >= 2.0)
         print(f"  {nm:<14} n={rec[0]:>9,}  same-family {num:.3%} vs any-sign {den:.3%}"
@@ -239,6 +248,37 @@ def main() -> int:
     else:
         print("  -> no family reaches the n floor; M2 untestable")
 
+    # ---- docs/208: with hydraulics removed --------------------------------
+    print("\n" + "=" * 84)
+    print("docs/208  non-hydraulic only: advisories containing no leak item,")
+    print("          outcome = a power-steering failure outside the leak family")
+    print("=" * 84)
+    nl, base_nl = tally.get("sign24:nonleak"), clean[2] / clean[0] if clean[0] else float("nan")
+    print(f"{'group':<22}{'n':>12}{'non-leak fail%':>17}{'lift':>8}")
+    print(f"{'clean24':<22}{clean[0]:>12,}{base_nl:>16.3%}{1.0:>8.1f}")
+    if nl and nl[0]:
+        r_nl = nl[2] / nl[0]
+        print(f"{'sign24:nonleak':<22}{nl[0]:>12,}{r_nl:>16.3%}{r_nl/base_nl:>8.1f}")
+        ok = nl[0] >= 1000 and (r_nl / base_nl) >= 3.0
+        print(f"\nN1 -> {'precedence survives' if ok else 'precedence does NOT survive'} "
+              f"(needs >= 3.0x and n >= 1,000)")
+        print(f"N3 -> non-hydraulic advisory cohort is {nl[0]:,} vehicles, "
+              f"{nl[0]/tally['sign24'][0]:.1%} of all power-steering advisories")
+    else:
+        print("sign24:nonleak has no vehicles -- N1 untestable")
+    print("\nN2 per family, non-leak outcome:")
+    for nm, i in FAM_IX.items():
+        if nm == "leak":
+            continue
+        rec = tally.get(f"sign24:{nm}")
+        if not rec or rec[0] == 0:
+            print(f"  {nm:<14} n=0  no vehicles")
+            continue
+        r = rec[2] / rec[0]
+        note = "" if rec[0] >= 1000 else "   (n < 1,000: 検定不能、倍率を語らない)"
+        lift = f"{r/base_nl:>6.1f}x" if rec[0] >= 1000 else "     --"
+        print(f"  {nm:<14} n={rec[0]:>9,}  non-leak fail {r:>8.3%}  {lift}{note}")
+
     print("\nM3 wiring advisory -> function failure")
     w = tally.get("sign24:wiring")
     fi = FAM_IX["function"]
@@ -246,8 +286,8 @@ def main() -> int:
         print(f"  n = {0 if not w else w[0]:,} < {N_FLOOR_M3} -> untestable. "
               f"No multiplier is reported.")
     else:
-        r_w = w[2 + fi] / w[0]
-        r_c = clean[2 + fi] / clean[0]
+        r_w = w[3 + fi] / w[0]
+        r_c = clean[3 + fi] / clean[0]
         lift = r_w / r_c if r_c else float("nan")
         ok = lift >= 3.0
         print(f"  wiring-advisory n = {w[0]:,}  function-fail {r_w:.3%}")

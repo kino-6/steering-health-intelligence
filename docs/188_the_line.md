@@ -79,6 +79,7 @@
 - **符号を捨てた逸脱検知なら1指標が3機体で成立する**([docs/205](205_sign_free_deviation_results.md))。
   ただし通ったのは**振動(2f0)**であり、**相電流ベースは2つとも落ちた**。**センサ追加ゼロでは成立しない**
 - **「検出できる」は機体をまたぐが、「どこから検出できる」はまたがない**(最小検出severityが3.35〜17.86%)
+- **油圧を除いても実車の先行性は22.0倍で残る**([docs/209](209_mot_nonhydraulic_results.md))。中身は腐食。n = 14,029
 - **車検制度は機能不全の前駆を原理的に記録できない**([docs/207](207_mot_cause_breakdown_results.md))。
   inoperative/malfunctioning に advisory の区分が無い。**「少なくて測れない」ではなく「その記録が制度に無い」**([docs/193](193_str_capability_rule_results.md), [docs/195](195_capability_rule_second_mechanism_results.md))。
   宣言粒度(分解能) **0.08〜1.0%**。**確度はRth仮定に依存し未検証**([docs/197](197_what_limits_the_declaration.md))。AUTOSAR `STR capability` の欄を埋める値を、公開データで実際に生成した
