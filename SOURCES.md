@@ -207,3 +207,4 @@
   | 出力 | スクリプト | 粒度 |
   |---|---|---|
   | `data/inverter_signal_requirement.tsv` | `scripts/inverter_signal_requirement.py` | 条件×相の非対称比（9行） |
+  | `data/inverter_settled_baseline.tsv` | `scripts/inverter_settled_baseline.py` | 同上、末尾60%基準（9行） |
