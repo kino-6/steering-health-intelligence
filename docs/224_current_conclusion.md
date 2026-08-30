@@ -103,6 +103,7 @@ NASA試験機は素子をスイッチとして一度も動かしていない。
 | KAIST PMSM | **恒久**の人工短絡 |
 | NASA MOSFET | **恒久**のドリフト |
 | インバータ故障データ(新規取得) | **恒久**。遷移も記録されていない([215](215_inverter_dataset_acquisition.md)) |
+| NASA IGBT(新規取得) | **ランプ。**保持区間は9〜44分しかなく劣化が進まない([237](237_within_condition_results.md)) |
 
 ---
 

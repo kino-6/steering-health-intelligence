@@ -39,8 +39,27 @@ import scipy.io as sio
 from scipy import stats
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-BASE = (REPO_ROOT / ".nasa_igbt" / "IGBTAgingData_04022009" / "Data" /
+CACHE = REPO_ROOT / ".nasa_igbt"
+ZIP = CACHE / "8. IGBT Accelerated Aging" / "IGBTAgingData_04022009.zip"
+BASE = (CACHE / "IGBTAgingData_04022009" / "Data" /
         "Thermal Overstress Aging with Square Signal at gate and SMU data" / "Aging Data")
+
+
+def ensure_extracted() -> None:
+    """Extract the aging .mat files from the archive if they are not on disk.
+
+    Only the archives are kept; extracted copies are deleted after use so the
+    repository does not carry two copies of every dataset (CHECKS.md).
+    """
+    import zipfile
+    if BASE.exists() and any(BASE.glob("Device */*.mat")):
+        return
+    z = zipfile.ZipFile(ZIP)
+    want = [n for n in z.namelist()
+            if "Aging Data" in n and n.endswith(".mat") and "check" not in n]
+    for n in want:
+        z.extract(n, CACHE)
+    print(f"extracted {len(want)} aging files from the archive")
 OUT_TSV = REPO_ROOT / "data" / "igbt_switching_precursor.tsv"
 
 import sys
@@ -96,6 +115,7 @@ def features(td):
 
 
 def main() -> None:
+    ensure_extracted()
     devices = sorted({os.path.basename(os.path.dirname(f))
                       for f in glob.glob(str(BASE / "Device */*.mat"))})
     names = ["turn-on delay [ns]", "conduction Vce [V]", "gate plateau [V]"]
