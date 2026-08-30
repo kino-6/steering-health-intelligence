@@ -212,3 +212,17 @@
   |---|---|---|
   | `data/inverter_signal_requirement.tsv` | `scripts/inverter_signal_requirement.py` | 条件×相の非対称比（9行） |
   | `data/inverter_settled_baseline.tsv` | `scripts/inverter_settled_baseline.py` | 同上、末尾60%基準（9行） |
+
+## S11. NASA PCoE — IGBT Accelerated Aging
+
+- 取得元: <https://phm-datasets.s3.amazonaws.com/NASA/8.+IGBT+Accelerated+Aging.zip>（一覧: <https://data.phmsociety.org/nasa/>）
+- ライセンス: NASA は米国連邦政府の著作物であり、著作権による保護を受けない（パブリックドメイン）
+- 取得日: **2026-08-30**
+- 内容: IGBT(IRG4BC30K) と MOSFET(IRF520Npbf) の熱過負荷加速劣化。
+  **ゲートに矩形波を与えたスイッチ動作**と、**ゲートDCの能動領域動作**の**両方**を含む。
+  信号は GATE_VOLTAGE / COLLECTOR_VOLTAGE / GATE_CURRENT / COLLECTOR_CURRENT /
+  HEAT_SINK_TEMP / PACKAGE_TEMP / TIME。個体別劣化run(Device 2〜5)と、
+  区間ごとのパラメトリック特性(Turn On / LeakageIV / Breakdown)
+- 保存先: `.nasa_igbt/`（約480MB、gitignore）
+- **[docs/199](docs/199_pulse_thermal_results.md) が S8(MOSFET) で見つけた「素子がスイッチとして動いていない」という欠陥は、
+  このデータセットのsquare signal側には当てはまらない**

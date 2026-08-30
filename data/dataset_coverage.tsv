@@ -572,6 +572,48 @@ dataset	member	kind	field	status
 .nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.drainCurrent	used
 .nasa_pcoe	Test_#_run_#.mat	field	measurement.steadyState.timeDomain.flangeTemperature	used
 .nasa_pcoe	mosfet_thermal_aging.zip!MOSFET_Thermal_Overstress_Aging_v#.zip	(member)		used
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#A.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#B.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#C.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#D.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#E.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#J.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#K.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#L.txt	(member)		used:SMU測定の生ログ
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!#T#.mat	(member)		used:劣化runの時系列(square/DC両モード)。取得2026-08-30、解析は事前登録の後
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Breakdown.csv	(member)		used:区間ごとのパラメトリック特性(しきい値・漏れ・降伏)
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Device Aging log.xls	(member)		used:試験の進行記録
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Device#  #.mat	(member)		used:個体別の劣化run。個体基準法の対象
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Device#b  #.mat	(member)		used:個体別の劣化run。個体基準法の対象
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Device#check  #.mat	(member)		used:個体別の劣化run。個体基準法の対象
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!LeakageIV.csv	(member)		used:区間ごとのパラメトリック特性(しきい値・漏れ・降伏)
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Readme.doc	(member)		used:配布論文と手順。AGENTS.md 作法1(目的節と劣化機構節を読む)
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Sonnenfeld_Goebel_Celaya.pdf	(member)		used:配布論文と手順。AGENTS.md 作法1(目的節と劣化機構節を読む)
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!Turn On.csv	(member)		used:区間ごとのパラメトリック特性(しきい値・漏れ・降伏)
+.nasa_igbt	8. IGBT Accelerated Aging/IGBTAgingData_04022009.zip!april#nd-#rdIgbtIRCG#BC#kd-A#.mat	(member)		used:劣化runの時系列(square/DC両モード)。取得2026-08-30、解析は事前登録の後
+.nasa_igbt	#T#.mat	(file)		used:劣化runの時系列(square/DC両モード)。取得2026-08-30、解析は事前登録の後
+.nasa_igbt	#T#.mat	field	index	used
+.nasa_igbt	#T#.mat	field	x	used:劣化runの時系列(square/DC両モード)。取得2026-08-30、解析は事前登録の後
+.nasa_igbt	#T#.mat	field	gate_current	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	time	used
+.nasa_igbt	#T#.mat	field	collector_current	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	heat_sink	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	package_temperture	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	gate_voltage	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	collector_voltage	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	GATE_VOLTAGE	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	COLLECTOR_VOLTAGE	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	HEAT_SINK_TEMP	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	GATE_CURRENT	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	COLLECTOR_CURRENT	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	TIME	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	PACKAGE_TEMP	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	current_time	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	current_date	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	data_path	used:信号本体または測定メタデータ
+.nasa_igbt	#T#.mat	field	comment	used:信号本体または測定メタデータ
+.nasa_igbt	IGBT_Accelerated_Aging.zip!IGBTAgingData_#.zip	(member)		used:劣化runの時系列(square/DC両モード)。取得2026-08-30、解析は事前登録の後
 .soredd	A#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
 .soredd	B#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)
 .soredd	C#.json	(file)		unused:全個体が固着で終端しており狙った漸進劣化を含まない(docs/174)

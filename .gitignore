@@ -8,5 +8,6 @@ __pycache__/
 .jp_mlit/
 .pmsm_fault/
 .pmsm_inverter/
+.nasa_igbt/
 .nasa_pcoe/
 .soredd/
