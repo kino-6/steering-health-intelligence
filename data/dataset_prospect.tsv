@@ -1,0 +1,13 @@
+assessed	dataset	size	question	operating_point	has_control	decision	reason
+2026-07-11	.public_log_cache commaSteeringControl	651MB	実車の操舵応答に個体基準法が当たるか	一定でない(実走行。だが正常のみ)	なし(故障ラベル無し)	acquire	実車データが他に無い。故障ラベルが無いことは取得前に判明していた
+2026-07-11	.dvsa_mot DVSA MOT 2024/2025	17GB	兆候→故障の先行性を実車で測れるか	該当なし(年次検査)	あり(clean群)	acquire	分母つき全数。本研究で最も強い実証になった(docs/150)
+2026-07-08	.nhtsa_flat NHTSA FLAT_CMPL/RCL	2.1GB	市場の痛みの定量	該当なし(記録)	あり(全苦情)	acquire	分母つき。docs/185/187/190/213の基礎
+2026-08-22	.pmsm_fault KAIST PMSM 1.0/1.5/3.0kW	6.5GB	巻線劣化の観測量が機体をまたぐか	**保持**(3000rpm、負荷15%)	あり(健全0%)	acquire	論文に運転条件の記載あり。**測定キャンペーンの分割は論文に無く、取得後にdocs/162で発覚**
+2026-08-23	.nasa_pcoe NASA MOSFET Thermal Overstress	7.3GB	部品内部の電気量に前駆が乗るか	**未確認のまま取得。実際はランプ**(設定温度をrun毎に10°C低下)	あり(run1-3)	acquire	**配布論文を読まずに取得した。**設定温度の低下はdocs/199まで気づかず
+2026-08-30	.pmsm_inverter Bacha et al. inverter PMSM	8.5MB	インバータのスイッチ故障を識別できるか	保持(10 rad/s一定)	あり(正常)	acquire	小さい(1.4MB)。**正常クラスだけ非定常なことは取得後に発覚**(docs/215)
+2026-08-30	.nasa_igbt NASA IGBT Accelerated Aging	229MB	スイッチ動作での劣化前駆	**ランプ。論文に書いてあった**(供給2.5→6.0V、設定100→280°C)	なし(同一条件の対照無し)	acquire	**論文を読んだうえで見落とした。**「accelerated aging / scenario simulation」の記述からランプは予見できた
+2026-08-30	OpenLKA (未取得)	500GB+	指紋が掃引すべき温度範囲	不明	不明	decline	**DBCが未整備で温度信号の有無が確認できない。**1欄のために500GBは引き合わない(docs/214)
+2026-08-30	NASA Capacitor Electrical Stress 12/14 (未取得)	5.0GB	4つ目の機構での個体基準	不明	不明	decline	**空欄を埋めない。**断続故障も含まない見込み。主検証の結果を見てから再検討(docs/231)
+2026-08-30	.soredd SOReDD リレー劣化	3.1GB	接点の漸進劣化に先行時間があるか	保持	あり	acquire	**取得後に全個体が固着で終端と判明**(docs/174)。狙った機構を含まなかった
+2026-07-09	.nhtsa_cache NHTSA 苦情API キャッシュ	19MB	車種別の苦情件数	該当なし(記録)	あり(全車種)	acquire	APIの取得結果を保存したもの。FLAT_CMPLの補助
+2026-08-21	.jp_mlit 日本 国交省リコール	28MB	日本市場でも同じ族が出るか	該当なし(記録)	**なし(分母が非公開)**	acquire	**取得したが分母が無く率が出せない**(docs/149)。取得前に確認すべきだった

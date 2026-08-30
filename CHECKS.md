@@ -27,7 +27,36 @@ python3 scripts/check_repo.py --list
 > 該当箇所のρは 1.000 / 0.393 / 0.381 などで、境界0.8から十分離れている。
 > **新規のスクリプトでは `lib_discipline.passes()` を使うこと。**
 
-## 2. データセット棚卸し — `scripts/dataset_coverage.py`
+## 2. 取得前の見どころ評価 — [data/dataset_prospect.tsv](data/dataset_prospect.tsv)
+
+**公開データを取得する前に、答えられるかどうかを評価して記録する。**
+
+`check_repo.py` は、ディスク上の全データセットに `decision = acquire` の行があることを要求し、
+**行のどの欄が空でも落ちる。**
+
+| 欄 | 何を書くか |
+|---|---|
+| `question` | このデータで何に答えるのか |
+| **`operating_point`** | **試験機が動作点を保持するかランプするか。配布論文・Readmeで確認する** |
+| `has_control` | 対照(健全群・分母)があるか |
+| `decision` | `acquire` / `decline` |
+| `reason` | 判断の根拠。`decline` なら取得しない理由 |
+
+**`operating_point` が最も重要である。**加速試験の多くは劣化を速めるために動作点を意図的に動かし、
+**その操作が観測量の最大の変動要因になる。**
+
+**この欄を先に確認していれば、3件の失敗は防げた。**
+
+| データセット | 実際 | いつ気づいたか |
+|---|---|---|
+| NASA MOSFET | 設定温度を run毎に10°C低下 | **取得の34文書後**([docs/199](docs/199_pulse_thermal_results.md)) |
+| インバータPMSM | 正常クラスだけ非定常 | 取得直後([docs/215](docs/215_inverter_dataset_acquisition.md)) |
+| NASA IGBT | **供給2.4倍・温度180°C上昇のランプ。論文に記載あり** | 解析後([docs/234](docs/234_igbt_switching_results.md)) |
+
+ディスクは一時 **62 GB** に達した。**展開済みファイルは消す**——スクリプトは必要時にzipから展開する。
+現在 **37 GB**。
+
+## 3. データセット棚卸し — `scripts/dataset_coverage.py`
 
 **取得したデータの中身を、ファイル単位ではなくフィールド単位まで列挙する。**
 
@@ -47,7 +76,7 @@ python3 scripts/dataset_coverage.py
 確認した結果、感度・レンジ・端子構成は3機体・全セッションで同一であり、
 **測定キャンペーン間の段差はゲイン変更ではない**ことが分かった(1.0 kWの2022-03-08のみ電流chに約0.17 AのDCオフセット)。
 
-## 3. 解析時のガード — `scripts/lib_discipline.py`
+## 4. 解析時のガード — `scripts/lib_discipline.py`
 
 **同じ計算ミスを二度としないための関数。**新しい解析スクリプトはこれを import する。
 
@@ -59,7 +88,7 @@ python3 scripts/dataset_coverage.py
 | `require_same_session(...)` | 基準と評価が別セッションになること | 個体基準だけでは足りない。**同一測定条件**でなければならない |
 | `switching_or_linear(v, vsup)` | 観測量の取り違え | [docs/199](docs/199_pulse_thermal_results.md): 能動領域の素子を「オン抵抗」と呼び、導通損の物理でモデルを建てた |
 
-## 4. 報告の型 — `.claude/skills/report/SKILL.md`
+## 5. 報告の型 — `.claude/skills/report/SKILL.md`
 
 `/report` で呼び出す。**結論を先に、作業ではなく変化を、不成立は「誰の何が外れたか」で書く。**
 3回「意味がわからない」と指摘された後に作った。自己チェックリスト付き。

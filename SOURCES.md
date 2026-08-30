@@ -80,6 +80,8 @@
 - [data/sotif_eooc_assumption_sheet.tsv](data/sotif_eooc_assumption_sheet.tsv): **手動維持(hand-maintained)。**
   SOTIF-EooC 仮定シート。個々の行は [docs/153](docs/153_sotif_eooc_assumption_sheet.md) 以降の各検証結果を
   EooCの様式へ転記したものであり、単一のスクリプトが生成するものではない。各行の `source` 列が根拠文書を指す。
+- [data/dataset_prospect.tsv](data/dataset_prospect.tsv): **手動維持(hand-maintained)。**
+  取得前の見どころ評価。何に答えるか、動作点を保持するかランプするか、対照の有無、取得可否と理由([CHECKS.md](CHECKS.md))。
 - [data/dataset_coverage.tsv](data/dataset_coverage.tsv): `scripts/dataset_coverage.py` が列挙し、
   **状態の判断は手動**で入れる([CHECKS.md](CHECKS.md))。
 

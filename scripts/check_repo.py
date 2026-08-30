@@ -72,6 +72,45 @@ def _staged() -> set[str]:
     return {l.strip() for l in r.stdout.splitlines() if l.strip()}
 
 
+def check_prospect() -> list[str]:
+    """No dataset may be acquired without a written assessment first.
+
+    Incident, three times: NASA MOSFET, the inverter set and NASA IGBT were all
+    downloaded, enumerated, analysed, and only then found to be dominated by
+    the rig's own operating-point schedule -- which the distribution papers
+    describe (docs/199, docs/215, docs/234). Storage went to 62 GB and three
+    analyses produced nothing but the discovery of a confound.
+
+    data/dataset_prospect.tsv must carry a row for every acquired dataset,
+    filled BEFORE the download, and every field must be answered. The field
+    that matters most is operating_point: held or ramped decides whether the
+    data can answer a degradation question at all.
+    """
+    p = DATA / "dataset_prospect.tsv"
+    if not p.exists():
+        return ["data/dataset_prospect.tsv missing -- assess before acquiring"]
+    lines = p.read_text(encoding="utf-8").rstrip("\n").split("\n")
+    head = lines[0].split("\t")
+    out, acquired = [], set()
+    for ln in lines[1:]:
+        f = ln.split("\t")
+        if len(f) != len(head):
+            out.append(f"prospect row has {len(f)} fields, expected {len(head)}: {f[:2]}")
+            continue
+        if any(not x.strip() for x in f):
+            out.append(f"prospect row has an empty field: {f[1]}")
+        if f[6].strip() == "acquire":
+            acquired.add(f[1].split()[0])
+    cov = DATA / "dataset_coverage.tsv"
+    if cov.exists():
+        have = {l.split("\t")[0] for l in cov.read_text(encoding="utf-8").splitlines()[1:]
+                if l.strip()}
+        for d in sorted(have):
+            if d not in acquired:
+                out.append(f"{d} is on disk but has no 'acquire' row in dataset_prospect.tsv")
+    return out
+
+
 def check_derived_files() -> list[str]:
     """Every derived table must have a producing script and a SOURCES entry.
 
@@ -209,6 +248,7 @@ def check_threshold_comparisons() -> list[str]:
 CHECKS = [
     ("links", check_links, True, "壊れた内部リンク"),
     ("dataset coverage", check_coverage, True, "データセットの未棚卸し部分 (docs/199, 201, 203)"),
+    ("acquisition assessment", check_prospect, True, "取得前の見どころ評価 (docs/199, 215, 234)"),
     ("derived files", check_derived_files, True, "出力表に生成スクリプトとSOURCES記載があるか"),
     ("wording", check_wording, True, "AGENTS.md ルール0 の禁止語"),
     ("pre-registration order", check_preregistration, True, "事前登録が結果より先にコミットされたか"),
