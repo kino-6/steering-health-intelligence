@@ -226,3 +226,8 @@
 - 保存先: `.nasa_igbt/`（約480MB、gitignore）
 - **[docs/199](docs/199_pulse_thermal_results.md) が S8(MOSFET) で見つけた「素子がスイッチとして動いていない」という欠陥は、
   このデータセットのsquare signal側には当てはまらない**
+- 派生（**集計値のみ**）:
+
+  | 出力 | スクリプト | 粒度 |
+  |---|---|---|
+  | `data/pristine_unit_spread.tsv` | `scripts/pristine_unit_spread.py` | 部品族×パラメータ別の個体差と測定ノイズ（6行） |

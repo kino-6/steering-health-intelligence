@@ -78,7 +78,7 @@
 
 **同じ記録の第2の用途であり、需要の柱ではない**([docs/186](186_how_it_becomes_money.md))。
 
-- 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート**51項目**([docs/180](180_eooc_sheet_all_filled.md), [docs/195](195_capability_rule_second_mechanism_results.md))
+- 乗る形式は **SOTIF-EooC** ただ一つ。仮定シート**53項目**([docs/180](180_eooc_sheet_all_filled.md), [docs/195](195_capability_rule_second_mechanism_results.md))
 - **capability 決定則は別機体で再現しなかった**([docs/203](203_cross_machine_replication_results.md))。パワー段側は能力比ですらなく([docs/199](199_pulse_thermal_results.md))、
   巻線側は1.0 kWの1機体限定で、1.5/3.0 kWでは向きが逆になる。**現時点で機体をまたいで成立している capability 指標は無い**
 - **符号を捨てた逸脱検知なら1指標が3機体で成立する**([docs/205](205_sign_free_deviation_results.md))。
