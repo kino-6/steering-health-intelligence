@@ -57,6 +57,7 @@
 | **容量** | **1個体あたり 36バイト**(float32 × 9、2機構分) | [docs/196](196_eps_health_element.md) |
 | 取得条件 | **1点ではなく、運用で想定される動作点範囲を掃引して採る** | [docs/196](196_eps_health_element.md) |
 | **掃引幅** | **1回の走行では足りない。速度軸で最低7倍、車種により35倍広い範囲を掃引する**(実車2,495ログ) | [docs/227](227_filling_spec_blanks_results.md) |
+| 掃引幅が不足したときの代償 | **記録器が時間の65.6〜80.7%を黙る。**適切なら1%未満 | [docs/229](229_recorder_simulation_results.md) |
 | 掃引すべき温度範囲 | **空欄。**commaSteeringControlに温度が無く決まらない | [docs/227](227_filling_spec_blanks_results.md) |
 | **再取得の条件** | **firmware更新後・修理後は取り直す。**基準は群をまたいで使い回せない | [docs/223](223_window_and_firmware_results.md) |
 
@@ -121,6 +122,7 @@
 | 宣言粒度 | **その個体の出荷時ノイズ床**を同時に出す | [docs/196](196_eps_health_element.md) |
 | **有効性** | **正規化できない条件では値を出さず「宣言しない」を返す** | [docs/196](196_eps_health_element.md) |
 | 動作点 | 逸脱と同時刻の動作点(速度・トルク・温度) | [docs/196](196_eps_health_element.md) |
+| **1件のサイズ** | **float32 × 6 = 24バイト。**5秒窓あたり数十バイト。**容量は障害にならない** | [docs/229](229_recorder_simulation_results.md) |
 
 **「宣言しない」が出力に含まれることが要である。**
 故障していないのに機能が足りない領域を扱う以上、

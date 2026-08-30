@@ -100,6 +100,7 @@
   | `data/real_vehicle_granularity.tsv` | `scripts/real_vehicle_granularity.py` | 車種別の粒度と逸脱の裾（4行） |
   | `data/window_and_firmware.tsv` | `scripts/window_and_firmware.py` | 窓長別の床とfirmware群比較（4行） |
   | `data/fill_spec_blanks.tsv` | `scripts/fill_spec_blanks.py` | 動作点範囲と車検間隔（5行。MOT S4′と共同） |
+  | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
   なお、このデータセットは**正常動作中の車両のログ**であり、故障データではない。故障検知の実証には使えない。
