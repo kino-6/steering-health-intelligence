@@ -231,3 +231,4 @@
   | 出力 | スクリプト | 粒度 |
   |---|---|---|
   | `data/pristine_unit_spread.tsv` | `scripts/pristine_unit_spread.py` | 部品族×パラメータ別の個体差と測定ノイズ（6行） |
+  | `data/igbt_switching_precursor.tsv` | `scripts/igbt_switching_precursor.py` | 個体×観測量のスイッチング指標（12行） |

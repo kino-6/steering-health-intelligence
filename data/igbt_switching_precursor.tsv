@@ -1,0 +1,13 @@
+device	observable	n	baseline	final	baseline_3sd	margin	rho
+Device 2	turn-on delay [ns]	163	2160	1192	996.307	0.971588	-0.487736
+Device 2	conduction Vce [V]	163	2.79713	4.55763	2.2934	0.767639	0.588846
+Device 2	gate plateau [V]	163	4.765	5.145	0.694969	0.546787	0.0183162
+Device 3	turn-on delay [ns]	139	2336	336	1067.47	1.87359	-0.562416
+Device 3	conduction Vce [V]	139	2.40625	4.468	4.16981	0.494447	0.270548
+Device 3	gate plateau [V]	139	5.0775	5.375	1.38994	0.214038	0.454435
+Device 4	turn-on delay [ns]	245	864	224	782.813	0.817565	-0.46594
+Device 4	conduction Vce [V]	245	3.359	4.68825	2.50189	0.531299	0.83765
+Device 4	gate plateau [V]	245	4.825	6.485	2.77987	0.597149	0.397204
+Device 5	turn-on delay [ns]	97	8080	672	1280.97	5.78313	-0.79655
+Device 5	conduction Vce [V]	97	1.84425	4.96925	1.80692	1.72946	0.956646
+Device 5	gate plateau [V]	97	5.39	4.4525	1.38994	0.674491	-0.770448

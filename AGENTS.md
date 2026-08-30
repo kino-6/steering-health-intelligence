@@ -46,6 +46,11 @@
      数字を並べた画面を出して「Demoができた」と報告するのは誤り。実際に docs/158 でこの取り違えが起きた
 ### 検証作業の作法(2026-08-23、docs/154〜175の実作業から)
 
+0. **加速試験のデータでは、制御器・設定値の記録を、観測量より先に全期間について確認する。**(2026-08-30追加)
+   3件で同じ失敗をした——NASA MOSFETは設定温度をrun毎に10°C下げ([docs/199](docs/199_pulse_thermal_results.md))、
+   インバータPMSMは正常クラスだけ非定常([docs/215](docs/215_inverter_dataset_acquisition.md))、
+   NASA IGBTは供給を2.4倍・温度設定を180°C上げるストレスランプだった([docs/234](docs/234_igbt_switching_results.md))。
+   **試験機自身の操作が、観測量の最大の変動要因である。**最初の記録だけを見て「保持されている」と判断しない。
 0. **データセットの塊(struct/フィールド)を全部開いてから解析を設計する。**(2026-08-26追加)
    docs/165〜197 は NASA MOSFETの `steadyState` だけを見て34本の文書を書いた。`transient` と `pwmTempControllerState` を開いた
    1日で、**観測量の正体(オン抵抗ではなく能動領域の動作点抵抗)と、操作点の由来(試験機が設定温度をrun毎に10°C下げていた)が両方変わった**([docs/199](docs/199_pulse_thermal_results.md))。
