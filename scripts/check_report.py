@@ -128,11 +128,15 @@ def main() -> int:
         if m:
             bad.append(f"「答え」に「{m.group()}」 — これは帳簿の話であって"
                        f"問いへの答えではない。対象について書く")
-        key = [w for w in ("報告", "出せ", "可能") if w in ans]
-        if not key:
-            bad.append("問いは全項目閉じている。「答え」は問い"
-                       "(何を報告すべきか・それは可能か)に答えること。"
-                       "個別の検証結果は「根拠」節へ")
+        # the terms come from the registered question itself, not from a list
+        # that goes stale the moment the question changes -- which it did
+        # kanji and katakana runs behave like content words; a run of kana
+        # spans whole clauses and matches nothing useful
+        terms = [w for w in re.findall(r"[一-龠]{2,6}|[ァ-ヶ][ァ-ヶー]{2,}|[A-Za-z]{3,}", head)
+                 if w not in ("こと", "もの", "場合")]
+        if terms and not any(t in ans for t in terms):
+            bad.append(f"「答え」が、登録した問いのどの語にも触れていない。"
+                       f"問い: {head[:60]} / 語: {'、'.join(terms[:6])}")
 
     if len(text) > MAX_CHARS:
         bad.append(f"全体 {len(text)} 文字。{MAX_CHARS} 文字以内にする")
