@@ -137,7 +137,7 @@
 | **「壊れる前に教えます」** | 個体基準は母集団閾値より早く鳴らない(6中3で不成立) [docs/193](193_str_capability_rule_results.md) |
 | **「本来の何%出せます」**(capability値) | 符号が機体で逆になる(−1.000 / +1.000 / +0.400) [docs/203](203_cross_machine_replication_results.md) |
 | **「どこが壊れたか分かります」** | 相電流でも温度でも特定できない(2回とも不成立) [docs/217](217_inverter_signal_requirement_results.md) [docs/219](219_inverter_settled_baseline_results.md) |
-| **「不安定さで早く気づけます」** | 水準に先行しない(6中0) [docs/211](211_instability_precursor_results.md) |
+| **「不安定さで早く気づけます」** | **半導体のドリフトでは水準に先行しない**(6中0) [docs/211](211_instability_precursor_results.md)。**接点系では未検定**——文献は逆を述べるが公開データが無い([docs/241](241_excursion_event_results.md), [docs/242](242_survey_appendix_read.md)) |
 | **「動作点で正規化すれば精度が上がります」** | 実車で 0/4。2車種は悪化 [docs/221](221_real_vehicle_granularity_results.md) |
 | **「保証費をN%減らします」** | データが支持しない [docs/187](187_replacement_no_fix_result.md)、金額も非公開 |
 | **「早い段階から検出できます」** | 最小検出severityが機体で5倍ひらく(3.35〜17.86%) [docs/205](205_sign_free_deviation_results.md) |

@@ -79,7 +79,7 @@ EooC仮定シート([data/sotif_eooc_assumption_sheet.tsv](../data/sotif_eooc_as
 | 機体をまたぐ capability **値** | 符号が機体で逆(−1.000 / **+1.000** / +0.400) | [203](203_cross_machine_replication_results.md) |
 | 早期警報(個体基準は早く鳴る) | 6中3で不成立。差は0〜1 run | [193](193_str_capability_rule_results.md) |
 | 熱経路の劣化 | 6中0。比 0.909〜0.996 | [199](199_pulse_thermal_results.md) |
-| 不安定さが水準に先行 | **6中0。**同着3・遅れ2・不発1 | [211](211_instability_precursor_results.md) |
+| 不安定さが水準に先行 | **半導体では6中0。接点系は未検定**(文献は逆を述べるがデータ無し) | [211](211_instability_precursor_results.md) [241](241_excursion_event_results.md) |
 | 相電流だけで故障の場所を特定 | 2回とも不成立。**B相が5/8で最大** | [217](217_inverter_signal_requirement_results.md) [219](219_inverter_settled_baseline_results.md) |
 | 動作点正規化 | 実車で **0/4**(2車種は悪化) | [221](221_real_vehicle_granularity_results.md) |
 | 振動の向きで故障種を区別 | 4件中2件が逆向き | [203](203_cross_machine_replication_results.md) |
