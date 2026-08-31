@@ -49,6 +49,7 @@
 | 配布データそのものに同じ構造(正常クラスだけ非定常) | [215](215_inverter_dataset_acquisition.md) |
 | **実車でも床が車種間1.3倍・同一車種内1.2倍ひらく** | [221](221_real_vehicle_granularity_results.md) [223](223_window_and_firmware_results.md) |
 | **新品40個体で、しきい値電圧の個体差が測定ノイズの159〜530倍**(直接測定) | **[232](232_pristine_unit_spread_results.md)** |
+| **部品内部の検出限界は床の2〜3倍、車両レベルは10倍**(前駆は20〜300倍) | **[246](246_internal_signal_injection_results.md)** |
 
 ### 4. 実車の観測床が数値になった
 

@@ -102,6 +102,7 @@
   | `data/real_vehicle_granularity.tsv` | `scripts/real_vehicle_granularity.py` | 車種別の粒度と逸脱の裾（4行） |
   | `data/window_and_firmware.tsv` | `scripts/window_and_firmware.py` | 窓長別の床とfirmware群比較（4行） |
   | `data/intermittent_injection.tsv` | `scripts/intermittent_injection.py` | 注入振幅×継続別の検出率（25行） |
+  | `data/internal_signal_injection.tsv` | `scripts/internal_signal_injection.py` | 部品内部信号での検出率（210行。NASA S8と共同） |
   | `data/fill_spec_blanks.tsv` | `scripts/fill_spec_blanks.py` | 動作点範囲と車検間隔（5行。MOT S4′と共同） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
