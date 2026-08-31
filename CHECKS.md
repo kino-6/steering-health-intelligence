@@ -26,7 +26,7 @@ python3 scripts/troubles_digest.py # 型の一覧(SessionStart hookから自動�
 
 ## 1. コミット前チェック — `scripts/check_repo.py`
 
-`.git/hooks/pre-commit` から自動実行される。**ブロッキング10件、警告1件。**
+`.git/hooks/pre-commit` から自動実行される。**ブロッキング11件、警告1件。**
 
 | チェック | 何を止めるか | 元になった失敗 |
 |---|---|---|
@@ -39,6 +39,7 @@ python3 scripts/troubles_digest.py # 型の一覧(SessionStart hookから自動�
 | **sheet currency** | EooCシートの行が、訂正された文書だけを出典にしていること | **5行が古いまま「埋まる」と書いてあった**([docs/249](docs/249_eooc_sheet_audit.md))。成果物が根拠より強い主張をしていた |
 | **troubles registered** | 訂正・撤回・不成立を宣言した文書が [TROUBLES.md](TROUBLES.md) に載っていないこと | **2026-09-01 ユーザ指摘「正直人間側が指摘できない」。**この検査を入れたら、**登録簿から漏れていた文書が20件**出た。うち6件は同じ型(「無い」と早く言い切る)だった |
 | **troubles classified** | 自動追記された失敗が、まだ型に振り分けられていないこと | **書き留めるのは自動、どの型かを決めるのは判断。**後者だけを人(エージェント)に残す |
+| **no-data dead end** | 「公開データが出ない限り埋まらない」と書いて、そこで終わっていること | **2026-09-01 ユーザ指摘(複数回目)。**[AGENTS.md](AGENTS.md) 0条は最初から「データが無いことを壁として次アクションを止めない」と書いてあるが、**文章では止まらなかった。**欠落を事実として書くのは可。**締めにするのは不可。**「データが無い中での判断」の節を要求する |
 | *(警告)* threshold compares | 浮動小数点での閾値判定 | [docs/205](docs/205_sign_free_deviation_results.md): 4点のSpearmanは厳密に4/5だが `0.7999...` で返り、`>= 0.8` が弾いて判定が反転した |
 
 > **警告(threshold compares)の既存スクリプト分は確認済みで、記録済みの判定に影響しない。**

@@ -78,6 +78,15 @@ SOTIF-EooC という参加経路が規格上存在することは確認できた
 
 > [EOOC017](../data/sotif_eooc_assumption_sheet.tsv) の24.1倍は**検査員の目視観察の予測力**であって、ECU内部信号の予測力ではない([docs/150](150_advisory_precedence_verification.md))。「閾値未満の観察に予測情報が乗る」ことの実証であり、EPS内部runtime兆候→故障の直接検証ではない。仮定シート上でこの数字を内部信号の性能として転記しない。
 
+## データが無い中での判断
+
+**埋まらない欄を、待ちの状態として残さない。**[AGENTS.md](../AGENTS.md) 0条。
+
+> **決定: 公開データで埋まらない欄は「空欄」ではなく「部品側では決めない」として確定させる。**
+> **根拠**: 部品側が決められない量を、部品側が決めた顔で出すことが最も悪い([docs/196](196_eps_health_element.md))。
+> 埋める手立ては [docs/260](260_no_data_decisions_protocol.md) が「問いの向きを変える」形で示した——
+> **「いくらか」ではなく「いくらであれば足りるか」なら計算できる。**
+
 ## Rule Check
 
 適用したルール: `Market Demand First` / `Natural Language First` / `EPS Supplier Lens` / `Steering Predictive Diagnostics Value Rule` / `Mandatory Rule Check Before Stop / Kill / Archive`

@@ -343,6 +343,31 @@ def check_troubles_classified() -> list[str]:
     return [f"{ln[:90]} — 型に振り分けて未分類の節から外すこと" for ln in pending]
 
 
+def check_no_data_dead_end() -> list[str]:
+    """Missing data may be recorded as a boundary, never left as the ending.
+
+    AGENTS.md rule 0 already says so, and it was broken again on 2026-09-01:
+    a report closed on "blank until new data appears" for three items, after
+    the user had already said to stop repeating it and to go at the power
+    module instead. Prose did not hold, so this is the check.
+
+    A document may say a thing cannot be filled from public data. It must then
+    also carry a section saying what was decided in the absence, and on what
+    basis. The absence is allowed to be a fact; it is not allowed to be the
+    last word.
+    """
+    dead = ("出ない限り", "原理的に埋まらない", "データが出るまで", "が無いので埋められない")
+    verdict = "データが無い中での判断"
+    problems = []
+    for f in sorted((ROOT / "docs").glob("*.md")):
+        text = f.read_text(encoding="utf-8")
+        hit = [d for d in dead if d in text]
+        if hit and verdict not in text:
+            problems.append(f"{f.name}: 「{hit[0]}」と書いているが「{verdict}」の節が無い "
+                            f"(AGENTS.md 0条。空欄を締めにしない)")
+    return problems
+
+
 CHECKS = [
     ("links", check_links, True, "壊れた内部リンク"),
     ("dataset coverage", check_coverage, True, "データセットの未棚卸し部分 (docs/199, 201, 203)"),
@@ -354,6 +379,7 @@ CHECKS = [
     ("sheet currency", check_sheet_currency, True, "EooCシートの行が訂正を反映しているか"),
     ("troubles registered", check_troubles_registered, True, "失敗を宣言した文書が TROUBLES.md に載っているか"),
     ("troubles classified", check_troubles_classified, True, "自動追記された失敗が型に振り分けられているか"),
+    ("no-data dead end", check_no_data_dead_end, True, "データが無いことを空欄・締めのまま残していないか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
 ]
 
