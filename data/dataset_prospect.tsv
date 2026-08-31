@@ -18,3 +18,7 @@ assessed	dataset	size	question	operating_point	has_control	decision	reason
 2026-08-30	IMAD-DS (未取得)	—	—	—	あり	decline	音響・振動によるモータ異常。EPSの電気内部量に対応しない
 2026-08-30	IEEE DataPort 誘導機ロータバー破損 (未取得)	—	—	—	あり	decline	誘導機。EPSはPMSMであり機構が違う
 2026-08-30	同 合成データ版 (未取得)	—	—	—	あり	decline	合成データ。実機の挙動を立証できない
+2026-08-31	低圧アーク波形 (Bogarra et al., Sci Data 2024, DOI 10.34810/data1352) 未取得	不明	R12/R13。断続故障の前駆	**掃引**(圧力10-100kPa、ギャップ1-12mm、材料2種を系統的に振る。記録あり)	**なし**(健全記録の言及なし)	decline	**アーク開始の電流急増でトリガされる=事象前のデータが無い。**前駆を測れない。CC BY-NC-NDで派生物の扱いにも制約
+2026-08-31	AFDACA (Schweitzer et al. 2021) 未取得	不明	同上。**接点開放方式**でR12に合致	不明	不明	decline	**配布先を特定できなかった。**論文は「公開」と記すがリポジトリのURL・DOIが見つからない。著者連絡が必要で公開情報のみの原則から外れる
+2026-08-31	Photovoltaic DC Arc Library (IEEE DataPort) 未取得	306.67GB	同上。**pull-apart(接点開放)方式**でR12に合致	電極形状・材料・ギャップを振る	**なし**(正常動作の基線が無いと明記)	decline	**正常動作の記録が無い。**事象前が無いので前駆を測れない。306 GB
+2026-08-31	Low voltage DC series arc fault (IEEE DataPort) 未評価	不明	同上	不明	不明	decline	**未評価。**上記3件と同じ構造(事象でトリガ)である可能性が高い。必要になれば評価する
