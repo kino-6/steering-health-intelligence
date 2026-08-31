@@ -11,6 +11,17 @@ python3 scripts/sync_troubles.py   # 新しい失敗を TROUBLES.md へ自動追
 python3 scripts/troubles_digest.py # 型の一覧(SessionStart hookから自動実行)
 ```
 
+## 0-1. 報告の型 — `scripts/check_report.py`
+
+**2026-09-01「報告が意味不明」の再指摘への対応。**Skillだけでは直らなかった。
+
+```sh
+python3 scripts/check_report.py <下書き.md>   # 送信前に必ず通す
+```
+
+**5節ちょうど**(答え / 前回からの変化 / 根拠 / この答えが崩れる条件 / 作業)を要求し、
+**「答え」を3文以内に制限**し、**道具の名前と自分の作業の話が「作業」節より前に出ることを禁じる。**
+
 ## 0. 過去トラブルは、読む習慣に頼らない — 3段構え
 
 **2026-09-01 ユーザ指摘「正直人間側が指摘できない」への対応。**
