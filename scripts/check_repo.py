@@ -286,6 +286,43 @@ def check_threshold_comparisons() -> list[str]:
     return out
 
 
+def check_troubles_registered() -> list[str]:
+    """A document that declares a correction, a withdrawal or a failed test
+    must appear in TROUBLES.md.
+
+    Incident: on 2026-09-01 the user said plainly that the human side cannot
+    catch these -- "正直人間側が指摘できない". Every earlier safeguard in this
+    repo was a rule someone had to remember to read. This one is not: a new
+    failure cannot stay off the register, because the commit that writes the
+    failure down is the commit that gets stopped.
+
+    A document counts as declaring a failure when one of the markers appears
+    in a heading, which is where this repo puts them by convention. Prose that
+    merely mentions a past correction elsewhere does not trigger it.
+    """
+    reg = ROOT / "TROUBLES.md"
+    if not reg.exists():
+        return ["TROUBLES.md が無い。過去トラブル登録簿は必須である"]
+    text = reg.read_text(encoding="utf-8")
+    markers = ("訂正", "撤回", "取り下げ", "不成立", "外れた", "誤りである", "打ち切")
+    # a pre-registration says in advance what it will report if the test fails.
+    # That is the discipline working, not a trouble, so conditional headings
+    # are not counted.
+    forward = ("場合", "したときに", "たら", "なければ")
+    problems = []
+    for f in sorted((ROOT / "docs").glob("*.md")):
+        heads = [ln for ln in f.read_text(encoding="utf-8").splitlines()
+                 if ln.lstrip().startswith("#") or ln.lstrip().startswith("> **")]
+        hit = [h for h in heads
+               if any(m in h for m in markers) and not any(w in h for w in forward)]
+        if not hit:
+            continue
+        if f.name not in text:
+            problems.append(f"{f.name}: 失敗を宣言しているが TROUBLES.md に無い "
+                            f"(.claude/skills/troubles/SKILL.md 参照)")
+    return problems
+
+
 CHECKS = [
     ("links", check_links, True, "壊れた内部リンク"),
     ("dataset coverage", check_coverage, True, "データセットの未棚卸し部分 (docs/199, 201, 203)"),
@@ -295,6 +332,7 @@ CHECKS = [
     ("pre-registration order", check_preregistration, True, "事前登録が結果より先にコミットされたか"),
     ("correction backlinks", check_correction_backlinks, True, "訂正元へのリンクが張られているか"),
     ("sheet currency", check_sheet_currency, True, "EooCシートの行が訂正を反映しているか"),
+    ("troubles registered", check_troubles_registered, True, "失敗を宣言した文書が TROUBLES.md に載っているか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
 ]
 

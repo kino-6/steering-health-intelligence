@@ -3,6 +3,10 @@
 > **これらのルールのうち機械的に検査できるものは、[CHECKS.md](CHECKS.md) で自動化してある。**
 > `.git/hooks/pre-commit` から `scripts/check_repo.py` が走り、禁止語・未棚卸しのデータ・
 > 事前登録の順序・訂正の前方リンク・壊れたリンクを**コミット時に止める**。
+> **過去に虚偽・思い込みで不成立になった事象は [TROUBLES.md](TROUBLES.md) に型で登録してある。**
+> **結論を書く前・報告する前に [.claude/skills/troubles/SKILL.md](.claude/skills/troubles/SKILL.md) を回す。**
+> 2026-09-01 ユーザ指摘「正直人間側が指摘できない」。**指摘される前に自分で回すこと。**
+>
 > **新しい規則を思いついたら、まず機械で検査できないかを考える。**文章を足すだけでは4回破った。
 > 新規クローン時は `sh scripts/install_hooks.sh` を一度実行すること。
 
