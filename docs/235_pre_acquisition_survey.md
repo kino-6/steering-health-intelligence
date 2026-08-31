@@ -67,6 +67,10 @@ HTML版、PDF版、ar5iv版のいずれでも表が描画されない。
 
 **表が読める形で入手できたら、もう一度回す。**観測台帳へ。
 
+> **解消(2026-08-31, [docs/242](242_survey_appendix_read.md))**: **取得時にローカル保存されていたPDFから読めた。**
+> 110件中、intermittent/connector/contact/relay/solder/fretting はすべて **0件**。
+> **ただし総覧自体に4件の穴があり(SOReDD・KAIST・comma・インバータ)、「0件」は不在の証明にならない。**
+
 ## Rule Check
 
 - **1件もダウンロードしていない。**配布ページとReadmeのみで判定した

@@ -22,3 +22,4 @@ assessed	dataset	size	question	operating_point	has_control	decision	reason
 2026-08-31	AFDACA (Schweitzer et al. 2021) 未取得	不明	同上。**接点開放方式**でR12に合致	不明	不明	decline	**配布先を特定できなかった。**論文は「公開」と記すがリポジトリのURL・DOIが見つからない。著者連絡が必要で公開情報のみの原則から外れる
 2026-08-31	Photovoltaic DC Arc Library (IEEE DataPort) 未取得	306.67GB	同上。**pull-apart(接点開放)方式**でR12に合致	電極形状・材料・ギャップを振る	**なし**(正常動作の基線が無いと明記)	decline	**正常動作の記録が無い。**事象前が無いので前駆を測れない。306 GB
 2026-08-31	Low voltage DC series arc fault (IEEE DataPort) 未評価	不明	同上	不明	不明	decline	**未評価。**上記3件と同じ構造(事象でトリガ)である可能性が高い。必要になれば評価する
+2026-08-31	ETH Zurich 高圧遮断器 run-to-failure 機械試験 (DOI 10.3929/ethz-b-000676480) 未取得	約1.9GB	R12/R13。接点を持つ電気部品のrun-to-failure	不明(機械試験)	不明	decline	**機械試験であり信号は電流と振動のみ。接触抵抗が無い。**故障モードは操作機構の摩耗であって接点の断続ではない。CC BY-NC-SA
