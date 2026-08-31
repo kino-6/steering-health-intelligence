@@ -1,0 +1,5 @@
+onset_frac	reference_s	thr_scan	thr_known	n_exceed_scan	n_exceed_known	min_amp_scan	min_amp_known	scan_penalty
+0.1	6.0	2.6281	0.9393	58	58	3.0	1.5	2.000
+0.25	15.0	2.6281	0.9393	58	58	3.0	1.5	2.000
+0.5	30.0	2.6281	0.9393	58	58	3.0	1.5	2.000
+0.75	45.0	2.6281	0.9393	58	58	3.0	1.5	2.000
