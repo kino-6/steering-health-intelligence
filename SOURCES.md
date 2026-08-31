@@ -111,6 +111,7 @@
   | `data/thermal_index.tsv` | `scripts/thermal_index.py` | 動作点を合わせた熱の非対称指数（18行） |
   | `data/no_data_decisions.tsv` | `scripts/no_data_decisions.py` | 必要なADC分解能と、部品内部での持続の効き（KAIST 3機体と NASA S8 共同） |
   | `data/temperature_span.tsv` | `scripts/temperature_span.py` | 指紋の直線1本が持つ温度幅（6素子×8幅。NASA S8と共同） |
+  | `data/element_v2.tsv` | `scripts/element_v2.py` | 記録器の実装検証（6素子。バイト数・沈黙・量子化耐性） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。

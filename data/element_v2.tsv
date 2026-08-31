@@ -1,0 +1,7 @@
+unit	windows	fired	silent	fingerprint_bytes	record_bytes	quantized_agreement
+NASA Test_8	90	0	0	24	30	1.0000
+NASA Test_9	80	0	0	24	30	1.0000
+NASA Test_10	79	0	0	24	30	1.0000
+NASA Test_11	83	0	0	24	30	1.0000
+NASA Test_12	84	0	0	24	30	1.0000
+NASA Test_14	84	0	1	24	30	1.0000

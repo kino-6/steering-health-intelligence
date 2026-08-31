@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """EPS health element -- a component-side SOTIF (EooC) element (docs/196).
 
+WITHDRAWN (2026-09-01, docs/265). This module computes a capability value.
+docs/199 showed the physics behind it does not hold on that rig -- the device
+runs in its active region, so Vds/Id is not an on-resistance -- and docs/203
+showed the index reverses sign between machines. The claim was withdrawn in
+those documents and this code was left computing it anyway, which is
+TROUBLES.md T23. Read scripts/element_v2.py instead; it emits a deviation from
+the unit's own baseline and its granularity, and no capability at all. This
+file is kept because docs/196 and the results that cite it must stay
+reproducible.
+
 This is not another analysis. It is the thing itself: the element that an EPS
 would carry in order to take part in a SOTIF argument from the component side.
 It declares, at run time, how much steering capability it can still deliver,
