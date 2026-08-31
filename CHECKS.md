@@ -11,6 +11,22 @@ python3 scripts/sync_troubles.py   # 新しい失敗を TROUBLES.md へ自動追
 python3 scripts/troubles_digest.py # 型の一覧(SessionStart hookから自動実行)
 ```
 
+## 0-0. 問いは機械が持つ — `QUESTION.md` + `scripts/question_status.py`
+
+**2026-09-01 ユーザ指摘: 「一つの具体的な事例を報告されたが、自分の問いには答えていない。
+問いに対して回答できるまで自分でLoop構築するように。」**
+
+**問いを分解して `QUESTION.md` に置き、開いている項目が残っている間は報告しない**
+([.claude/skills/loop/SKILL.md](.claude/skills/loop/SKILL.md))。
+
+```sh
+python3 scripts/question_status.py
+```
+
+`check_report.py` がこれを読み、**開いた項目があるのに「残り N 件」を書かない報告を止める。**
+分解した結果、**12項目すべてが既に閉じていた。**
+答えられる状態だったのに、組み立てずに部品だけを報告し続けていた。
+
 ## 0-1. 報告の型 — `scripts/check_report.py`
 
 **2026-09-01「報告が意味不明」の再指摘への対応。**Skillだけでは直らなかった。
@@ -21,6 +37,8 @@ python3 scripts/check_report.py <下書き.md>   # 送信前に必ず通す
 
 **5節ちょうど**(答え / 前回からの変化 / 根拠 / この答えが崩れる条件 / 作業)を要求し、
 **「答え」を3文以内に制限**し、**道具の名前と自分の作業の話が「作業」節より前に出ることを禁じる。**
+さらに **「答え」節に帳簿の語(空欄・検証・事前登録・文書・判定)が出ることを禁じ**、
+**反証条件が公開情報で確かめられない場合に止める。**
 
 ## 0. 過去トラブルは、読む習慣に頼らない — 3段構え
 

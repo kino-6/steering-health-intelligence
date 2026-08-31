@@ -28,6 +28,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from question_status import status as question_status
+
 REQUIRED = ["## 答え", "## 前回からの変化", "## 根拠", "## この答えが崩れる条件", "## 作業"]
 
 # symbols the skill already bans: pre-registration labels and sheet ids
@@ -48,6 +51,11 @@ ABSOLUTE = re.compile(r"m/s|mA|\bA\b|°C|バイト|ビット|秒|分|時間|台|
 UNCHECKABLE = re.compile(r"公開データでは決まらな|公開情報では(決まらな|確かめられな)|"
                          r"回路設計で決まり|内部(情報|資料|データ)|実機が無い|"
                          r"社内|測ってみない(と|限り)")
+
+# the answer section must be about the subject, not about this repository's
+# own paperwork. 2026-09-01: a report opened with "every blank in the
+# specification is filled", which is bookkeeping, not an answer.
+BOOKKEEPING = re.compile(r"空欄|仕様書?が|検証|事前登録|文書|判定|棚卸|登録簿|Repo")
 
 MAX_CHARS = 1400
 MAX_ANSWER_SENTENCES = 3
@@ -101,6 +109,30 @@ def main() -> int:
         if m:
             bad.append(f"崩れる条件に「{m.group()}」 — 公開情報で確かめられない条件は "
                        f"反証条件ではなく内部情報の要求である")
+
+    # 2026-09-01: the user said the reports answer one specific sub-case and
+    # never the question that was asked, and to loop until it can be answered.
+    # So a report is checked against the registered question, not against
+    # whatever happened to be finished today.
+    head, closed, openi = question_status()
+    if head is None:
+        bad.append("QUESTION.md が無い。報告の前に問いを登録する")
+    elif openi:
+        need = f"残り {len(openi)} 件"
+        if need not in text:
+            bad.append(f"問いに開いている項目が {len(openi)} 件ある。"
+                       f"「{need}」と、何が残っているかを書くか、先に閉じる "
+                       f"(python3 scripts/question_status.py)")
+    else:
+        m = BOOKKEEPING.search(ans)
+        if m:
+            bad.append(f"「答え」に「{m.group()}」 — これは帳簿の話であって"
+                       f"問いへの答えではない。対象について書く")
+        key = [w for w in ("報告", "出せ", "可能") if w in ans]
+        if not key:
+            bad.append("問いは全項目閉じている。「答え」は問い"
+                       "(何を報告すべきか・それは可能か)に答えること。"
+                       "個別の検証結果は「根拠」節へ")
 
     if len(text) > MAX_CHARS:
         bad.append(f"全体 {len(text)} 文字。{MAX_CHARS} 文字以内にする")
