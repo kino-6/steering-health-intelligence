@@ -192,6 +192,7 @@
   | 出力 | スクリプト | 粒度 |
   |---|---|---|
   | `data/contact_variance_lead.tsv` | `scripts/contact_variance_lead.py` | 個体×窓の水準・変動（13行） |
+  | `data/excursion_event_precursor.tsv` | `scripts/excursion_event_precursor.py` | 個体別の突発事象発生率（13行） |
 
 ## S10. インバータ駆動PMSM 故障データセット
 
