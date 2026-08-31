@@ -41,6 +41,14 @@ ACTIVITY = re.compile(r"追加しました|直しました|更新しました|�
 FLOOR = re.compile(r"床の[\d０-９]")
 ABSOLUTE = re.compile(r"m/s|mA|\bA\b|°C|バイト|ビット|秒|分|時間|台|件|%|％")
 
+# a falsification condition that only insiders could check is not one.
+# 2026-09-01: a report said the answer breaks if the analog chain is noisy and
+# that "this is decided by circuit design" -- rule 1 kept in letter, broken in
+# spirit, and the direction was backwards besides.
+UNCHECKABLE = re.compile(r"公開データでは決まらな|公開情報では(決まらな|確かめられな)|"
+                         r"回路設計で決まり|内部(情報|資料|データ)|実機が無い|"
+                         r"社内|測ってみない(と|限り)")
+
 MAX_CHARS = 1400
 MAX_ANSWER_SENTENCES = 3
 
@@ -85,6 +93,14 @@ def main() -> int:
         bad.append(f"「答え」が{n}文ある。{MAX_ANSWER_SENTENCES}文以内にする")
     if not ans:
         bad.append("「答え」が空である")
+
+    b0 = next((i for i, l in enumerate(lines) if l.startswith("## この答えが崩れる条件")), None)
+    if b0 is not None:
+        seg = "\n".join(lines[b0 + 1:work_at])
+        m = UNCHECKABLE.search(seg)
+        if m:
+            bad.append(f"崩れる条件に「{m.group()}」 — 公開情報で確かめられない条件は "
+                       f"反証条件ではなく内部情報の要求である")
 
     if len(text) > MAX_CHARS:
         bad.append(f"全体 {len(text)} 文字。{MAX_CHARS} 文字以内にする")
