@@ -224,6 +224,47 @@ def check_correction_backlinks() -> list[str]:
     return sorted(set(out))
 
 
+def check_sheet_currency() -> list[str]:
+    """A sheet row must cite whatever corrected the document it rests on.
+
+    Incident: five rows of the EooC assumption sheet still read "filled" long
+    after the work behind them was withdrawn. EOOC027 carried a capability
+    formula docs/199 had shown does not apply, EOOC028 one docs/203 had shown
+    does not replicate. Correction rows were added elsewhere and the originals
+    were never touched, so the deliverable claimed more than the documents did.
+
+    The correction map is the same one check_correction_backlinks builds: a
+    later document that retracts an earlier one. If a row cites the earlier
+    document, it must cite a later one too.
+    """
+    sheet = DATA / "sotif_eooc_assumption_sheet.tsv"
+    if not sheet.exists():
+        return []
+    num = lambda n: int(n[:3]) if n[:3].isdigit() else -1
+    corrected: dict[str, set[str]] = {}
+    for f in DOCS.glob("*.md"):
+        if not f.name[:3].isdigit():
+            continue
+        for m in re.finditer(r"(訂正|取り下げ|降格)[^\n]{0,80}?\((\d{3})_[^)]+\.md\)",
+                             f.read_text(encoding="utf-8")):
+            tgt = m.group(2)
+            if num(f.name) > int(tgt):
+                corrected.setdefault(tgt, set()).add(f.name[:3])
+    out = []
+    for line in sheet.read_text(encoding="utf-8").splitlines()[1:]:
+        f = line.split("\t")
+        if len(f) < 6:
+            continue
+        rid, src = f[0], f[5]
+        cited = set(re.findall(r"docs/(\d{3})", src))
+        for c in sorted(cited):
+            later = corrected.get(c, set())
+            if later and not (later & cited):
+                out.append(f"{rid} cites docs/{c}, which docs/"
+                           f"{sorted(later)[0]} corrects, without citing the correction")
+    return sorted(set(out))
+
+
 def check_threshold_comparisons() -> list[str]:
     """Warn on bare float comparisons against a pre-registered bar.
 
@@ -253,6 +294,7 @@ CHECKS = [
     ("wording", check_wording, True, "AGENTS.md ルール0 の禁止語"),
     ("pre-registration order", check_preregistration, True, "事前登録が結果より先にコミットされたか"),
     ("correction backlinks", check_correction_backlinks, True, "訂正元へのリンクが張られているか"),
+    ("sheet currency", check_sheet_currency, True, "EooCシートの行が訂正を反映しているか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
 ]
 

@@ -21,6 +21,7 @@ python3 scripts/check_repo.py --list
 | **wording** | [AGENTS.md](AGENTS.md) ルール0 の禁止語 | 個人研究なのに「自社」「見せて反応を得る」を4回書いた。**手作業の一括置換を3回やっても4件残っていた**(2026-08-27に本チェックが検出) |
 | **pre-registration order** | 事前登録が結果より後にコミットされること | 事前登録の価値は順序そのもの。gitの履歴だけが後から書き換えられない記録である |
 | **correction backlinks** | 訂正された側に前方ポインタが無いこと | 古い文書に着地した読者が、それが覆されたことに気づけない |
+| **sheet currency** | EooCシートの行が、訂正された文書だけを出典にしていること | **5行が古いまま「埋まる」と書いてあった**([docs/249](docs/249_eooc_sheet_audit.md))。成果物が根拠より強い主張をしていた |
 | *(警告)* threshold compares | 浮動小数点での閾値判定 | [docs/205](docs/205_sign_free_deviation_results.md): 4点のSpearmanは厳密に4/5だが `0.7999...` で返り、`>= 0.8` が弾いて判定が反転した |
 
 > **警告(threshold compares)の既存スクリプト分は確認済みで、記録済みの判定に影響しない。**
