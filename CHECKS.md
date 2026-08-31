@@ -4,14 +4,29 @@
 人間の記憶や、ルール文書を読み直す習慣に依存しない。**コミット時に自動で走る。**
 
 ```sh
-sh scripts/install_hooks.sh      # 一度だけ。git hookは複製されないため
-python3 scripts/check_repo.py    # 手動実行
+sh scripts/install_hooks.sh        # 一度だけ。git hookは複製されないため
+python3 scripts/check_repo.py      # 手動実行
 python3 scripts/check_repo.py --list
+python3 scripts/sync_troubles.py   # 新しい失敗を TROUBLES.md へ自動追記(hookから自動実行)
+python3 scripts/troubles_digest.py # 型の一覧(SessionStart hookから自動実行)
 ```
+
+## 0. 過去トラブルは、読む習慣に頼らない — 3段構え
+
+**2026-09-01 ユーザ指摘「正直人間側が指摘できない」への対応。**
+
+| 段 | 何が起きるか |
+|---|---|
+| **セッション開始時** | `troubles_digest.py` が SessionStart hook で走り、**18の型が最初から文脈に入る**。開かないと読めない登録簿にしない |
+| **コミット時(自動追記)** | `sync_troubles.py` が、失敗を宣言した文書を **[TROUBLES.md](TROUBLES.md) に自動で書き込み、stageする**。書き漏らしが起きない |
+| **コミット時(強制)** | `check_repo.py` が、**未分類のまま残っている行があるとコミットを止める**。型の判断だけを残す |
+
+**設計の要点: 「書き留める」は自動化できるが、「どの型か」は自動化しない。**
+型の判断まで機械がやると、型が形骸化する。
 
 ## 1. コミット前チェック — `scripts/check_repo.py`
 
-`.git/hooks/pre-commit` から自動実行される。**ブロッキング9件、警告1件。**
+`.git/hooks/pre-commit` から自動実行される。**ブロッキング10件、警告1件。**
 
 | チェック | 何を止めるか | 元になった失敗 |
 |---|---|---|
@@ -23,6 +38,7 @@ python3 scripts/check_repo.py --list
 | **correction backlinks** | 訂正された側に前方ポインタが無いこと | 古い文書に着地した読者が、それが覆されたことに気づけない |
 | **sheet currency** | EooCシートの行が、訂正された文書だけを出典にしていること | **5行が古いまま「埋まる」と書いてあった**([docs/249](docs/249_eooc_sheet_audit.md))。成果物が根拠より強い主張をしていた |
 | **troubles registered** | 訂正・撤回・不成立を宣言した文書が [TROUBLES.md](TROUBLES.md) に載っていないこと | **2026-09-01 ユーザ指摘「正直人間側が指摘できない」。**この検査を入れたら、**登録簿から漏れていた文書が20件**出た。うち6件は同じ型(「無い」と早く言い切る)だった |
+| **troubles classified** | 自動追記された失敗が、まだ型に振り分けられていないこと | **書き留めるのは自動、どの型かを決めるのは判断。**後者だけを人(エージェント)に残す |
 | *(警告)* threshold compares | 浮動小数点での閾値判定 | [docs/205](docs/205_sign_free_deviation_results.md): 4点のSpearmanは厳密に4/5だが `0.7999...` で返り、`>= 0.8` が弾いて判定が反転した |
 
 > **警告(threshold compares)の既存スクリプト分は確認済みで、記録済みの判定に影響しない。**

@@ -323,6 +323,26 @@ def check_troubles_registered() -> list[str]:
     return problems
 
 
+def check_troubles_classified() -> list[str]:
+    """The auto-written section of TROUBLES.md must be empty at commit time.
+
+    scripts/sync_troubles.py writes a new failure into TROUBLES.md by itself,
+    so the record is never lost to forgetfulness. Deciding which of the types
+    it belongs to is a judgement, and this check is what forces that judgement
+    to happen before the commit lands rather than never.
+    """
+    reg = ROOT / "TROUBLES.md"
+    if not reg.exists():
+        return []
+    text = reg.read_text(encoding="utf-8")
+    marker = "## 未分類(自動追記)"
+    if marker not in text:
+        return []
+    body = text.split(marker, 1)[1].split("\n---", 1)[0]
+    pending = [ln for ln in body.splitlines() if ln.startswith("| [")]
+    return [f"{ln[:90]} — 型に振り分けて未分類の節から外すこと" for ln in pending]
+
+
 CHECKS = [
     ("links", check_links, True, "壊れた内部リンク"),
     ("dataset coverage", check_coverage, True, "データセットの未棚卸し部分 (docs/199, 201, 203)"),
@@ -333,6 +353,7 @@ CHECKS = [
     ("correction backlinks", check_correction_backlinks, True, "訂正元へのリンクが張られているか"),
     ("sheet currency", check_sheet_currency, True, "EooCシートの行が訂正を反映しているか"),
     ("troubles registered", check_troubles_registered, True, "失敗を宣言した文書が TROUBLES.md に載っているか"),
+    ("troubles classified", check_troubles_classified, True, "自動追記された失敗が型に振り分けられているか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
 ]
 
