@@ -3,7 +3,7 @@ assessed	dataset	size	question	operating_point	has_control	decision	reason
 2026-07-11	.dvsa_mot DVSA MOT 2024/2025	17GB	兆候→故障の先行性を実車で測れるか	該当なし(年次検査)	あり(clean群)	acquire	分母つき全数。本研究で最も強い実証になった(docs/150)
 2026-07-08	.nhtsa_flat NHTSA FLAT_CMPL/RCL	2.1GB	市場の痛みの定量	該当なし(記録)	あり(全苦情)	acquire	分母つき。docs/185/187/190/213の基礎
 2026-08-22	.pmsm_fault KAIST PMSM 1.0/1.5/3.0kW	6.5GB	巻線劣化の観測量が機体をまたぐか	**保持**(3000rpm、負荷15%)	あり(健全0%)	acquire	論文に運転条件の記載あり。**測定キャンペーンの分割は論文に無く、取得後にdocs/162で発覚**
-2026-08-23	.nasa_pcoe NASA MOSFET Thermal Overstress	7.3GB	部品内部の電気量に前駆が乗るか	**未確認のまま取得。実際はランプ**(設定温度をrun毎に10°C低下)	あり(run1-3)	acquire	**配布論文を読まずに取得した。**設定温度の低下はdocs/199まで気づかず
+2026-08-23	.nasa_pcoe NASA MOSFET Thermal Overstress	7.3GB	部品内部の電気量に前駆が乗るか	**未確認のまま取得。実際はランプ**(設定温度をrun毎に10°C低下)	あり(run1-3)	acquire	**配布論文を読まずに取得した。**設定温度の低下はdocs/199まで気づかず / 【2026-09-01 打ち切り docs/257】モデルの量でも設定温度の軌跡を跨げず。前駆の大きさ(docs/167)のみ残す
 2026-08-30	.pmsm_inverter Bacha et al. inverter PMSM	8.5MB	インバータのスイッチ故障を識別できるか	保持(10 rad/s一定)	あり(正常)	acquire	小さい(1.4MB)。**正常クラスだけ非定常なことは取得後に発覚**(docs/215)
 2026-08-30	.nasa_igbt NASA IGBT Accelerated Aging	229MB	スイッチ動作での劣化前駆	**取得前は不明。取得後にランプと判明**(供給2.5→6.0V、設定100→280°C。制御器記録にのみ存在)	なし(同一条件の対照無し)	acquire	**取得前の公開情報は一覧の1行のみ**(「Thermal overstress accelerated aging of IGBTs」)。同梱論文は試験装置の設計であり本データの加速スケジュールを書いていない。**評価しても防げなかった取得である**
 2026-08-30	OpenLKA (未取得)	500GB+	指紋が掃引すべき温度範囲	不明	不明	decline	**DBCが未整備で温度信号の有無が確認できない。**1欄のために500GBは引き合わない(docs/214)
