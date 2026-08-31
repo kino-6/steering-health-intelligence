@@ -1,0 +1,9 @@
+source	level	fa_per_window	thr_mean	thr_max	amp90_D1	amp90_D2	amp90_D5	amp90_D10	amp90_D20
+vehicle level	L0  7.2/h	0.01	1.798	7.732	10	10	10	10	5
+vehicle level	L1  1/h	0.00139	4.28	12.58	20	20	20	20	20
+vehicle level	L2  0.1/h	0.000139	5.572	19.25	20	20	20	20	20
+vehicle level	L3  0.01/h	1.39e-05							
+component-internal (NASA, pooled)	L0  7.2/h	0.01	0.9242	2.038	3	3	2	2	2
+component-internal (NASA, pooled)	L1  1/h	0.00139	4.087	9.248	10	10	10	10	10
+component-internal (NASA, pooled)	L2  0.1/h	0.000139							
+component-internal (NASA, pooled)	L3  0.01/h	1.39e-05							
