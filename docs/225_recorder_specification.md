@@ -47,6 +47,7 @@
 | トルクセンサ・舵角 | **持つ** | — |
 | ハーフブリッジ個別温度 | **通常持たない** | — |
 | 加速度計 | **持たない** | [docs/205](205_sign_free_deviation_results.md) |
+| **電流測定の分解能** | **8ビットあれば足りる**(1LSB = 235 mA、フルスケール=ピーク×3)。車載MCUの標準は12ビット以上 | [docs/261](261_no_data_decisions_results.md) |
 
 **センサ追加は仕様に含めない。** 巻線側では振動が要るという結果が出たが([docs/205](205_sign_free_deviation_results.md))、
 それは**1.0 kWの1機体で得た指標が別機体で再現しなかった**ため根拠を失っている([docs/203](203_cross_machine_replication_results.md))。
@@ -210,9 +211,9 @@
 | ~~指紋の掃引幅~~ | **埋まった。**1走行では速度軸で7〜35倍足りない([docs/227](227_filling_spec_blanks_results.md)) |
 | ~~保持期間~~ | **埋まった。**397日(約13か月)([docs/227](227_filling_spec_blanks_results.md)) |
 | ~~事前バッファ長~~ | **問いが消えた。**常時武装なのでバッファ長=窓長 |
-| **ECU内部信号の観測床** | **空欄。公開データが存在しない。**[docs/221](221_real_vehicle_granularity_results.md) の 0.19〜0.25 m/s² は**車両レベルの横加速度残差**であり、EPS内部信号の床ではない([docs/220](220_real_vehicle_granularity_protocol.md)) |
+| **ECU内部信号の観測床** | **分解能では決まらないと確定**([docs/261](261_no_data_decisions_results.md))。8〜16ビットで床が1.00倍から動かない。**残るのはアナログ雑音(シャント・増幅器・EMI・同期)であり、これは回路設計項目である。**公開データを待つ問いではない。旧記述: **空欄。公開データが存在しない。**[docs/221](221_real_vehicle_granularity_results.md) の 0.19〜0.25 m/s² は**車両レベルの横加速度残差**であり、EPS内部信号の床ではない([docs/220](220_real_vehicle_granularity_protocol.md)) |
 | ~~検出確率・誤検出率~~ | **埋まった(車両レベル)。**4-1章に事象の長さ別の表。突発 4.2 / 5秒 0.94 / 20秒 0.31 m/s²([docs/248](248_false_alarm_tradeoff_results.md), [docs/253](253_persistent_event_results.md), [docs/255](255_step_detector_results.md))。短い事象は最大値型、長い事象は平均型でしか捕まらず**両方が要る。**ECU内部信号の値ではない |
-| **持続型に対する部品内部の検出限界** | **空欄。**[docs/246](246_internal_signal_injection_results.md)・[docs/248](248_false_alarm_tradeoff_results.md) の床の2〜3倍・10倍は**5秒窓の値**である。持続型では測っていない |
+| ~~持続型に対する部品内部の検出限界~~ | **埋まった**([docs/261](261_no_data_decisions_results.md))。**床の1.0〜1.5倍**(NASA 6素子)。持続が買うのは**1.67〜3.0倍**で、車両レベルの8.5倍よりずっと小さい。**床の倍数を信号をまたいで比べないこと** |
 | **許容できる逸脱の下限** | **空欄。車両レベル安全目標からの配分。部品側では決まらない**(EOOC033) |
 | (新) 掃引すべき温度範囲 | **空欄。**commaSteeringControlに温度が無い([docs/227](227_filling_spec_blanks_results.md)) |
 
@@ -225,7 +226,8 @@
 > 「ECU内部信号の観測床はいくらか」は測らないと分からない。
 > **「床がいくらであれば足りるか」は、既に測った前駆の大きさから逆算できる。**
 > すなわち **記録器が成立するのに、ECUは電流を何ビットで測れればよいか。**
-> → [docs/260](260_no_data_decisions_protocol.md) で事前登録
+> → [docs/260](260_no_data_decisions_protocol.md) で事前登録し、[docs/261](261_no_data_decisions_results.md) で計算した。
+> **答え: 8ビット(1LSB = 235 mA)で足りる。分解能は制約ではない。**
 
 > **決定2: 許容できる逸脱の下限は、部品側では決めない。**
 > 記録器が宣言するのは「その個体の基準からどれだけ離れたか」と「その粒度」だけである。
