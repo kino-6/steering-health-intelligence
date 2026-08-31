@@ -106,6 +106,7 @@
   | `data/false_alarm_tradeoff.tsv` | `scripts/false_alarm_tradeoff.py` | 誤検出水準別の検出限界（8行） |
   | `data/fill_spec_blanks.tsv` | `scripts/fill_spec_blanks.py` | 動作点範囲と車検間隔（5行。MOT S4′と共同） |
   | `data/field_timescale.tsv` | `scripts/field_timescale.py` | 断続的アシスト喪失の経過時間・持続・復帰（1,697行。NHTSA FLAT_CMPLと共同） |
+  | `data/persistent_event.tsv` | `scripts/persistent_event.py` | 事象の長さ別の最小検出振幅（6行） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
