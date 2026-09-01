@@ -23,6 +23,9 @@ def status():
     if not Q.exists():
         return None, [], []
     lines = Q.read_text(encoding="utf-8").splitlines()
+    # the standing question is the first quoted line; it is never archived.
+    # 2026-09-01: sub-questions were being answered in its place, and it was
+    # moved to history as "closed" while later results kept changing its answer.
     head = next((l for l in lines if l.startswith("> **")), "").strip("> *")
     closed = [l for l in lines if re.match(r"\s*- \[x\]", l)]
     openi = [l for l in lines if re.match(r"\s*- \[ \]", l)]
