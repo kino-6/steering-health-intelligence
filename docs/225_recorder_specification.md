@@ -67,6 +67,7 @@
 | 掃引幅が不足したときの代償 | **記録器が時間の65.6〜80.7%を黙る。**適切なら1%未満 | [docs/229](229_recorder_simulation_results.md) |
 | 掃引すべき温度範囲 | **空欄。**commaSteeringControlに温度が無く決まらない | [docs/227](227_filling_spec_blanks_results.md) |
 | **再取得の条件** | **firmware更新後・修理後は取り直す。**基準は群をまたいで使い回せない | [docs/223](223_window_and_firmware_results.md) |
+| **指紋を採る区間の条件** | **その区間が定常であることを確かめてから採る。**非定常な区間で採ると、正常データの76%で誤報する([docs/278](278_inverter_recorder_results.md))。**確かめ方は未定。空欄ではなく、実データで顕在化した欠落である** | [docs/278](278_inverter_recorder_results.md) |
 
 **48バイトである。**不揮発領域の確保がこの機能の障害になることはない。
 

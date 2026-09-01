@@ -116,7 +116,7 @@ python3 scripts/check_report.py <下書き.md>
 
 ## 送信前にもう1つ
 
-**[troubles](../troubles/SKILL.md) を回す。**過去に虚偽・思い込みで不成立になった27の型を当てる。
+**[troubles](../troubles/SKILL.md) を回す。**過去に虚偽・思い込みで不成立になった28の型を当てる。
 2026-09-01 ユーザ指摘「正直人間側が指摘できない」により、**指摘される前に自分で回す。**
 
 ## 自己チェック(送信前)
@@ -128,4 +128,4 @@ python3 scripts/check_report.py <下書き.md>
 - [ ] 訂正が先頭にあるか
 - [ ] 締めが外部依存(見せる・売る・反応)になっていないか
 - [ ] 結論部分が10行を超えていないか
-- [ ] **[troubles](../troubles/SKILL.md) の27の型を当てたか**
+- [ ] **[troubles](../troubles/SKILL.md) の28の型を当てたか**
