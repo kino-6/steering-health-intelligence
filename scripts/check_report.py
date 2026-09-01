@@ -50,7 +50,12 @@ ABSOLUTE = re.compile(r"m/s|mA|\bA\b|°C|バイト|ビット|秒|分|時間|台|
 # spirit, and the direction was backwards besides.
 UNCHECKABLE = re.compile(r"公開データでは決まらな|公開情報では(決まらな|確かめられな)|"
                          r"回路設計で決まり|内部(情報|資料|データ)|実機が無い|"
-                         r"社内|測ってみない(と|限り)")
+                         r"社内|測ってみない(と|限り)|"
+                         # 2026-09-01: "if X were published, then..." is the
+                         # same move in the future tense, and slipped past the
+                         # first version of this check
+                         r"公開されれ|公開されたら|が出れば|が出たら|入手できれ|"
+                         r"提供されれ|開示されれ")
 
 # the answer section must be about the subject, not about this repository's
 # own paperwork. 2026-09-01: a report opened with "every blank in the
