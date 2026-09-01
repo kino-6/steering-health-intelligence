@@ -129,6 +129,7 @@
   | `data/fingerprint_interval.tsv` | `scripts/fingerprint_interval.py` | 定常性で選んだ指紋区間と、その誤報・検出 |
   | `data/igbt_recorder.tsv` | `scripts/igbt_recorder.py` | スイッチ動作IGBT 4素子×3観測量の交差検証と発火 |
   | `data/calibration_budget.tsv` | `scripts/calibration_budget.py` | 各データセットが刻める最小の誤報率（5行） |
+  | `data/capacitor_recorder.tsv` | `scripts/capacitor_recorder.py` | コンデンサ7個体×3観測量の交差検証・発火・誤報 |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
