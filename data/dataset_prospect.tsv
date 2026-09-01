@@ -12,7 +12,7 @@ assessed	dataset	size	question	operating_point	has_control	decision	reason
 2026-07-09	.nhtsa_cache NHTSA 苦情API キャッシュ	19MB	車種別の苦情件数	該当なし(記録)	あり(全車種)	acquire	APIの取得結果を保存したもの。FLAT_CMPLの補助
 2026-08-21	.jp_mlit 日本 国交省リコール	28MB	日本市場でも同じ族が出るか	該当なし(記録)	**なし(分母が非公開)**	acquire	**取得したが分母が無く率が出せない**(docs/149)。取得前に確認すべきだった
 2026-08-30	PHM Society Servomotor-Driven Ballscrew (未取得)	21.3GB	ボールねじ+サーボモータの劣化。EPSラックに機構が近い	該当なし	あり(DV値の注釈)	decline	**Simulinkのシミュレーションであり実測ではない**。公開情報のみの原則は満たすが、実機の挙動を立証できない
-2026-08-30	NASA Capacitor Electrical Stress 12/14 (未取得)	5.0GB	DCリンクコンデンサの劣化。個体基準の4機構目	**保持**(10/12/14 V の固定水準)	記載なし	decline	動作点は保持で良質だが、**docs/224の空欄(観測床・検出確率)を埋めない。**断続故障も含まない
+2026-09-01	NASA Capacitor Electrical Stress 12/14 (未取得)	5.0GB	**記録器の手法そのものを検証する。**保持された動作点で、判定36,000回分の標本と劣化が同時に取れるか	**保持**(10/12/14 V の固定水準)	記載なし	acquire	【2026-09-01 decline を撤回】declineの理由『docs/224の空欄を埋めない』は、その空欄が閉じたため無効。自分の欄に『動作点は保持で良質』と書いてあった。docs/282が出した律速(保持区間1時間)を満たす見込み。docs/283
 2026-08-30	Paderborn University Bearing (未取得)	—	—	4条件で保持	あり(健全6)	decline	ベアリングの振動。EPSの電気系に対応しない
 2026-08-30	DAMADICS Actuator Benchmark (未取得)	—	—	—	あり	decline	化学プラントのバルブ。機構が違う
 2026-08-30	IMAD-DS (未取得)	—	—	—	あり	decline	音響・振動によるモータ異常。EPSの電気内部量に対応しない
