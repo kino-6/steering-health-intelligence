@@ -281,6 +281,8 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/241](docs/241_excursion_event_results.md) | 閾値超えの発生率 |
 | [docs/255](docs/255_step_detector_results.md) | 段差型検出器。**セッション平均を引くと損をする** |
 | [docs/257](docs/257_thermal_index_results.md) | 熱の非対称指数。**モデルの量でも試験機の操作を跨げず** |
+| [docs/280](docs/280_fingerprint_interval_results.md) | 指紋の区間は律速ではなかった |
+| [docs/282](docs/282_igbt_recorder_results.md) | スイッチ動作。**閾値を刻める標本が無く決着せず** |
 
 ---
 

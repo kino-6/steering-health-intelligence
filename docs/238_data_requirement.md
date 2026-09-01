@@ -29,7 +29,7 @@ NASA PCoE は定番であり、実際に**本研究で生き残った量的な�
 | **R1** | **実機であること。**シミュレーションでない | ボールねじ21.3 GBがSimulinkだった([docs/235](235_pre_acquisition_survey.md)) |
 | **R2** | **応用と同じ動作モードで運転されていること。**EPSならインバータがモータを駆動するスイッチ動作 | S8は素子を能動領域のヒーターとして使っていた([docs/199](199_pulse_thermal_results.md)) |
 | **R3** | **動作点が記録されていること。**設定値ではなく実測 | S11は `steadyState` が全チャネルNaN([docs/233](233_igbt_exclusion_retracted_protocol.md)) |
-| **R4** | **動作点を保持したまま、劣化が進む時間だけ運転された区間があること** | S11の保持区間は9〜44分で、観測量が分解能の1刻みも動かなかった([docs/237](237_within_condition_results.md)) |
+| **R4** | **動作点を保持したまま、劣化が進む時間だけ運転された区間があること。****最低1時間**(誤報1件/時を刻むには判定36,000回分が要る。[docs/282](282_igbt_recorder_results.md)) | S11の保持区間は9〜44分で、観測量が分解能の1刻みも動かなかった([docs/237](237_within_condition_results.md)) |
 | **R5** | **同型の個体が3つ以上あること。**移植性を検定できる数 | 1機体の結論が別機体で再現しなかった([docs/203](203_cross_machine_replication_results.md)) |
 | **R6** | **測定セッション(日付・装置)が記録されていること** | 測定キャンペーンの段差が故障効果を潰した。3機体6セル全部([docs/203](203_cross_machine_replication_results.md)) |
 | **R7** | **健全な対照が、故障個体と同じ条件で記録されていること** | 正常クラスだけ非定常だった([docs/215](215_inverter_dataset_acquisition.md)) |

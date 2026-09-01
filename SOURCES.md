@@ -126,6 +126,7 @@
   | `data/field_mechanism.tsv` | `scripts/field_mechanism.py` | 断続症状の苦情が名指しする機構（6分類。NHTSA FLAT_CMPLと共同） |
   | `data/inverter_recorder.tsv` | `scripts/inverter_recorder.py` | 実インバータ8故障×8チャネルの発火と誤報 |
   | `data/fingerprint_interval.tsv` | `scripts/fingerprint_interval.py` | 定常性で選んだ指紋区間と、その誤報・検出 |
+  | `data/igbt_recorder.tsv` | `scripts/igbt_recorder.py` | スイッチ動作IGBT 4素子×3観測量の交差検証と発火 |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
