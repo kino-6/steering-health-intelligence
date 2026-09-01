@@ -122,6 +122,7 @@
   | `data/sotif_sheet_audit.tsv` | `scripts/sotif_sheet_audit.py` | EooCシートが実装より強い主張をしていないかの照合 |
   | `data/real_degradation.tsv` | `scripts/real_degradation.py` | 本物の劣化に記録器を通した結果（NASA 6素子＋KAIST 3機体） |
   | `data/slow_channel.tsv` | `scripts/slow_channel.py` | 遅い時間尺度を足した場合の発火（平均長6段階） |
+  | `data/power_stage_observables.tsv` | `scripts/power_stage_observables.py` | 過渡記録の3量。記録順と温度の両方で当てた結果 |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。

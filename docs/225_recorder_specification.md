@@ -115,7 +115,7 @@
 | **窓長の上限** | **無い。発火したら事象の終わりまで伸ばす** | [docs/253](253_persistent_event_results.md) |
 | **時間尺度は2本要る** | **速い方(5秒窓)と遅い方(分〜時間の連続平均)を独立に走らせる。片方をもう片方の発火で起動しない** | [docs/269](269_real_degradation_results.md) |
 | **本物の劣化に対しては(巻線)** | **鳴る。1.0/1.5/3.0 kW の3機体すべて。重症度 0.68 / 1.57 / 1.78%** | [docs/271](271_slow_channel_results.md) |
-| **適用範囲は機構で割れる** | **巻線では成立、パワー段では不成立。**「部品内部なら見える」と一括りにしない([TROUBLES.md](../TROUBLES.md) T25) | [docs/271](271_slow_channel_results.md) |
+| **適用範囲は機構で割れる** | **本仕様の対象はモータ巻線の劣化である。パワー段は対象外**([docs/273](273_power_stage_observables_results.md))。3経路すべてで6素子中0〜1 | [docs/271](271_slow_channel_results.md), [docs/273](273_power_stage_observables_results.md) |
 | 平均の効き | **短い窓では白色雑音の 1/√N に 1.6〜2.3倍 足りない。長い窓では逆に 1.55倍 上回る**(残差が1分でゼロに戻るため) | [docs/223](223_window_and_firmware_results.md), [docs/253](253_persistent_event_results.md) |
 | 事前バッファ | **問いが立たない。**常時武装なので記録は回り続けるバッファであり、**バッファ長 = 窓長の下限 = 5秒以上** | [docs/227](227_filling_spec_blanks_results.md) |
 
