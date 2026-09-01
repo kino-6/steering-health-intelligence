@@ -27,6 +27,7 @@
 | S7 | 三相PMSM 固定子故障データセット（**1.0 / 1.5 / 3.0 kW**） | KAIST（Data in Brief 2023） | **CC BY 4.0** | **必須** | 2026-08-22 / **1.5・3.0 kWは2026-08-26** | `.pmsm_fault/` (約7GB) |
 | S8 | MOSFET Thermal Overstress Aging（run-to-failure） | NASA PCoE | 米国政府著作物・パブリックドメイン | 任意 | 2026-08-23 | `.nasa_pcoe/` (約7.5GB) |
 | S9 | SOReDD（電磁リレーの run-to-failure） | Uni Stuttgart IAS | **CC BY 4.0** | **必須** | 2026-08-23 | `.soredd/` (約3.1GB) |
+| S12 | Capacitor Electrical Stress（コンデンサ run-to-failure、10/12/14 V） | NASA PCoE | 米国政府著作物・パブリックドメイン | 任意 | 2026-09-01 | `.nasa_cap/` (約4.7GB) |
 
 ---
 
@@ -127,10 +128,23 @@
   | `data/inverter_recorder.tsv` | `scripts/inverter_recorder.py` | 実インバータ8故障×8チャネルの発火と誤報 |
   | `data/fingerprint_interval.tsv` | `scripts/fingerprint_interval.py` | 定常性で選んだ指紋区間と、その誤報・検出 |
   | `data/igbt_recorder.tsv` | `scripts/igbt_recorder.py` | スイッチ動作IGBT 4素子×3観測量の交差検証と発火 |
+  | `data/calibration_budget.tsv` | `scripts/calibration_budget.py` | 各データセットが刻める最小の誤報率（5行） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
   なお、このデータセットは**正常動作中の車両のログ**であり、故障データではない。故障検知の実証には使えない。
+
+
+## S12. NASA Capacitor Electrical Stress
+
+- 取得元: <https://phm-datasets.s3.amazonaws.com/NASA/12.+Capacitor+Electrical+Stress.zip>（PHM Society ミラー、2026-09-01取得）
+- ライセンス: 米国政府著作物・パブリックドメイン
+- 内容: **電圧を 10 / 12 / 14 V で保持**したままのコンデンサ run-to-failure。
+  10 V 群は **8個体、充放電の過渡波形を1個体あたり 75,826 回、176日間**。EIS も同梱。
+- **取得理由**: [docs/282](docs/282_igbt_recorder_results.md) が出した律速
+  （誤報1件/時を刻むには判定36,000回分が要る）を満たす、本Repoで初めてのデータ。
+  2026-08-30に2回 decline したが、その理由（docs/224の空欄を埋めない）は空欄が閉じたため無効
+  （[docs/283](docs/283_method_verification_protocol.md)）。
 
 ## S5. 国土交通省（日本）
 

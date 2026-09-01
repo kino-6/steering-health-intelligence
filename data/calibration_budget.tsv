@@ -1,0 +1,6 @@
+dataset	fingerprint_samples	finest_rate	per_hour	source
+NASA MOSFET (6素子)	1478	0.00067659	24.36	docs/269
+NASA IGBT (4素子)	50	0.02000000	720.00	docs/282
+実インバータ (正常運転)	2147	0.00046577	16.77	docs/278
+commaSteeringControl (1ログ)	600	0.00166667	60.00	docs/229
+要件	36000	0.00002778	1.00	docs/282

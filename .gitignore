@@ -10,4 +10,5 @@ __pycache__/
 .pmsm_inverter/
 .nasa_igbt/
 .nasa_pcoe/
+.nasa_cap/
 .soredd/
