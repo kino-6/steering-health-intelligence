@@ -120,6 +120,7 @@
   | `data/temperature_span.tsv` | `scripts/temperature_span.py` | 指紋の直線1本が持つ温度幅（6素子×8幅。NASA S8と共同） |
   | `data/element_v2.tsv` | `scripts/element_v2.py` | 記録器の実装検証（6素子。バイト数・沈黙・量子化耐性） |
   | `data/sotif_sheet_audit.tsv` | `scripts/sotif_sheet_audit.py` | EooCシートが実装より強い主張をしていないかの照合 |
+  | `data/real_degradation.tsv` | `scripts/real_degradation.py` | 本物の劣化に記録器を通した結果（NASA 6素子＋KAIST 3機体） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。

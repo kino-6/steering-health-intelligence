@@ -1,0 +1,10 @@
+kind	unit	windows	first_fire	false_alarms	healthy_windows	rest_frac
+R1	Test_8	149	None	0	37	0.0000
+R1	Test_9	133	None	0	33	0.0000
+R1	Test_10	131	None	0	32	0.0000
+R1	Test_11	137	None	0	34	0.0000
+R1	Test_12	139	None	0	34	0.0000
+R1	Test_14	139	None	0	34	0.0000
+R3	1.0kW	50	0.68	0	0	0.0000
+R3	1.5kW	50	None	0	0	0.0000
+R3	3.0kW	50	None	0	0	0.0000
