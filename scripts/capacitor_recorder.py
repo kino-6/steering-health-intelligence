@@ -37,7 +37,10 @@ ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / ".nasa_cap"
 ZIP = CACHE / "cap12.zip"
 INNER = "12. Capacitor Electrical Stress"
-OUT = ROOT / "data" / "capacitor_recorder.tsv"
+# one table per voltage group: capacitor_recorder_ES10.tsv, _ES12, _ES14
+OUT = ROOT / "data" / "capacitor_recorder_ES10.tsv"
+OUT_ES12 = ROOT / "data" / "capacitor_recorder_ES12.tsv"
+OUT_ES14 = ROOT / "data" / "capacitor_recorder_ES14.tsv"
 
 FP_FRAC = 1 / 3
 NS = [50, 100, 200, 500]
@@ -75,13 +78,13 @@ def observables(vo: np.ndarray) -> np.ndarray:
 
 def main() -> None:
     import h5py
-    group = "ES10"
+    group = sys.argv[1] if len(sys.argv) > 1 else "ES10"
     p = ensure(group)
     f = h5py.File(p, "r")
     td = f[group]["Transient_Data"]
     units = [k for k in td if k.startswith(group + "C")]
     design = FA_PER_HOUR / HOUR
-    print(f"{group}: 個体 {len(units)}  (電圧 10 V で保持)")
+    print(f"{group}: 個体 {len(units)}  (電圧 {group[2:]} V で保持)")
 
     rows, cv_ok, fired = [], {n: 0 for n in NAMES}, {n: 0 for n in NAMES}
     fa_worst = {n: 0.0 for n in NAMES}
@@ -164,14 +167,15 @@ def main() -> None:
             print(f"  {nm:>12}: 最悪 {r:.1f}倍  {'PASS' if r <= 3 else 'FAIL'}")
 
     OUT.parent.mkdir(exist_ok=True)
-    with OUT.open("w") as fh:
+    out = OUT.with_name(f"capacitor_recorder_{group}.tsv")   # OUT_ES12 / OUT_ES14
+    with out.open("w") as fh:
         fh.write("unit\tobservable\tsamples\tcv_shift_floors\tfalse_alarm\t"
                  "first_fire\trest_frac\tpassed_cv\n")
         for r in rows:
             fh.write(f"{r['unit']}\t{r['obs']}\t{r['n']}\t{r['shift']:.4f}\t"
                      f"{r['fa']:.8f}\t{'' if r['first'] is None else r['first']}\t"
                      f"{r['rest']:.4f}\t{r['cv']}\n")
-    print(f"\nwrote {OUT.relative_to(ROOT)}")
+    print(f"\nwrote {out.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
