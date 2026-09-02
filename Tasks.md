@@ -1,5 +1,9 @@
 # 実装のブレークダウン
 
+> **完了(2026-09-02, [docs/287](docs/287_implementation.md))。**
+> `scripts/eps_health_recorder.py` に統合、`scripts/demo_recorder.py` で端から端まで実行。
+> **実機で8故障中8を検出、遅い側の誤報0。**
+
 > **[docs/225](docs/225_recorder_specification.md) の仕様を、1つの実装にまとめる。**
 > 現状、仕様の要素が研究用スクリプトに散っており、**仕様どおりに動く物が存在しない。**
 
