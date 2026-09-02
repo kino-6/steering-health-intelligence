@@ -292,6 +292,8 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/280](docs/280_fingerprint_interval_results.md) | 指紋の区間は律速ではなかった |
 | [docs/282](docs/282_igbt_recorder_results.md) | スイッチ動作。**閾値を刻める標本が無く決着せず** |
 | [docs/296](docs/296_loo_results.md) | Leave-one-out。検出 4/6、**N は素子依存、閾値の持ち回りで 1 素子が誤報 1,817 倍** |
+| [docs/299](docs/299_bank_results.md) | N のバンク。**形式 6/6、正味 2/6**。健全期の漂流と暖機の過渡が原因 |
+| [docs/300](docs/300_eis_sync_results.md) | コンデンサ同期は EIS ではない。**単位は群ではなく記録器** |
 | [docs/294](docs/294_unit_level_false_alarm.md) | 誤報率の単位の訂正(T33)と、コンデンサ同期の未解明の記録 |
 | [docs/286](docs/286_common_mode_results.md) / [docs/287](docs/287_implementation.md) | 誤報の単位についてdocs/294の訂正を受けた。結論(検出8/8、遅い側0)は不変 |
 
