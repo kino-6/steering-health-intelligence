@@ -12,7 +12,16 @@
 > そのときの動作点、キーオンからの経過時間、キーオフまで持続したか。
 > **どの部品が原因かは報告しない**([docs/276](docs/276_field_mechanism_results.md))。
 >
-> **組めた。**[scripts/eps_health_recorder.py](scripts/eps_health_recorder.py) に実装し、
+> **検出器は組めた。モデルは組めていない**([docs/291](docs/291_model_gap.md))。
+> 検出器は「その個体の基準からどれだけずれたか」を出す。
+> **SOTIFが要求するのは「機能がどれだけ足りないか」であり、それは出せていない。**
+> 能力値として一度作り、[docs/199](docs/199_pulse_thermal_results.md)・[docs/203](docs/203_cross_machine_replication_results.md) で取り下げてある。
+>
+> **足りないデータは特定した**: **機能出力(トルク)が内部量と同時に測られていること**(R14)。
+> 手元の5データセットは1つも満たさない。**満たす候補は既に見つけてあり、別の理由で保留していた**
+> (産業用電動機、電流100 kHz + トルク25.6 kHz、CC BY 4.0、約60 GB)。
+>
+> **組めた(検出器として):**[scripts/eps_health_recorder.py](scripts/eps_health_recorder.py) に実装し、
 > 実機で端から端まで動かした([docs/287](docs/287_implementation.md))。
 > **実機の故障8件を8件とも検出し、遅い側の誤報は0である**([docs/286](docs/286_common_mode_results.md), [docs/287](docs/287_implementation.md))。
 > **SOTIFでは運用フェーズ(13章)の観測対象として入る**([docs/267](docs/267_sotif_conformance_results.md))。
