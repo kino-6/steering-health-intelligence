@@ -135,6 +135,7 @@
   | `data/common_mode.tsv` | `scripts/common_mode.py` | 同種チャネル差分での誤報と検出（8チャネル） |
   | `data/demo_recorder.tsv` | `scripts/demo_recorder.py` | 記録器を端から端まで動かした結果（9行） |
   | `data/ml_comparison.tsv` | `scripts/ml_comparison.py` | 線形と one-class 学習3手法の比較（4行） |
+  | `data/demo_sotif_signal.tsv` | `scripts/demo_sotif_signal.py` | 宣言しない割合・関係破壊の検出・送信する1件 |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。

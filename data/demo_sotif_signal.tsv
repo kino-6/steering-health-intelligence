@@ -1,0 +1,10 @@
+part	key	value
+D1	x1.0	0.0019
+D1	x2.0	0.0000
+D1	x5.0	0.0000
+D2	Ia<->Ib	uni=1,multi=1
+D2	T1<->T2	uni=1,multi=1
+D2b	shuffle_Idc	uni=1,multi=1
+D2b	shuffle_Vdc	uni=1,multi=1
+D2b	shuffle_Vd	uni=1,multi=0
+D3	record_bytes	30
