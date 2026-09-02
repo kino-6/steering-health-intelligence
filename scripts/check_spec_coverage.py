@@ -47,6 +47,7 @@ IMPLEMENTED = {
     "「保証費をN%減らします」": "forbidden_fields",
     "「早い段階から検出できます」": "forbidden_fields",
     "掃引幅": "op_lo",
+    "機械学習を使わない": "ChannelFingerprint",   # 決定。docs/290
     "再取得の条件": "cv_shift",
 }
 

@@ -1,0 +1,5 @@
+method	false_alarm_holdout	faults_detected	model_bytes
+線形(現在の実装)	0.032738	8	48
+Isolation Forest	0.023810	8	917283
+One-Class SVM	0.404762	8	4125
+Elliptic Envelope	0.285714	8	7605
