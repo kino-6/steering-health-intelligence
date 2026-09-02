@@ -120,7 +120,7 @@
 | **窓長の上限** | **無い。発火したら事象の終わりまで伸ばす** | [docs/253](253_persistent_event_results.md) |
 | **時間尺度は2本要る** | **速い方(5秒窓)と遅い方(分〜時間の連続平均)を独立に走らせる。片方をもう片方の発火で起動しない** | [docs/269](269_real_degradation_results.md) |
 | **人為的な巻線短絡に対しては** | **鳴る。1.0/1.5/3.0 kW の3機体すべて。バイパス電流 0.68 / 1.57 / 1.78%。****劣化ではない。抵抗を接続して作った短絡である**([docs/274](274_why_windings_audit.md)) | [docs/271](271_slow_channel_results.md) |
-| **適用範囲は機構で割れる** | **本仕様の対象はモータ巻線とする。ただしこれは消去法であり、現場の主要機構ではない**([docs/274](274_why_windings_audit.md))。現場が挙げるのは断続的な接続不良(2.81倍)であり、公開データが無い。パワー段は3経路すべてで6素子中0〜1のため対象外([docs/273](273_power_stage_observables_results.md)) | [docs/271](271_slow_channel_results.md), [docs/273](273_power_stage_observables_results.md) |
+| **適用範囲** | **パワー段の劣化を対象に戻す**([docs/295](295_all_seven_runs.md)。7 run 全部で遅い側 5/6、故障の 2〜3 run 前)。「対象外」は run 1〜3 しか読んでいなかった誤り。巻線短絡は人為的故障の例として残す([docs/274](274_why_windings_audit.md)) | [docs/271](271_slow_channel_results.md), [docs/273](273_power_stage_observables_results.md) |
 | 平均の効き | **短い窓では白色雑音の 1/√N に 1.6〜2.3倍 足りない。長い窓では逆に 1.55倍 上回る**(残差が1分でゼロに戻るため) | [docs/223](223_window_and_firmware_results.md), [docs/253](253_persistent_event_results.md) |
 | 事前バッファ | **問いが立たない。**常時武装なので記録は回り続けるバッファであり、**バッファ長 = 窓長の下限 = 5秒以上** | [docs/227](227_filling_spec_blanks_results.md) |
 
@@ -167,7 +167,7 @@
 | **1件のサイズ** | **30バイト**(実際に詰めて測った値。float32 × 6 + uint16 × 2 + uint8 × 2)。**容量は障害にならない** | [docs/265](265_element_v2_results.md) |
 | **検出の統計量** | **窓の平均と窓内の最大の両方。**短い事象は最大でしか、長い事象は平均でしか捕まらない | [docs/244](244_intermittent_injection_results.md) |
 | **部品内部での検出限界** | **床の2〜3倍**(6個体中5、**5秒窓、注入事象**)。車両レベルの10倍より3〜5倍鋭い | [docs/246](246_internal_signal_injection_results.md) |
-| **本物の劣化に対しては(パワー段)** | **鳴らない。6素子中1**([docs/269](269_real_degradation_results.md), [docs/271](271_slow_channel_results.md))。[docs/167](167_precursor_results_v2.md) の「前駆20〜300倍」は**36分平均後の雑音**を分母にしており、5秒窓の床とは**150倍違う。並べてはいけない**([TROUBLES.md](../TROUBLES.md) T24) | [docs/269](269_real_degradation_results.md) |
+| **本物の劣化に対しては(パワー段)** | **遅い側で鳴る。6素子中5、故障の 2〜3 run 前**([docs/295](295_all_seven_runs.md)。旧記述の 0〜1/6 は run 1〜3 のみ)。[docs/167](167_precursor_results_v2.md) の「前駆20〜300倍」は**36分平均後の雑音**を分母にしており、5秒窓の床とは**150倍違う。並べてはいけない**([TROUBLES.md](../TROUBLES.md) T24) | [docs/269](269_real_degradation_results.md) |
 
 ### 4-1. 検出限界は、事象の長さで一桁変わる(2026-09-01 改訂)
 

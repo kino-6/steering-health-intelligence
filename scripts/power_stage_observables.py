@@ -79,7 +79,7 @@ def transients(dev):
     the nearest steady-state record in time and carries that temperature.
     """
     rows = []
-    for run in (1, 2, 3):
+    for run in range(1, 8):          # all seven runs, docs/295
         f = DATA / f"Test_{dev}_run_{run}.mat"
         if not f.exists():
             continue

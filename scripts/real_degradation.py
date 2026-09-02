@@ -44,7 +44,10 @@ WIN = el.WIN
 def device_series(dev):
     z = zipfile.ZipFile(mos.ZIP) if hasattr(mos, "ZIP") else None
     y, t, run_of = [], [], []
-    for r in (1, 2, 3):
+    # docs/295: this read runs 1-3 only, copied from docs/167's FIT window,
+    # and so the "real degradation" tests of docs/269, 271 and 273 never saw
+    # runs 4-7, where the precursor lives and the device fails. All seven now.
+    for r in range(1, mos.N_RUNS + 1):
         ron, tp = mos.read_run(z, dev, r)
         y.append(np.asarray(ron))
         t.append(np.asarray(tp))
