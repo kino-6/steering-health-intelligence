@@ -64,7 +64,7 @@ def main() -> None:
     achievable = max(max(c.alarm_per_hour_fast, c.alarm_per_hour_slow)
                      for c in fp.channels.values())
     print(f"\n要求 1.0 件/時 に対し、この登録で較正できるのは "
-          f"{achievable:.1f} 件/時")
+          f"{achievable:.1f} 件/時  (個体の単位。検定数 {fp.n_tests}、docs/294)")
 
     print("\n=== 運用A: 1.0 件/時 を要求する ===")
     v_ho, o_ho = as_dicts(normal[half:])

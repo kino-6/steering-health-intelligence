@@ -150,6 +150,7 @@ class Fingerprint:
     """Everything the runtime carries. One ChannelFingerprint per channel."""
     channels: dict[str, ChannelFingerprint] = field(default_factory=dict)
     sample_hz: float = 10.0
+    n_tests: int = 1            # admitted channels x 2 detectors, docs/294
 
     @property
     def admitted(self) -> list[str]:
@@ -174,6 +175,13 @@ def enrol(values: dict[str, np.ndarray],
     """
     siblings = siblings or {}
     fp = Fingerprint(sample_hz=sample_hz)
+
+    # A unit fires if ANY admitted channel's ANY detector fires, so the rate a
+    # channel is calibrated to must be divided by the number of tests the unit
+    # runs. Calibrating each channel to the unit's rate and then OR-ing them
+    # inflated the unit's false alarms 8x on the inverter (docs/294). Two
+    # passes: decide admission first, then calibrate against that count.
+    prepared = {}
     for name in values:
         y = common_mode_reject(values, name, siblings.get(name, ()))
         op = operating_point[name]
@@ -200,14 +208,20 @@ def enrol(values: dict[str, np.ndarray],
         # magnitude, so noise cancels; averaging |residual| would not cancel
         # and is a level statistic, not a detector (found by demo_recorder.py
         # failing to reproduce docs/286)
-        dev = res_fit / g
+        prepared[name] = (a, b, g, op, res_fit / g, shift, admitted)
+
+    n_tests = max(1, 2 * sum(1 for v in prepared.values() if v[6]))
+    fp.n_tests = n_tests
+    for name, (a, b, g, op, dev, shift, admitted) in prepared.items():
         thr_mean, thr_max, thr_slow, ach_fast, ach_slow = _calibrate(
-            dev, alarm_per_hour, sample_hz)
+            dev, alarm_per_hour / n_tests, sample_hz)
         fp.channels[name] = ChannelFingerprint(
             name=name, slope=float(a), intercept=float(b), floor=g,
             op_lo=float(op.min()), op_hi=float(op.max()),
             thr_fast_mean=thr_mean, thr_fast_max=thr_max, thr_slow=thr_slow,
-            alarm_per_hour_fast=ach_fast, alarm_per_hour_slow=ach_slow,
+            # report the rates at the unit level, which is what a vehicle sees
+            alarm_per_hour_fast=ach_fast * n_tests,
+            alarm_per_hour_slow=ach_slow * n_tests,
             cv_shift=shift, admitted=admitted,
             siblings=tuple(siblings.get(name, ())))
     return fp
