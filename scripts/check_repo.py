@@ -368,6 +368,38 @@ def check_no_data_dead_end() -> list[str]:
     return problems
 
 
+def check_spec_coverage() -> list[str]:
+    """Every row of docs/225 is implemented, measured, or explicitly declined.
+
+    TASKS.md T3. The specification has grown to 38 bolded rows across a dozen
+    revisions while the implementation was spread over six research scripts,
+    and nothing checked that the two still describe the same thing. Adding a
+    row without deciding which of the three states it is in now fails here.
+    """
+    import subprocess
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_spec_coverage.py")],
+                       capture_output=True, text=True)
+    if r.returncode == 0:
+        return []
+    return [l.strip()[4:] for l in r.stdout.splitlines() if l.strip().startswith("NG")]
+
+
+def check_forbidden_output() -> list[str]:
+    """The element must not carry a field docs/225 refuses to claim.
+
+    TASKS.md T3-2. Seven refusals -- no prediction, no capability value, no
+    fault location, no remaining life -- were prose until now. A field named
+    for any of them would make the code claim what the specification does not.
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    try:
+        import eps_health_recorder as ehr
+    except Exception as e:
+        return [f"scripts/eps_health_recorder.py を読み込めない: {e}"]
+    bad = ehr.forbidden_fields()
+    return [f"要素の欄「{n}」は docs/225 5章が主張しないと決めたもの" for n in bad]
+
+
 CHECKS = [
     ("links", check_links, True, "壊れた内部リンク"),
     ("dataset coverage", check_coverage, True, "データセットの未棚卸し部分 (docs/199, 201, 203)"),
@@ -380,6 +412,8 @@ CHECKS = [
     ("troubles registered", check_troubles_registered, True, "失敗を宣言した文書が TROUBLES.md に載っているか"),
     ("troubles classified", check_troubles_classified, True, "自動追記された失敗が型に振り分けられているか"),
     ("no-data dead end", check_no_data_dead_end, True, "データが無いことを空欄・締めのまま残していないか"),
+    ("spec coverage", check_spec_coverage, True, "docs/225 の各行が実装・測定値・見送りに分類されているか"),
+    ("forbidden output", check_forbidden_output, True, "要素が主張しないと決めた欄を持っていないか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
 ]
 

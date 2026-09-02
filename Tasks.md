@@ -1,6 +1,6 @@
 # 実装のブレークダウン
 
-> **完了(2026-09-02, [docs/287](docs/287_implementation.md))。**
+> **完了(2026-09-02, [docs/287](docs/287_implementation.md) / [docs/288](docs/288_spec_coverage.md))。**
 > `scripts/eps_health_recorder.py` に統合、`scripts/demo_recorder.py` で端から端まで実行。
 > **実機で8故障中8を検出、遅い側の誤報0。**
 
@@ -40,9 +40,17 @@
 
 ## T3. 仕様との照合
 
-- [x] **T3-1** [docs/225](docs/225_recorder_specification.md) の各行が実装のどこかを対応表にする
-- [x] **T3-2** 「主張してはならないこと」7項目を、**出力の欄名で機械的に検査する**
-- [x] **T3-3** 実装できていない仕様行を明示する
+> **監査(2026-09-02)**: T3は `[x]` を付けていたが、**実際には終わっていなかった。**
+> T3-1 は [docs/287](docs/287_implementation.md) に7行の表を書いただけで、**仕様38行のうち31行を見ていなかった。**
+> T3-2 の `forbidden_fields()` は存在したが、**誰かが手で実行しない限り走らなかった。**
+> T3-3 は4件挙げたが、**38行と突き合わせていなかった。**
+
+- [x] **T3-1** 仕様38行すべてを分類する → `scripts/check_spec_coverage.py`
+  - **実装あり 21 / 測定値 13 / 見送り 4。**未分類 0
+- [x] **T3-2** 主張しないと決めた7項目を、**コミット時に機械で止める** → `check_repo.py` の `forbidden output`
+  - 検証済み: `capability_percent` という欄を足すとコミットが止まる
+- [x] **T3-3** 見送りの4件を理由つきで列挙 → `check_spec_coverage.py` の `DECLINED`
+  - 検証済み: 仕様に分類されていない行を足すとコミットが止まる
 
 ---
 
