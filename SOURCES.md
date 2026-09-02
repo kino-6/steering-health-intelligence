@@ -132,6 +132,7 @@
   | `data/capacitor_recorder_ES10.tsv` | `scripts/capacitor_recorder.py` | コンデンサ10V群7個体の交差検証・発火・誤報 |
   | `data/capacitor_recorder_ES12.tsv` | `scripts/capacitor_recorder.py` | 同 12V群8個体 |
   | `data/capacitor_recorder_ES14.tsv` | `scripts/capacitor_recorder.py` | 同 14V群8個体 |
+  | `data/common_mode.tsv` | `scripts/common_mode.py` | 同種チャネル差分での誤報と検出（8チャネル） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
