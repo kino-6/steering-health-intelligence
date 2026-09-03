@@ -140,6 +140,8 @@
   | `data/eis_sync.tsv` | `scripts/eis_sync.py` | コンデンサ発火点と最寄り EIS 測定との時間差（個体ごと） |
   | `data/multivariate_spc.tsv` | `scripts/multivariate_spc.py` | 7 特徴の PCA・T²/SPE、run 5 で動く主成分と負荷（6行） |
   | `data/capacitor_regression.tsv` | `scripts/capacitor_regression.py` | コンデンサ 23 個体の劣化状態回帰（個体 LOO、Ridge/HGB、P0/P1） |
+  | `data/capacitor_baseline.tsv` | `scripts/capacitor_baseline.py` | 何もしない基準 3 つと Ridge/HGB の比較（23 行） |
+  | `data/slow_refusal.tsv` | `scripts/slow_refusal.py` | 遅い側の宣言しない・漂流項の 5 モード比較（6 素子 × 5） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
