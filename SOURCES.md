@@ -139,6 +139,7 @@
   | `data/n_bank.tsv` | `scripts/n_bank.py` | 平均長バンク {100,200,500}、素子自身の閾値での発火と誤報（6行） |
   | `data/eis_sync.tsv` | `scripts/eis_sync.py` | コンデンサ発火点と最寄り EIS 測定との時間差（個体ごと） |
   | `data/multivariate_spc.tsv` | `scripts/multivariate_spc.py` | 7 特徴の PCA・T²/SPE、run 5 で動く主成分と負荷（6行） |
+  | `data/capacitor_regression.tsv` | `scripts/capacitor_regression.py` | コンデンサ 23 個体の劣化状態回帰（個体 LOO、Ridge/HGB、P0/P1） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
