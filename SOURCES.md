@@ -142,6 +142,7 @@
   | `data/capacitor_regression.tsv` | `scripts/capacitor_regression.py` | コンデンサ 23 個体の劣化状態回帰（個体 LOO、Ridge/HGB、P0/P1） |
   | `data/capacitor_baseline.tsv` | `scripts/capacitor_baseline.py` | 何もしない基準 3 つと Ridge/HGB の比較（23 行） |
   | `data/slow_refusal.tsv` | `scripts/slow_refusal.py` | 遅い側の宣言しない・漂流項の 5 モード比較（6 素子 × 5） |
+  | `data/stress_axis.tsv` | `scripts/stress_axis.py` | 漂流の軸を暦時間・累積エネルギー・累積熱負荷で比べた残差（6 行） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。

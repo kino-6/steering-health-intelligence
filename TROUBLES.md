@@ -299,6 +299,7 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/306](docs/306_capacitor_regression_results.md) | コンデンサ回帰 N=23。**R1 不成立（教師の雑音の 12 倍）、R3 成立（非線形が効く）** |
 | [docs/309](docs/309_slow_refusal_results.md) | 2 つの修正はどちらも効かず。**効いたのは指紋のスライス（3/6 → 1/6）** |
 | [docs/310](docs/310_baseline_results.md) | 基準比較。S2 成立だが**基準自体が弱かった** |
+| [docs/312](docs/312_stress_axis_results.md) | 漂流の軸。C3 成立だが差は 5% 以内。**決めたのは応用の物理** |
 | [docs/294](docs/294_unit_level_false_alarm.md) | 誤報率の単位の訂正(T33)と、コンデンサ同期の未解明の記録 |
 | [docs/286](docs/286_common_mode_results.md) / [docs/287](docs/287_implementation.md) | 誤報の単位についてdocs/294の訂正を受けた。結論(検出8/8、遅い側0)は不変 |
 
