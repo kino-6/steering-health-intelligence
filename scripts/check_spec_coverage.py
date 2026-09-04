@@ -50,6 +50,7 @@ IMPLEMENTED = {
     "機械学習を使わない": "ChannelFingerprint",   # 決定。docs/290
     "誤報率は個体の単位で": "n_tests",             # docs/294
     "漂流と有効期限の軸": "ChannelFingerprint",     # 決定。docs/312
+    "遅い側は傾きの変化を見る": "ChannelFingerprint",  # docs/317
     "再取得の条件": "cv_shift",
 }
 
