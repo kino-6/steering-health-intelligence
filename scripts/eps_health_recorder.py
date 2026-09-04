@@ -11,13 +11,14 @@ specification's parts finally sit in one place and run together:
     channel admission by cross-validation at end of line  docs/280
     time since key-on and persistence to key-off          docs/259
     a record that packs into 30 bytes                     docs/265
+    the slow side reads slope change, not level           docs/317
 
 What it deliberately does not do is listed in docs/225 section 5: no
 prediction, no capability value, no fault location, no remaining life. The
 field names are checked against that list by forbidden_fields().
 
 Enrol once while the unit is known good, then run. The runtime never sees the
-enrolment data again -- it carries the fingerprint, which is 48 bytes.
+enrolment data again -- it carries the fingerprint, which is 56 bytes per channel.
 """
 
 from __future__ import annotations
@@ -38,12 +39,12 @@ FORBIDDEN = ("capability", "remaining", "rul", "life", "predict",
 
 # ---------------------------------------------------------------- fingerprint
 
-FP_FMT = "<ffffffffffff"       # 12 x float32 = 48 bytes, measured in docs/265
+FP_FMT = "<" + "f" * 14        # 14 x float32 = 56 bytes, measured (docs/317)
 
 
 @dataclass(frozen=True)
 class ChannelFingerprint:
-    """What end of line leaves behind for one channel. 48 bytes packed."""
+    """What end of line leaves behind for one channel. 56 bytes packed."""
     name: str
     slope: float
     intercept: float
@@ -57,6 +58,10 @@ class ChannelFingerprint:
     alarm_per_hour_slow: float  # and the slow side, docs/282
     cv_shift: float             # how far a held-out normal interval missed
     admitted: bool              # docs/280: not admitted -> never declares
+    # docs/317: the slow side reads slope change, not level. The healthy drift
+    # holds one slope; the onset changes it. These two carry that baseline.
+    slope_drift: float = 0.0    # residual per unit accumulated stress, at shipping
+    slope_scatter: float = 0.0  # its robust spread, the unit the change is read in
     siblings: tuple[str, ...] = ()
 
     def pack(self) -> bytes:
@@ -64,7 +69,8 @@ class ChannelFingerprint:
             FP_FMT, self.slope, self.intercept, self.floor, self.op_lo,
             self.op_hi, self.thr_fast_mean, self.thr_fast_max, self.thr_slow,
             self.alarm_per_hour_fast, self.cv_shift, float(self.admitted),
-            float(self.alarm_per_hour_slow))
+            float(self.alarm_per_hour_slow), self.slope_drift,
+            self.slope_scatter)
 
 
 # ---------------------------------------------------------------- the record
@@ -215,6 +221,7 @@ def enrol(values: dict[str, np.ndarray],
     for name, (a, b, g, op, dev, shift, admitted) in prepared.items():
         thr_mean, thr_max, thr_slow, ach_fast, ach_slow = _calibrate(
             dev, alarm_per_hour / n_tests, sample_hz)
+        sd, ss = _slope_baseline(dev, op)
         fp.channels[name] = ChannelFingerprint(
             name=name, slope=float(a), intercept=float(b), floor=g,
             op_lo=float(op.min()), op_hi=float(op.max()),
@@ -223,8 +230,34 @@ def enrol(values: dict[str, np.ndarray],
             alarm_per_hour_fast=ach_fast * n_tests,
             alarm_per_hour_slow=ach_slow * n_tests,
             cv_shift=shift, admitted=admitted,
+            slope_drift=sd, slope_scatter=ss,
             siblings=tuple(siblings.get(name, ())))
     return fp
+
+
+def _slope_baseline(dev: np.ndarray, op: np.ndarray) -> tuple[float, float]:
+    """The slow side's baseline slope and its spread (docs/317).
+
+    The axis is accumulated stress, not calendar time (docs/312), and it is
+    built here the same way docs/315 builds it: the operating point above its
+    own resting value, accumulated. A window shorter than the enrolment is
+    needed for the spread to mean anything, so it is a quarter of it, capped.
+    """
+    n = len(dev)
+    w = min(max(n // 4, 20), 5000)
+    if n < 2 * w:
+        return 0.0, 0.0
+    stress = np.cumsum(np.maximum(op - float(np.median(op)), 0.0))
+    a = []
+    for i in range(0, n - w, max(1, w // 4)):
+        x, y = stress[i:i + w], dev[i:i + w]
+        vx = x.var()
+        if vx > 0:
+            a.append(float(((x - x.mean()) * (y - y.mean())).mean() / vx))
+    if len(a) < 3:
+        return 0.0, 0.0
+    m = float(np.median(a))
+    return m, float(1.4826 * np.median(np.abs(np.asarray(a) - m)))
 
 
 def _calibrate(dev: np.ndarray, alarm_per_hour: float, sample_hz: float):
