@@ -56,7 +56,7 @@ def main() -> None:
               f"{c.alarm_per_hour_fast:>11.0f} / {c.alarm_per_hour_slow:.1f} 件/時")
     print(f"\n宣言に使うチャネル: {', '.join(fp.admitted)}")
     print(f"指紋 {len(fp.pack())} バイト "
-          f"({len(fp.channels)} チャネル x 48)")
+          f"({len(fp.channels)} チャネル x 56)")
 
     # what the enrolment can actually certify (docs/282). Asking for finer
     # than this is refused, which is the "declines to declare" rule applied to
