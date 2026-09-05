@@ -51,6 +51,8 @@ IMPLEMENTED = {
     "誤報率は個体の単位で": "n_tests",             # docs/294
     "漂流と有効期限の軸": "ChannelFingerprint",     # 決定。docs/312
     "遅い側は傾きの変化を見る": "ChannelFingerprint",  # docs/317
+    "要求する誤報率は工程時間が決める": "_calibrate",   # docs/321
+    "検証にも同じ時間が要る": "_calibrate",             # docs/321
     "再取得の条件": "cv_shift",
 }
 
