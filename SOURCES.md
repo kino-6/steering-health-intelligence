@@ -152,6 +152,7 @@
   | `data/extrapolation_direction.tsv` | `scripts/extrapolation_direction.py` | 応力群を抜いたときの符号付き偏り（23 個体） |
   | `data/supply_tolerance.tsv` | `scripts/supply_tolerance.py` | 電源変動を注入したときの誤報・検出（3 本 vs 8 本） |
   | `data/lone_sibling.tsv` | `scripts/lone_sibling.py` | 4 本目を入れ替えたときの誤報と、除去の相手だけ与えた場合 |
+  | `data/assist_capability.tsv` | `scripts/assist_capability.py` | 測った R_on から計算したアシスト能力（6 素子 × 7 run） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
