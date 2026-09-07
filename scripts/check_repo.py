@@ -15,6 +15,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 ROOT = Path(__file__).resolve().parent.parent
 DOCS, DATA, SCRIPTS = ROOT / "docs", ROOT / "data", ROOT / "scripts"
 
@@ -159,24 +161,25 @@ def check_wording() -> list[str]:
 
 
 def check_plain_japanese() -> list[str]:
-    """AGENTS.md 3.1: plain Japanese, in the documents too.
+    """AGENTS.md 3.1, delegated to scripts/check_plain_ja.py.
 
-    2026-09-07, the user on a generated report: "レポートの記述が気持ち悪すぎる。
-    どこからこんな文体学んだの?" The em dash was doing most of the damage --
-    it lets a clause be inserted where a sentence should have ended, and the
-    habit spread from the reports into the documents and the commit messages.
+    2026-09-07 the user asked how plain Japanese could be detected at all, and
+    said a gate looked hard. It is hard for the register; it is not hard for
+    the specific habits. check_plain_ja.py holds the three tiers and its
+    --measure mode is how the noun-stop heuristic's false-positive rate was
+    set (3.2 percent of prose lines, spot-checked as real).
 
-    A warning rather than a block: about a hundred existing documents carry it,
-    and rewriting them is a separate decision. New writing gets flagged.
+    A warning rather than a block: the existing documents carry hundreds of
+    hits and rewriting them is a separate decision.
     """
+    import check_plain_ja as pj
     out = []
     for f in md_files():
         if f.name in ("AGENTS.md", "CHECKS.md", "TROUBLES.md"):
             continue
-        for i, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
-            if "——" in line or "――" in line:
-                out.append(f"{f.relative_to(ROOT)}:{i} 「——」で文をつながない "
-                           f"(AGENTS.md 3.1) -- {line.strip()[:60]}")
+        hard, soft = pj.check(f)
+        for x in hard + soft:
+            out.append(f"{f.relative_to(ROOT)}:{x}")
     return out
 
 

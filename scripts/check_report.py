@@ -164,22 +164,12 @@ def main() -> int:
             bad.append(f"「答え」が、登録した問いのどの語にも触れていない。"
                        f"問い: {head[:60]} / 語: {'、'.join(terms[:6])}")
 
-    m = NO_COMPANY.search(text)
-    if m:
-        bad.append(f"「{m.group()}」 — 帰属先の会社は存在しない(AGENTS.md ルール0)。"
-                   f"この研究の中でだけ通じる語は「この研究の用語」と呼ぶ")
-    m = ORNATE.search(text)
-    if m:
-        bad.append("「——」 — 挿入で文をつながない。文を切って接続詞を使う(AGENTS.md 3.1)")
-    for i, l in enumerate(lines, 1):
-        if l.startswith(("|", "#", "-", ">")) or not l.strip():
-            continue
-        for s in re.split(r"(?<=[。！？])", l):
-            plain = re.sub(r"\[([^\]]*)\]\([^)]*\)|[*`]", r"\1", s).strip()
-            if len(plain) > MAX_SENTENCE:
-                bad.append(f"{i}行目 1文が {len(plain)} 文字。"
-                           f"{MAX_SENTENCE} 文字以内に切る(AGENTS.md 3.1): {plain[:40]}…")
-                break
+    # AGENTS.md 3.1, same detector the repo check uses. A report is short
+    # enough that the noun-stop warnings are worth blocking on too -- unlike
+    # the documents, there is no backlog to grandfather.
+    import check_plain_ja as pj
+    hard, soft = pj.check(path)
+    bad += hard + soft
 
     if len(text) > MAX_CHARS:
         bad.append(f"全体 {len(text)} 文字。{MAX_CHARS} 文字以内にする")
