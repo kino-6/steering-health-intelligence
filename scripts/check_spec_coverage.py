@@ -53,6 +53,7 @@ IMPLEMENTED = {
     "遅い側は傾きの変化を見る": "ChannelFingerprint",  # docs/317
     "要求する誤報率は工程時間が決める": "_calibrate",   # docs/321
     "検証にも同じ時間が要る": "_calibrate",             # docs/321
+    "検定数はライン時間と同相除去の交換になる": "n_tests",  # docs/323
     "再取得の条件": "cv_shift",
 }
 

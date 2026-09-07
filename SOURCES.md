@@ -148,6 +148,7 @@
   | `data/unit_ledger.tsv` | `scripts/unit_ledger.py` | 1 個体の不揮発・通信の量と書き込み回数（実測パック） |
   | （画面出力のみ） | `scripts/unit_trace.py` | 1 個体の指紋・バスフレーム・記録の実バイト列 |
   | `data/enrolment_length.tsv` | `scripts/enrolment_length.py` | 登録標本数を変えたときの実測誤報率と発火（6 素子） |
+  | `data/test_count.tsv` | `scripts/test_count.py` | 検定数を絞ったときの検出・誤報・ライン時間（実インバータ） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
