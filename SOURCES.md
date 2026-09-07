@@ -155,6 +155,7 @@
   | `data/assist_capability.tsv` | `scripts/assist_capability.py` | 測った R_on から計算したアシスト能力（6 素子 × 7 run） |
   | `data/power_module_model.tsv` | `scripts/power_module_model.py` | 30 バイトの記録・2 バイトのバスからの能力復元と誤差 |
   | `data/capability_trace.tsv` | `scripts/capability_trace.py` | バスフレームから連続で出した能力の軌跡（6 素子） |
+  | `data/alarm_rate_relevance.tsv` | `scripts/alarm_rate_relevance.py` | 誤報の目標を振ったときの記録件数と分離（6 素子 × 5 水準） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 出荷時基準値倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
