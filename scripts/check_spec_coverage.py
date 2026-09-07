@@ -53,6 +53,7 @@ IMPLEMENTED = {
     "遅い側は傾きの変化を見る": "ChannelFingerprint",  # docs/317
     "要求する誤報率は工程時間が決める": "_calibrate",   # docs/321
     "検証にも同じ時間が要る": "_calibrate",             # docs/321
+    "同種チャネルは除去の相手として持たせる（検定には加えない）": "common_mode_reject",  # docs/329
     "検定数は減らせない（電源変動が阻む）": "n_tests",        # docs/323 → docs/327 で取り下げ
     "電源変動では黙る。ただし小さい変動が危ない": "op_lo",     # docs/327。掃引範囲外は宣言しない
     "他個体から学んだ量は物理範囲に当てる": "forbidden_fields",  # docs/325。記録器は群をまたぐモデルを持たない
