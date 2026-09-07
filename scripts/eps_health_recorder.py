@@ -109,7 +109,7 @@ class Record:
     def describe(self) -> str:
         if not self.validity:
             return (f"[{self.seconds_since_key_on:>5}s] 宣言しない "
-                    f"(動作点が指紋の範囲外)")
+                    f"(動作点が出荷時基準値の範囲外)")
         which = []
         if self.flags & Record.FAST:
             which.append("速い側")
@@ -390,7 +390,7 @@ def fired(records: Iterable[Record]) -> bool:
 if __name__ == "__main__":
     bad = forbidden_fields()
     print("禁じられた語を含む欄:", bad if bad else "なし")
-    print(f"指紋 1チャネル {len(struct.pack(FP_FMT, *([0.0] * 12)))} バイト")
+    print(f"出荷時基準値 1チャネル {len(struct.pack(FP_FMT, *([0.0] * 12)))} バイト")
     print(f"記録 1件      {len(Record(0,0,0,0,0,0,0,0,0,1).pack())} バイト")
     # docs/265: float32 does not reproduce float64 bit for bit, so exact
     # equality is the wrong test. What matters is whether the rounding could

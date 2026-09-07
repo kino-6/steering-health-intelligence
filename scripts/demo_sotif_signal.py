@@ -144,7 +144,7 @@ def main() -> None:
 
     # ---------------------------------------------------------------- D3
     print(f"\n=== D3 搭載時に出るもの(1回のキーオンからキーオフまで) ===")
-    print(f"出荷時: {len(fp.admitted)} チャネルを採用、指紋 {len(fp.pack())} バイト、"
+    print(f"出荷時: {len(fp.admitted)} チャネルを採用、出荷時基準値 {len(fp.pack())} バイト、"
           f"較正できた誤報 {ach:.1f} 件/時\n")
     session = np.vstack([normal[half:half + 600], faults["HB1_LOW_SIDE_SC"]])
     rs = ehr.Recorder(fp).run_session(*as_dicts(session), siblings=SIBLINGS,

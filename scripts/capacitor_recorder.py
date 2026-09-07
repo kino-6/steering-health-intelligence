@@ -145,7 +145,7 @@ def main() -> None:
                          "cv": int(passes)})
 
     nu = len(units)
-    print(f"\n=== X1 指紋区間の標本数 ===")
+    print(f"\n=== X1 出荷時基準値区間の標本数 ===")
     c = int(n_samp * FP_FRAC) if n_samp else 0
     print(f"  {c:,} / 個体  (要件 36,000)  {'PASS' if c >= 10000 else 'FAIL'} (基準 10,000以上)")
     print(f"  刻める最小の誤報率 = 1/{c:,} = {1/c*HOUR:.2f} 件/時" if c else "")
@@ -160,7 +160,7 @@ def main() -> None:
             print(f"  {nm:>12}: {fired[nm]}/{cv_ok[nm]}  "
                   f"{'PASS' if fired[nm] > cv_ok[nm]/2 else 'FAIL'}")
 
-    print(f"\n=== X4 指紋区間での誤報 ===")
+    print(f"\n=== X4 出荷時基準値区間での誤報 ===")
     for nm in NAMES:
         if cv_ok[nm]:
             r = fa_worst[nm] / design

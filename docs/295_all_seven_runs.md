@@ -12,7 +12,7 @@
 ## 何が起きていたか
 
 `scripts/real_degradation.py` の `device_series()` が `for r in (1, 2, 3)` だった。
-これは [docs/167](167_precursor_results_v2.md) が**指紋の当てはめ窓**として run 1〜3 を使った名残で、
+これは [docs/167](167_precursor_results_v2.md) が**出荷時基準値の当てはめ窓**として run 1〜3 を使った名残で、
 [docs/265](265_element_v2_results.md) の `element_v2.nasa_units()` がそれを**データ全体**として写し、
 `slow_channel.py`・`power_stage_observables.py` がそのまま継いだ。
 

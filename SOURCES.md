@@ -118,7 +118,7 @@
   | `data/step_detector.tsv` | `scripts/step_detector.py` | 段差型検出器の最小検出振幅と走査の代償（4行） |
   | `data/thermal_index.tsv` | `scripts/thermal_index.py` | 動作点を合わせた熱の非対称指数（18行） |
   | `data/no_data_decisions.tsv` | `scripts/no_data_decisions.py` | 必要なADC分解能と、部品内部での持続の効き（KAIST 3機体と NASA S8 共同） |
-  | `data/temperature_span.tsv` | `scripts/temperature_span.py` | 指紋の直線1本が持つ温度幅（6素子×8幅。NASA S8と共同） |
+  | `data/temperature_span.tsv` | `scripts/temperature_span.py` | 出荷時基準値の直線1本が持つ温度幅（6素子×8幅。NASA S8と共同） |
   | `data/element_v2.tsv` | `scripts/element_v2.py` | 記録器の実装検証（6素子。バイト数・沈黙・量子化耐性） |
   | `data/sotif_sheet_audit.tsv` | `scripts/sotif_sheet_audit.py` | EooCシートが実装より強い主張をしていないかの照合 |
   | `data/real_degradation.tsv` | `scripts/real_degradation.py` | 本物の劣化に記録器を通した結果（NASA 6素子＋KAIST 3機体） |
@@ -126,7 +126,7 @@
   | `data/power_stage_observables.tsv` | `scripts/power_stage_observables.py` | 過渡記録の3量。記録順と温度の両方で当てた結果 |
   | `data/field_mechanism.tsv` | `scripts/field_mechanism.py` | 断続症状の苦情が名指しする機構（6分類。NHTSA FLAT_CMPLと共同） |
   | `data/inverter_recorder.tsv` | `scripts/inverter_recorder.py` | 実インバータ8故障×8チャネルの発火と誤報 |
-  | `data/fingerprint_interval.tsv` | `scripts/fingerprint_interval.py` | 定常性で選んだ指紋区間と、その誤報・検出 |
+  | `data/fingerprint_interval.tsv` | `scripts/fingerprint_interval.py` | 定常性で選んだ出荷時基準値区間と、その誤報・検出 |
   | `data/igbt_recorder.tsv` | `scripts/igbt_recorder.py` | スイッチ動作IGBT 4素子×3観測量の交差検証と発火 |
   | `data/calibration_budget.tsv` | `scripts/calibration_budget.py` | 各データセットが刻める最小の誤報率（5行） |
   | `data/capacitor_recorder_ES10.tsv` | `scripts/capacitor_recorder.py` | コンデンサ10V群7個体の交差検証・発火・誤報 |
@@ -146,7 +146,7 @@
   | `data/boundary_vs_refresh.tsv` | `scripts/boundary_vs_refresh.py` | 境界案と採り直し案の誤報・発火（6 素子 × 4 モード） |
   | `data/changepoint.tsv` | `scripts/changepoint.py` | 傾きの変化による検出。誤報と初発火（6 素子） |
   | `data/unit_ledger.tsv` | `scripts/unit_ledger.py` | 1 個体の不揮発・通信の量と書き込み回数（実測パック） |
-  | （画面出力のみ） | `scripts/unit_trace.py` | 1 個体の指紋・バスフレーム・記録の実バイト列 |
+  | （画面出力のみ） | `scripts/unit_trace.py` | 1 個体の出荷時基準値・バスフレーム・記録の実バイト列 |
   | `data/enrolment_length.tsv` | `scripts/enrolment_length.py` | 登録標本数を変えたときの実測誤報率と発火（6 素子） |
   | `data/test_count.tsv` | `scripts/test_count.py` | 検定数を絞ったときの検出・誤報・ライン時間（実インバータ） |
   | `data/extrapolation_direction.tsv` | `scripts/extrapolation_direction.py` | 応力群を抜いたときの符号付き偏り（23 個体） |
@@ -155,7 +155,7 @@
   | `data/assist_capability.tsv` | `scripts/assist_capability.py` | 測った R_on から計算したアシスト能力（6 素子 × 7 run） |
   | `data/power_module_model.tsv` | `scripts/power_module_model.py` | 30 バイトの記録・2 バイトのバスからの能力復元と誤差 |
   | `data/capability_trace.tsv` | `scripts/capability_trace.py` | バスフレームから連続で出した能力の軌跡（6 素子） |
-  | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 指紋倍率別の沈黙割合（4行） |
+  | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 出荷時基準値倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
   なお、このデータセットは**正常動作中の車両のログ**であり、故障データではない。故障検知の実証には使えない。
@@ -237,7 +237,7 @@
   | `data/mosfet_precursor_v2.tsv` | `scripts/mosfet_precursor_v2.py` | 同上、温度除去後（42行） |
   | `data/instability_precursor.tsv` | `scripts/instability_precursor.py` | run別の水準逸脱とばらつき（42行） |
   | `data/str_capability_rule.tsv` | `scripts/str_capability_rule.py` | STR capability 指標と3監視の発火run（42行） |
-  | `data/capability_declaration_limits.tsv` | `scripts/capability_declaration_limits.py` | 指紋幅の要求とRth仮定の感度（20行） |
+  | `data/capability_declaration_limits.tsv` | `scripts/capability_declaration_limits.py` | 出荷時基準値幅の要求とRth仮定の感度（20行） |
   | `data/pulse_thermal_path.tsv` | `scripts/pulse_thermal_path.py` | パルス自己発熱による熱経路指標（42行） |
   | `data/thermal_headroom_translation.tsv` | `scripts/thermal_headroom_translation.py` | 熱余裕損失への換算（54行） |
   | `data/thermal_resistance_measured.tsv` | `scripts/thermal_resistance_measured.py` | 熱抵抗の直接測定（42行、分離不能の記録） |

@@ -17,12 +17,12 @@
 
 | 仕様 | 実装 | 出所 |
 |---|---|---|
-| 個体指紋・逸脱・宣言しない | `enrol()` / `Recorder.run_session()` | [docs/196](196_eps_health_element.md), [docs/265](265_element_v2_results.md) |
+| 個体ごとの出荷時基準値・逸脱・宣言しない | `enrol()` / `Recorder.run_session()` | [docs/196](196_eps_health_element.md), [docs/265](265_element_v2_results.md) |
 | **同相除去** | `common_mode_reject()` | [docs/286](286_common_mode_results.md) |
 | **2つの時間尺度を独立に** | `Record.FAST` / `Record.SLOW` を別々に判定 | [docs/269](269_real_degradation_results.md) |
 | **チャネルの採否** | `ChannelFingerprint.admitted` | [docs/280](280_fingerprint_interval_results.md) |
 | キーオン経過時間・持続 | `seconds_since_key_on` / `HELD_TO_KEY_OFF` | [docs/259](259_spec_revision_persistent.md) |
-| 30バイトの記録・48バイトの指紋 | `Record.pack()` / `ChannelFingerprint.pack()` | [docs/265](265_element_v2_results.md) |
+| 30バイトの記録・48バイトの出荷時基準値 | `Record.pack()` / `ChannelFingerprint.pack()` | [docs/265](265_element_v2_results.md) |
 | 主張してはならない7項目 | `forbidden_fields()` が欄名を機械検査 | [docs/225](225_recorder_specification.md) |
 
 ## 実装して初めて分かったこと

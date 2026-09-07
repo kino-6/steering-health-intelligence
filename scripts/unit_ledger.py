@@ -56,7 +56,7 @@ def main() -> None:
     unit_fp = fp_b * CHANNELS
 
     print("=== 1 個体・不揮発(NVM) ===")
-    print(f"  出荷時に一度だけ書く指紋   {fp_b} B/ch x {CHANNELS} ch = {unit_fp} B")
+    print(f"  出荷時に一度だけ書く出荷時基準値   {fp_b} B/ch x {CHANNELS} ch = {unit_fp} B")
     print(f"  事象ごとに追記する記録     {rec_b} B/件")
     print(f"  累積ストレス カウンタ      {struct.calcsize('<I')} B。キーオフ時に 1 回だけ更新")
     print(f"\n  保持 {RETENTION_D} 日ぶんの追記量は、暦日ではなくアシスト稼働時間で決まる:")
@@ -82,7 +82,7 @@ def main() -> None:
         print(f"    {name:<20} {bus_b*hz:>6} B/s = {per_h/1048576:>6.2f} MiB/稼働時間"
               f"  ({RETENTION_D} 日ぶんは保存しない)")
         rows.append(("bus_cyclic", name, hz, bus_b * hz, per_h, 0, "周期"))
-    print(f"\n  入庫時の吸い出し(1 回)     指紋 {unit_fp} B + 記録の全量")
+    print(f"\n  入庫時の吸い出し(1 回)     出荷時基準値 {unit_fp} B + 記録の全量")
     for label, rate, _ in RATES:
         b = unit_fp + rate * 500 * rec_b
         print(f"    {label:<24} {b/1024:>8.1f} KiB  (稼働 500 h ぶん)")

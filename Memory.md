@@ -19,7 +19,7 @@
 > - **規律を自動化した**: [CHECKS.md](CHECKS.md)。pre-commit hookで禁止語・未棚卸しデータ・事前登録順序を止める
 > - **仕様まで到達した**: [docs/225](docs/225_recorder_specification.md)。常時武装・5秒以上の窓・**397日保持**・
 >   **36バイトの個体基準**・**1件24バイト**。**落ちた検証が「主張してはならないこと」7件を決めている。**
->   実車ログで動かすと、指紋が狭ければ**65〜81%黙る**([docs/229](docs/229_recorder_simulation_results.md))
+>   実車ログで動かすと、出荷時基準値が狭ければ**65〜81%黙る**([docs/229](docs/229_recorder_simulation_results.md))
 > - **OpenLKAは取得しない**と判断([docs/214](docs/214_dataset_reinventory_2026_08.md))。DBC未整備で温度信号が確認できず、500 GB超を1欄のために賭けない
 
 ## 旧・現在地(2026-07-15 時点)

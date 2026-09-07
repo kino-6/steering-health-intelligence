@@ -185,7 +185,7 @@ def main() -> None:
     print("=== M1 禁じられた出力を持たないか ===")
     bad = check_forbidden()
     print(f"  出力の欄: " + ", ".join(f.name for f in fields(Record)))
-    print(f"  指紋の欄: " + ", ".join(f.name for f in fields(Fingerprint)))
+    print(f"  出荷時基準値の欄: " + ", ".join(f.name for f in fields(Fingerprint)))
     print(f"  禁じられた語を含む欄: {bad if bad else 'なし'}  "
           f"{'PASS' if not bad else 'FAIL'}")
 
@@ -199,9 +199,9 @@ def main() -> None:
     any_fp = next(iter(fps.values()))
     nb_fp, nb_rec = len(any_fp.pack()), len(Record(0, 0, 0, 0, 0, 0, 0, 0, 0, 1).pack())
     nb_fp3 = len(any_fp.pack_full())
-    print(f"  指紋 1次元 {nb_fp} バイト × 2機構 = {nb_fp*2} バイト  (docs/196 の 36)  "
+    print(f"  出荷時基準値 1次元 {nb_fp} バイト × 2機構 = {nb_fp*2} バイト  (docs/196 の 36)  "
           f"{'PASS' if nb_fp*2 <= 36 else 'FAIL'}")
-    print(f"  指紋 3次元 {nb_fp3} バイト × 2機構 = {nb_fp3*2} バイト  "
+    print(f"  出荷時基準値 3次元 {nb_fp3} バイト × 2機構 = {nb_fp3*2} バイト  "
           f"{'**予算超過**' if nb_fp3*2 > 36 else ''}")
     print(f"  1事象  {nb_rec} バイト  (予算 27)  {'PASS' if nb_rec <= 27 else 'FAIL'}")
     # float32 does not reproduce a float64 bit for bit, so exact equality is

@@ -126,7 +126,7 @@ def evaluate(dev, refuse, drift, fp_slice="cal"):
 
 
 def main() -> None:
-    modes = [("F0' docs/299 の指紋(run1 前半)", False, False, "fp"),
+    modes = [("F0' docs/299 の出荷時基準値(run1 前半)", False, False, "fp"),
              ("F0 較正区間に当てる", False, False, "cal"),
              ("F1 のみ", True, False, "cal"),
              ("F2 のみ", False, True, "cal"),

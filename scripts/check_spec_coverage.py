@@ -53,7 +53,7 @@ IMPLEMENTED = {
     "遅い側は傾きの変化を見る": "ChannelFingerprint",  # docs/317
     "要求する誤報率は工程時間が決める": "_calibrate",   # docs/321
     "検証にも同じ時間が要る": "_calibrate",             # docs/321
-    "指紋は物理に当ててから採用する": "admitted",           # docs/333。傾きの符号
+    "出荷時基準値は物理に当ててから採用する": "admitted",           # docs/333。傾きの符号
     "アシスト能力は記録から復元できる": "ChannelFingerprint",  # docs/333。a・b・g で足りる
     "同種チャネルは除去の相手として持たせる（検定には加えない）": "common_mode_reject",  # docs/329
     "検定数は減らせない（電源変動が阻む）": "n_tests",        # docs/323 → docs/327 で取り下げ

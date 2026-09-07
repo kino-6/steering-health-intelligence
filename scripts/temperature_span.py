@@ -136,7 +136,7 @@ def main() -> None:
               f"{'個体ごとに変える必要は薄い' if max(vals)/min(vals) <= 3 else '個体ごとに変える必要がある'}")
         print(f"\n=== W3 190 °C(自動車の -40〜150 °C)を覆うのに要る直線の本数 ===")
         print(f"  最も狭い素子で {int(np.ceil(190 / min(vals)))} 本  "
-              f"→ 指紋は 36バイト × {int(np.ceil(190 / min(vals)))} = "
+              f"→ 出荷時基準値は 36バイト × {int(np.ceil(190 / min(vals)))} = "
               f"{36 * int(np.ceil(190 / min(vals)))} バイト")
         print(f"  **190 °C は自動車の範囲として置いた仮定であり、測定範囲外への外挿である**")
 

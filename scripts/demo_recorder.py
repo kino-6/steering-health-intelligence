@@ -55,7 +55,7 @@ def main() -> None:
               f"{c.cv_shift:>9.2f} {('採用' if c.admitted else '除外'):>6} "
               f"{c.alarm_per_hour_fast:>11.0f} / {c.alarm_per_hour_slow:.1f} 件/時")
     print(f"\n宣言に使うチャネル: {', '.join(fp.admitted)}")
-    print(f"指紋 {len(fp.pack())} バイト "
+    print(f"出荷時基準値 {len(fp.pack())} バイト "
           f"({len(fp.channels)} チャネル x 56)")
 
     # what the enrolment can actually certify (docs/282). Asking for finer

@@ -130,7 +130,7 @@ NASA試験機は素子をスイッチとして一度も動かしていない。
 | **窓長** | **5秒以上** | [223](223_window_and_firmware_results.md) — 平均は白色雑音より1.6〜2.3倍効きが悪い |
 | **保持** | **不揮発。最低397日(約13か月)** | [213](213_trigger_conditions_results.md) [227](227_filling_spec_blanks_results.md) — 車検2,234万台のp90 |
 | **個体基準** | **36バイト。**firmware更新後は取り直す | [196](196_eps_health_element.md) [223](223_window_and_firmware_results.md) |
-| **指紋の掃引幅** | **1走行の6.5〜34.8倍** | [227](227_filling_spec_blanks_results.md) |
+| **出荷時基準値の掃引幅** | **1走行の6.5〜34.8倍** | [227](227_filling_spec_blanks_results.md) |
 | **不足したときの代償** | **時間の65.6〜80.7%を黙る** | [229](229_recorder_simulation_results.md) |
 | **出力** | **1件24バイト。**容量は障害にならない | [229](229_recorder_simulation_results.md) |
 | **主張しないこと** | **7件**(早期警報・能力値・場所特定ほか) | [225](225_recorder_specification.md) |

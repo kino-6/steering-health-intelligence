@@ -143,7 +143,7 @@ def main() -> None:
     print(f"  最良 {best_obs}: {best_n}/{n_dev}  "
           f"{'PASS' if best_n > n_dev / 2 else 'FAIL'} (基準 過半)")
 
-    print(f"\n=== I3 指紋区間での誤報 ===")
+    print(f"\n=== I3 出荷時基準値区間での誤報 ===")
     fas = [r["fa"] for r in rows if r["cv"]]
     if fas:
         w = max(fas) / design
