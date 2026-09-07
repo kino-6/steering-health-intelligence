@@ -158,6 +158,28 @@ def check_wording() -> list[str]:
     return out
 
 
+def check_plain_japanese() -> list[str]:
+    """AGENTS.md 3.1: plain Japanese, in the documents too.
+
+    2026-09-07, the user on a generated report: "レポートの記述が気持ち悪すぎる。
+    どこからこんな文体学んだの?" The em dash was doing most of the damage --
+    it lets a clause be inserted where a sentence should have ended, and the
+    habit spread from the reports into the documents and the commit messages.
+
+    A warning rather than a block: about a hundred existing documents carry it,
+    and rewriting them is a separate decision. New writing gets flagged.
+    """
+    out = []
+    for f in md_files():
+        if f.name in ("AGENTS.md", "CHECKS.md", "TROUBLES.md"):
+            continue
+        for i, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+            if "——" in line or "――" in line:
+                out.append(f"{f.relative_to(ROOT)}:{i} 「——」で文をつながない "
+                           f"(AGENTS.md 3.1) -- {line.strip()[:60]}")
+    return out
+
+
 def _first_commit(path: Path) -> str:
     r = subprocess.run(["git", "log", "--diff-filter=A", "--format=%H", "--", str(path)],
                        cwd=ROOT, capture_output=True, text=True)
@@ -415,6 +437,7 @@ CHECKS = [
     ("spec coverage", check_spec_coverage, True, "docs/225 の各行が実装・測定値・見送りに分類されているか"),
     ("forbidden output", check_forbidden_output, True, "要素が主張しないと決めた欄を持っていないか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
+    ("plain japanese", check_plain_japanese, False, "凝った言い回しを使っていないか (AGENTS.md 3.1)"),
 ]
 
 

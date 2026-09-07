@@ -61,6 +61,14 @@ UNCHECKABLE = re.compile(r"公開データでは決まらな|公開情報では(
 # own paperwork. 2026-09-01: a report opened with "every blank in the
 # specification is filled", which is bookkeeping, not an answer.
 BOOKKEEPING = re.compile(r"空欄|仕様書?が|検証|事前登録|文書|判定|棚卸|登録簿|Repo")
+# AGENTS.md rule 0, applied to the report as well as to the documents. The
+# repo check only reads md files, so a report could carry the word and pass.
+NO_COMPANY = re.compile(r"自社|当社|弊社|社内")
+# AGENTS.md 3.1, 2026-09-07: "レポートの記述が気持ち悪すぎる。どこからこんな文体
+# 学んだの?" The em dash was the main carrier -- it let a clause be inserted
+# instead of a sentence being ended.
+ORNATE = re.compile(r"——|――")
+MAX_SENTENCE = 90                    # characters, per sentence
 # what belongs in 前回からの変化, never in the answer's opening sentence (T37)
 DELTA = re.compile(r"前回|取り下げ|撤回|戻ります|戻る|変わりません|変わらない|"
                    r"変わったのは|になりました|なりました|閉じ(た|ました)")
@@ -155,6 +163,23 @@ def main() -> int:
         if terms and not any(t in ans for t in terms):
             bad.append(f"「答え」が、登録した問いのどの語にも触れていない。"
                        f"問い: {head[:60]} / 語: {'、'.join(terms[:6])}")
+
+    m = NO_COMPANY.search(text)
+    if m:
+        bad.append(f"「{m.group()}」 — 帰属先の会社は存在しない(AGENTS.md ルール0)。"
+                   f"この研究の中でだけ通じる語は「この研究の用語」と呼ぶ")
+    m = ORNATE.search(text)
+    if m:
+        bad.append("「——」 — 挿入で文をつながない。文を切って接続詞を使う(AGENTS.md 3.1)")
+    for i, l in enumerate(lines, 1):
+        if l.startswith(("|", "#", "-", ">")) or not l.strip():
+            continue
+        for s in re.split(r"(?<=[。！？])", l):
+            plain = re.sub(r"\[([^\]]*)\]\([^)]*\)|[*`]", r"\1", s).strip()
+            if len(plain) > MAX_SENTENCE:
+                bad.append(f"{i}行目 1文が {len(plain)} 文字。"
+                           f"{MAX_SENTENCE} 文字以内に切る(AGENTS.md 3.1): {plain[:40]}…")
+                break
 
     if len(text) > MAX_CHARS:
         bad.append(f"全体 {len(text)} 文字。{MAX_CHARS} 文字以内にする")
