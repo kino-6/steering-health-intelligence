@@ -9,6 +9,7 @@ deliberately would depend on exactly the attention that is missing.
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,8 +32,17 @@ def main() -> None:
             print(f"  {cells[0]} — {cells[1]} (過去{cells[2]}回)")
     if len(rows) > TOP:
         print(f"  ...ほか{len(rows) - TOP}型。全文は TROUBLES.md")
-    print("  最多のT14は6回とも自分では気づけずユーザ指摘で判明している。"
-          "「無い」と書く前に探索の軸を変えてもう一度探すこと。")
+    # Counted rather than asserted. The user has said more than once that
+    # pointing these out is their work, not mine to leave to them -- so the
+    # tally is printed every session instead of living in one sentence that
+    # goes stale.
+    body = REG.read_text(encoding="utf-8")
+    caught = len(re.findall(r"ユーザ指摘", body))
+    types = len(re.findall(r"^## T\d+ ", body, re.M))
+    print(f"  登録された型 {types} のうち、**{caught} 箇所がユーザ指摘で判明している。**"
+          "自分では気づけていない。")
+    print("  結論を書く前に: 「無い・不可能」と書いていないか、"
+          "書いているなら**部品が出さないと決めたのか、計算もできないのか**を割ること(T38)。")
 
 
 if __name__ == "__main__":
