@@ -306,6 +306,7 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/321](docs/321_enrolment_length_results.md) | 予算律速か漂流律速か**決着せず**。保留区間 0.07 時間では 14 件/時 より下を区別できない |
 | [docs/323](docs/323_test_count_results.md) | G1 **外れた**（1 本では 6/8）。G2 は 3 本＝ライン 6 時間。**選ばれる 3 本は同相除去が働かない** |
 | [docs/325](docs/325_extrapolation_direction_results.md) | D2 **外れた**。偏りの向きが逆（劣化しすぎではなく劣化しなさすぎ）。**回帰は平均に戻らず、当てはめを延長する** |
+| [docs/327](docs/327_supply_tolerance_results.md) | S1 = 0%。**docs/323 のライン 6 時間を取り下げた。**電源 1% で誤報 30 倍。8 本構成は 30% まで無傷 |
 
 ---
 
