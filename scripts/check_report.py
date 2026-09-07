@@ -61,6 +61,9 @@ UNCHECKABLE = re.compile(r"公開データでは決まらな|公開情報では(
 # own paperwork. 2026-09-01: a report opened with "every blank in the
 # specification is filled", which is bookkeeping, not an answer.
 BOOKKEEPING = re.compile(r"空欄|仕様書?が|検証|事前登録|文書|判定|棚卸|登録簿|Repo")
+# what belongs in 前回からの変化, never in the answer's opening sentence (T37)
+DELTA = re.compile(r"前回|取り下げ|撤回|戻ります|戻る|変わりません|変わらない|"
+                   r"変わったのは|になりました|なりました|閉じ(た|ました)")
 
 MAX_CHARS = 1400
 MAX_ANSWER_SENTENCES = 3
@@ -106,6 +109,16 @@ def main() -> int:
         bad.append(f"「答え」が{n}文ある。{MAX_ANSWER_SENTENCES}文以内にする")
     if not ans:
         bad.append("「答え」が空である")
+
+    # 2026-09-07, T37. The section checks all passed while the answer said
+    # "I withdraw last round's six hours" -- a delta, in vocabulary that only
+    # means something inside my own work. The first sentence is the one the
+    # reader takes as the answer, so it is the one that has to answer.
+    first = next((s for s in re.split(r"[。！？]", ans) if s.strip()), "")
+    m = DELTA.search(first)
+    if m:
+        bad.append(f"「答え」の第1文が「{m.group()}」 — 前回からの差分である。"
+                   f"第1文は問いへの答えにする。差分は「前回からの変化」へ")
 
     b0 = next((i for i, l in enumerate(lines) if l.startswith("## この答えが崩れる条件")), None)
     if b0 is not None:
