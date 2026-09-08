@@ -50,7 +50,14 @@ def series(dev):
         rid.append(np.full(len(ron), r))
     y, op, rid = np.concatenate(y), np.concatenate(op), np.concatenate(rid)
     n1 = int((rid == 1).sum())
-    ref = float(np.median(op[:n1 // 2]))
+    # 2026-09-08 correction. The reference was the median of run 1's first
+    # half, and the rig lowers its setpoint ten degrees per run, so run 1 is
+    # the hottest: every later sample sat below it and the excess was exactly
+    # zero from run 2 onward. The axis froze, and the slope regression that
+    # docs/317 reports was dividing rounding noise by rounding noise
+    # (denominator 2e2 against a scale of 5.6e13). The reference has to be a
+    # resting temperature, not the hottest run's centre.
+    ref = float(np.percentile(op, 5))
     stress = np.cumsum(np.maximum(op - ref, 0.0))    # docs/312 accumulated thermal load
     return y, op, rid, stress, n1
 
