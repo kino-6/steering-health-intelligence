@@ -315,6 +315,7 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/329](docs/329_lone_sibling_results.md) | L1・L3 **外れた**。「独りだから跳ねる」は不成立。**手当て（L2）は効くが機構は未解明** |
 | [docs/336](docs/336_alarm_rate_relevance_results.md) | X1 **外れた**（1.3 倍）。X2 は通ったが構成上の恒等式で無効（T40）。**閾値は劣化後にはほとんど効かない** |
 | [docs/338](docs/338_virtual_circuit_results.md) | W2 **外れた**。スイッチング損は感度を変えない（代数で必ずそうなる、T40 の 2 回目）。**出力低下は 3.7〜10.8%** |
+| [docs/341](docs/341_lifetime_simulation_results.md) | 換算表が**壊れた**（実車 3 週間で試験の全寿命）。**°C·時間 は寿命の通貨にならない**という答えになった |
 
 ---
 

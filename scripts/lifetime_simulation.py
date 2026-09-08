@@ -70,42 +70,41 @@ def stress_axis(dev):
     hrs, rid2 = read_epoch(dev)
     if len(hrs) != len(op):
         raise SystemExit(f"Test_{dev}: 時刻 {len(hrs)} 点と観測 {len(op)} 点が合わない")
-    ref = float(np.median(op[: n1 // 2]))
+    # same correction as boundary_vs_refresh (docs/340): the reference is a
+    # resting temperature, not run 1's centre, or the excess is zero from run 2
+    ref = float(np.percentile(op, 5))
     dt = np.diff(hrs, prepend=hrs[0])
-    dt[dt < 0] = 0.0                       # run boundaries
+    dt[dt < 0] = 0.0
+    # the gaps between runs are bench idle time, not operation. Anything longer
+    # than a minute between consecutive conducting samples is not conduction.
+    dt[dt > 1.0 / 60.0] = 0.0
     s = np.cumsum(np.maximum(op - ref, 0.0) * dt)
     return y, op, rid, s, n1, ref, hrs
 
 
 def main() -> None:
-    print("累積ストレス（°C·時間）で見た、検知と故障の位置\n")
-    print(f"{'素子':>8} {'基準値まで':>12} {'検知時点':>12} {'故障直前':>12} "
-          f"{'検知→故障の余裕':>16} {'余裕の割合':>11}")
-    print("-" * 78)
-    rows, det, marg, frac = [], [], [], []
+    print("累積ストレス（°C·時間）で見た、寿命の位置\n")
+    print("docs/340 のとおり、検出器は成立していない。**「検知時点」は出せない。**")
+    print("出せるのは、出荷時基準値を採り終えるまでと、故障までの累積ストレスである。\n")
+    print(f"{'素子':>8} {'通電時間':>10} {'基準値まで':>12} {'故障まで':>12} "
+          f"{'基準値の割合':>13} {'run5以降の割合':>15}")
+    print("-" * 76)
+    rows, ends, enrols = [], [], []
     for dev in mos.DEVICES:
         y, op, rid, s, n1, _ref, hrs = stress_axis(dev)
-        f = first_fire(dev)
         s_enrol = float(s[n1 // 2])
         s_end = float(s[-1])
-        if f is None:
-            print(f"{dev:>8}  検知せず")
-            continue
-        idx = np.where(rid == f)[0]
-        s_det = float(s[idx[0]])
-        m = s_end - s_det
-        print(f"{dev:>8} {s_enrol:>12.1f} {s_det:>12.1f} {s_end:>12.1f} "
-              f"{m:>16.1f} {m/s_end:>10.1%}")
-        det.append(s_det); marg.append(m); frac.append(m / s_end)
-        rows.append((dev, s_enrol, s_det, s_end, m, m / s_end))
+        late = float(s_end - s[np.where(rid >= 5)[0][0]])
+        cond_h = float(np.diff(hrs, prepend=hrs[0]).clip(0, 1 / 60).sum())
+        print(f"{dev:>8} {cond_h:>9.1f}h {s_enrol:>12.1f} {s_end:>12.1f} "
+              f"{s_enrol/s_end:>12.1%} {late/s_end:>14.1%}")
+        ends.append(s_end); enrols.append(s_enrol)
+        rows.append((dev, cond_h, s_enrol, s_end, s_enrol / s_end, late / s_end))
 
-    print(f"\nY1 検知時点の累積ストレス: 中央値 {np.median(det):.1f} °C·時間、"
-          f"範囲 {min(det):.1f}–{max(det):.1f}（{max(det)/min(det):.1f} 倍）")
-    print(f"Y2 検知から故障までの余裕: 中央値 {np.median(marg):.1f} °C·時間、"
-          f"範囲 {min(marg):.1f}–{max(marg):.1f}")
-    r = max(marg) / min(marg) if min(marg) > 0 else float("inf")
-    if r > 3:
-        print("   → 3 倍を超える。**余裕は個体ごとに大きく違う**")
+    print(f"\nY1 故障までの累積ストレス: 中央値 {np.median(ends):,.0f} °C·時間、"
+          f"範囲 {min(ends):,.0f}–{max(ends):,.0f}（{max(ends)/min(ends):.1f} 倍）")
+    print(f"Y2 出荷時基準値を採り終えるまで: 中央値 {np.median(enrols):,.0f} °C·時間 "
+          f"= 寿命の {np.median(enrols)/np.median(ends):.1%}")
 
     # NVM, along the same axis
     print(f"\nY3 不揮発の使用量（検知後から故障までに書かれる分）")
@@ -134,18 +133,19 @@ def main() -> None:
     print(f"  中央値 {np.median(tot):,.0f} 件 = {np.median(tot)*REC_BYTES:,.0f} バイト")
 
     print(f"\n読み手が年に直すための換算")
-    print(f"  検知までに要る累積ストレス S = {np.median(det):.0f} °C·時間（中央値）")
-    print(f"  実車が平均 ΔT °C 超過で年 H 時間走るなら、検知は S/(ΔT·H) 年後\n")
+    print(f"  故障までの累積ストレス S = {np.median(ends):,.0f} °C·時間（中央値）")
+    print(f"  実車が平均 ΔT °C 超過で年 H 時間走るなら、加速なしで S/(ΔT·H) 年\n")
     print(f"{'ΔT':>6} " + " ".join(f"{'H='+str(h)+'h':>10}" for h in (100, 300, 600)))
     for dt in (10, 20, 40, 80):
         print(f"{dt:>5}° " + " ".join(
-            f"{np.median(det)/(dt*h):>10.1f}年" for h in (100, 300, 600)))
+            f"{np.median(ends)/(dt*h):>10.1f}年" for h in (100, 300, 600)))
     print("\n  この表は換算の道具であって、実車の値ではない。"
           "ΔT と H は読み手が入れる。加速係数（活性化エネルギー）は含んでいない")
 
     OUT.parent.mkdir(exist_ok=True)
     with OUT.open("w") as fh:
-        fh.write("device\tstress_enrol\tstress_detect\tstress_end\tmargin\tmargin_frac\n")
+        fh.write("device\tconducting_hours\tstress_enrol\tstress_end\t"
+                 "enrol_frac\tlate_frac\n")
         for r in rows:
             fh.write("\t".join(str(x) for x in r) + "\n")
     print(f"\nwrote {OUT.relative_to(ROOT)}")
