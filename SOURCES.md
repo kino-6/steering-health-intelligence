@@ -161,6 +161,7 @@
   | `data/virtual_module.tsv` | `scripts/virtual_module.py` | 仮想モジュール 200 個体での検出率と誤検知（劣化速度 7 水準） |
   | `data/drift_removal.tsv` | `scripts/drift_removal.py` | 漂流を消す 3 つの手立ての検出率と誤検知（仮想 200 個体） |
   | `data/drift_shape.tsv` | `scripts/drift_shape.py` | 健全区間の漂流の形（α・自己相関・動作点との相関、実 6 素子と仮想） |
+  | `data/reference_channel.tsv` | `scripts/reference_channel.py` | 第 2 の温度を基準に足したときの α・誤報・発火（6 素子） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 出荷時基準値倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
