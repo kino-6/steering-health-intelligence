@@ -320,6 +320,7 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/344](docs/344_virtual_module_detection_results.md) | Z1 **該当なし**。ただし外れたのは検出ではなく誤検知の側。**検出できない理由の書き方を訂正** |
 | [docs/346](docs/346_drift_removal_results.md) | W1 **満たす手立て無し**。仮想では 1.5 件/時 の手立てが**実素子では 4 万件/時**。**模型が実物を写していない** |
 | [docs/350](docs/350_reference_channel_results.md) | R1・R2 **外れた**。第 2 の温度は試験機のヒーター設定だった。**事前の確認で T1 の 7 回目を防いだ** |
+| [docs/352](docs/352_shared_drift_results.md) | P3 **効かない**（1 件/時 に届かない）。ただし実測の共有率では誤検知が 4〜6 分の 1。**線は自分で置いたもの** |
 
 ---
 
