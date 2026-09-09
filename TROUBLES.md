@@ -317,6 +317,7 @@ EooC監視の手順([docs/158](docs/158_sotif_eooc_monitor_demo.md))が、
 | [docs/338](docs/338_virtual_circuit_results.md) | W2 **外れた**。スイッチング損は感度を変えない（代数で必ずそうなる、T40 の 2 回目）。**出力低下は 3.7〜10.8%** |
 | [docs/341](docs/341_lifetime_simulation_results.md) | 換算表が**壊れた**（実車 3 週間で試験の全寿命）。**°C·時間 は寿命の通貨にならない**という答えになった |
 | [docs/344](docs/344_virtual_module_detection_results.md) | Z1 **該当なし**。ただし外れたのは検出ではなく誤検知の側。**検出できない理由の書き方を訂正** |
+| [docs/346](docs/346_drift_removal_results.md) | W1 **満たす手立て無し**。仮想では 1.5 件/時 の手立てが**実素子では 4 万件/時**。**模型が実物を写していない** |
 
 ---
 
