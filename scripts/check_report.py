@@ -69,6 +69,14 @@ NO_COMPANY = re.compile(r"自社|当社|弊社|社内")
 # instead of a sentence being ended.
 ORNATE = re.compile(r"——|――")
 MAX_SENTENCE = 90                    # characters, per sentence
+# AGENTS.md 3.0 / TROUBLES T42. Twice the user read a report as "it cannot be
+# done" when the main part worked and only a side condition did not. An answer
+# that carries only negatives reverses itself on the way to the reader.
+NEGATIVE = re.compile(r"できない|できません|成立しない|成立しません|載らない|載りません|"
+                      r"不可能|持ち込めない|持ち込めません|出せない|出せません|"
+                      r"分からない|分かりません")
+POSITIVE = re.compile(r"できる|できます|成立する|成立します|可能|出る|出ます|"
+                      r"分かる|分かります|載る|載ります|残る|残ります")
 # what belongs in 前回からの変化, never in the answer's opening sentence (T37)
 DELTA = re.compile(r"前回|取り下げ|撤回|戻ります|戻る|変わりません|変わらない|"
                    r"変わったのは|になりました|なりました|閉じ(た|ました)")
@@ -112,7 +120,12 @@ def main() -> int:
     a0 = next(i for i, l in enumerate(lines) if l.startswith("## 答え"))
     a1 = next(i for i, l in enumerate(lines) if i > a0 and l.startswith("## "))
     ans = " ".join(lines[a0 + 1:a1]).strip()
-    n = len([s for s in re.split(r"[。！？]", ans) if s.strip()])
+    # strip markup before counting, or a closing ** after the final 。 counts
+    # as a sentence of its own (found 2026-09-09 on a three-sentence answer)
+    def _sentences(t):
+        return [x for x in (re.sub(r"[*`\s]", "", y)
+                            for y in re.split(r"[。！？]", t)) if x]
+    n = len(_sentences(ans))
     if n > MAX_ANSWER_SENTENCES:
         bad.append(f"「答え」が{n}文ある。{MAX_ANSWER_SENTENCES}文以内にする")
     if not ans:
@@ -122,7 +135,10 @@ def main() -> int:
     # "I withdraw last round's six hours" -- a delta, in vocabulary that only
     # means something inside my own work. The first sentence is the one the
     # reader takes as the answer, so it is the one that has to answer.
-    first = next((s for s in re.split(r"[。！？]", ans) if s.strip()), "")
+    first = next(iter(_sentences(ans)), "")
+    if NEGATIVE.search(ans) and not POSITIVE.search(ans):
+        bad.append("「答え」に否定しかない。**成立する結果も書く。**"
+                   "限界だけを書くと答えが反転して伝わる(AGENTS.md 3.0, T42)")
     m = DELTA.search(first)
     if m:
         bad.append(f"「答え」の第1文が「{m.group()}」 — 前回からの差分である。"
