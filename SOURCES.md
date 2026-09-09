@@ -158,6 +158,7 @@
   | `data/alarm_rate_relevance.tsv` | `scripts/alarm_rate_relevance.py` | 誤報の目標を振ったときの記録件数と分離（6 素子 × 5 水準） |
   | `data/virtual_circuit.tsv` | `scripts/virtual_circuit.py` | 仮想回路 54 条件での出力低下と、拘束の種類 |
   | `data/lifetime_simulation.tsv` | `scripts/lifetime_simulation.py` | 累積ストレス軸での検知・故障の位置（軸の欠陥を発見した実行、docs/340） |
+  | `data/virtual_module.tsv` | `scripts/virtual_module.py` | 仮想モジュール 200 個体での検出率と誤検知（劣化速度 7 水準） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 出荷時基準値倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
