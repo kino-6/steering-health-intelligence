@@ -107,6 +107,34 @@ def check(path: Path, warn_too=True) -> tuple[list[str], list[str]]:
     return hard, soft
 
 
+def check_text(label: str, text: str, warn_too=True) -> tuple[list[str], list[str]]:
+    """Same rules, applied to one string instead of a file.
+
+    2026-09-10. The report is authored as JSON now, so the prose arrives as
+    values rather than as lines of a document, and the file-based entry point
+    could not see it.
+    """
+    hard, soft = [], []
+    plain_line = re.sub(r"<[^>]+>", "", text)
+    for pat, why in BLOCK:
+        m = pat.search(plain_line)
+        if m:
+            hard.append(f"{label} 「{m.group()}」 — {why}")
+    for s in sentences(plain_line):
+        plain = re.sub(r"\[([^\]]*)\]\([^)]*\)|[*`]", r"\1", s)
+        if len(plain) > MAX_SENTENCE:
+            hard.append(f"{label} 1文が {len(plain)} 文字 — {MAX_SENTENCE} 以内に切る")
+        if not warn_too:
+            continue
+        tail = plain.strip()[-2:]
+        if NOUN_STOP.search(tail) and not NOUN_OK.search(tail):
+            soft.append(f"{label} 体言止めの疑い: …{plain.strip()[-18:]}")
+        for w, why in NG:
+            if w in plain:
+                soft.append(f"{label} 「{w}」 — {why}")
+    return hard, soft
+
+
 def measure() -> None:
     """Hit rate over the repo, so the gate is set from data not from taste."""
     files = sorted(list((ROOT / "docs").glob("*.md")) + list(ROOT.glob("*.md")))

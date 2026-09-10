@@ -155,6 +155,20 @@ python3 scripts/dataset_coverage.py
 `/report` で呼び出す。**結論を先に、作業ではなく変化を、不成立は「誰の何が外れたか」で書く。**
 3回「意味がわからない」と指摘された後に作った。自己チェックリスト付き。
 
+## 6. HTML レポートの型 — `.claude/skills/html-report/SKILL.md`
+
+**HTML を手で書かず、JSON を埋めて描かせる。**2026-09-10 に作った。
+
+| | 何をするか |
+|---|---|
+| `reports/*.json` | 人(LLM)が埋める唯一の場所 |
+| `scripts/check_report_json.py` | 11 個の規律を検査する。禁止語・平易な日本語・折り畳み・文章の割合・図の出所・本文の数字がデータにあるか |
+| `scripts/report_render.py` | HTML と SVG を作る。**座標は値から計算するので、軸の目盛りは必ずグラフが届く値になる** |
+
+**`check_repo.py` が `reports/*.json` を毎コミット検査する。**
+図の `source`（実測 / 仮想 / 置いた値 / 計算）が無いと描かせない。
+描いた座標が viewBox からはみ出しても止まる。
+
 ## チェックを飛ばす場合
 
 ```sh

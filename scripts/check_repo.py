@@ -425,6 +425,18 @@ def check_forbidden_output() -> list[str]:
     return [f"要素の欄「{n}」は docs/225 5章が主張しないと決めたもの" for n in bad]
 
 
+def check_report_json() -> list[str]:
+    """Every report JSON must still pass its own gate (skills/html-report)."""
+    import subprocess
+    out = []
+    for f in sorted((ROOT / "reports").glob("*.json")):
+        r = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_report_json.py"),
+                            str(f)], capture_output=True, text=True)
+        out += [f"{f.name}: {l.strip()[4:]}" for l in r.stdout.splitlines()
+                if l.strip().startswith("NG")]
+    return out
+
+
 CHECKS = [
     ("links", check_links, True, "壊れた内部リンク"),
     ("dataset coverage", check_coverage, True, "データセットの未棚卸し部分 (docs/199, 201, 203)"),
@@ -438,6 +450,7 @@ CHECKS = [
     ("troubles classified", check_troubles_classified, True, "自動追記された失敗が型に振り分けられているか"),
     ("no-data dead end", check_no_data_dead_end, True, "データが無いことを空欄・締めのまま残していないか"),
     ("spec coverage", check_spec_coverage, True, "docs/225 の各行が実装・測定値・見送りに分類されているか"),
+    ("report json", check_report_json, True, "レポートJSONが自分の検査を通るか"),
     ("forbidden output", check_forbidden_output, True, "要素が主張しないと決めた欄を持っていないか"),
     ("threshold compares", check_threshold_comparisons, False, "浮動小数点での閾値判定 (docs/205)"),
     ("plain japanese", check_plain_japanese, False, "凝った言い回しを使っていないか (AGENTS.md 3.1)"),
