@@ -273,6 +273,104 @@ def chart_dots(c: dict) -> str:
 CHARTS = {"barh": chart_barh, "barv": chart_barv, "line": chart_line, "dots": chart_dots}
 
 
+# ---------------------------------------------------------------- byte layout
+
+SIZES = {"f64": 8, "f32": 4, "u32": 4, "i32": 4, "u16": 2, "i16": 2,
+         "u8": 1, "i8": 1}
+
+
+def field_bits(f: dict) -> int:
+    if "bits" in f:
+        return int(f["bits"])
+    return SIZES[f["t"]] * 8
+
+
+def render_bytes(b: dict) -> str:
+    """A memory map drawn to scale, plus the table that names every field.
+
+    2026-09-10, the user asked why the data structures were acceptable in this
+    format. They were not: the previous block drew one equal-width box per
+    field, so a 4-byte float and a 1-byte flag looked the same and the layout
+    could not be read at all. Widths come from the type now, the offsets are
+    drawn, and the declared total is checked against the sum.
+    """
+    fs = b["fields"]
+    bits = [field_bits(f) for f in fs]
+    tot = sum(bits)
+    in_bits = any("bits" in f for f in fs)
+    unit = "ビット" if in_bits else "バイト"   # what the ruler counts
+    if b["total"] * 8 != tot:                 # total is always in bytes
+        raise SystemExit(f"バイト割り当てが合わない: 宣言 {b['total']} バイト / "
+                         f"合計 {tot / 8:g} バイト")
+
+    x0, x1, y0, h = 8, 772, 28, 40
+    per = (x1 - x0) / tot
+    step = 4 if not in_bits else 8            # ruler step, in the drawn unit
+    step_b = step * (1 if in_bits else 8)
+
+    g = [f'<svg viewBox="0 0 780 {y0 + h + 46}" role="img" '
+         f'aria-label="{esc(b["alt"])}">']
+    off = 0
+    for f, nb in zip(fs, bits):
+        w = nb * per
+        x = x0 + off * per
+        key = f.get("key")
+        fill = "var(--accent)" if key else "var(--panel2)"
+        ink = "var(--bg)" if key else "var(--ink2)"
+        g.append(f'<rect x="{x:.1f}" y="{y0}" width="{max(w - 1.5, 1.5):.1f}" '
+                 f'height="{h}" fill="{fill}" stroke="var(--line)" stroke-width="1">'
+                 f'<title>{esc(f["name"])} {esc(f.get("t", str(f.get("bits")) + " bit"))}'
+                 f' @ {off // (1 if in_bits else 8)}</title></rect>')
+        lab = str(f["name"])
+        if _cjk_width(lab) * 0.82 < w - 8:
+            g.append(f'<text x="{x + w / 2 - 0.8:.1f}" y="{y0 + h / 2 + 4:.1f}" '
+                     f'text-anchor="middle" font-size="10.5" fill="{ink}">{esc(lab)}</text>')
+        else:
+            g.append(f'<text x="{x + w / 2 - 0.8:.1f}" y="{y0 + h / 2 + 4:.1f}" '
+                     f'text-anchor="middle" font-size="10.5" fill="{ink}">'
+                     f'{off // (1 if in_bits else 8)}</text>')
+        off += nb
+
+    # offset ruler
+    g.append(f'<line class="ax" x1="{x0}" y1="{y0 + h + 6}" x2="{x1}" y2="{y0 + h + 6}"/>')
+    o = 0
+    while o <= tot:
+        x = x0 + o * per
+        g.append(f'<line class="ax" x1="{x:.1f}" y1="{y0 + h + 6}" x2="{x:.1f}" '
+                 f'y2="{y0 + h + 11}"/>')
+        g.append(f'<text x="{x:.1f}" y="{y0 + h + 26}" text-anchor="middle" '
+                 f'font-size="10">{o // (1 if in_bits else 8)}</text>')
+        o += step_b
+    g.append(f'<text x="{(x0 + x1) / 2:.1f}" y="{y0 + h + 42}" text-anchor="middle" '
+             f'fill="var(--ink3)" font-size="11">{esc(unit)}の位置</text>')
+    g.append(f'<text x="{x0}" y="{y0 - 10}" font-size="11" fill="var(--ink3)">'
+             f'0</text>')
+    g.append(f'<text x="{x1}" y="{y0 - 10}" font-size="11" fill="var(--ink3)" '
+             f'text-anchor="end">{b["total"]} バイト</text>')
+    g.append("</svg>")
+
+    fig = (f'<figure class="viz">' + "\n".join(g)
+           + f'<figcaption><b class="src">実測</b>{b["caption"]}</figcaption></figure>')
+
+    # the table is generated from the same fields, so the two cannot disagree
+    rows, off = [], 0
+    for f in fs:
+        nb = field_bits(f)
+        pos = (f"{off // 8}" if not in_bits
+               else f"{off // 8} バイト bit{off % 8}")
+        size = (f'{nb // 8} B' if not in_bits else f"{nb} bit")
+        rows.append([{"v": f["name"], "tone": "ok" if f.get("key") else ""},
+                     f.get("t", "bit"), pos, size, f.get("why", "")])
+        off += nb
+    rows.append({"cells": ["合計", "", "", f'{b["total"]} B', b.get("sum_why", "")],
+                 "sum": True})
+    tbl = render_table({"cols": ["フィールド", "型", {"t": "位置", "n": True},
+                                 {"t": "大きさ", "n": True}, "何のためにあるか"],
+                        "rows": rows, "stripe": True,
+                        "fold": b.get("fold", f'割り当て {len(fs)} フィールドの内訳')})
+    return fig + tbl
+
+
 # ---------------------------------------------------------------- blocks
 
 
@@ -345,9 +443,7 @@ def render_block(b: dict) -> str:
     if t == "chart":
         return render_chart(b)
     if t == "bytes":
-        s = "".join(f'<span class="{"a" if f.get("key") else ""}">{esc(f["name"])}</span>'
-                    for f in b["fields"])
-        return f'<div class="bytes">{s}</div>'
+        return render_bytes(b)
     if t == "svg":
         return (f'<figure><svg viewBox="{b["viewBox"]}" role="img" '
                 f'aria-label="{esc(b["alt"])}">{b["body"]}</svg>'

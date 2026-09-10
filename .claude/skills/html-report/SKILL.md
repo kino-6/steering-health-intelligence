@@ -57,11 +57,28 @@ python3 scripts/report_render.py reports/<name>.json -o <out>.html
 | `h3` | 節の中の小見出し | |
 | `table` | `cols` / `rows` / `fold` / `note` / `stripe` | `cols` の要素を `{"t":"名","n":true}` にすると右寄せの数値列 |
 | `chart` | `kind` + データ + `source` + `alt` + `caption` | 下記 |
-| `bytes` | `fields:[{"name":"slope f32","key":1}]` | バイト並び。`key` を付けると橙色 |
+| `bytes` | `total` + `fields:[{"name","t"\|"bits","key","why"}]` | 下記 |
 | `eq` | 式。`<b>` で強調 | |
 | `kpi` | `items:[{"k":"…","v":"…","tone":"y|n"}]` | 見出し行の数字帯 |
 | `fold` | `summary` + `blocks` | 中に何でも入れられる |
 | `svg` | `viewBox` / `body` / `alt` / `caption` | **逃げ道。**流れ図など、データではない絵だけに使う |
+
+### `bytes` — データ構造は、幅で描く
+
+```jsonc
+{"type":"bytes", "total":30,               // バイト数。合わないと描かせない
+ "fields":[{"name":"deviation","t":"f32","key":1,"why":"…"},
+           {"name":"flags","t":"u8","why":"…"}],
+ "alt":"…", "caption":"…", "fold":"…"}
+```
+
+**箱の幅は型から計算する。**`f32` は `u8` の 4 倍の幅になる。
+ビット単位のものは `t` の代わりに `"bits": 3` を書く。目盛りがビット位置に切り替わる。
+**同じ `fields` から、位置・大きさ・意味の表も自動で作る。**図と表が食い違えない。
+
+2026-09-10、「データ構造、このレポート形式でどうしてOKになるのかわからない」と言われた。
+**OK ではなかった。**それまでは全フィールドが同じ幅の箱で並んでいて、
+4 バイトの浮動小数点と 1 バイトのフラグが同じ大きさに見えていた。**レイアウトが読めない。**
 
 ### グラフ 4 種
 
