@@ -38,6 +38,33 @@ def nice_max(v: float) -> float:
     return 10 * base
 
 
+def nice_range(lo: float, hi: float, zero: bool = False) -> tuple[float, float]:
+    """An axis the data fills.
+
+    2026-09-11: the capability chart ran 0 to 1.5 for data that lives between
+    0.82 and 1.02, so every line sat in a flat band across the middle and the
+    thing the reader came for could not be seen. Bars still start at zero,
+    because a bar's length is the number; a line's height is not.
+    """
+    if zero:
+        lo = min(0.0, lo)
+    span = hi - lo
+    if span <= 0:
+        span = abs(hi) or 1.0
+    pad = span * 0.12
+    lo2, hi2 = lo - pad, hi + pad
+    if zero:
+        lo2 = min(0.0, lo)
+    step = (hi2 - lo2) / 4
+    e = math.floor(math.log10(step)) if step > 0 else 0
+    base = 10 ** e
+    for m in (1, 2, 2.5, 5, 10):
+        if step <= m * base + 1e-12:
+            step = m * base
+            break
+    return (math.floor(lo2 / step) * step, math.ceil(hi2 / step) * step)
+
+
 def ticks(lo: float, hi: float, n: int = 4) -> list[float]:
     if hi <= lo:
         return [lo]
@@ -179,8 +206,13 @@ def chart_line(c: dict) -> str:
     xv = xs["values"] if numeric else list(range(len(xs["labels"])))
     xlo, xhi = min(xv), max(xv)
     allv = [v for s in ser for v in s["values"] if v is not None]
-    ylo = 0.0 if min(allv) >= 0 else -nice_max(-min(allv))
-    yhi = nice_max(max(allv))
+    allv += [hl["y"] for hl in c.get("hlines", [])]
+    allv += [e["y"] for e in c.get("events", [])]
+    ylo, yhi = nice_range(min(allv), max(allv), c.get("zero", False))
+    fill = (max(allv) - min(allv)) / (yhi - ylo) if yhi > ylo else 0
+    if fill < 0.35 and not c.get("zero"):
+        raise SystemExit(f"軸が広すぎる: データは軸の {fill:.0%} しか使っていない "
+                         f"({c.get('alt', '')[:30]})")
     x0, x1, y0, y1 = 70, 668, 34, 230
     fx = lambda v: x0 + ((v - xlo) / (xhi - xlo or 1)) * (x1 - x0)
     fy = lambda v: y1 - ((v - ylo) / (yhi - ylo or 1)) * (y1 - y0)
@@ -237,6 +269,12 @@ def chart_line(c: dict) -> str:
         placed.append(y)
         g.append(f'<text class="lbl" x="{px_ + 9:.1f}" y="{y:.1f}" style="fill:{col}">'
                  f'{esc(lab)}</text>')
+
+    for ev in c.get("events", []):
+        ex, ey = fx(ev["x"]), fy(ev["y"])
+        g.append(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="7.5" fill="none" '
+                 f'stroke="var(--warn)" stroke-width="2.2"><title>{esc(ev["label"])}'
+                 f'</title></circle>')
 
     g.append('<g text-anchor="middle" fill="var(--ink3)">')
     labs = xs["labels"] if "labels" in xs else [fmt(v, xs.get("unit", "")) for v in xv]
@@ -677,6 +715,8 @@ h2 .en{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.08
   color:var(--ink3); font-weight:400; float:right; padding-top:5px}
 h3{font-size:15.5px; font-weight:700; margin:28px 0 6px; color:var(--ink2)}
 p{margin:12px 0; max-width:82ch}
+p, li, figcaption, td, th, .small, .lede, .note, summary{
+  line-break:strict; word-break:auto-phrase; overflow-wrap:break-word}
 p.lead{margin:16px 0 6px}
 a{color:inherit; text-decoration-color:var(--rule); text-underline-offset:3px}
 .small{font-size:13.5px; color:var(--ink2)}
@@ -729,7 +769,7 @@ details > p:last-child{padding-bottom:14px}
 
 figure{margin:20px 0 8px}
 figure svg{display:block; width:100%; height:auto}
-figcaption{font-size:13.5px; color:var(--ink2); margin-top:12px; max-width:92ch}
+figcaption{font-size:13.5px; color:var(--ink2); margin-top:12px; max-width:104ch}
 figcaption .src{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11.5px;
   letter-spacing:.08em; border:1px solid var(--rule); padding:1px 7px; margin-right:9px;
   color:var(--ink2); font-weight:500; vertical-align:1px}
