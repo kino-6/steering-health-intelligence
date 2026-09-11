@@ -41,7 +41,11 @@ PLUMBING = re.compile(r"docs/\d+|[\w_]+\.py|[\w_]+\.tsv|check_repo|TROUBLES\.md|
                       r"コミット|pre-commit|フック")
 MAX_OPEN_ROWS = 8          # a longer table is folded
 MAX_PROSE_SHARE = 0.55     # prose chars over prose+data chars
-NEEDS_LEAD = {"table", "chart", "bytes", "eq", "svg"}
+NEEDS_LEAD = {"table", "chart", "bytes", "eq", "svg", "sequence"}
+# 2026-09-11「章立てがよくない。一般的には概要、問題点、詳細と進むはず」
+# Every section declares its role, and the roles must appear in this order.
+ROLES = ["概要", "前提", "問題", "しくみ", "検証", "設定", "限界", "位置づけ"]
+ONCE = {"概要", "前提", "問題"}     # しくみ と 検証 は複数あってよい
 
 
 def strip(s: str) -> str:
@@ -78,6 +82,22 @@ def main() -> int:
     d = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     bad: list[str] = []
     warn: list[str] = []
+
+    # ---- R12  chapter order
+    seen = [s.get("role") for s in d["sections"]]
+    for i, r in enumerate(seen):
+        if r not in ROLES:
+            bad.append(f"R12 {i + 1} 番目の節に role が無いか、知らない値である: {r}。"
+                       f"{' / '.join(ROLES)} のどれかにする")
+    if all(r in ROLES for r in seen):
+        rank = [ROLES.index(r) for r in seen]
+        if rank != sorted(rank):
+            bad.append(f"R12 節の並びが型どおりでない: {' → '.join(seen)}。"
+                       f"順番は {' → '.join(ROLES)}")
+        for r in ONCE:
+            n = seen.count(r)
+            if n != 1:
+                bad.append(f"R12 「{r}」の節が {n} 個ある。1 個にする")
 
     # ---- R2  both halves, positives first (AGENTS.md 3.0 / TROUBLES T42)
     a = d.get("answer", {})
@@ -125,6 +145,15 @@ def main() -> int:
                 if b.get("note"):
                     strings.append((where + ".note", b["note"]))
                     prose_chars += len(strip(b["note"]))
+            elif t == "sequence":
+                strings.append((where + ".caption", b["caption"]))
+                prose_chars += len(strip(b["caption"]))
+                for s2 in b["steps"]:
+                    data_chars += len(strip(s2["text"]))
+                    add_num(s2["text"])
+                    if s2.get("when"):
+                        data_chars += len(strip(s2["when"]))
+                        add_num(s2["when"])
             elif t == "chart":
                 strings.append((where + ".caption", b["caption"]))
                 prose_chars += len(strip(b["caption"]))
@@ -192,7 +221,7 @@ def main() -> int:
                 if prev not in ("lead", "small", "p", "h3", "note", "fold"):
                     bad.append(f"R5 {where} ({t}) の直前に説明の1文が無い。"
                                f"表と図の前には、それが何を言っているかを1文置く")
-            if t == "chart":
+            if t in ("chart", "sequence"):
                 if not b.get("alt"):
                     bad.append(f"R6 {where} に alt が無い")
                 if not b.get("caption"):

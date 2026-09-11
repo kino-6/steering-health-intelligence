@@ -426,14 +426,25 @@ def check_forbidden_output() -> list[str]:
 
 
 def check_report_json() -> list[str]:
-    """Every report JSON must still pass its own gate (skills/html-report)."""
+    """Every report JSON must pass its own gate, and the page it draws must
+    pass the after-drawing gate too (skills/html-report)."""
     import subprocess
+    import tempfile
     out = []
     for f in sorted((ROOT / "reports").glob("*.json")):
         r = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_report_json.py"),
                             str(f)], capture_output=True, text=True)
         out += [f"{f.name}: {l.strip()[4:]}" for l in r.stdout.splitlines()
                 if l.strip().startswith("NG")]
+        with tempfile.NamedTemporaryFile(suffix=".html") as tmp:
+            d = subprocess.run([sys.executable, str(ROOT / "scripts" / "report_render.py"),
+                                str(f), "-o", tmp.name], capture_output=True, text=True)
+            out += [f"{f.name}: 描画 {l.strip()[4:]}" for l in d.stdout.splitlines()
+                    if l.strip().startswith("NG")]
+            s = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_report_style.py"),
+                                tmp.name], capture_output=True, text=True)
+            out += [f"{f.name}: {l.strip()[4:]}" for l in s.stdout.splitlines()
+                    if l.strip().startswith("NG")]
     return out
 
 
