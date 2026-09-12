@@ -105,6 +105,38 @@ def main() -> int:
             if n != 1:
                 bad.append(f"R12 「{r}」の節が {n} 個ある。1 個にする")
 
+    # ---- R13  what a section must carry. 2026-09-13: "箇条書きをうまく使って
+    # 欲しい / リンクを示せてない / 折りたたみをうまく利用して / 図表を利用して
+    # 欲しい。まだ大学生の方がいいレポート書く".
+    FIG = {"chart", "table", "bytes", "sequence", "svg"}
+    for s in d["sections"]:
+        role, h = s.get("role"), s["h"]
+        kinds = [b["type"] for b in s["blocks"]]
+        flat_kinds = [b["type"] for _, b, _ in walk(s["blocks"], h)]
+        if role in ("序論", "方法", "結果", "考察", "結論"):
+            if "key" not in kinds:
+                bad.append(f"R13 「{h}」に要点(key)が無い。節の頭に 3〜5 行の箇条書きを置く")
+            if kinds and kinds[0] != "key":
+                bad.append(f"R13 「{h}」の先頭が key ではない")
+        if role in ("方法", "結果", "考察"):
+            if not (set(flat_kinds) & FIG):
+                bad.append(f"R13 「{h}」に図も表も無い")
+        if role == "結果" and "fold" not in kinds:
+            bad.append(f"R13 「{h}」に折りたたみが無い。要点と主図以外は畳む")
+        if role == "結果" and len(kinds) > 6:
+            open_after = [k for k in kinds if k not in ("key", "lead", "fold", "h3")]
+            if len(open_after) > 3:
+                bad.append(f"R13 「{h}」で畳まれていないブロックが {len(open_after)} 個ある。主図 1 枚と表 1 つまで")
+    for k2, r in enumerate(d.get("references", []), 1):
+        if isinstance(r, dict) and not r.get("url") and not r.get("note"):
+            bad.append(f"R13 参考文献 [{k2}] に url も note も無い")
+        if isinstance(r, str):
+            bad.append(f"R13 参考文献 [{k2}] が文字列。{{text, url}} にする")
+    cited = set(re.findall(r"\[(\d{1,2})\]", json.dumps(d, ensure_ascii=False)))
+    for k2 in range(1, len(d.get("references", [])) + 1):
+        if str(k2) not in cited:
+            warn.append(f"R13 参考文献 [{k2}] が本文から一度も参照されていない")
+
     # ---- R2  both halves, positives first (AGENTS.md 3.0 / TROUBLES T42)
     a = d.get("answer", {})
     if not a.get("holds"):

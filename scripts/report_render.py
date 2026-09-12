@@ -727,6 +727,13 @@ def render_block(b: dict) -> str:
         return f'<div class="eq">{b["text"]}</div>'
     if t == "h3":
         return f"<h3>{esc(b['text'])}</h3>"
+    if t == "ul":
+        return "<ul class=\"pts\">" + "".join(f"<li>{x}</li>" for x in b["items"]) + "</ul>"
+    if t == "key":
+        # 2026-09-13: "箇条書きをうまく使って欲しい". The head of a section says
+        # in three to five bullets what the section establishes; detail follows.
+        return ('<div class="key"><div class="k">要点</div><ul>'
+                + "".join(f"<li>{x}</li>" for x in b["items"]) + "</ul></div>")
     if t == "table":
         return render_table(b)
     if t == "chart":
@@ -783,6 +790,16 @@ table.front th{text-align:left; padding-right:18px; white-space:nowrap; color:va
   border-bottom:1px solid var(--line); text-transform:none; letter-spacing:0; font-size:12.5px}
 table.front td{border-bottom:1px solid var(--line)}
 ol.refs{padding-left:26px} ol.refs li{margin:6px 0}
+ol.refs a{color:var(--ink); text-decoration-color:var(--accent)}
+.refnote{color:var(--ink3); font-size:13px}
+a.cite{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent);
+  text-decoration:none; vertical-align:2px; margin:0 1px}
+ul.pts{margin:10px 0 14px; padding-left:22px} ul.pts li{margin:6px 0}
+.key{border:1px solid var(--rule); border-left:3px solid var(--accent); background:var(--panel);
+  padding:12px 18px 10px; margin:16px 0 20px}
+.key .k{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:6px}
+.key ul{margin:0; padding-left:20px} .key li{margin:6px 0}
 p.lead{margin:16px 0 6px}
 a{color:inherit; text-decoration-color:var(--rule); text-underline-offset:3px}
 .small{font-size:13.5px; color:var(--ink2)}
@@ -913,8 +930,15 @@ def render(d: dict) -> str:
                 o.append('<div class="f"><h4>成立していないこと</h4><ul>'
                          + "".join(f"<li>{x}</li>" for x in a["fails"]) + "</ul></div></div>")
             if role == "参考文献":
-                o.append("<ol class=\"refs\">" + "".join(
-                    f"<li>{r}</li>" for r in d.get("references", [])) + "</ol>")
+                items = []
+                for k2, r in enumerate(d.get("references", []), 1):
+                    if isinstance(r, str):
+                        r = {"text": r}
+                    body = (f'<a href="{esc(r["url"])}" target="_blank" rel="noopener">{r["text"]}</a>'
+                            if r.get("url") else r["text"])
+                    note = f' <span class="refnote">{r["note"]}</span>' if r.get("note") else ""
+                    items.append(f'<li id="ref-{k2}" value="{k2}">{body}{note}</li>')
+                o.append("<ol class=\"refs\">" + "".join(items) + "</ol>")
             o += [render_block(b) for b in s["blocks"]]
         i = j
 
@@ -923,7 +947,13 @@ def render(d: dict) -> str:
     # one pass for the number-unit glue, over every text node outside SVG and
     # CSS. Doing it per block missed legends, headers and KPI keys in turn.
     parts = re.split(r"(<(?:svg|style)\b.*?</(?:svg|style)>)", page, flags=re.S)
-    return "".join(x if x.startswith(("<svg", "<style")) else jp_wrap(x) for x in parts)
+    page = "".join(x if x.startswith(("<svg", "<style")) else jp_wrap(x) for x in parts)
+    # [n] in prose becomes a link to reference n. 2026-09-13: "何を参考にした
+    # のかリンクを示せてない". Only outside tags, only one or two digits.
+    def _cite(m):
+        return f'<a class="cite" href="#ref-{m.group(1)}">[{m.group(1)}]</a>'
+    return "".join(x if x.startswith("<") else re.sub(r"\[(\d{1,2})\]", _cite, x)
+                   for x in re.split(r"(<[^>]+>)", page))
 
 
 def check_bounds(html_text: str) -> list[str]:
