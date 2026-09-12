@@ -340,42 +340,29 @@ CHARTS = {"barh": chart_barh, "barv": chart_barv, "line": chart_line, "dots": ch
 
 # ---------------------------------------------------------------- line breaks
 
-try:
-    import budoux as _budoux
-    _JP = _budoux.load_default_japanese_parser()
-except ImportError:                      # pragma: no cover
-    _JP = None
-
-_UNIT = (r"(?:%|％|KB|MB|B|Hz|kHz|V|A|Ω|°C|h|bit|trip|バイト|ビット|件|時|床|素子|個|本|台|"
+_UNIT = (r"(?:× 3σ|3σ|σ|%|％|KB|MB|B|Hz|kHz|V|A|Ω|°C|h|bit|trip|バイト|ビット|件|時|床|素子|個|本|台|"
          r"日|年|時間|分|秒|倍|度|回|行|点|水準|通り|条件|チャネル|フィールド|段|節|run)")
-_NUM_UNIT = re.compile(r"(\d[\d,.]*)(?:<wbr>)?( ?)(?:<wbr>)?(" + _UNIT + r"(?:/(?:時|年|件|時間))?)")
-
-
-def _segments(text: str) -> list[str]:
-    if _JP is not None:
-        return _JP.parse(text)
-    # fallback: break after punctuation and the common particles only
-    return [s for s in re.split(r"(?<=[。、！？」）』])|(?<=[はがをにでとのへもや])(?=[^\s、。])", text) if s]
+_NUM_UNIT = re.compile(r"(\d[\d,.]*)( ?)(" + _UNIT + r"(?:/(?:時|年|件|時間))?)")
 
 
 def jp_wrap(fragment: str) -> str:
-    """Put the line-break opportunities in ourselves.
+    """Glue a number to its unit. Nothing else.
 
-    2026-09-13, on a screenshot: "448 バイトと 30 バイトと 2 / バイトで",
-    "学習し / た重みは", "活性化エネルギー / が". word-break:auto-phrase does
-    this in Chromium and nowhere else. So the text is segmented into phrases
-    here (budoux), a <wbr> goes between phrases, word-break:keep-all forbids
-    every other break, and a number stays glued to its unit.
+    2026-09-13, first version: broke lines only at phrase boundaries with
+    <wbr> and word-break:keep-all. That made the right edge ragged and the
+    page worse -- Japanese wraps at any character by convention, and the only
+    real defect on the screenshot was "2 / バイト", the space I had put between
+    a digit and its unit. So this now does only that.
     """
     out = []
     for part in re.split(r"(<[^>]+>)", fragment):
         if part.startswith("<") or not part.strip():
             out.append(part)
             continue
-        part = "<wbr>".join(_segments(part))
-        part = _NUM_UNIT.sub(lambda m: f'<span class="nb">{m.group(1)}{m.group(2)}{m.group(3)}</span>', part)
-        out.append(part)
+        out.append(_NUM_UNIT.sub(
+            lambda m: f'<span class="nb">{m.group(1)}{m.group(2)}{m.group(3)}</span>', part))
     return "".join(out)
+
 
 # ---------------------------------------------------------------- palette
 
@@ -562,7 +549,7 @@ def render_bytes(b: dict) -> str:
     g.append("</svg>")
 
     fig = (f'<figure class="viz">' + "\n".join(g)
-           + f'<figcaption><b class="src">実測</b>{jp_wrap(b["caption"])}</figcaption></figure>')
+           + f'<figcaption><b class="src">実測</b>{b["caption"]}</figcaption></figure>')
 
     # the table is generated from the same fields, so the two cannot disagree
     trows, off = [], 0
@@ -647,7 +634,7 @@ def render_sequence(b: dict) -> str:
     src = {"measured": "実測", "simulated": "仮想", "assumed": "置いた値",
            "derived": "計算"}[b["source"]]
     return (f'<figure class="viz">' + "\n".join(g)
-            + f'<figcaption><b class="src">{src}</b>{jp_wrap(b["caption"])}</figcaption></figure>')
+            + f'<figcaption><b class="src">{src}</b>{b["caption"]}</figcaption></figure>')
 
 
 # ---------------------------------------------------------------- blocks
@@ -681,13 +668,13 @@ def render_table(b: dict) -> str:
             # cells are authored HTML fragments like every prose block, and a
             # text cell gets its phrase breaks the same way. 2026-09-13: they
             # were escaped here, so <strong> and <wbr> showed up as text.
-            content = v if i in num or i == 0 else jp_wrap(v)
+            content = v          # touches only number+unit pairs
             tds.append(f'<td class="{k.strip()}">{content}</td>' if k.strip()
                        else f"<td>{content}</td>")
         body.append(f"<tr{cls}>" + "".join(tds) + "</tr>")
     t = (f'<div class="wrap"><table><tr>{head}</tr>' + "".join(body) + "</table></div>")
     if b.get("note"):
-        t += f'<p class="small">{jp_wrap(b["note"])}</p>'
+        t += f'<p class="small">{b["note"]}</p>'
     if b.get("fold"):
         return f'<details><summary>{esc(b["fold"])}</summary>{t}</details>'
     return t
@@ -704,19 +691,19 @@ def render_chart(b: dict) -> str:
     src = {"measured": "実測", "simulated": "仮想", "assumed": "置いた値",
            "derived": "計算"}[b["source"]]
     return (f'<figure class="viz">{svg}{leg}'
-            f'<figcaption><b class="src">{src}</b>{jp_wrap(b["caption"])}</figcaption></figure>')
+            f'<figcaption><b class="src">{src}</b>{b["caption"]}</figcaption></figure>')
 
 
 def render_block(b: dict) -> str:
     t = b["type"]
     if t == "p":
-        return f"<p>{jp_wrap(b['text'])}</p>"
+        return f"<p>{b['text']}</p>"
     if t == "lead":
-        return f'<p class="lead">{jp_wrap(b["text"])}</p>'
+        return f'<p class="lead">{b["text"]}</p>'
     if t == "small":
-        return f'<p class="small">{jp_wrap(b["text"])}</p>'
+        return f'<p class="small">{b["text"]}</p>'
     if t == "note":
-        return f'<div class="note">{jp_wrap(b["text"])}</div>'
+        return f'<div class="note">{b["text"]}</div>'
     if t == "eq":
         return f'<div class="eq">{b["text"]}</div>'
     if t == "h3":
@@ -767,7 +754,7 @@ h2 .en{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.08
 h3{font-size:15.5px; font-weight:700; margin:28px 0 6px; color:var(--ink2)}
 p{margin:12px 0; max-width:82ch}
 p, li, figcaption, td, th, .small, .lede, .note, summary{
-  line-break:strict; word-break:keep-all; overflow-wrap:anywhere}
+  line-break:strict; overflow-wrap:break-word}
 .nb{white-space:nowrap}
 p.summary{font-size:17px; line-height:1.9; max-width:64ch; margin:6px 0 26px}
 p.lead{margin:16px 0 6px}
@@ -863,15 +850,15 @@ def render(d: dict) -> str:
          f"<style>{css()}</style>", "<main>",
          f'<p class="eyebrow">{esc(d["eyebrow"])}</p>',
          f'<h1>{esc(d["title"])}</h1>',
-         f'<p class="lede">{jp_wrap(d["lede"])}</p>']
+         f'<p class="lede">{d["lede"]}</p>']
 
     a = d["answer"]
     if a.get("summary"):
-        o.append(f'<p class="summary">{jp_wrap(a["summary"])}</p>')
+        o.append(f'<p class="summary">{a["summary"]}</p>')
     o.append('<div class="answer"><div class="h"><h4>成立していること</h4><ul>'
-             + "".join(f"<li>{jp_wrap(x)}</li>" for x in a["holds"]) + "</ul></div>")
+             + "".join(f"<li>{x}</li>" for x in a["holds"]) + "</ul></div>")
     o.append('<div class="f"><h4>成立していないこと</h4><ul>'
-             + "".join(f"<li>{jp_wrap(x)}</li>" for x in a["fails"]) + "</ul></div></div>")
+             + "".join(f"<li>{x}</li>" for x in a["fails"]) + "</ul></div></div>")
 
     for s in d["sections"]:
         en = f'<span class="en">{esc(s["en"])}</span>' if s.get("en") else ""
@@ -883,7 +870,11 @@ def render(d: dict) -> str:
                            "rows": [[k["k"], k["v"]] for k in d["scope"]]}))
     o.append("<footer>" + "<br>\n".join(esc(x) for x in d["sources"]) + "</footer>")
     o.append("</main>")
-    return "\n".join(o) + "\n"
+    page = "\n".join(o) + "\n"
+    # one pass for the number-unit glue, over every text node outside SVG and
+    # CSS. Doing it per block missed legends, headers and KPI keys in turn.
+    parts = re.split(r"(<(?:svg|style)\b.*?</(?:svg|style)>)", page, flags=re.S)
+    return "".join(x if x.startswith(("<svg", "<style")) else jp_wrap(x) for x in parts)
 
 
 def check_bounds(html_text: str) -> list[str]:

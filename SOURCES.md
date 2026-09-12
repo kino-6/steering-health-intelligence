@@ -108,6 +108,15 @@
 
 **限界。**AURIX の値は一次資料ではなく転記表から取った。NTS の 127 時間は公表値 2 つの積で、DfT が直接公表した「運転者としての年間時間」ではない。
 
+## S13. 仮想回路の損失・熱の式の出典（docs/337 → 338、明記は 2026-09-13）
+
+| 資料 | 何に使ったか | 入手 |
+|---|---|---|
+| Graovac, Pürschel, Kiep: *MOSFET Power Losses Calculation Using the Data-Sheet Parameters*, Infineon Application Note 2006-07 V1.1 | 導通損 I²R_on、スイッチング損、接合部温度 Tj = T_amb + P·Rth の式 | Infineon の資料ページ（登録が要る gated 配布）。https://www.infineon.com/gated/infineon-70-41484-applicationnotes-en_f72138ac-8173-4b5c-8c8e-63dd1e039074 |
+
+**限界。**スイッチング損は周波数と E_on/E_off からではなく、導通損に対する割合で与えた（docs/337）。
+仮想パワーモジュールの漂流の形（ランダムウォーク）はこちらが置いたもので、出典は無い。実素子の漂流は傾向（docs/348）。
+
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 
 - 取得元: <https://huggingface.co/datasets/commaai/commaSteeringControl>

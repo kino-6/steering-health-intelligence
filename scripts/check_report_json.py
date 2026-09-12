@@ -33,6 +33,9 @@ PROSE = {"p", "lead", "small", "note"}
 BANNED = [
     (re.compile(r"自社|当社|弊社|社内"), "帰属先の会社は存在しない(AGENTS.md ルール0)"),
     (re.compile(r"指紋"), "この研究だけの造語。「出荷時基準値」と書く"),
+    (re.compile(r"\d\s*床|床の|床刻み|床まで|床に対して"), "「床」は造語。単位は 3σ と書く(T44)"),
+    (re.compile(r"判定を出(さ|せ|し)"), "「判定を出す」は造語。判定する／判定を保留する と書く(T44)"),
+    (re.compile(r"この要素|要素は|要素が|要素に|要素へ"), "「要素」を記録器の意味で使わない。記録器 と書く(T44)"),
     (re.compile(r"顧客|RFQ|売り込|見せる相手"), "外部の宛先は存在しない(AGENTS.md ルール0)"),
 ]
 # pre-registration labels, sheet ids, file and tool names

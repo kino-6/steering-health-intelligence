@@ -134,25 +134,16 @@ def main() -> int:
                     bad.append(f"字が重なっている {name}: 「{ta['s'][:12]}」 と "
                                f"「{tb['s'][:12]}」")
 
-    # ---- line breaks are ours. 2026-09-13: "文章の接続を無視した改行".
-    # word-break:keep-all forbids every break the renderer did not insert, so
-    # a phrase the segmenter left too long would overflow instead of wrapping
-    # mid-word. Anything over MAX_RUN characters between opportunities fails.
-    if "word-break:keep-all" not in html:
-        bad.append("改行 CSS に word-break:keep-all が無い。文節以外で折れてしまう")
-    MAX_RUN = 28
+    # ---- a number must not be separated from its unit. 2026-09-13.
+    # (the earlier phrase-level wrapping was reverted: it made the right edge
+    # ragged; ordinary Japanese wrapping is correct, only this glue is needed)
     body = re.search(r"<main>(.*)</main>", html, re.S)
-    prose = re.findall(r"<(?:p|li|figcaption|td)\b[^>]*>(.*?)</(?:p|li|figcaption|td)>",
-                       body.group(1) if body else "", re.S)
-    for frag in prose:
-        # <wbr>, spaces and punctuation are the only places a line may break
-        text = re.sub(r"<span class=\"nb\">(.*?)</span>", lambda m: m.group(1).replace(" ", "\u00a0"), frag)
-        text = re.sub(r"<wbr>", "\n", text)
-        text = re.sub(r"<[^>]+>", "", text)
-        for run in re.split(r"[\n \u3000。、！？」）』]", text):
-            if len(run) > MAX_RUN:
-                bad.append(f"改行できない区間が {len(run)} 字: 「{run[:24]}…」")
-                break
+    text = re.sub(r"<span class=\"nb\">.*?</span>", "", body.group(1) if body else "")
+    text = re.sub(r"<(?:svg|style)\b.*?</(?:svg|style)>", "", text, flags=re.S)
+    text = re.sub(r"<[^>]+>", "", text)
+    loose = re.findall(r"\d[\d,.]* (?:バイト|ビット|件/時|KB|MB|素子|個|本|台|時間|分|秒|倍|度|回|水準|通り|3σ|σ)", text)
+    for m in loose[:5]:
+        bad.append(f"数字と単位が離れている: 「{m}」")
 
     # ---- colour, in both themes, from the declared pairs
     declared = set()
