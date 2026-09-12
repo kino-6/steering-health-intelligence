@@ -127,6 +127,19 @@
 | ISO 26262-8:2018 Road vehicles — Functional safety — Part 8 | 目次（§9.4.3、§9.5）。同上 |
 | IEEE 829-2008 test summary report の 8 節 | 二次資料（ISTQB 系の解説） |
 
+## S15. 仮想回路の条件を前提から導くための公開一次資料（docs/360、2026-09-13）
+
+| 資料 | 取った値 | 入手 |
+|---|---|---|
+| ISO 16750-2（12 V 系の試験電圧） | UB = 12 V、UA = 14 V | 二次資料（Intertek 解説、standards.iteh.ai サンプル）。https://cdn.standards.iteh.ai/samples/76119/f42b46cc6aef47daa9c6612e225b6f35/ISO-16750-2-2023.pdf |
+| AEC-Q100 Rev J, Table 1（動作温度グレード） | Grade 0/1/2/3 = 150/125/105/85 °C | http://www.aecouncil.com/Documents/AEC_Q100_Rev_J_Base_Document.pdf |
+| Infineon IAUC60N04S6N050H datasheet Rev 1.1（2025-02-13） | 40 V、RDS(on) 4.0 typ / 5.0 max mΩ（VGS 10 V）、ID 60 A（DC）、Tj 175 °C、RthJC 2.9 K/W max、RthJA 35 K/W | 一次資料（PDF 本文を抽出）。https://www.infineon.com/assets/row/public/documents/10/49/infineon-iauc60n04s6n050h-datasheet-en.pdf |
+| Infineon IPB70P04P4-09 製品ページ | -40 V、RDS(on) 9.1 mΩ max、RthJC 2 K/W max、-55〜175 °C | https://www.infineon.com/cms/en/product/power/mosfet/automotive-mosfet/ipb70p04p4-09/ |
+| onsemi NXV04V120DB1 / SEC-EPS-12V-APM19-GEVB | 「12 V 三相インバータ用の車載パワーモジュール」「EPS 用三相インバータ評価基板」。数値は取れず | https://www.onsemi.com/design/evaluation-board/SEC-EPS-12V-APM19-GEVB |
+
+**限界。**EPS モータの相電流の公開一次資料は見つからず、設計電流は素子の直流定格（60 A）を上限として置いた。
+ISO 16750-2 は本文を有償で見ていない。
+
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 
 - 取得元: <https://huggingface.co/datasets/commaai/commaSteeringControl>
