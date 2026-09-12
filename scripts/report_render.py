@@ -757,6 +757,11 @@ p, li, figcaption, td, th, .small, .lede, .note, summary{
   line-break:strict; overflow-wrap:break-word}
 .nb{white-space:nowrap}
 p.summary{font-size:17px; line-height:1.9; max-width:64ch; margin:6px 0 26px}
+table.front{width:auto; margin:4px 0 22px; font-size:13px}
+table.front th{text-align:left; padding-right:18px; white-space:nowrap; color:var(--ink2);
+  border-bottom:1px solid var(--line); text-transform:none; letter-spacing:0; font-size:12.5px}
+table.front td{border-bottom:1px solid var(--line)}
+ol.refs{padding-left:26px; max-width:92ch} ol.refs li{margin:6px 0}
 p.lead{margin:16px 0 6px}
 a{color:inherit; text-decoration-color:var(--rule); text-underline-offset:3px}
 .small{font-size:13.5px; color:var(--ink2)}
@@ -849,26 +854,49 @@ def render(d: dict) -> str:
          '&display=swap">',
          f"<style>{css()}</style>", "<main>",
          f'<p class="eyebrow">{esc(d["eyebrow"])}</p>',
-         f'<h1>{esc(d["title"])}</h1>',
-         f'<p class="lede">{d["lede"]}</p>']
+         f'<h1>{esc(d["title"])}</h1>']
+    # front matter, ISO/IEC/IEEE 29119-3 5.2: identifier, issuer, status, history
+    fm = d.get("front", {})
+    if fm:
+        o.append('<table class="front">' + "".join(
+            f"<tr><th>{esc(k)}</th><td>{v}</td></tr>" for k, v in fm.items()) + "</table>")
+    o.append(f'<p class="lede">{d["lede"]}</p>')
 
-    a = d["answer"]
-    if a.get("summary"):
-        o.append(f'<p class="summary">{a["summary"]}</p>')
-    o.append('<div class="answer"><div class="h"><h4>成立していること</h4><ul>'
-             + "".join(f"<li>{x}</li>" for x in a["holds"]) + "</ul></div>")
-    o.append('<div class="f"><h4>成立していないこと</h4><ul>'
-             + "".join(f"<li>{x}</li>" for x in a["fails"]) + "</ul></div></div>")
+    # numbered headings: consecutive sections of one role share a number
+    n = 0
+    i = 0
+    secs = d["sections"]
+    numbered = {"序論", "用語", "方法", "結果", "考察", "結論"}
+    while i < len(secs):
+        role = secs[i].get("role")
+        j = i
+        while j < len(secs) and secs[j].get("role") == role:
+            j += 1
+        group = secs[i:j]
+        if role in numbered:
+            n += 1
+        for k, s in enumerate(group):
+            if role in numbered:
+                num = f"{n}." if len(group) == 1 else f"{n}.{k + 1}"
+                label = f'<span class="num">{num}</span> {esc(s["h"])}'
+            elif role == "付録":
+                label = f'<span class="num">付録 {chr(ord("A") + k)}</span>　{esc(s["h"])}'
+            else:
+                label = esc(s["h"])
+            en = f'<span class="en">{esc(s["en"])}</span>' if s.get("en") else ""
+            o.append(f'<h2>{label}{en}</h2>')
+            if role == "結論" and k == 0 and d.get("answer"):
+                a = d["answer"]
+                o.append('<div class="answer"><div class="h"><h4>成立していること</h4><ul>'
+                         + "".join(f"<li>{x}</li>" for x in a["holds"]) + "</ul></div>")
+                o.append('<div class="f"><h4>成立していないこと</h4><ul>'
+                         + "".join(f"<li>{x}</li>" for x in a["fails"]) + "</ul></div></div>")
+            if role == "参考文献":
+                o.append("<ol class=\"refs\">" + "".join(
+                    f"<li>{r}</li>" for r in d.get("references", [])) + "</ol>")
+            o += [render_block(b) for b in s["blocks"]]
+        i = j
 
-    for s in d["sections"]:
-        en = f'<span class="en">{esc(s["en"])}</span>' if s.get("en") else ""
-        o.append(f'<h2>{esc(s["h"])}{en}</h2>')
-        o += [render_block(b) for b in s["blocks"]]
-
-    o.append('<h2>成立範囲<span class="en">scope</span></h2>')
-    o.append(render_table({"cols": ["項目", "内容"],
-                           "rows": [[k["k"], k["v"]] for k in d["scope"]]}))
-    o.append("<footer>" + "<br>\n".join(esc(x) for x in d["sources"]) + "</footer>")
     o.append("</main>")
     page = "\n".join(o) + "\n"
     # one pass for the number-unit glue, over every text node outside SVG and

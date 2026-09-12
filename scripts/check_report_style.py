@@ -138,7 +138,7 @@ def main() -> int:
     # (the earlier phrase-level wrapping was reverted: it made the right edge
     # ragged; ordinary Japanese wrapping is correct, only this glue is needed)
     body = re.search(r"<main>(.*)</main>", html, re.S)
-    text = re.sub(r"<span class=\"nb\">.*?</span>", "", body.group(1) if body else "")
+    text = re.sub(r"<span class=\"(?:nb|num)\">.*?</span>", "", body.group(1) if body else "")
     text = re.sub(r"<(?:svg|style)\b.*?</(?:svg|style)>", "", text, flags=re.S)
     text = re.sub(r"<[^>]+>", "", text)
     loose = re.findall(r"\d[\d,.]* (?:バイト|ビット|件/時|KB|MB|素子|個|本|台|時間|分|秒|倍|度|回|水準|通り|3σ|σ)", text)

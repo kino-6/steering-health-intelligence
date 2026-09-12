@@ -45,10 +45,13 @@ PLUMBING = re.compile(r"docs/\d+|[\w_]+\.py|[\w_]+\.tsv|check_repo|TROUBLES\.md|
 MAX_OPEN_ROWS = 8          # a longer table is folded
 MAX_PROSE_SHARE = 0.55     # prose chars over prose+data chars
 NEEDS_LEAD = {"table", "chart", "bytes", "eq", "svg", "sequence"}
-# 2026-09-11「章立てがよくない。一般的には概要、問題点、詳細と進むはず」
-# Every section declares its role, and the roles must appear in this order.
-ROLES = ["概要", "前提", "問題", "しくみ", "検証", "設定", "限界", "位置づけ"]
-ONCE = {"概要", "前提", "問題"}     # しくみ と 検証 は複数あってよい
+# 2026-09-13: the chapter order follows established report formats rather
+# than my own -- IMRaD (ANSI Z39.16) for the body, the Nature summary
+# paragraph for the front, ISO/IEC/IEEE 29119-3:2021 7.4 for what a completion
+# report must carry (deviations, residual risks), Japanese technical-report
+# convention for the headings. docs/359 records the survey.
+ROLES = ["要旨", "序論", "用語", "方法", "結果", "考察", "結論", "参考文献", "付録"]
+ONCE = {"要旨", "用語", "結論", "参考文献"}     # 序論・方法・結果・考察・付録 は小節を持てる
 
 
 def strip(s: str) -> str:

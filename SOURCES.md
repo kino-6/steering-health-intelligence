@@ -117,6 +117,16 @@
 **限界。**スイッチング損は周波数と E_on/E_off からではなく、導通損に対する割合で与えた（docs/337）。
 仮想パワーモジュールの漂流の形（ランダムウォーク）はこちらが置いたもので、出典は無い。実素子の漂流は傾向（docs/348）。
 
+## S14. 報告書の様式の出典（docs/359、2026-09-13）
+
+| 資料 | 確認した範囲 |
+|---|---|
+| Sollaci LB, Pereira MG. The IMRaD structure: a fifty-year survey. J Med Libr Assoc 2004. PubMed 15243643 | 要旨 |
+| Nature: How to construct a Nature summary paragraph. https://www.nature.com/documents/nature-summary-paragraph.pdf | 全文 |
+| ISO/IEC/IEEE 29119-3:2021 Software testing — Part 3: Test documentation | 目次（§5.2、§7.4）と定義 3.9。standards.iteh.ai のサンプル PDF |
+| ISO 26262-8:2018 Road vehicles — Functional safety — Part 8 | 目次（§9.4.3、§9.5）。同上 |
+| IEEE 829-2008 test summary report の 8 節 | 二次資料（ISTQB 系の解説） |
+
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 
 - 取得元: <https://huggingface.co/datasets/commaai/commaSteeringControl>
