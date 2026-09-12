@@ -93,6 +93,21 @@
 - [data/dataset_coverage.tsv](data/dataset_coverage.tsv): `scripts/dataset_coverage.py` が列挙し、
   **状態の判断は手動**で入れる([CHECKS.md](CHECKS.md))。
 
+## S12. 誤検知の線を不揮発の予算で引くための公開数値（docs/355 → 356、2026-09-13）
+
+**取得したのは数値だけである。データセットのダウンロードはしていない。**
+
+| 量 | 値 | 出所 | 確認日 |
+|---|---|---|---|
+| 年間運転時間（米） | 60.2 分/日（2022 年） → 366 時間/年 | AAA Foundation for Traffic Safety, American Driving Survey 2022. https://aaafoundation.org/american-driving-survey-2022/ | 2026-09-13 |
+| 年間運転時間（英） | 自動車運転者としての trip 363 回/人/年 × 平均 21 分/trip → 127 時間/年 | DfT National Travel Survey 2023（NTS0303 / 本文）。https://www.gov.uk/government/statistics/national-travel-survey-2023 | 2026-09-13 |
+| 同、参考 | 全移動手段の移動時間 353 時間/人/年（約 58 分/日） | 同上、NTS 2023 factsheet（NTS0101） | 2026-09-13 |
+| データフラッシュ（Infineon AURIX TC3xx） | DF0 128 KB（TC33x〜TC36x）〜 1,024 KB（TC39x）。DF1 は全品種 128 KB | emmtrix の AURIX TC3xx 一覧表（Infineon 資料の転記）。https://www.emmtrix.com/wiki/Infineon_AURIX_TC3xx | 2026-09-13 |
+| データフラッシュ（NXP S32K3） | 128 KB（S32K344、S32K312） | NXP AN13388 S32K3 Memories Guide、NXP Community。https://www.nxp.com/docs/en/data-sheet/S32K3xx.pdf | 2026-09-13 |
+| データフラッシュ（Renesas RH850） | 256 KB（RH850/F1KH-D8。datasheet 1 ページ目「Data Flash with a capacity of 256 KB」） | RH850/F1KH, F1KM datasheet R01DS0442EJ0100 Rev.1.00 (2023-09-15)。https://www.renesas.com/en/document/dst/rh850f1kh-rh850f1km-datasheet | 2026-09-13 |
+
+**限界。**AURIX の値は一次資料ではなく転記表から取った。NTS の 127 時間は公表値 2 つの積で、DfT が直接公表した「運転者としての年間時間」ではない。
+
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 
 - 取得元: <https://huggingface.co/datasets/commaai/commaSteeringControl>
@@ -164,6 +179,7 @@
   | `data/reference_channel.tsv` | `scripts/reference_channel.py` | 第 2 の温度を基準に足したときの α・誤報・発火（6 素子） |
   | `data/shared_drift.tsv` | `scripts/shared_drift.py` | 同種チャネルが共有する傾向の割合（実測）と、共有率を振った検知・誤検知（仮想） |
   | `data/capability_threshold.tsv` | `scripts/capability_threshold.py` | 能力の閾値を逸脱の閾値に翻訳したときの、個体ごとの信号対雑音・誤検知・検出 |
+  | `data/nvm_budget_line.tsv` | `scripts/nvm_budget_line.py` | 誤検知の水準ごとに 397 日で要する不揮発と、割り当てから逆算した許せる率（公開統計 S12 と共同） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 出荷時基準値倍率別の沈黙割合（4行） |
 
   波形そのもの（CSV）は再配布していない。含まれるのは波形から計算した統計量のみ。
