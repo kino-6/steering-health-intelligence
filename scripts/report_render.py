@@ -765,24 +765,24 @@ main{max-width:1280px; margin:0 auto; padding:44px 30px 88px}
   text-transform:uppercase; color:var(--ink2); margin:0 0 12px}
 h1{font-size:clamp(24px,3.4vw,34px); font-weight:700; line-height:1.3; margin:0 0 6px;
   text-wrap:balance}
-.lede{color:var(--ink2); font-size:16px; margin:0 0 28px; max-width:78ch}
+.lede{color:var(--ink2); font-size:16px; margin:0 0 28px}
 h2{font-size:19px; font-weight:700; margin:52px 0 2px; padding-bottom:7px;
   border-bottom:1px solid var(--rule); overflow:hidden}
 h2 .en{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.08em;
   color:var(--ink3); font-weight:400; float:right; padding-top:5px}
 h3{font-size:15.5px; font-weight:700; margin:28px 0 6px; color:var(--ink2)}
-p{margin:12px 0; max-width:82ch}
+p{margin:12px 0}
 p, li, figcaption, .small, .lede, .note{
   line-break:strict; word-break:keep-all; overflow-wrap:anywhere;
   text-align:justify; text-justify:inter-character}
 td, th, summary{line-break:strict; overflow-wrap:anywhere}
 .nb{white-space:nowrap}
-p.summary{font-size:17px; line-height:1.9; max-width:64ch; margin:6px 0 26px}
+p.summary{font-size:17px; line-height:1.9; margin:6px 0 26px}
 table.front{width:auto; margin:4px 0 22px; font-size:13px}
 table.front th{text-align:left; padding-right:18px; white-space:nowrap; color:var(--ink2);
   border-bottom:1px solid var(--line); text-transform:none; letter-spacing:0; font-size:12.5px}
 table.front td{border-bottom:1px solid var(--line)}
-ol.refs{padding-left:26px; max-width:92ch} ol.refs li{margin:6px 0}
+ol.refs{padding-left:26px} ol.refs li{margin:6px 0}
 p.lead{margin:16px 0 6px}
 a{color:inherit; text-decoration-color:var(--rule); text-underline-offset:3px}
 .small{font-size:13.5px; color:var(--ink2)}
@@ -835,7 +835,7 @@ details > p:last-child{padding-bottom:14px}
 
 figure{margin:20px 0 8px}
 figure svg{display:block; width:100%; height:auto}
-figcaption{font-size:13.5px; color:var(--ink2); margin-top:12px; max-width:104ch}
+figcaption{font-size:13.5px; color:var(--ink2); margin-top:12px}
 figcaption .src{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11.5px;
   letter-spacing:.08em; border:1px solid var(--rule); padding:1px 7px; margin-right:9px;
   color:var(--ink2); font-weight:500; vertical-align:1px}
