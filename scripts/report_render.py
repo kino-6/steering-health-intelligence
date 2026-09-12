@@ -340,6 +340,22 @@ CHARTS = {"barh": chart_barh, "barv": chart_barv, "line": chart_line, "dots": ch
 
 # ---------------------------------------------------------------- line breaks
 
+try:
+    import budoux as _budoux
+    _JP = _budoux.load_default_japanese_parser()
+except ImportError:                      # pragma: no cover
+    _JP = None
+
+
+def _phrase_wbr(text: str) -> str:
+    """<wbr> between phrases. With word-break:keep-all these are the only
+    places a line may break; text-align:justify then keeps the right edge
+    flush, which is what the phrase-only version lacked the first time."""
+    if _JP is None or not re.search(r"[぀-ヿ一-鿿]", text):
+        return text
+    return "<wbr>".join(_JP.parse(text))
+
+
 _UNIT = (r"(?:× 3σ|3σ|σ|%|％|KB|MB|B|Hz|kHz|V|A|Ω|°C|h|bit|trip|バイト|ビット|件|時|床|素子|個|本|台|"
          r"日|年|時間|分|秒|倍|度|回|行|点|水準|通り|条件|チャネル|フィールド|段|節|run)")
 _NUM_UNIT = re.compile(r"(\d[\d,.]*)( ?)(" + _UNIT + r"(?:/(?:時|年|件|時間))?)")
@@ -359,8 +375,11 @@ def jp_wrap(fragment: str) -> str:
         if part.startswith("<") or not part.strip():
             out.append(part)
             continue
-        out.append(_NUM_UNIT.sub(
-            lambda m: f'<span class="nb">{m.group(1)}{m.group(2)}{m.group(3)}</span>', part))
+        part = _NUM_UNIT.sub(
+            lambda m: f'<span class="nb">{m.group(1)}{m.group(2)}{m.group(3)}</span>', part)
+        # segment around the glue spans so a number never splits from its unit
+        out.append("".join(x if x.startswith("<") else _phrase_wbr(x)
+                           for x in re.split(r"(<span class=\"nb\">.*?</span>)", part)))
     return "".join(out)
 
 
@@ -753,8 +772,10 @@ h2 .en{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.08
   color:var(--ink3); font-weight:400; float:right; padding-top:5px}
 h3{font-size:15.5px; font-weight:700; margin:28px 0 6px; color:var(--ink2)}
 p{margin:12px 0; max-width:82ch}
-p, li, figcaption, td, th, .small, .lede, .note, summary{
-  line-break:strict; overflow-wrap:break-word}
+p, li, figcaption, .small, .lede, .note{
+  line-break:strict; word-break:keep-all; overflow-wrap:anywhere;
+  text-align:justify; text-justify:inter-character}
+td, th, summary{line-break:strict; overflow-wrap:anywhere}
 .nb{white-space:nowrap}
 p.summary{font-size:17px; line-height:1.9; max-width:64ch; margin:6px 0 26px}
 table.front{width:auto; margin:4px 0 22px; font-size:13px}
