@@ -211,6 +211,7 @@ ISO 16750-2 は本文を有償で見ていない。
   | `data/reference_channel.tsv` | `scripts/reference_channel.py` | 第 2 の温度を基準に足したときの α・誤報・発火（6 素子） |
   | `data/shared_drift.tsv` | `scripts/shared_drift.py` | 同種チャネルが共有する傾向の割合（実測）と、共有率を振った検知・誤検知（仮想） |
   | `data/capability_threshold.tsv` | `scripts/capability_threshold.py` | 能力の閾値を逸脱の閾値に翻訳したときの、個体ごとの信号対雑音・誤検知・検出 |
+  | `data/derived_conditions.tsv` | `scripts/derived_conditions.py` | 前提から導いた 288 条件（残り 198）での出力低下と、どちらの拘束が効くか（S15 と共同） |
   | `data/byte_quality_curve.tsv` | `scripts/byte_quality_curve.py` | バスフレーム・事象記録・出荷時基準値のバイト数を振ったときの復元誤差と、不揮発の割り当てごとの許せる率 |
   | `data/nvm_budget_line.tsv` | `scripts/nvm_budget_line.py` | 誤検知の水準ごとに 397 日で要する不揮発と、割り当てから逆算した許せる率（公開統計 S12 と共同） |
   | `data/recorder_simulation.tsv` | `scripts/recorder_simulation.py` | 出荷時基準値倍率別の沈黙割合（4行） |
