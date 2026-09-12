@@ -267,6 +267,12 @@ def chart_line(c: dict) -> str:
         while any(abs(y - q) < 15 for q in placed):
             y += 15
         placed.append(y)
+    # spreading walks downward; if the cluster reaches the axis it lands on
+    # the tick labels, so lift the whole cluster back above the axis
+    if placed and max(placed) > y1 - 2:
+        lift = max(placed) - (y1 - 2)
+        placed = [q - lift for q in placed]
+    for ((px_, py_), col, lab), y in zip(ends, placed):
         g.append(f'<text class="lbl" x="{px_ + 9:.1f}" y="{y:.1f}" style="fill:{col}">'
                  f'{esc(lab)}</text>')
 
