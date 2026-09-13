@@ -221,6 +221,7 @@ ISO 16750-2 は本文を有償で見ていない。
   | `data/reference_channel.tsv` | `scripts/reference_channel.py` | 第 2 の温度を基準に足したときの α・誤報・発火（6 素子） |
   | `data/shared_drift.tsv` | `scripts/shared_drift.py` | 同種チャネルが共有する傾向の割合（実測）と、共有率を振った検知・誤検知（仮想） |
   | `data/capability_threshold.tsv` | `scripts/capability_threshold.py` | 能力の閾値を逸脱の閾値に翻訳したときの、個体ごとの信号対雑音・誤検知・検出 |
+  | `data/calibrated_population_v2.tsv` | `scripts/calibrated_population_v2.py` | 指数モデルの標本ごとの当てはめ（a を t10 で縛る）。6 素子とも b が下端に張り付き同定失敗 |
   | `data/calibrated_population.tsv` | `scripts/calibrated_population.py` | NASA の指数モデルの 6 素子への当てはめ（縮退）と、その母数から作った 1,000 個体の結果（参考値） |
   | `data/population.tsv` | `scripts/population.py` | 42 テスト中 40 の run 1 での測定ノイズ σ・信号対雑音 S・傾き・漂流の伸び方（健全期の統計） |
   | `data/derived_conditions.tsv` | `scripts/derived_conditions.py` | 前提から導いた 288 条件（残り 198）での出力低下と、どちらの拘束が効くか（S15 と共同） |
