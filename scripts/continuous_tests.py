@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import mosfet_precursor as mos
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "data" / "continuous_tests.tsv"
+OUT = ROOT / "data" / "continuous_tests_v2.tsv"
 TESTS = [7, 26, 29, 30, 31, 32, 33, 35, 36, 37, 38, 41]
 Y10, Y_FAIL = 0.10, 0.25
 SMOOTH = 50
@@ -45,10 +45,11 @@ def load(test):
     R, I, T = [], [], []
     for x in tr:
         i = np.asarray(x.timeDomain.drainCurrent, float); v = np.asarray(x.timeDomain.drainSourceVoltage, float)
-        if not np.isfinite(i).any():
-            R.append(np.nan); I.append(np.nan); T.append(np.nan); continue
-        on = i > 0.5 * np.nanpercentile(i, 95)
-        if on.sum() < 20 or np.nanmedian(i[on]) <= 0.5:
+        g = np.asarray(x.timeDomain.gateSourceVoltage, float)
+        # docs/370: the plateau is where the gate is fully high; the earlier
+        # current mask took in the pulse edges
+        on = g > 15.0
+        if on.sum() < 20 or not np.isfinite(i[on]).any():
             R.append(np.nan); I.append(np.nan); T.append(np.nan); continue
         R.append(float(np.nanmedian(v[on] / i[on]))); I.append(float(np.nanmedian(i[on])))
     R, I = np.array(R), np.array(I)
@@ -61,12 +62,17 @@ def load(test):
 
 
 def relative_rise(aging, R, I, T):
+    """dR/R0 against the first ten percent, no regression (docs/370), cut at
+    the device's death (on-state current under 20 percent of healthy)."""
     n = len(R); h = max(50, int(n * HEALTHY_FRAC))
-    X = np.column_stack([np.ones(h), I[:h], T[:h]])
-    coef, *_ = np.linalg.lstsq(X, R[:h], rcond=None)
-    line = coef[0] + coef[1] * I + coef[2] * T
-    rel = R / line - 1.0
-    return np.convolve(rel, np.ones(SMOOTH) / SMOOTH, mode="same"), float(np.median(R[:h]))
+    R0, I0 = float(np.median(R[:h])), float(np.median(I[:h]))
+    dead = np.flatnonzero(I < 0.2 * I0)
+    end = int(dead[0]) if len(dead) else n
+    rel = R[:end] / R0 - 1.0
+    m = np.convolve(rel, np.ones(SMOOTH) / SMOOTH, mode="valid")
+    pad = len(rel) - len(m)
+    m = np.concatenate([np.full(pad, m[0]), m])
+    return m, R0, end
 
 
 def fit_exp(t, m, t10):
@@ -100,17 +106,21 @@ def main() -> None:
         aging, R, I, T = load(test)
         if len(R) < 200:
             print(f"Test_{test:<3} 記録不足 {len(R)}"); rows.append((test, len(R), np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, "記録不足")); continue
-        m, R0 = relative_rise(aging, R, I, T)
+        m, R0, end = relative_rise(aging, R, I, T)
+        aging = aging[:end]
+        t_death = float(aging[-1])
         over = np.flatnonzero(m >= Y10)
         if not len(over):
-            print(f"Test_{test:<3}{len(R):>7}{aging.max():>6.1f}{R0:>8.3f}{'—':>8}{'':>9}{'':>6}{'':>14}{'達せず':>8}")
-            rows.append((test, len(R), aging.max(), R0, np.nan, np.nan, np.nan, np.nan, "達せず")); continue
+            print(f"Test_{test:<3}{len(R):>7}{t_death:>6.1f}{R0:>8.3f}{'—':>8}{'':>9}{'':>6}{'':>14}{'達せず':>8}"
+                  f"  最大 ΔR/R0 {m.max():.3f}")
+            rows.append((test, len(R), t_death, R0, np.nan, np.nan, np.nan, np.nan, f"達せず(max {m.max():.3f})")); continue
         t10 = float(aging[over[0]])
         sse_e, b, t0, a, pinned = fit_exp(aging, m, t10)
         sse_l, c, t0l = fit_line(aging, m, t10)
         verdict = "同定失敗" if pinned else "同定"
-        print(f"Test_{test:<3}{len(R):>7}{aging.max():>6.1f}{R0:>8.3f}{t10:>8.2f}{b:>9.3f}{t0:>6.2f}{sse_e / sse_l:>14.3f}{verdict:>8}")
-        rows.append((test, len(R), aging.max(), R0, t10, b, t0, sse_e / sse_l, verdict))
+        print(f"Test_{test:<3}{len(R):>7}{t_death:>6.1f}{R0:>8.3f}{t10:>8.2f}{b:>9.3f}{t0:>6.2f}{sse_e / sse_l:>14.3f}{verdict:>8}"
+              f"  死 {t_death:.2f} h, 最大 ΔR/R0 {m.max():.3f}")
+        rows.append((test, len(R), t_death, R0, t10, b, t0, sse_e / sse_l, verdict))
     reached = [r for r in rows if r[8] in ("同定", "同定失敗")]
     ident = [r for r in rows if r[8] == "同定"]
     print(f"\n0.10 に達した: {len(reached)}/{len(TESTS)}   同定: {len(ident)}/{len(reached) if reached else 0}")
