@@ -490,99 +490,60 @@ def _rows_for(fs, bits, nrows):
     return rows
 
 
-def render_bytes(b: dict) -> str:
-    """A memory map drawn to scale, plus the table that names every field.
-
-    2026-09-10, the user asked why the data structures were acceptable in this
-    format. They were not: every field got an equal-width box, so a 4-byte
-    float and a 1-byte flag looked the same.
-
-    2026-09-11, the labels were still unreadable -- names that did not fit fell
-    back to a byte offset, so one row read "slope / 4 / floor / op_lo", and two
-    neighbouring names ran together. The layout wraps onto as many rows as it
-    takes for every real name to fit, and refuses to draw if none does.
+def _packet_ascii(fs, bits, in_bits) -> str:
+    """The IETF packet-diagram convention: 32-bit rows, bit ruler on top,
+    fields as boxes. Generated from the field list, so it cannot disagree
+    with the table under it. 2026-09-13: "Byte の表現もこれは一般的なもの?"
+    -- the earlier coloured boxes were my own; this notation is RFC 2360's.
     """
+    W = 32
+    ruler = (" 0                   1                   2                   3\n"
+             " 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1\n")
+    sep = "+" + "-+" * W + "\n"
+    rows = [ruler, sep]
+    pos = 0
+    segs = []                                   # (name, bits) split at row ends
+    for f, nb in zip(fs, bits):
+        remaining, first = nb, True
+        while remaining > 0:
+            room = W - (pos % W)
+            take = min(room, remaining)
+            label = f["name"] if first else "(" + f["name"] + ")"
+            segs.append((label, take, pos))
+            pos += take; remaining -= take; first = False
+    line = "|"
+    for label, take, start in segs:
+        cell = take * 2 - 1
+        txt = label if len(label) <= cell else label[:max(0, cell - 1)] + "…"
+        line += txt.center(cell) + "|"
+        if (start + take) % W == 0:
+            rows.append(line + "\n" + sep)
+            line = "|"
+    if line != "|":
+        rows.append(line + "\n" + "+" + "-+" * ((pos % W) or W) + "\n")
+    return "".join(rows)
+
+
+def render_bytes(b: dict) -> str:
     fs = b["fields"]
     bits = [field_bits(f) for f in fs]
     tot = sum(bits)
     in_bits = any("bits" in f for f in fs)
-    unit = "ビット" if in_bits else "バイト"
-    per_unit = 1 if in_bits else 8
     if b["total"] * 8 != tot:
-        raise SystemExit(f"バイト割り当てが合わない: 宣言 {b['total']} バイト / "
-                         f"合計 {tot / 8:g} バイト")
-
-    x0, x1, hbox, gap = 10, 770, 44, 62
-    FS = 12.0
-    chosen = None
-    for nrows in range(1, 7):
-        rows = _rows_for(fs, bits, nrows)
-        widest = max(rb for _, rb in rows)
-        per = (x1 - x0) / widest
-        if all(_cjk_width(str(f["name"])) * (FS / 11.5) <= nb * per - 12
-               for r, _ in rows for f, nb in r):
-            chosen = (rows, per)
-            break
-    if chosen is None:
-        raise SystemExit(f"バイト図: 6 行に分けても名前が箱に入らない ({b['total']} B)")
-    rows, per = chosen
-
-    top, h = 30, len(rows) * gap + 42
-    g = [f'<svg viewBox="0 0 780 {top + h}" role="img" aria-label="{esc(b["alt"])}">']
-    g.append(f'<text x="{x0}" y="20" font-size="12" fill="var(--ink3)">0</text>')
-    g.append(f'<text x="{x1}" y="20" font-size="12" fill="var(--ink3)" '
-             f'text-anchor="end">{b["total"]} バイト</text>')
-    off = 0
-    for ri, (row, rb) in enumerate(rows):
-        y = top + ri * gap
-        rx = x0
-        for f, nb in row:
-            w = nb * per
-            key = f.get("key")
-            fill = "var(--accent)" if key else "var(--panel2)"
-            ink = "var(--bg)" if key else "var(--ink2)"
-            g.append(f'<rect x="{rx:.1f}" y="{y}" width="{w - 2:.1f}" height="{hbox}" '
-                     f'fill="{fill}" stroke="var(--line)" stroke-width="1">'
-                     f'<title>{esc(f["name"])} '
-                     f'{esc(f.get("t", str(f.get("bits")) + " bit"))} @ {off // per_unit}'
-                     f'</title></rect>')
-            g.append(f'<text x="{rx + (w - 2) / 2:.1f}" y="{y + hbox / 2 + 4.5:.1f}" '
-                     f'text-anchor="middle" font-size="{FS}" style="fill:{ink}" '
-                     f'data-maxw="{w - 12:.1f}">{esc(f["name"])}</text>')
-            rx += w
-            off += nb
-        # ruler for this row
-        ry = y + hbox + 6
-        g.append(f'<line class="ax" x1="{x0}" y1="{ry}" x2="{x0 + rb * per:.1f}" y2="{ry}"/>')
-        start_u = sum(nb for r2, _ in rows[:ri] for _, nb in r2) // per_unit
-        step = 4 if not in_bits else 4
-        u = 0
-        while u <= rb // per_unit:
-            tx = x0 + u * per_unit * per
-            g.append(f'<line class="ax" x1="{tx:.1f}" y1="{ry}" x2="{tx:.1f}" y2="{ry + 5}"/>')
-            g.append(f'<text x="{tx:.1f}" y="{ry + 19}" text-anchor="middle" font-size="12">'
-                     f'{start_u + u}</text>')
-            u += step
-    g.append(f'<text x="{(x0 + x1) / 2:.1f}" y="{top + h - 4}" text-anchor="middle" '
-             f'font-size="12" fill="var(--ink3)">{esc(unit)}の位置</text>')
-    g.append("</svg>")
-
-    fig = (f'<figure class="viz">' + "\n".join(g)
-           + f'<figcaption><b class="src">実測</b>{b["caption"]}</figcaption></figure>')
-
-    # the table is generated from the same fields, so the two cannot disagree
+        raise SystemExit(f"バイト割り当てが合わない: 宣言 {b['total']} バイト / 合計 {tot / 8:g} バイト")
+    fig = (f'<figure><pre class="packet">{esc(_packet_ascii(fs, bits, in_bits))}</pre>'
+           f'<figcaption><b class="src">実測</b>{b["caption"]}</figcaption></figure>')
     trows, off = [], 0
     for f in fs:
         nb = field_bits(f)
         pos = (f"{off // 8}" if not in_bits else f"{off // 8} バイト bit{off % 8}")
         size = (f'{nb // 8} B' if not in_bits else f"{nb} bit")
-        trows.append([{"v": f["name"], "tone": "ok" if f.get("key") else ""},
-                      f.get("t", "bit"), pos, size, f.get("why", "")])
+        role = "受け手が能力の計算に使う" if f.get("key") else ""
+        trows.append([f["name"], f.get("t", "bit"), pos, size, f.get("why", ""), role])
         off += nb
-    trows.append({"cells": ["合計", "", "", f'{b["total"]} B', b.get("sum_why", "")],
-                  "sum": True})
+    trows.append({"cells": ["合計", "", "", f'{b["total"]} B', b.get("sum_why", ""), ""], "sum": True})
     tbl = render_table({"cols": ["フィールド", "型", {"t": "位置", "n": True},
-                                 {"t": "大きさ", "n": True}, "何のためにあるか"],
+                                 {"t": "大きさ", "n": True}, "何のためにあるか", "役割"],
                         "rows": trows, "stripe": True,
                         "fold": b.get("fold", f'割り当て {len(fs)} フィールドの内訳')})
     return fig + tbl
@@ -591,69 +552,35 @@ def render_bytes(b: dict) -> str:
 # ---------------------------------------------------------------- sequence
 
 def render_sequence(b: dict) -> str:
-    """Who does what, in what order -- the dynamic structure.
+    """UML sequence diagram, in Mermaid. The host renders it.
 
-    2026-09-11: "経路はあるがシーケンスはない。動的構造を記述してはどうか"
-    The flow diagram says which boxes are connected. It does not say what
-    happens once, what happens every 100 ms, and what happens only on an
-    event, and that is the part a reader needs to size the thing.
-
-    The message text runs the full width above its arrow rather than being
-    squeezed between two lifelines, because a real step description does not
-    fit in one lane.
+    2026-09-11 the dynamic structure got a hand-drawn SVG; 2026-09-13 the user
+    asked for a general notation instead. Phases become UML fragments
+    (rect ... end with a label), the condition of each step a note.
     """
-    acts = b["actors"]
-    steps = b["steps"]
-    ids = {a["id"]: i for i, a in enumerate(acts)}
-    n = len(acts)
-    band, right = 132, 776
-    span = (right - (band + 8)) / n
-    ax = [band + 8 + span * (i + 0.5) for i in range(n)]
-    top, dy = 86, 52
-    h = top + len(steps) * dy + 16
-    tx0 = band + 12
-
-    g = [f'<svg viewBox="0 0 780 {h}" role="img" aria-label="{esc(b["alt"])}">',
-         '<defs><marker id="sq" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" '
-         'markerHeight="8" orient="auto-start-reverse">'
-         '<path d="M0,0 L10,5 L0,10 z" fill="var(--ink2)"/></marker></defs>']
-    for ph in b.get("phases", []):
-        y = top + ph["from"] * dy - 26
-        y2 = top + ph["to"] * dy + 22
-        g.append(f'<rect x="4" y="{y:.0f}" width="{band - 8}" height="{y2 - y:.0f}" rx="3" '
-                 f'fill="var(--panel)" stroke="var(--line)"/>')
-        g.append(f'<text x="{band / 2:.0f}" y="{(y + y2) / 2 + 4:.0f}" text-anchor="middle" '
-                 f'class="lbl" data-maxw="{band - 20}">{esc(ph["label"])}</text>')
-    for i, a in enumerate(acts):
-        g.append(f'<line x1="{ax[i]:.0f}" y1="62" x2="{ax[i]:.0f}" y2="{h - 8}" '
-                 f'stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 4"/>')
-        g.append(f'<rect x="{ax[i] - span / 2 + 5:.0f}" y="34" width="{span - 10:.0f}" '
-                 f'height="26" rx="3" fill="var(--panel2)" stroke="var(--line)"/>')
-        g.append(f'<text x="{ax[i]:.0f}" y="51" text-anchor="middle" class="lbl" '
-                 f'data-maxw="{span - 18:.0f}">{esc(a["name"])}</text>')
-    for k, s in enumerate(steps):
-        y = top + k * dy
-        g.append(f'<text x="{tx0}" y="{y - 13:.0f}" font-size="12.5" '
-                 f'style="fill:var(--ink)" data-maxw="{right - tx0 - 4}">'
-                 f'{k + 1}. {esc(s["text"])}</text>')
-        if s.get("when"):
-            g.append(f'<text x="{right}" y="{y + 20:.0f}" text-anchor="end" font-size="12" '
-                     f'style="fill:var(--accent)" data-maxw="{right - tx0 - 4}">'
-                     f'{esc(s["when"])}</text>')
+    lines = ["sequenceDiagram", "    autonumber"]
+    for a in b["actors"]:
+        lines.append(f'    participant {a["id"]} as {a["name"]}')
+    phases = {ph["from"]: ph for ph in b.get("phases", [])}
+    ends = {ph["to"]: ph for ph in b.get("phases", [])}
+    for k, s in enumerate(b["steps"]):
+        if k in phases:
+            lines.append(f'    rect rgb(0,0,0,0.06)')
+            lines.append(f'    Note over {b["actors"][0]["id"]},{b["actors"][-1]["id"]}: {phases[k]["label"]}')
         if s.get("self"):
-            x = ax[ids[s["self"]]]
-            g.append(f'<path class="ln" stroke="var(--ink2)" marker-end="url(#sq)" '
-                     f'd="M{x:.0f},{y - 6:.0f} l30,0 l0,12 l-30,0"/>')
+            lines.append(f'    {s["self"]}->>{s["self"]}: {s["text"]}')
         else:
-            i, j = ids[s["from"]], ids[s["to"]]
-            g.append(f'<line x1="{ax[i]:.0f}" y1="{y:.0f}" x2="{ax[j]:.0f}" y2="{y:.0f}" '
-                     f'stroke="var(--ink2)" stroke-width="1.8" marker-end="url(#sq)"/>')
-            g.append(f'<circle cx="{ax[i]:.0f}" cy="{y:.0f}" r="3.5" fill="var(--ink2)"/>')
-    g.append("</svg>")
+            lines.append(f'    {s["from"]}->>{s["to"]}: {s["text"]}')
+        if s.get("when"):
+            who = s.get("self") or s["from"]
+            lines.append(f'    Note right of {who}: {s["when"]}')
+        if k in ends:
+            lines.append("    end")
+    code = "\n".join(lines)
     src = {"measured": "実測", "simulated": "仮想", "assumed": "置いた値",
            "derived": "計算"}[b["source"]]
-    return (f'<figure class="viz">' + "\n".join(g)
-            + f'<figcaption><b class="src">{src}</b>{b["caption"]}</figcaption></figure>')
+    return (f'<figure><pre class="mermaid">{esc(code)}</pre>'
+            f'<figcaption><b class="src">{src}</b>{b["caption"]}</figcaption></figure>')
 
 
 # ---------------------------------------------------------------- blocks
@@ -727,6 +654,15 @@ def render_block(b: dict) -> str:
         return f'<div class="eq">{b["text"]}</div>'
     if t == "h3":
         return f"<h3>{esc(b['text'])}</h3>"
+    if t == "mermaid":
+        # 2026-09-13: "オリジナルで図を記載するよりも UML など汎用的なものを".
+        # Flow and sequence diagrams go out as Mermaid (UML sequence diagram,
+        # flowchart); the host renders them, so the notation is one a reader
+        # already knows and the drawing is not mine.
+        src = {"measured": "実測", "simulated": "仮想", "assumed": "置いた値",
+               "derived": "計算"}[b.get("source", "derived")]
+        return (f'<figure><pre class="mermaid">{esc(b["code"])}</pre>'
+                f'<figcaption><b class="src">{src}</b>{b["caption"]}</figcaption></figure>')
     if t == "ul":
         return "<ul class=\"pts\">" + "".join(f"<li>{x}</li>" for x in b["items"]) + "</ul>"
     if t == "key":
@@ -790,6 +726,10 @@ table.front th{text-align:left; padding-right:18px; white-space:nowrap; color:va
   border-bottom:1px solid var(--line); text-transform:none; letter-spacing:0; font-size:12.5px}
 table.front td{border-bottom:1px solid var(--line)}
 ol.refs{padding-left:26px} ol.refs li{margin:6px 0}
+pre.packet{font-family:"IBM Plex Mono",monospace; font-size:12.5px; line-height:1.35;
+  background:var(--panel); border:1px solid var(--line); padding:14px 16px; overflow-x:auto;
+  color:var(--ink); margin:0}
+pre.mermaid{background:transparent; margin:0}
 ol.refs a{color:var(--ink); text-decoration-color:var(--accent)}
 .refnote{color:var(--ink3); font-size:13px}
 a.cite{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent);

@@ -357,11 +357,10 @@
      "text": "出荷ラインで個体ごとの基準を作り、走行中はそこからの離れ方だけを送ります。"
     },
     {
-     "type": "svg",
-     "viewBox": "0 0 1140 330",
-     "body": "<defs><marker id=\"ar\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"currentColor\"/></marker></defs>\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\">\n    <rect x=\"6\" y=\"46\" width=\"196\" height=\"96\" rx=\"2\"/><rect x=\"240\" y=\"46\" width=\"196\" height=\"96\" rx=\"2\"/>\n    <rect x=\"474\" y=\"46\" width=\"196\" height=\"96\" rx=\"2\"/><rect x=\"708\" y=\"46\" width=\"196\" height=\"96\" rx=\"2\"/>\n    <rect x=\"942\" y=\"46\" width=\"192\" height=\"96\" rx=\"2\"/><rect x=\"240\" y=\"228\" width=\"196\" height=\"76\" rx=\"2\" stroke-dasharray=\"4 3\"/>\n  </g>\n  <g font-family=\"Zen Kaku Gothic New, sans-serif\" font-size=\"13.5\" font-weight=\"700\" fill=\"currentColor\" text-anchor=\"middle\">\n    <text x=\"104\" y=\"72\">出荷ライン</text><text x=\"338\" y=\"72\">走行中の ECU</text><text x=\"572\" y=\"72\">車内バス</text>\n    <text x=\"806\" y=\"72\">受け手</text><text x=\"1038\" y=\"72\">入庫</text><text x=\"338\" y=\"254\">不揮発メモリ</text>\n  </g>\n  <g font-family=\"IBM Plex Mono, monospace\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.72\" text-anchor=\"middle\">\n    <text x=\"104\" y=\"94\">動作点を掃引</text><text x=\"104\" y=\"110\">直線・ノイズ・採否</text><text x=\"104\" y=\"126\">物理チェック</text>\n    <text x=\"338\" y=\"94\">同種チャネル差分</text><text x=\"338\" y=\"110\">ノイズの何倍か</text><text x=\"338\" y=\"126\">短時間側 / 長時間側</text>\n    <text x=\"572\" y=\"94\">状態 1 B</text><text x=\"572\" y=\"110\">逸脱 1 B</text><text x=\"572\" y=\"126\">100 ms ごと</text>\n    <text x=\"806\" y=\"94\">逸脱 → R_on</text><text x=\"806\" y=\"110\">R_on → 能力</text><text x=\"806\" y=\"126\">係数は出荷時基準値</text>\n    <text x=\"1038\" y=\"94\">出荷時基準値 448 B</text><text x=\"1038\" y=\"110\">記録の全量</text><text x=\"1038\" y=\"126\">部品名は出さない</text>\n    <text x=\"338\" y=\"276\">30 B / 事象</text><text x=\"338\" y=\"292\">4 B / キーオフ</text>\n  </g>\n  <g stroke=\"currentColor\" stroke-width=\"1.3\" fill=\"none\" marker-end=\"url(#ar)\">\n    <line x1=\"204\" y1=\"94\" x2=\"236\" y2=\"94\"/><line x1=\"438\" y1=\"94\" x2=\"470\" y2=\"94\"/>\n    <line x1=\"672\" y1=\"94\" x2=\"704\" y2=\"94\"/><line x1=\"338\" y1=\"144\" x2=\"338\" y2=\"224\"/>\n    <polyline points=\"438,266 1038,266 1038,146\"/>\n  </g>\n  <g font-family=\"IBM Plex Mono, monospace\" font-size=\"12\" fill=\"currentColor\" text-anchor=\"middle\">\n    <text x=\"220\" y=\"84\">448 B</text><text x=\"454\" y=\"84\">2 B</text><text x=\"688\" y=\"84\">2 B</text><text x=\"720\" y=\"258\">読み出しは入庫時のみ</text>\n  </g>\n  <g stroke=\"#a35f00\" stroke-width=\"2.4\" fill=\"none\"><line x1=\"672\" y1=\"94\" x2=\"701\" y2=\"94\"/></g>",
-     "alt": "出荷ラインで出荷時基準値を作り、走行中に逸脱を測り、2バイトのフレームで送り、受け手が能力に換算し、入庫時に不揮発メモリを読み出す流れ",
-     "caption": "橙色の線が、車両側へ数字が出ていく唯一の経路です。"
+     "type": "mermaid",
+     "source": "derived",
+     "code": "flowchart LR\n    EOL[出荷ライン<br/>動作点を掃引<br/>直線・ノイズ・採否]\n    ECU[走行中の ECU<br/>同種チャネル差分<br/>ノイズの何倍か]\n    BUS[車内バス<br/>状態 1 B + 逸脱 1 B<br/>100 ms ごと]\n    RX[受け手<br/>逸脱 → R_on → 能力<br/>係数は出荷時基準値]\n    NVM[(不揮発メモリ<br/>30 B / 事象)]\n    SHOP[入庫<br/>448 B + 記録の全量<br/>部品名は出さない]\n    EOL -- 448 B --> ECU\n    ECU -- 2 B --> BUS\n    BUS -- 2 B --> RX\n    ECU -- 逸脱したときだけ --> NVM\n    NVM -- 読み出しは入庫時のみ --> SHOP",
+     "caption": "車両側へ数字が出ていく経路は、車内バスへの 2 バイトだけです。"
     },
     {
      "type": "h3",
@@ -591,7 +590,7 @@
     },
     {
      "type": "small",
-     "text": "3 つとも、実際に詰めて大きさを測りました。箱の幅はバイト数に比例します。下の目盛りが何バイト目かを示します。橙色の箱は、受け手が能力を計算するときに使います。<strong>この大きさは制約ではありません。</strong>検証 8 で振っています。半分にしても精度は変わりません。"
+     "text": "3 つとも、実際に詰めて大きさを測りました。図は IETF の RFC で使われるパケット図の記法で、1 行が 32 ビット、上の目盛りがビット位置です。受け手が能力の計算に使うフィールドは、表の「役割」列に書きました。<strong>この大きさは制約ではありません。</strong>検証 8 で振っています。半分にしても精度は変わりません。"
     },
     {
      "type": "h3",
@@ -682,7 +681,7 @@
      "sum_why": "8 チャネルで 448 バイト",
      "fold": "出荷時基準値 14 フィールドの内訳",
      "alt": "56 バイトを 14 個の 4 バイト浮動小数点が等分する図。先頭の 3 つが橙色",
-     "caption": "14 個とも 4 バイトの浮動小数点なので、幅が揃います。先頭 3 つだけで能力を計算できます。"
+     "caption": "14 個とも 4 バイトの浮動小数点なので、幅が揃います。先頭 3 つだけで能力を計算できます（表の「役割」列）。"
     },
     {
      "type": "h3",
