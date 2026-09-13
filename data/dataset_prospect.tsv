@@ -24,3 +24,8 @@ assessed	dataset	size	question	operating_point	has_control	decision	reason
 2026-08-31	Low voltage DC series arc fault (IEEE DataPort) 未評価	不明	同上	不明	不明	decline	**未評価。**上記3件と同じ構造(事象でトリガ)である可能性が高い。必要になれば評価する
 2026-08-31	ETH Zurich 高圧遮断器 run-to-failure 機械試験 (DOI 10.3929/ethz-b-000676480) 未取得	約1.9GB	R12/R13。接点を持つ電気部品のrun-to-failure	不明(機械試験)	不明	decline	**機械試験であり信号は電流と振動のみ。接触抵抗が無い。**故障モードは操作機構の摩耗であって接点の断続ではない。CC BY-NC-SA
 2026-09-01	産業用電動機 多故障データ (Data in Brief, PMC12361783, CC BY 4.0) 未取得	60GB	**モデル構築**。内部量(三相電流100kHz)と機能出力(トルク25.6kHz)が同時に記録されている唯一の候補	**意図的に振る**(4%/16%のランダム変動。トルクを25.6kHzで実測)	あり(機体ごとNormal)	acquire候補	【2026-09-02 保留を見直し docs/291】保留理由はR12/R13未達だったが、**モデル構築にR12/R13は不要。**R14(機能出力が同時)を満たす唯一のデータ。ただしR5は満たさず1機体限りの結論になる
+2026-09-14	IEEE DataPort gEOL power cycling (Aalborg, DOI 10.21227/ksrt-zq09)	21.5MB	劣化側の N を 6 から増やせるか	パワーサイクル(温度補償済み Vce のみ)	なし(8 個体・4 条件、健全対照なし)	do not acquire	購読制で公開データではない。8 個体・信号 1 本・動作点なし。増える N が小さい
+2026-09-14	IEEE DataPort 'IGBT' (GaN/SiC/IGBT 各 1 + buck converter sim)	不明	同上	信頼性試験(詳細不明)	なし	do not acquire	個体が種別ごとに 1 つ。N が増えない
+2026-09-14	NASA Dashlink 'Towards Accelerated Aging… Power MOSFETs' (DASHLINK_768)	PDF	同上	該当なし	なし	do not acquire	データではなく論文 PDF。中身は既取得の MOSFET 13 と同じ試験
+2026-09-14	Mendeley Data IGBT RUL (NASA IGBT の派生)	不明	同上	該当なし	なし	do not acquire	既取得の NASA IGBT の加工物。新しい個体はない
+2026-09-14	Zenodo / Mendeley / GitHub / 国内の公開検索 (パワーサイクル run-to-failure)	—	同上	—	—	none found	複数個体の run-to-failure でオープンライセンスのものは見つからず。国内は受託試験サービスのみ
