@@ -140,6 +140,16 @@
 **限界。**EPS モータの相電流の公開一次資料は見つからず、設計電流は素子の直流定格（60 A）を上限として置いた。
 ISO 16750-2 は本文を有償で見ていない。
 
+## S16. NASA の劣化モデルと故障判定の出典（docs/365、2026-09-14）
+
+| 資料 | 取った内容 |
+|---|---|
+| Celaya, Saxena, Kulkarni, Saha, Goebel: *Prognostics Approach for Power MOSFET under Thermal-Stress Aging*, RAMS 2012. https://c3.ndc.nasa.gov/dashlink/static/media/publication/RAMS-12_MOSFET_Final.pdf | ΔR_DS(on) は時間に対して指数関数的に増え、その始まりは素子ごとに違う。経験的劣化モデルを一次の状態空間で置き、EKF で追跡。故障閾値 ΔR = 0.045。素子は IRF520Npbf（TO-220）、6 素子。機構はダイアタッチ劣化 |
+| Celaya, Saxena, Saha, Vashchenko, Goebel: *Prognostics of Power MOSFET*, NASA NTRS 20110014337. https://ntrs.nasa.gov/api/citations/20110014337/downloads/20110014337.pdf | 100 V MOSFET、故障閾値 ΔR_DS(on) = 0.05 Ω、GPR による RUL 予測 |
+| IRF520N datasheet（International Rectifier / Infineon） | R_DS(on) max 0.20 Ω（VGS = 10 V）、ID 9.7 A、100 V。ΔR 0.05 Ω は +25% にあたる |
+
+**限界。**RAMS 2012 の式は PDF から記号が抽出できず、形（指数、始点あり）は本文の記述から取った。
+
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 
 - 取得元: <https://huggingface.co/datasets/commaai/commaSteeringControl>
