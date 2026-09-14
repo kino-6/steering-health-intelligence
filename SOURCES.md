@@ -150,6 +150,15 @@ ISO 16750-2 は本文を有償で見ていない。
 
 **限界。**RAMS 2012 の式は PDF から記号が抽出できず、形（指数、始点あり）は本文の記述から取った。
 
+## S17. 劣化経路モデルの出典と、類似データの公開アプローチ（docs/372、2026-09-14）
+
+| 資料 | 取った内容 |
+|---|---|
+| Lu CJ, Meeker WO. *Using Degradation Measures to Estimate a Time-to-Failure Distribution.* Technometrics 35(2):161–174, 1993. https://www.tandfonline.com/doi/abs/10.1080/00401706.1993.10485038 | 個体ごとの劣化経路に変量効果（random effects）を置き、閾値到達時刻の分布を出す一般経路モデル |
+| *What Quality Engineers Need to Know about Degradation Models.* arXiv 2507.14666（2025）。https://arxiv.org/abs/2507.14666 | 一般経路モデル、Wiener 過程、ガンマ過程の整理（公開の総説） |
+| *Adaptive Wiener process–based remaining useful life prediction method considering multi-source variability.* PMC 11367272（2024） | ドリフト付き Wiener 過程で個体差を変量ドリフトとして扱い、到達時刻が逆ガウス分布になる |
+| Kaggle: NASA IGBT Accelerated Aging Data Set（vignesh9147）/ NASA Battery / C-MAPSS の RUL ノートブック群 | 類似の劣化データで使われる手法: 類似軌跡照合、Wiener 過程、線形・非線形の経路モデル、LSTM/TCN。MOSFET データそのものは無い |
+
 ## S4. comma.ai commaSteeringControl（公開走行ログ）
 
 - 取得元: <https://huggingface.co/datasets/commaai/commaSteeringControl>
