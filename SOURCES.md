@@ -230,6 +230,8 @@ ISO 16750-2 は本文を有償で見ていない。
   | `data/reference_channel.tsv` | `scripts/reference_channel.py` | 第 2 の温度を基準に足したときの α・誤報・発火（6 素子） |
   | `data/shared_drift.tsv` | `scripts/shared_drift.py` | 同種チャネルが共有する傾向の割合（実測）と、共有率を振った検知・誤検知（仮想） |
   | `data/capability_threshold.tsv` | `scripts/capability_threshold.py` | 能力の閾値を逸脱の閾値に翻訳したときの、個体ごとの信号対雑音・誤検知・検出 |
+  | `data/sibling_wiener.tsv` | `scripts/sibling_wiener.py` | 較正した Wiener 個体群に同種チャネルの差分を与えたときの検知・猶予・誤検知（σ_B = 0.555 のまま。docs/375） |
+  | `data/sigma_b.tsv` | `scripts/sigma_b.py` | 健全期の拡散 σ_B をラグ増分で測り直した値と、直接測定との照合（docs/376） |
   | `data/wiener_path.tsv` | `scripts/wiener_path.py` | 変量ドリフト付き Wiener 過程の当てはめ（組 A: 6 素子、組 B: 連続試験 5 本）と、組 A の母数で作った 1,000 個体の検知・誤検知 |
   | `data/continuous_tests_v2.tsv` | `scripts/continuous_tests.py` | 連続試験 12 本への当てはめ（docs/370 の定義。7 本はゲート駆動なし、5 本で ΔR/R0 0.8〜10%、指数は直線と区別できず） |
   | `data/continuous_tests.tsv` | `scripts/continuous_tests.py` | 連続試験 12 本への当てはめ（docs/369 の定義。t10 = 0 となり判定不能） |
