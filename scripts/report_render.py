@@ -253,7 +253,9 @@ def chart_line(c: dict) -> str:
         pts = [(fx(x), fy(v)) for x, v in zip(xv, s["values"]) if v is not None]
         d = " ".join(("M" if i == 0 else "L") + f"{a:.1f},{b:.1f}" for i, (a, b) in enumerate(pts))
         g.append(f'<path class="ln" stroke="{col}" d="{d}"/>')
-        for (a, b), x, v in zip(pts, xv, s["values"]):
+        # a None value has no point: pair markers with the values that exist
+        kept = [(x, v) for x, v in zip(xv, s["values"]) if v is not None]
+        for (a, b), (x, v) in zip(pts, kept):
             lab = fmt(x, xs.get("unit", "")) if numeric else esc(xs["labels"][xv.index(x)])
             g.append(f'<circle class="pt" cx="{a:.1f}" cy="{b:.1f}" r="4" fill="{col}">'
                      f'<title>{esc(s["name"])} {lab} {fmt(v, unit)}</title></circle>')
